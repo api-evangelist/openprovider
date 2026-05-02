@@ -1,41 +1,59 @@
 # Openprovider (openprovider)
-Openprovider is a wholesaler of Internet services and products with a unique platform from which you can find and manage all the products you need: Domains, new gTLDs, SSL certificates, licenses for Plesk and Virtuozzo, spam filters, and more! 
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/openprovider/refs/heads/main/apis.yml)
+Openprovider is a wholesaler of Internet services and products with a unique platform from which you can find and manage all the products you need: domains, new gTLDs, SSL certificates, licenses for Plesk and Virtuozzo, spam filters, and more.
+
+**APIs.json:** [apis.yml](https://raw.githubusercontent.com/api-evangelist/openprovider/refs/heads/main/apis.yml)
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consumer
+- **Access:** 3rd-Party
+- **Specification Version:** 0.19
 
-## Tags:
+## Tags
 
- - API
+- Domains
+- DNS
+- Hosting
+- Reseller
+- SSL Certificates
+- TLDs
 
 ## Timestamps
 
-- **Created:** 2025-02-09 
-- **Modified:** 2026-03-16 
+- **Created:** 2025-02-09
+- **Modified:** 2026-04-28
 
 ## APIs
 
-### Openprovider
-Openprovider is a wholesaler of Internet services and products with a unique platform from which you can find and manage all the products you need: Domains, new gTLDs, SSL certificates, licenses for Plesk and Virtuozzo, spam filters, and more! 
+### Openprovider API
 
-**Human URL:** [ https://docs.openprovider.com/doc/all]( https://docs.openprovider.com/doc/all)
+The Openprovider Reseller API provides programmatic access to domain registration and management, DNS, SSL certificate provisioning, hosting products, and customer/billing operations across the Openprovider wholesale platform.
 
-
-#### Tags:
-
- - API
+- **Human URL:** https://docs.openprovider.com/doc/all
+- **Base URL:** https://api.openprovider.eu/v1beta
 
 #### Properties
 
-- [Documentation]( https://docs.openprovider.com/doc/all)
+- [Documentation](https://docs.openprovider.com/doc/all)
+- [Portal](https://www.openprovider.com/)
+- [Support](https://support.openprovider.eu/)
+
+#### Tags
+
+- Domains
+- DNS
+- SSL Certificates
+
+## Common
+
+- [Website](https://www.openprovider.com/)
+- [Documentation](https://docs.openprovider.com/)
+- [Support](https://support.openprovider.eu/)
+- [Login](https://cp.openprovider.eu/login.php)
 
 ## Maintainers
 
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **FN:** Kin Lane
+- **Email:** kin@apievangelist.com
