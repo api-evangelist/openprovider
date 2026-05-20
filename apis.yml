@@ -43,6 +43,10 @@ apis:
       - DNS
       - SSL Certificates
 common:
+  - type: GitHubOrganization
+    url: https://github.com/openprovider
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/openprovider
   - type: Website
     url: https://www.openprovider.com/
   - type: Documentation
