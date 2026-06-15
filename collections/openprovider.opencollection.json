@@ -1,0 +1,3771 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Login with username and password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/auth/login"
+          },
+          "docs": "Login with username and password"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ContactService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/contacts",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Output ordering pattern. ASC / DESC."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order output by field (i.e. first_name)."
+              },
+              {
+                "name": "email_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial email address. Wildcard (*) can be used."
+              },
+              {
+                "name": "last_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial last name. Wildcard (*) can be used."
+              },
+              {
+                "name": "company_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial company name. Wildcard (*) can be used."
+              },
+              {
+                "name": "username_pattern",
+                "value": "",
+                "type": "query",
+                "description": "The username pattern."
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query",
+                "description": "Contact's role."
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves objects with (1) or without (0) additional data."
+              }
+            ]
+          },
+          "docs": "List contacts"
+        },
+        {
+          "info": {
+            "name": "Create contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/contacts"
+          },
+          "docs": "Create contact"
+        },
+        {
+          "info": {
+            "name": "Get contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/contacts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves objects with (1) or without (0) additional data."
+              }
+            ]
+          },
+          "docs": "Get contact"
+        },
+        {
+          "info": {
+            "name": "Update contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/contacts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Update contact"
+        },
+        {
+          "info": {
+            "name": "Delete contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/contacts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Delete contact"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Customer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/customers",
+            "params": [
+              {
+                "name": "reseller_id",
+                "value": "",
+                "type": "query",
+                "description": "Your reseller id is used by default. Other values not accepted."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Output ordering pattern. ASC / DESC."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order output by field (i.e. first_name)."
+              },
+              {
+                "name": "email_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial email address. Wildcard (*) can be used."
+              },
+              {
+                "name": "company_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial company name. Wildcard (*) can be used."
+              },
+              {
+                "name": "last_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial last name. Wildcard (*) can be used."
+              },
+              {
+                "name": "first_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial first name. Wildcard (*) can be used."
+              },
+              {
+                "name": "comment_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial comment value. Wildcard (*) can be used."
+              },
+              {
+                "name": "handle_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial handle name. Wildcard (*) can be used."
+              },
+              {
+                "name": "pattern",
+                "value": "",
+                "type": "query",
+                "description": "ull or partial first name or last name or company name or handle. Wildcard (*) can be used."
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves objects with (1) or without (0) additional data."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Customer type: 'company' or 'individual'. If customer has not empty 'companyName' than type is 'company', otherwise 'individual'."
+              },
+              {
+                "name": "columns",
+                "value": "",
+                "type": "query",
+                "description": "Сolumns to retrieve. Possible values: 'firstName', 'prefix', 'initials', 'lastName', 'companyName', 'email', 'handle', 'id', 'fullName'."
+              }
+            ]
+          },
+          "docs": "List customers"
+        },
+        {
+          "info": {
+            "name": "Create customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/customers"
+          },
+          "docs": "Create customer"
+        },
+        {
+          "info": {
+            "name": "Get customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/customers/:handle",
+            "params": [
+              {
+                "name": "handle",
+                "value": "",
+                "type": "path",
+                "description": "Customer unique identifier or handle, which can be created via CreateCustomer API method"
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves objects with (1) or without (0) additional data."
+              }
+            ]
+          },
+          "docs": "Get customer"
+        },
+        {
+          "info": {
+            "name": "Update customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/customers/:handle",
+            "params": [
+              {
+                "name": "handle",
+                "value": "",
+                "type": "path",
+                "description": "Customer unique identifier or handle, which can be created via CreateCustomer API method"
+              }
+            ]
+          },
+          "docs": "Update customer"
+        },
+        {
+          "info": {
+            "name": "Delete customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/customers/:handle",
+            "params": [
+              {
+                "name": "handle",
+                "value": "",
+                "type": "path",
+                "description": "Customer unique identifier or handle, which can be created via CreateCustomer API method"
+              }
+            ]
+          },
+          "docs": "Delete customer"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "EmailVerification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List domain email verifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/customers/verifications/emails/domains",
+            "params": [
+              {
+                "name": "domain_id",
+                "value": "",
+                "type": "query",
+                "description": "The domain id."
+              },
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query",
+                "description": "The domain."
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "The email."
+              },
+              {
+                "name": "handle",
+                "value": "",
+                "type": "query",
+                "description": "The handle."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status."
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "The description."
+              },
+              {
+                "name": "is_suspended",
+                "value": "",
+                "type": "query",
+                "description": "Is suspended."
+              },
+              {
+                "name": "response.type",
+                "value": "",
+                "type": "query",
+                "description": "The type."
+              },
+              {
+                "name": "response.to",
+                "value": "",
+                "type": "query",
+                "description": "The to."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset."
+              }
+            ]
+          },
+          "docs": "List domain email verifications"
+        },
+        {
+          "info": {
+            "name": "Restart email verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/customers/verifications/emails/restart"
+          },
+          "docs": "Restart email verification"
+        },
+        {
+          "info": {
+            "name": "Start email verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/customers/verifications/emails/start"
+          },
+          "docs": "Start email verification"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DomainToken",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/dns/domain-token"
+          },
+          "docs": "Create token"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NameserverService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List nameservers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver name."
+              },
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver IP."
+              },
+              {
+                "name": "ip6",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver IPv6."
+              },
+              {
+                "name": "pattern",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver name search pattern. Wildcatd (*) can be used."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of objects in the output."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Used to retrieve all objects from a certain offset up to the limit."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Field for sorting output. Possible values: id, name."
+              }
+            ]
+          },
+          "docs": "List nameservers"
+        },
+        {
+          "info": {
+            "name": "Create nameserver",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers"
+          },
+          "docs": "Create nameserver"
+        },
+        {
+          "info": {
+            "name": "Get nameserver",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Nameserver name"
+              }
+            ]
+          },
+          "docs": "Get nameserver"
+        },
+        {
+          "info": {
+            "name": "Update nameserver",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Nameserver name"
+              }
+            ]
+          },
+          "docs": "Update nameserver"
+        },
+        {
+          "info": {
+            "name": "Delete nameserver",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Nameserver name"
+              }
+            ]
+          },
+          "docs": "Delete nameserver"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NsGroupService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/groups",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of objects in the output."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Used to retrieve all objects from a certain offset up to the limit. (default value: 0)."
+              },
+              {
+                "name": "order_by.ns_group",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.domain_count",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.ns_count",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "with_domain_count",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if number of domains associated with the NS group should be returned."
+              },
+              {
+                "name": "with_ns_count",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if number of nameservers associated with the NS group should be returned."
+              },
+              {
+                "name": "ns_group_pattern",
+                "value": "",
+                "type": "query",
+                "description": "NS group name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "ns_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "ns_ip_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver IP address pattern. Wildcard (*) can be used."
+              }
+            ]
+          },
+          "docs": "List groups"
+        },
+        {
+          "info": {
+            "name": "Create group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/groups"
+          },
+          "docs": "Create group"
+        },
+        {
+          "info": {
+            "name": "Get group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/groups/:ns_group",
+            "params": [
+              {
+                "name": "ns_group",
+                "value": "",
+                "type": "path",
+                "description": "Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver group ID."
+              }
+            ]
+          },
+          "docs": "Get group"
+        },
+        {
+          "info": {
+            "name": "Update group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/groups/:ns_group",
+            "params": [
+              {
+                "name": "ns_group",
+                "value": "",
+                "type": "path",
+                "description": "Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+              }
+            ]
+          },
+          "docs": "Update group"
+        },
+        {
+          "info": {
+            "name": "Delete group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/groups/:ns_group",
+            "params": [
+              {
+                "name": "ns_group",
+                "value": "",
+                "type": "path",
+                "description": "Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+              }
+            ]
+          },
+          "docs": "Delete group"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "TemplateService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/templates",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of objects in the output."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Used to retrieve all objects from a certain offset up to the limit."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Field for sorting output. Possible value: name."
+              },
+              {
+                "name": "with_records",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if DNS records should be retrieved."
+              },
+              {
+                "name": "name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Template name pattern. Wildcard (*)can be used."
+              }
+            ]
+          },
+          "docs": "List templates"
+        },
+        {
+          "info": {
+            "name": "Create template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/dns/templates"
+          },
+          "docs": "Create template"
+        },
+        {
+          "info": {
+            "name": "Get template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/templates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Template ID"
+              }
+            ]
+          },
+          "docs": "Get template"
+        },
+        {
+          "info": {
+            "name": "Delete template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/dns/templates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Template ID"
+              }
+            ]
+          },
+          "docs": "Delete template"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ZoneService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/zones",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of objects in the output. (default value: 100, maximum value: 500)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Used to retrieve all objects from a certain offset up to the. (default value: 0)."
+              },
+              {
+                "name": "order_by.creation_date",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.modification_date",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.name",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "DNS zone type (master or slave)."
+              },
+              {
+                "name": "name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "DNS zone name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "with_records",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNS records should be displayed in output."
+              },
+              {
+                "name": "with_history",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNS zone history should be displayed in output."
+              },
+              {
+                "name": "with_dnskey",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNSSEC keys should be displayed in output."
+              },
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query",
+                "description": "Name of the DNS provider. Set provider=sectigo in case of only sectigo premium DNS zone should be retrieved."
+              }
+            ]
+          },
+          "docs": "List zones"
+        },
+        {
+          "info": {
+            "name": "Create zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/dns/zones"
+          },
+          "docs": "Create zone"
+        },
+        {
+          "info": {
+            "name": "Get zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/zones/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the domain to which DNS zone corresponds"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "DNS zone ID."
+              },
+              {
+                "name": "with_records",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNS records should be displayed in output."
+              },
+              {
+                "name": "with_history",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNS zone history should be displayed in output."
+              },
+              {
+                "name": "with_dnskey",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNSSEC keys should be displayed in output."
+              },
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query",
+                "description": "Name of the DNS provider. Set provider=sectigo in case of only sectigo premium DNS zone should be retrieved."
+              }
+            ]
+          },
+          "docs": "Get zone"
+        },
+        {
+          "info": {
+            "name": "Update zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/dns/zones/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the domain to which DNS zone corresponds"
+              }
+            ]
+          },
+          "docs": "Update zone"
+        },
+        {
+          "info": {
+            "name": "Delete zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/dns/zones/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the domain to which DNS zone corresponds"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "DNS zone ID."
+              },
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query",
+                "description": "Name of the DNS provider. Set provider=sectigo in case of sectigo premium DNS zone should be deleted."
+              }
+            ]
+          },
+          "docs": "Delete zone"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ZoneRecordService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List zone records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/zones/:name/records",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "DNS record name"
+              },
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "query",
+                "description": "DNS zone ID."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "How many records to retrieve (default: 100, max 500)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "From which record to retrieve (default: 0)."
+              },
+              {
+                "name": "order_by.type",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.name",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.value",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.ttl",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.prio",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "record_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "DNS record name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "value_pattern",
+                "value": "",
+                "type": "query",
+                "description": "DNS record value pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "DNS record type."
+              },
+              {
+                "name": "prio",
+                "value": "",
+                "type": "query",
+                "description": "DNS record priority."
+              },
+              {
+                "name": "ttl",
+                "value": "",
+                "type": "query",
+                "description": "DNS record TTL."
+              },
+              {
+                "name": "zone_provider",
+                "value": "",
+                "type": "query",
+                "description": "Name of the DNS provider. Set zone_provider=sectigo in case of only sectigo premium DNS zone records should be retrieved."
+              }
+            ]
+          },
+          "docs": "List zone records"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DomainService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains",
+            "params": [
+              {
+                "name": "order_by.id",
+                "value": "",
+                "type": "query",
+                "description": "Domain id number."
+              },
+              {
+                "name": "order_by.domain_name",
+                "value": "",
+                "type": "query",
+                "description": "The domain name."
+              },
+              {
+                "name": "order_by.domain_extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "order_by.order_date",
+                "value": "",
+                "type": "query",
+                "description": "The order date."
+              },
+              {
+                "name": "order_by.active_date",
+                "value": "",
+                "type": "query",
+                "description": "The active date."
+              },
+              {
+                "name": "order_by.expiration_date",
+                "value": "",
+                "type": "query",
+                "description": "Domain expiration date."
+              },
+              {
+                "name": "order_by.renewal_date",
+                "value": "",
+                "type": "query",
+                "description": "Date on which domain will be renewed."
+              },
+              {
+                "name": "order_by.status",
+                "value": "",
+                "type": "query",
+                "description": "Domain status."
+              },
+              {
+                "name": "order_by.transfer_date",
+                "value": "",
+                "type": "query",
+                "description": "The transfer date."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Domain id number."
+              },
+              {
+                "name": "extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "renewal_date",
+                "value": "",
+                "type": "query",
+                "description": "Date on which domain will be renewed."
+              },
+              {
+                "name": "full_name",
+                "value": "",
+                "type": "query",
+                "description": "Full name of the domain."
+              },
+              {
+                "name": "domain_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "The domain name pattern."
+              },
+              {
+                "name": "ns_group_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver group name pattern."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Domain status."
+              },
+              {
+                "name": "status_not_equal",
+                "value": "",
+                "type": "query",
+                "description": "Array of domain statuses to exclude."
+              },
+              {
+                "name": "queue_status",
+                "value": "",
+                "type": "query",
+                "description": "The queue status."
+              },
+              {
+                "name": "contact_handle",
+                "value": "",
+                "type": "query",
+                "description": "Handle to filter by."
+              },
+              {
+                "name": "comment_pattern",
+                "value": "",
+                "type": "query",
+                "description": "The comment pattern."
+              },
+              {
+                "name": "with_history",
+                "value": "",
+                "type": "query",
+                "description": "With history."
+              },
+              {
+                "name": "with_api_history",
+                "value": "",
+                "type": "query",
+                "description": "With api history."
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "With additional data."
+              },
+              {
+                "name": "application_mode",
+                "value": "",
+                "type": "query",
+                "description": "When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions."
+              },
+              {
+                "name": "with_verification_email",
+                "value": "",
+                "type": "query",
+                "description": "Returns information about domain owner email verification status."
+              },
+              {
+                "name": "with_registry_statuses",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, if registry EPP statuses should be retrieved."
+              },
+              {
+                "name": "response.type",
+                "value": "",
+                "type": "query",
+                "description": "The type."
+              },
+              {
+                "name": "response.to",
+                "value": "",
+                "type": "query",
+                "description": "The to."
+              },
+              {
+                "name": "is_deleted",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether object is deleted."
+              }
+            ]
+          },
+          "docs": "List domains"
+        },
+        {
+          "info": {
+            "name": "Create domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains"
+          },
+          "docs": "Create domain"
+        },
+        {
+          "info": {
+            "name": "Check domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/check"
+          },
+          "docs": "Check domain"
+        },
+        {
+          "info": {
+            "name": "Suggest name domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/suggest-name"
+          },
+          "docs": "Suggest name domain"
+        },
+        {
+          "info": {
+            "name": "Trade domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/trade"
+          },
+          "docs": "Trade domain"
+        },
+        {
+          "info": {
+            "name": "Transfer domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/transfer"
+          },
+          "docs": "Transfer domain"
+        },
+        {
+          "info": {
+            "name": "Get domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              },
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "with_history",
+                "value": "",
+                "type": "query",
+                "description": "Returns domain mutations history."
+              },
+              {
+                "name": "with_api_history",
+                "value": "",
+                "type": "query",
+                "description": "Returns domain API calls history."
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Returns domain additional data."
+              },
+              {
+                "name": "with_verification_email",
+                "value": "",
+                "type": "query",
+                "description": "Returns information about domain owner email verification status."
+              },
+              {
+                "name": "with_abuse_details",
+                "value": "",
+                "type": "query",
+                "description": "Returns domain abuse details."
+              },
+              {
+                "name": "with_whois_privacy_data",
+                "value": "",
+                "type": "query",
+                "description": "Returns WPP data."
+              },
+              {
+                "name": "with_registry_statuses",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, if registry EPP statuses should be retrieved."
+              },
+              {
+                "name": "is_deleted",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether object is deleted."
+              }
+            ]
+          },
+          "docs": "Get domain"
+        },
+        {
+          "info": {
+            "name": "Update domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/domains/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Update domain"
+        },
+        {
+          "info": {
+            "name": "Delete domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/domains/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              },
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type of deletion request."
+              },
+              {
+                "name": "skip_soft_quarantine",
+                "value": "",
+                "type": "query",
+                "description": "Deletes domain, skipping the soft quarantine."
+              },
+              {
+                "name": "force_delete",
+                "value": "",
+                "type": "query",
+                "description": "Force delete domain even if it has glue records."
+              }
+            ]
+          },
+          "docs": "Delete domain"
+        },
+        {
+          "info": {
+            "name": "Try again last operation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/last-operation/restart",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Try again last operation"
+        },
+        {
+          "info": {
+            "name": "Renew domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/renew",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Renew domain"
+        },
+        {
+          "info": {
+            "name": "Restore domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/restore",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Restore domain"
+        },
+        {
+          "info": {
+            "name": "Approve transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/transfer/approve",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Approve transfer"
+        },
+        {
+          "info": {
+            "name": "Send foa1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/transfer/send-foa1",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Send foa1"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "AdditionalData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get additional data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains/additional-data",
+            "params": [
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "operation",
+                "value": "",
+                "type": "query",
+                "description": "The operation."
+              }
+            ]
+          },
+          "docs": "Get additional data"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "CustomerAdditionalData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains/additional-data/customers",
+            "params": [
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              }
+            ]
+          },
+          "docs": "Get data"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DomainPriceService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains/prices",
+            "params": [
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "operation",
+                "value": "",
+                "type": "query",
+                "description": "Domain operation."
+              },
+              {
+                "name": "additional_data.idn_script",
+                "value": "",
+                "type": "query",
+                "description": "The idn script states what language or character set the domain name is in\nApplicable to: .actor, .ae.org, .airforce, .army, .art, .attorney, .auction, .band, .bar, .best, .br.com, .ceo, .cn.com, .college, .com, .com.de, .com.se, .consulting, .dance, .de.com, .degree, .democrat, .dentist, .design, .engineer, .eu.com, .eus, .feedback, .fm, .forsale, .frl, .fun, .futbol, .gal, .gb.net, .gives, .gr.com, .haus, .hiv, .host, .immobilien, .in.net, .info, .ink, .jp.net, .jpn.com, .kaufen, .kyoto, .lawyer, .love, .market, .me, .mex.com, .moda, .mortgage, .navy, .net, .ninja, .nrw, .online, .ooo, .org, .press, .protection, .pub, .pw, .quebec, .radio.am, .radio.fm, .realty, .rehab, .rent, .republican, .rest, .reviews, .rip, .rocks, .ru.com, .sa.com, .scot, .se.net, .security, .site, .social, .software, .space, .store, .tech, .theatre, .tickets, .top, .uk.com, .uk.net, .us.com, .us.org, .vet, .website, .wiki, .xn--4gbrim, .xn--55qx5d, .xn--5tzm5g, .xn--80asehdb, .xn--80aswg, .xn--c1avg, .xn--czru2d, .xn--i1b6b1a6a2e, .xn--io0a7i, .xn--mk1bu44c, .xn--ngbc5azd, .xn--nqv7f, .xn--t60b56a, .xn--tckwe, .xyz, .za.com."
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Operation period."
+              }
+            ]
+          },
+          "docs": "Get price"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "AuthCode",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get auth code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains/:id/authcode",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              },
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "auth_code_type",
+                "value": "",
+                "type": "query",
+                "description": "Type of transfer authorization code. external (default) or internal (for internal transfers between reseller accounts in Openprovider only)."
+              },
+              {
+                "name": "sending_type",
+                "value": "",
+                "type": "query",
+                "description": "Indicates how authcode should be provisioned to domain owner. For ru / xn--p1ai domains only. Possible values: sms, email letter."
+              }
+            ]
+          },
+          "docs": "Get auth code"
+        },
+        {
+          "info": {
+            "name": "Reset auth code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/authcode/reset",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Reset auth code"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "EasydmarcOrder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get easy dmarc",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/easydmarcs",
+            "params": [
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              }
+            ]
+          },
+          "docs": "Get easy dmarc"
+        },
+        {
+          "info": {
+            "name": "Create easy dmarc",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/easydmarcs"
+          },
+          "docs": "Create easy dmarc"
+        },
+        {
+          "info": {
+            "name": "List easy dmarc",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/easydmarcs/list",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search query limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Search query offset."
+              },
+              {
+                "name": "order_by.id",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Array of order statuses."
+              },
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              }
+            ]
+          },
+          "docs": "List easy dmarc"
+        },
+        {
+          "info": {
+            "name": "Delete easy dmarc",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/easydmarcs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Easydmarc id (order number)"
+              }
+            ]
+          },
+          "docs": "Delete easy dmarc"
+        },
+        {
+          "info": {
+            "name": "Retry easy dmarc",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/easydmarcs/:id/retry",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Easydmarc id (order number)"
+              }
+            ]
+          },
+          "docs": "Retry easy dmarc"
+        },
+        {
+          "info": {
+            "name": "Get easy dmarc sso",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/easydmarcs/:id/sso",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Easy Dmarc id (order id)"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "SSO url on behalf of the customer or reseller."
+              }
+            ]
+          },
+          "docs": "Get easy dmarc sso"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Email",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/emails",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Object ID."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Template name."
+              },
+              {
+                "name": "group",
+                "value": "",
+                "type": "query",
+                "description": "Email template type. There are several types of ICANN emails that can be customized in Openprovider: -errp (Expired Registration Recovery policy emails) -foa (Form of Authorization emails for domain transfers approval rejection) -ive (Information verification emails, such emails used to verify email address of the customer) -tcn (Trademark Claims Notification emails) -wdrp (Whois Data Reminder Policy emails)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "is_system",
+                "value": "",
+                "type": "query",
+                "description": "Is system."
+              }
+            ]
+          },
+          "docs": "List emails"
+        },
+        {
+          "info": {
+            "name": "Create email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/emails"
+          },
+          "docs": "Create email"
+        },
+        {
+          "info": {
+            "name": "Update email",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/emails/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Update email"
+        },
+        {
+          "info": {
+            "name": "Delete email",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/emails/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Delete email"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "InvoiceService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/invoices",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "The order by."
+              },
+              {
+                "name": "start_creation_date",
+                "value": "",
+                "type": "query",
+                "description": "The start creation date."
+              },
+              {
+                "name": "end_creation_date",
+                "value": "",
+                "type": "query",
+                "description": "The end creation date."
+              }
+            ]
+          },
+          "docs": "List invoices"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "LicenseService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List licenses with price version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "order_by.id",
+                "value": "",
+                "type": "query",
+                "description": "Object ID."
+              },
+              {
+                "name": "order_by.key_id",
+                "value": "",
+                "type": "query",
+                "description": "License key ID."
+              },
+              {
+                "name": "order_by.title",
+                "value": "",
+                "type": "query",
+                "description": "Custom license title."
+              },
+              {
+                "name": "order_by.product",
+                "value": "",
+                "type": "query",
+                "description": "Product type (only Plesk is available)."
+              },
+              {
+                "name": "order_by.status",
+                "value": "",
+                "type": "query",
+                "description": "License status."
+              },
+              {
+                "name": "order_by.key_number",
+                "value": "",
+                "type": "query",
+                "description": "License key number."
+              },
+              {
+                "name": "order_by.expiration_date",
+                "value": "",
+                "type": "query",
+                "description": "License expiration date."
+              },
+              {
+                "name": "product",
+                "value": "",
+                "type": "query",
+                "description": "Product type (only Plesk is available)."
+              },
+              {
+                "name": "key_number",
+                "value": "",
+                "type": "query",
+                "description": "License key number."
+              },
+              {
+                "name": "title_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Custom title pattern. Wildcard (*) can be sued."
+              },
+              {
+                "name": "key_number_pattern",
+                "value": "",
+                "type": "query",
+                "description": "License key number pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "parent_key_id",
+                "value": "",
+                "type": "query",
+                "description": "Key ID of the partent license."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "License status."
+              }
+            ]
+          },
+          "docs": "List licenses with price version"
+        },
+        {
+          "info": {
+            "name": "Reset hwid",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/licenses/hwids/reset/:product/:key_id",
+            "params": [
+              {
+                "name": "product",
+                "value": "",
+                "type": "path",
+                "description": "Product type (only Plesk is available)"
+              },
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Reset hwid"
+        },
+        {
+          "info": {
+            "name": "List items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/items",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "order_by.id",
+                "value": "",
+                "type": "query",
+                "description": "Object ID."
+              },
+              {
+                "name": "order_by.key_id",
+                "value": "",
+                "type": "query",
+                "description": "License key ID."
+              },
+              {
+                "name": "order_by.title",
+                "value": "",
+                "type": "query",
+                "description": "Custom license title."
+              },
+              {
+                "name": "order_by.product",
+                "value": "",
+                "type": "query",
+                "description": "Product type (only Plesk is available)."
+              },
+              {
+                "name": "order_by.status",
+                "value": "",
+                "type": "query",
+                "description": "License status."
+              },
+              {
+                "name": "order_by.key_number",
+                "value": "",
+                "type": "query",
+                "description": "License key number."
+              },
+              {
+                "name": "order_by.expiration_date",
+                "value": "",
+                "type": "query",
+                "description": "License expiration date."
+              },
+              {
+                "name": "product",
+                "value": "",
+                "type": "query",
+                "description": "Product type (only Plesk is available)."
+              }
+            ]
+          },
+          "docs": "List items"
+        },
+        {
+          "info": {
+            "name": "List plesk licenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "query",
+                "description": "License key ID."
+              },
+              {
+                "name": "key_number",
+                "value": "",
+                "type": "query",
+                "description": "License key number."
+              },
+              {
+                "name": "title_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Custom title pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "key_number_pattern",
+                "value": "",
+                "type": "query",
+                "description": "License key number pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "parent_key_id",
+                "value": "",
+                "type": "query",
+                "description": "Key ID of the partent license."
+              }
+            ]
+          },
+          "docs": "List plesk licenses"
+        },
+        {
+          "info": {
+            "name": "Create plesk license",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk"
+          },
+          "docs": "Create plesk license"
+        },
+        {
+          "info": {
+            "name": "Get plesk key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk/key/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Get plesk key"
+        },
+        {
+          "info": {
+            "name": "Get plesk license",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Get plesk license"
+        },
+        {
+          "info": {
+            "name": "Update plesk license",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Update plesk license"
+        },
+        {
+          "info": {
+            "name": "Delete plesk license",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Delete plesk license"
+        },
+        {
+          "info": {
+            "name": "List virtuozzo licenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "query",
+                "description": "License key ID."
+              },
+              {
+                "name": "key_number",
+                "value": "",
+                "type": "query",
+                "description": "License key number."
+              },
+              {
+                "name": "title_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Custom title pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "key_number_pattern",
+                "value": "",
+                "type": "query",
+                "description": "License key number pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "parent_key_id",
+                "value": "",
+                "type": "query",
+                "description": "Key ID of the partent license."
+              }
+            ]
+          },
+          "docs": "List virtuozzo licenses"
+        },
+        {
+          "info": {
+            "name": "Create virtuozzo license",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo"
+          },
+          "docs": "Create virtuozzo license"
+        },
+        {
+          "info": {
+            "name": "Get virtuozzo license",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Get virtuozzo license"
+        },
+        {
+          "info": {
+            "name": "Update virtuozzo license",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Update virtuozzo license"
+        },
+        {
+          "info": {
+            "name": "Delete virtuozzo license",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Delete virtuozzo license"
+        },
+        {
+          "info": {
+            "name": "Get virtuozzo key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo/:key_id/key",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Get virtuozzo key"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Payment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/payments",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "The order by."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status."
+              },
+              {
+                "name": "start_creation_date",
+                "value": "",
+                "type": "query",
+                "description": "The start creation date."
+              },
+              {
+                "name": "end_creation_date",
+                "value": "",
+                "type": "query",
+                "description": "The end creation date."
+              }
+            ]
+          },
+          "docs": "List payments"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ResellerService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get reseller",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/resellers",
+            "params": [
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves objects with (1) or without (0) additional data."
+              },
+              {
+                "name": "with_statistics",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if reseller statistics should be retrieved."
+              },
+              {
+                "name": "with_settings",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if reseller settings should be retrieved."
+              },
+              {
+                "name": "with_contacts",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if reseller contacts should be retrieved."
+              }
+            ]
+          },
+          "docs": "Get reseller"
+        },
+        {
+          "info": {
+            "name": "Update reseller",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/resellers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Update reseller"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/resellers/settings"
+          },
+          "docs": "Get settings"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/resellers/statistics"
+          },
+          "docs": "Get statistics"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SEDomain",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/spam-expert/domains"
+          },
+          "docs": "Create domain"
+        },
+        {
+          "info": {
+            "name": "Get domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/spam-expert/domains/:domain_name",
+            "params": [
+              {
+                "name": "domain_name",
+                "value": "",
+                "type": "path",
+                "description": "Domain full name"
+              },
+              {
+                "name": "with_records",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether records should be displayed in output."
+              },
+              {
+                "name": "bundle",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if old subscriptions backward compatibility is used."
+              }
+            ]
+          },
+          "docs": "Get domain"
+        },
+        {
+          "info": {
+            "name": "Update domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/spam-expert/domains/:domain_name",
+            "params": [
+              {
+                "name": "domain_name",
+                "value": "",
+                "type": "path",
+                "description": "Domain full name"
+              }
+            ]
+          },
+          "docs": "Update domain"
+        },
+        {
+          "info": {
+            "name": "Delete domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/spam-expert/domains/:domain_name",
+            "params": [
+              {
+                "name": "domain_name",
+                "value": "",
+                "type": "path",
+                "description": "Domain full name"
+              },
+              {
+                "name": "bundle",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if old subscriptions backward compatibility is used."
+              }
+            ]
+          },
+          "docs": "Delete domain"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SpamExpert",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate login url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/spam-expert/generate-login-url"
+          },
+          "docs": "Generate login url"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ApproverEmail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List approver emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/ssl/approver-emails",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of product order will be created for."
+              },
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query",
+                "description": "Domain name."
+              }
+            ]
+          },
+          "docs": "List approver emails"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Csr",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create csr",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/csr"
+          },
+          "docs": "Create csr"
+        },
+        {
+          "info": {
+            "name": "Decode csr",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/csr/decode"
+          },
+          "docs": "Decode csr"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Order",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/ssl/orders",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search query limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Search query offset."
+              },
+              {
+                "name": "order_by.common_name",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "order_by.order_date",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "order_by.active_date",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "order_by.expiration_date",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "order_by.status",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "order_by.product_name",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "common_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Certificate common name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Array of order statuses."
+              },
+              {
+                "name": "contact_handle",
+                "value": "",
+                "type": "query",
+                "description": "Contact handle."
+              },
+              {
+                "name": "show_expiring",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether to return only certificates that are expiring within 30 days."
+              }
+            ]
+          },
+          "docs": "List orders"
+        },
+        {
+          "info": {
+            "name": "Create order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders"
+          },
+          "docs": "Create order"
+        },
+        {
+          "info": {
+            "name": "Get order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Get order"
+        },
+        {
+          "info": {
+            "name": "Update order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Update order"
+        },
+        {
+          "info": {
+            "name": "Cancel order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/cancel",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Cancel order"
+        },
+        {
+          "info": {
+            "name": "Reissue order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/reissue",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Reissue order"
+        },
+        {
+          "info": {
+            "name": "Renew order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/renew",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Renew order"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "OrderApproverEmail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update approver email address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/approver-email",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Update approver email address"
+        },
+        {
+          "info": {
+            "name": "Resend approver email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/approver-email/resend",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Resend approver email"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "OtpToken",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create otp token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/otp-tokens",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Create otp token"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Product",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/ssl/products",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search query limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Search query offset."
+              },
+              {
+                "name": "with_price",
+                "value": "",
+                "type": "query",
+                "description": "Returns product price in the response."
+              },
+              {
+                "name": "with_supported_software",
+                "value": "",
+                "type": "query",
+                "description": "Returns a list of supported software patforms."
+              },
+              {
+                "name": "with_description",
+                "value": "",
+                "type": "query",
+                "description": "Returns a description for each product, if exists."
+              },
+              {
+                "name": "order_by.name",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.brand_name",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.category",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.sub_category",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.brand_seqno",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.product_seqno",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              }
+            ]
+          },
+          "docs": "List products"
+        },
+        {
+          "info": {
+            "name": "Get product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/ssl/products/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Get product"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "TagService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/tags",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "The key of the tag. Allowed values: 'customer'."
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query",
+                "description": "The value of the tag. I.e.: VIP customer."
+              }
+            ]
+          },
+          "docs": "List tags"
+        },
+        {
+          "info": {
+            "name": "Create tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/tags"
+          },
+          "docs": "Create tag"
+        },
+        {
+          "info": {
+            "name": "Delete tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/tags",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "The key of the tag. Allowed values: 'customer'."
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query",
+                "description": "The value of the tag. I.e.: VIP customer."
+              }
+            ]
+          },
+          "docs": "Delete tag"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "TldService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tlds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/tlds",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search query limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Search query offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sorts output ASC or DESC."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorts output by a field."
+              },
+              {
+                "name": "extensions",
+                "value": "",
+                "type": "query",
+                "description": "Array of extensions."
+              },
+              {
+                "name": "name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Extension name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "only_names",
+                "value": "",
+                "type": "query",
+                "description": "Returns only extension names in the output."
+              },
+              {
+                "name": "with_description",
+                "value": "",
+                "type": "query",
+                "description": "Returns additional extension description."
+              },
+              {
+                "name": "with_restrictions",
+                "value": "",
+                "type": "query",
+                "description": "Returns list of extension restrictions."
+              },
+              {
+                "name": "with_usage_count",
+                "value": "",
+                "type": "query",
+                "description": "Returns number of domains using specified extension in this account."
+              },
+              {
+                "name": "with_application_mode",
+                "value": "",
+                "type": "query",
+                "description": "Array of extension application modes."
+              },
+              {
+                "name": "with_price",
+                "value": "",
+                "type": "query",
+                "description": "Returns extension prices."
+              },
+              {
+                "name": "with_level_prices",
+                "value": "",
+                "type": "query",
+                "description": "Returns extension prices for each Openprovider discount tier."
+              },
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, if extension is active."
+              },
+              {
+                "name": "is_new_gtld",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, if extension is a newGTLD."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Extension status."
+              },
+              {
+                "name": "application_mode",
+                "value": "",
+                "type": "query",
+                "description": "Pre-registration mode."
+              }
+            ]
+          },
+          "docs": "List tlds"
+        },
+        {
+          "info": {
+            "name": "Get tld",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/tlds/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Extension name"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search query limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Search query offset."
+              },
+              {
+                "name": "with_description",
+                "value": "",
+                "type": "query",
+                "description": "Returns additional extension description."
+              },
+              {
+                "name": "with_restrictions",
+                "value": "",
+                "type": "query",
+                "description": "Returns list of extension restrictions."
+              },
+              {
+                "name": "with_price",
+                "value": "",
+                "type": "query",
+                "description": "Returns extension prices."
+              },
+              {
+                "name": "with_level_prices",
+                "value": "",
+                "type": "query",
+                "description": "Returns extension prices for each Openprovider discount tier."
+              },
+              {
+                "name": "with_usage_count",
+                "value": "",
+                "type": "query",
+                "description": "Returns number of domains using specified extension in this account."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Extension status."
+              }
+            ]
+          },
+          "docs": "Get tld"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transaction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/transactions",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "The order by."
+              },
+              {
+                "name": "start_creation_date",
+                "value": "",
+                "type": "query",
+                "description": "The start creation date."
+              },
+              {
+                "name": "end_creation_date",
+                "value": "",
+                "type": "query",
+                "description": "The end creation date."
+              },
+              {
+                "name": "filter_for_subject",
+                "value": "",
+                "type": "query",
+                "description": "The filter for subject."
+              }
+            ]
+          },
+          "docs": "List transactions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
