@@ -55,7 +55,7 @@ common:
     url: https://support.openprovider.eu/
   - type: Login
     url: https://cp.openprovider.eu/login.php
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://api.openprovider.eu/llms.txt
 maintainers:
   - FN: Kin Lane
