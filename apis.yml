@@ -43,6 +43,12 @@ apis:
       - DNS
       - SSL Certificates
 common:
+  - type: VulnerabilityDisclosure
+    url: security/openprovider-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/openprovider-domain-security.yml
+  - type: Authentication
+    url: authentication/openprovider-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/openprovider
   - type: LinkedIn
@@ -57,6 +63,8 @@ common:
     url: https://cp.openprovider.eu/login.php
   - type: LlmsText
     url: https://api.openprovider.eu/llms.txt
+  - url: https://www.openprovider.com/blog
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
