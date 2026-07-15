@@ -43,6 +43,8 @@ apis:
       - DNS
       - SSL Certificates
 common:
+  - type: AgenticAccess
+    url: agentic-access/openprovider-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/openprovider-vulnerability-disclosure.yml
   - type: DomainSecurity
