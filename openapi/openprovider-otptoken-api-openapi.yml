@@ -1,0 +1,211 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData OtpToken API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: OtpToken
+paths:
+  /v1beta/ssl/orders/{id}/otp-tokens:
+    post:
+      tags:
+      - OtpToken
+      summary: Create otp token
+      operationId: CreateOtpToken
+      parameters:
+      - type: integer
+        format: int32
+        description: Object id
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/otptokenCreateOtpTokenRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/otptokenCreateOtpTokenResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  otptokenCreateOtpTokenResponse:
+    type: object
+    title: CreateOtpTokenResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/otptokenCreateOtpTokenResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        expire_at: '2019-01-01 0:00:01'
+        token: token
+        uri: https://sslpanel.io/auth-order-otp-token
+      desc: ''
+  otptokenCreateOtpTokenRequest:
+    type: object
+    title: CreateOtpTokenRequest
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      id: 1
+  otptokenCreateOtpTokenResponseData:
+    type: object
+    title: CreateOtpTokenResponseData
+    properties:
+      expire_at:
+        type: string
+        title: Link expiration date
+      token:
+        type: string
+        title: Unique token
+      uri:
+        type: string
+        title: Unique link
+    example:
+      expire_at: '2019-01-01 0:00:01'
+      token: token
+      uri: https://sslpanel.io/auth-order-otp-token
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

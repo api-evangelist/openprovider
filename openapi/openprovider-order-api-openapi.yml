@@ -1,0 +1,1542 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData Order API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: Order
+paths:
+  /v1beta/ssl/orders:
+    get:
+      tags:
+      - Order
+      summary: List orders
+      externalDocs:
+        description: For more detailed information on this method check our guide
+        url: https://support.openprovider.eu/hc/en-us/articles/360024399333
+      operationId: ListOrders
+      parameters:
+      - type: integer
+        format: int32
+        default: 100
+        description: Search query limit.
+        name: limit
+        in: query
+      - type: integer
+        format: int32
+        description: Search query offset.
+        name: offset
+        in: query
+      - type: string
+        description: desc/asc.
+        name: order_by.common_name
+        in: query
+      - type: string
+        default: desc
+        description: desc/asc.
+        name: order_by.order_date
+        in: query
+      - type: string
+        description: desc/asc.
+        name: order_by.active_date
+        in: query
+      - type: string
+        description: desc/asc.
+        name: order_by.expiration_date
+        in: query
+      - type: string
+        description: desc/asc.
+        name: order_by.status
+        in: query
+      - type: string
+        description: desc/asc.
+        name: order_by.product_name
+        in: query
+      - type: string
+        description: Certificate common name pattern. Wildcard (*) can be used.
+        name: common_name_pattern
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: multi
+        description: Array of order statuses.
+        name: status
+        in: query
+      - type: string
+        description: Contact handle.
+        name: contact_handle
+        in: query
+      - type: boolean
+        format: boolean
+        description: Indicates, whether to return only certificates that are expiring within 30 days.
+        name: show_expiring
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/orderListOrdersResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    post:
+      tags:
+      - Order
+      summary: Create order
+      externalDocs:
+        description: For more detailed information on this method check our guide
+        url: https://support.openprovider.eu/hc/en-us/articles/360024389393
+      operationId: CreateOrder
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/orderCreateOrderRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/orderCreateOrderResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/ssl/orders/{id}:
+    get:
+      tags:
+      - Order
+      summary: Get order
+      externalDocs:
+        description: For more detailed information on this method check our guide
+        url: https://support.openprovider.eu/hc/en-us/articles/360024389393
+      operationId: GetOrder
+      parameters:
+      - type: integer
+        format: int32
+        description: Object id
+        name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/orderGetOrderResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    put:
+      tags:
+      - Order
+      summary: Update order
+      externalDocs:
+        description: For more detailed information on this method check our guide
+        url: https://support.openprovider.eu/hc/en-us/articles/360024299194
+      operationId: UpdateOrder
+      parameters:
+      - type: integer
+        format: int32
+        description: Object id
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/orderUpdateOrderRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/orderUpdateOrderResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/ssl/orders/{id}/cancel:
+    post:
+      tags:
+      - Order
+      summary: Cancel order
+      externalDocs:
+        description: For more detailed information on this method check our guide
+        url: https://support.openprovider.eu/hc/en-us/articles/360024469053
+      operationId: CancelOrder
+      parameters:
+      - type: integer
+        format: int32
+        description: Object id
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/orderCancelOrderRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/orderCancelOrderResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/ssl/orders/{id}/reissue:
+    post:
+      tags:
+      - Order
+      summary: Reissue order
+      externalDocs:
+        description: For more detailed information on this method check our guide
+        url: https://support.openprovider.eu/hc/en-us/articles/360024304394
+      operationId: ReissueOrder
+      parameters:
+      - type: integer
+        format: int32
+        description: Object id
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/orderReissueOrderRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/orderReissueOrderResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/ssl/orders/{id}/renew:
+    post:
+      tags:
+      - Order
+      summary: Renew order
+      externalDocs:
+        description: For more detailed information on this method check our guide
+        url: https://support.openprovider.eu/hc/en-us/articles/360024468093
+      operationId: RenewOrder
+      parameters:
+      - type: integer
+        format: int32
+        description: Object id
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/orderRenewOrderRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/orderRenewOrderResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  orderSslOrderDomainValidationStatuses:
+    type: object
+    title: SslOrderDomainValidationStatuses
+    properties:
+      ca_operation:
+        type: string
+        title: Operation performed at the CA
+      ca_order_status:
+        type: string
+        title: Order status at the CA
+      ca_status:
+        type: string
+        title: Certificate status at the CA
+      status:
+        type: string
+        title: Validation status
+    example:
+      ca_operation: request
+      ca_order_status: in_progress
+      ca_status: requested
+      status: open
+  orderSslOrderDomainValidationMethods:
+    type: object
+    title: SslOrderDomainValidationMethods
+    properties:
+      host_name:
+        type: string
+        title: List of domain names to protect
+      method:
+        type: string
+        title: Indicates the validation method required for certificate issuance (domain, organization or extended)
+    example:
+      host_name: example.com
+      method: https
+  orderRenewOrderResponseData:
+    type: object
+    title: RenewOrderResponseData
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      id: 1
+  orderReissueOrderResponse:
+    type: object
+    title: ReissueOrderResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/orderReissueOrderResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        id: 1
+      desc: ''
+  orderRenewOrderResponse:
+    type: object
+    title: RenewOrderResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/orderRenewOrderResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        id: 1
+      desc: ''
+  orderCancelOrderRequest:
+    type: object
+    title: CancelOrderRequest
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      id: 1
+  orderSslOrderAdditionalData:
+    type: object
+    title: SslOrderAdditionalData
+    properties:
+      dns:
+        type: string
+        title: DNS content for Symantec order
+      dns_record:
+        type: string
+        title: DNS record that should be added to host
+      dns_value:
+        type: string
+        title: DNS values that should be added to host to process validation
+      domain:
+        type: string
+        title: Domain host name with which certificate is associated
+      file_content:
+        type: string
+        title: File content for Symantec orders
+      file_contents:
+        type: string
+        title: Indicates what contents should be added to domain validation file
+      file_location:
+        type: string
+        title: Indicates where domain validation file should be placed
+      file_name:
+        type: string
+        title: File name for Symantec orders
+      md5:
+        type: string
+        title: Order MD5 checksum
+      old_cert_format:
+        type: array
+        title: This old format (before transition to digicert)
+        items:
+          type: string
+      sha1:
+        type: string
+        title: Order SHA1 checksum
+      sha256:
+        type: string
+        title: Order SHA256 checksum
+      token:
+        type: string
+        title: The token
+      url:
+        type: string
+        title: The url
+    example:
+      dns: 73d01a1232214f96ebf08d6f9d0af6f9
+      dns_record: example.com
+      dns_value: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+      domain: example.com
+      file_content: 73d01a1232214f96ebf08d6f9d0af6f9
+      file_contents: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+      file_location: example.com/.well-known/pki-validation/fileauth.txt
+      file_name: fileauth.txt
+      md5: 73d01a1232214f96ebf08d6f9d0af6f9
+      old_cert_format:
+      - dywtgtjttvdk5v4ncd8231yl6v5ji8pv
+      sha1: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+      sha256: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+      token: a9a5775036334709b3c04e0e4a095f15
+      url: http://3.example.com/.well-known/pki-validation/12345e32k4j32kljlkfsdjlkfjsdlk333.txt
+  orderReissueOrderResponseData:
+    type: object
+    title: ReissueOrderResponseData
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      id: 1
+  orderCreateOrderResponse:
+    type: object
+    title: CreateOrderResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/orderCreateOrderResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        id: 1
+      desc: ''
+  orderRenewOrderRequest:
+    type: object
+    title: RenewOrderRequest
+    properties:
+      enable_dns_automation:
+        type: boolean
+        format: boolean
+        title: Indicates whether the automatic DNS validation will be applied to the certificate
+        default: false
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      enable_dns_automation: false
+      id: 1
+  orderSslOrderOptions:
+    type: object
+    title: SslOrderOptions
+    properties:
+      features:
+        type: string
+        title: Certificate features list (if present)
+    example:
+      features: ''
+  orderListOrdersResponse:
+    type: object
+    title: ListOrdersResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/orderListOrdersResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - active_date: '2019-01-01 0:00:01'
+          additional_data:
+          - dns: 73d01a1232214f96ebf08d6f9d0af6f9
+            dns_record: example.com
+            dns_value: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+            domain: example.com
+            file_content: 73d01a1232214f96ebf08d6f9d0af6f9
+            file_contents: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+            file_location: example.com/.well-known/pki-validation/fileauth.txt
+            file_name: fileauth.txt
+            md5: 73d01a1232214f96ebf08d6f9d0af6f9
+            old_cert_format:
+            - dywtgtjttvdk5v4ncd8231yl6v5ji8pv
+            sha1: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+            sha256: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+            token: a9a5775036334709b3c04e0e4a095f15
+            url: http://3.example.com/.well-known/pki-validation/12345e32k4j32kljlkfsdjlkfjsdlk333.txt
+          administrative_handle: XX123456-XX
+          autorenew: 'off'
+          billing_handle: XX123456-XX
+          brand_name: Comodo
+          certificate: ''
+          common_name: example.com
+          csr: '-----BEGIN CERTIFICATE REQUEST-----
+
+            MIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER
+
+            MA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp
+
+            dDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4
+
+            YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH
+
+            RldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK
+
+            h5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5
+
+            yaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos
+
+            qBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww
+
+            acElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo
+
+            JOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S
+
+            ZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi
+
+            cq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6
+
+            wCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk
+
+            99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq
+
+            1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma
+
+            ySUlLeY=
+
+            -----END CERTIFICATE REQUEST-----'
+          domain_validation_methods:
+          - host_name: example.com
+            method: https
+          domain_validation_statuses:
+            ca_operation: request
+            ca_order_status: in_progress
+            ca_status: requested
+            status: open
+          email_approver: admin@example.com
+          email_reissue: admin@example.com
+          expiration_date: '2021-01-01 0:00:01'
+          features: ''
+          host_names:
+          - www.example.com
+          id: 123456789
+          intermediate_certificate: ''
+          options:
+            features: ''
+          order_date: '2019-01-01 0:00:01'
+          order_ends_at: '2019-01-01 0:00:01'
+          organization_handle: TH000001-NL
+          period: 2
+          product_id: 5
+          product_name: EssentialSSL
+          reissue_at: '2019-01-01 0:00:01'
+          root_certificate: ''
+          software: linux
+          sslinhva_order_id: 11111111-1111-1111-1111-111111111111
+          status: REQ
+          technical_handle: TH000001-NL
+          validation_method: domain
+          vendor_order_id: '123456789'
+          vendor_reference_id: '123456789'
+        total: 999
+      desc: ''
+  orderUpdateOrderResponseData:
+    type: object
+    title: UpdateOrderResponseData
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      id: 1
+  orderUpdateOrderRequest:
+    type: object
+    title: UpdateOrderRequest
+    properties:
+      approver_email:
+        description: Email for domain ownership verification. Should start with well-known generic name like admin@, hostmater@, administrator@, etc.
+        type: string
+      autorenew:
+        type: string
+        title: Indicates, whether the certificate should be renewed automatically once its expiration date is reached
+      csr:
+        type: string
+        title: Certificate signing request
+      domain_validation_methods:
+        type: array
+        title: Method of domain validation
+        items:
+          $ref: '#/definitions/orderSslOrderDomainValidationMethods'
+      enable_dns_automation:
+        type: boolean
+        format: boolean
+        title: Indicates whether the automatic DNS validation will be applied to the certificate
+        default: false
+      host_names:
+        type: array
+        title: List of domain names to protect
+        items:
+          type: string
+      id:
+        type: integer
+        format: int32
+        title: Object id
+      organization_handle:
+        type: string
+        title: Handle of the organization contact
+      signature_hash_algorithm:
+        type: string
+        title: Certificate hash algorithm. Set to sha2 or leave blank
+      software_id:
+        type: string
+        title: Software used on host where certificate will be installed
+      start_provision:
+        type: boolean
+        format: boolean
+        title: Indicates, whether a validation request should be sent to CA. If false, UpdateOrder method should be used later to change the setting and begin validation
+      technical_handle:
+        type: string
+        title: Handle of the technical contact
+    example:
+      approver_email: admin@example.com
+      autorenew: 'off'
+      csr: '-----BEGIN CERTIFICATE REQUEST-----
+
+        MIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER
+
+        MA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp
+
+        dDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4
+
+        YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH
+
+        RldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK
+
+        h5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5
+
+        yaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos
+
+        qBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww
+
+        acElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo
+
+        JOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S
+
+        ZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi
+
+        cq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6
+
+        wCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk
+
+        99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq
+
+        1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma
+
+        ySUlLeY=
+
+        -----END CERTIFICATE REQUEST-----'
+      domain_validation_methods:
+      - host_name: example.com
+        method: https
+      enable_dns_automation: false
+      host_names:
+      - www.example.com
+      id: 1
+      organization_handle: TH000001-NL
+      signature_hash_algorithm: sha2
+      software_id: linux
+      start_provision: false
+      technical_handle: TH000001-NL
+  orderCreateOrderRequest:
+    type: object
+    title: CreateOrderRequest
+    properties:
+      approver_email:
+        description: Email for domain ownership verification. Should start with well-known generic name like admin@, hostmater@, administrator@, etc.
+        type: string
+      autorenew:
+        type: string
+        title: Indicates, whether the certificate should be renewed automatically once its expiration date is reached
+        default: 'off'
+      csr:
+        type: string
+        title: Certificate signing request
+      domain_amount:
+        type: integer
+        format: int32
+        title: Number of domains to include in certificate
+      domain_validation_methods:
+        type: array
+        title: Method of domain validation
+        items:
+          $ref: '#/definitions/orderSslOrderDomainValidationMethods'
+      enable_dns_automation:
+        type: boolean
+        format: boolean
+        title: Indicates whether the automatic DNS validation will be applied to the certificate
+        default: false
+      host_names:
+        type: array
+        title: List of domain names to protect
+        items:
+          type: string
+      organization_handle:
+        type: string
+        title: Handle of the organization contact
+      period:
+        type: integer
+        format: int32
+        title: Certificate issuance period
+      product_id:
+        type: integer
+        format: int32
+        title: ID of product order will be created for
+      signature_hash_algorithm:
+        type: string
+        title: Certificate has algorithm. Set to sha2 or leave blank
+      software_id:
+        type: string
+        title: Software used on host where certificate will be installed
+      start_provision:
+        type: boolean
+        format: boolean
+        title: Indicates, whether a validation request should be sent to CA. If false, UpdateOrder method should be used later to change the setting and begin validation
+        default: false
+      technical_handle:
+        type: string
+        title: Handle of the technical contact
+      wildcard_domain_amount:
+        type: integer
+        format: int32
+        title: Amount of the wildcard domains in the order
+    example:
+      approver_email: admin@example.com
+      autorenew: 'off'
+      csr: '-----BEGIN CERTIFICATE REQUEST-----
+
+        MIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER
+
+        MA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp
+
+        dDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4
+
+        YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH
+
+        RldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK
+
+        h5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5
+
+        yaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos
+
+        qBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww
+
+        acElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo
+
+        JOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S
+
+        ZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi
+
+        cq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6
+
+        wCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk
+
+        99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq
+
+        1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma
+
+        ySUlLeY=
+
+        -----END CERTIFICATE REQUEST-----'
+      domain_amount: 1
+      domain_validation_methods:
+      - host_name: example.com
+        method: https
+      enable_dns_automation: false
+      host_names:
+      - www.example.com
+      organization_handle: TH000001-NL
+      period: 1
+      product_id: 5
+      signature_hash_algorithm: sha2
+      software_id: linux
+      start_provision: true
+      technical_handle: TH000001-NL
+      wildcard_domain_amount: 5
+  orderListOrdersResponseData:
+    type: object
+    title: ListOrdersResponseData
+    properties:
+      results:
+        type: array
+        title: Results list
+        items:
+          $ref: '#/definitions/orderSslOrder'
+      total:
+        type: integer
+        format: int32
+        title: Results count
+    example:
+      results:
+      - active_date: '2019-01-01 0:00:01'
+        additional_data:
+        - dns: 73d01a1232214f96ebf08d6f9d0af6f9
+          dns_record: example.com
+          dns_value: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+          domain: example.com
+          file_content: 73d01a1232214f96ebf08d6f9d0af6f9
+          file_contents: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+          file_location: example.com/.well-known/pki-validation/fileauth.txt
+          file_name: fileauth.txt
+          md5: 73d01a1232214f96ebf08d6f9d0af6f9
+          old_cert_format:
+          - dywtgtjttvdk5v4ncd8231yl6v5ji8pv
+          sha1: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+          sha256: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+          token: a9a5775036334709b3c04e0e4a095f15
+          url: http://3.example.com/.well-known/pki-validation/12345e32k4j32kljlkfsdjlkfjsdlk333.txt
+        administrative_handle: XX123456-XX
+        autorenew: 'off'
+        billing_handle: XX123456-XX
+        brand_name: Comodo
+        certificate: ''
+        common_name: example.com
+        csr: '-----BEGIN CERTIFICATE REQUEST-----
+
+          MIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER
+
+          MA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp
+
+          dDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4
+
+          YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH
+
+          RldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK
+
+          h5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5
+
+          yaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos
+
+          qBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww
+
+          acElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo
+
+          JOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S
+
+          ZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi
+
+          cq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6
+
+          wCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk
+
+          99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq
+
+          1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma
+
+          ySUlLeY=
+
+          -----END CERTIFICATE REQUEST-----'
+        domain_validation_methods:
+        - host_name: example.com
+          method: https
+        domain_validation_statuses:
+          ca_operation: request
+          ca_order_status: in_progress
+          ca_status: requested
+          status: open
+        email_approver: admin@example.com
+        email_reissue: admin@example.com
+        expiration_date: '2021-01-01 0:00:01'
+        features: ''
+        host_names:
+        - www.example.com
+        id: 123456789
+        intermediate_certificate: ''
+        options:
+          features: ''
+        order_date: '2019-01-01 0:00:01'
+        order_ends_at: '2019-01-01 0:00:01'
+        organization_handle: TH000001-NL
+        period: 2
+        product_id: 5
+        product_name: EssentialSSL
+        reissue_at: '2019-01-01 0:00:01'
+        root_certificate: ''
+        software: linux
+        sslinhva_order_id: 11111111-1111-1111-1111-111111111111
+        status: REQ
+        technical_handle: TH000001-NL
+        validation_method: domain
+        vendor_order_id: '123456789'
+        vendor_reference_id: '123456789'
+      total: 999
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  orderUpdateOrderResponse:
+    type: object
+    title: UpdateOrderResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/orderUpdateOrderResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        id: 1
+      desc: ''
+  orderCancelOrderResponseData:
+    type: object
+    title: CancelOrderResponseData
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      id: 1
+  orderReissueOrderRequest:
+    type: object
+    title: ReissueOrderRequest
+    properties:
+      approver_email:
+        description: Email for domain ownership verification. Should start with well-known generic name like admin@, hostmater@, administrator@, etc.
+        type: string
+      csr:
+        type: string
+        title: Certificate signing request
+      domain_validation_methods:
+        type: array
+        title: Method of domain validation
+        items:
+          $ref: '#/definitions/orderSslOrderDomainValidationMethods'
+      enable_dns_automation:
+        type: boolean
+        format: boolean
+        title: Indicates whether the automatic DNS validation will be applied to the certificate
+        default: false
+      host_names:
+        type: array
+        title: List of domain names to protect
+        items:
+          type: string
+      id:
+        type: integer
+        format: int32
+        title: Object id
+      organization_handle:
+        type: string
+        title: Handle of the organization contact
+      signature_hash_algorithm:
+        type: string
+        title: Certificate has algorithm. Set to sha2 or leave blank
+      software_id:
+        type: string
+        title: Software used on host where certificate will be installed
+    example:
+      approver_email: admin@example.com
+      csr: '-----BEGIN CERTIFICATE REQUEST-----
+
+        MIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER
+
+        MA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp
+
+        dDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4
+
+        YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH
+
+        RldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK
+
+        h5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5
+
+        yaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos
+
+        qBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww
+
+        acElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo
+
+        JOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S
+
+        ZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi
+
+        cq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6
+
+        wCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk
+
+        99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq
+
+        1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma
+
+        ySUlLeY=
+
+        -----END CERTIFICATE REQUEST-----'
+      domain_validation_methods:
+      - host_name: example.com
+        method: https
+      enable_dns_automation: false
+      host_names:
+      - www.example.com
+      id: 1
+      organization_handle: TH000001-NL
+      signature_hash_algorithm: sha2
+      software_id: linux
+  orderSslOrder:
+    type: object
+    title: SslOrder
+    properties:
+      active_date:
+        type: string
+        title: Date the certificate became active
+      additional_data:
+        type: array
+        title: Additional data for DNS and HTTP validation methods
+        items:
+          $ref: '#/definitions/orderSslOrderAdditionalData'
+      administrative_handle:
+        type: string
+        title: Handle of the administrative contact
+      autorenew:
+        type: string
+        title: Certificate autorenew property
+      billing_handle:
+        type: string
+        title: Handle of the billing contact
+      brand_name:
+        type: string
+        title: Product brand
+      certificate:
+        type: string
+        title: Issued SSL certificate
+      common_name:
+        type: string
+        title: List of domain names
+      csr:
+        type: string
+        title: Certificate signing request
+      domain_validation_methods:
+        type: array
+        title: Domain validation method
+        items:
+          $ref: '#/definitions/orderSslOrderDomainValidationMethods'
+      domain_validation_statuses:
+        title: List of order validation statuses
+        $ref: '#/definitions/orderSslOrderDomainValidationStatuses'
+      email_approver:
+        type: string
+        title: Email used for domain validation
+      email_reissue:
+        type: string
+        title: Email used for reissue requests
+      expiration_date:
+        type: string
+        title: Date the certificate expires
+      features:
+        type: string
+        title: List of SSL order features
+      host_names:
+        type: array
+        title: List of protected domain anmes
+        items:
+          type: string
+      id:
+        type: integer
+        format: int32
+        title: Object id
+      intermediate_certificate:
+        type: string
+        title: Intermediate certificate
+      options:
+        title: List of SSL order options
+        $ref: '#/definitions/orderSslOrderOptions'
+      order_date:
+        type: string
+        title: Order date
+      order_ends_at:
+        type: string
+        title: date till which order has been paid
+      organization_handle:
+        type: string
+        title: Handle of the organization contact
+      period:
+        type: integer
+        format: int32
+        title: Certificate issuance period
+      product_id:
+        type: integer
+        format: int32
+        title: ID of the product
+      product_name:
+        type: string
+        title: Name of the product
+      reissue_at:
+        type: string
+        title: date when we will request automatic reissue
+      root_certificate:
+        type: string
+        title: Root certificate
+      software:
+        type: string
+        title: Software used on host where certificate will be installed
+      sslinhva_order_id:
+        type: string
+        title: Internal order ID
+      status:
+        type: string
+        title: Order status
+      technical_handle:
+        type: string
+        title: Handle of the technical contact
+      validation_method:
+        type: string
+        title: Certificate validation method
+      vendor_order_id:
+        type: string
+        title: Order id at the CA
+      vendor_reference_id:
+        type: string
+        title: Internal vendor reference ID
+    example:
+      active_date: '2019-01-01 0:00:01'
+      additional_data:
+      - dns: 73d01a1232214f96ebf08d6f9d0af6f9
+        dns_record: example.com
+        dns_value: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+        domain: example.com
+        file_content: 73d01a1232214f96ebf08d6f9d0af6f9
+        file_contents: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+        file_location: example.com/.well-known/pki-validation/fileauth.txt
+        file_name: fileauth.txt
+        md5: 73d01a1232214f96ebf08d6f9d0af6f9
+        old_cert_format:
+        - dywtgtjttvdk5v4ncd8231yl6v5ji8pv
+        sha1: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+        sha256: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+        token: a9a5775036334709b3c04e0e4a095f15
+        url: http://3.example.com/.well-known/pki-validation/12345e32k4j32kljlkfsdjlkfjsdlk333.txt
+      administrative_handle: XX123456-XX
+      autorenew: 'off'
+      billing_handle: XX123456-XX
+      brand_name: Comodo
+      certificate: ''
+      common_name: example.com
+      csr: '-----BEGIN CERTIFICATE REQUEST-----
+
+        MIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER
+
+        MA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp
+
+        dDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4
+
+        YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH
+
+        RldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK
+
+        h5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5
+
+        yaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos
+
+        qBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww
+
+        acElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo
+
+        JOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S
+
+        ZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi
+
+        cq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6
+
+        wCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk
+
+        99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq
+
+        1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma
+
+        ySUlLeY=
+
+        -----END CERTIFICATE REQUEST-----'
+      domain_validation_methods:
+      - host_name: example.com
+        method: https
+      domain_validation_statuses:
+        ca_operation: request
+        ca_order_status: in_progress
+        ca_status: requested
+        status: open
+      email_approver: admin@example.com
+      email_reissue: admin@example.com
+      expiration_date: '2021-01-01 0:00:01'
+      features: ''
+      host_names:
+      - www.example.com
+      id: 123456789
+      intermediate_certificate: ''
+      options:
+        features: ''
+      order_date: '2019-01-01 0:00:01'
+      order_ends_at: '2019-01-01 0:00:01'
+      organization_handle: TH000001-NL
+      period: 2
+      product_id: 5
+      product_name: EssentialSSL
+      reissue_at: '2019-01-01 0:00:01'
+      root_certificate: ''
+      software: linux
+      sslinhva_order_id: 11111111-1111-1111-1111-111111111111
+      status: REQ
+      technical_handle: TH000001-NL
+      validation_method: domain
+      vendor_order_id: '123456789'
+      vendor_reference_id: '123456789'
+  orderCancelOrderResponse:
+    type: object
+    title: CancelOrderResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/orderCancelOrderResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        id: 1
+      desc: ''
+  orderCreateOrderResponseData:
+    type: object
+    title: CreateOrderResponseData
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      id: 1
+  orderGetOrderResponse:
+    type: object
+    title: GetOrderResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/orderSslOrder'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        active_date: '2019-01-01 0:00:01'
+        additional_data:
+        - dns: 73d01a1232214f96ebf08d6f9d0af6f9
+          dns_record: example.com
+          dns_value: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+          domain: example.com
+          file_content: 73d01a1232214f96ebf08d6f9d0af6f9
+          file_contents: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+          file_location: example.com/.well-known/pki-validation/fileauth.txt
+          file_name: fileauth.txt
+          md5: 73d01a1232214f96ebf08d6f9d0af6f9
+          old_cert_format:
+          - dywtgtjttvdk5v4ncd8231yl6v5ji8pv
+          sha1: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+          sha256: 0453ff12343c6d5e24466832668aa13658e5893c917b9486d7c59a5727074c9c
+          token: a9a5775036334709b3c04e0e4a095f15
+          url: http://3.example.com/.well-known/pki-validation/12345e32k4j32kljlkfsdjlkfjsdlk333.txt
+        administrative_handle: XX123456-XX
+        autorenew: 'off'
+        billing_handle: XX123456-XX
+        brand_name: Comodo
+        certificate: ''
+        common_name: example.com
+        csr: '-----BEGIN CERTIFICATE REQUEST-----
+
+          MIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER
+
+          MA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp
+
+          dDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4
+
+          YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH
+
+          RldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK
+
+          h5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5
+
+          yaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos
+
+          qBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww
+
+          acElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo
+
+          JOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S
+
+          ZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi
+
+          cq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6
+
+          wCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk
+
+          99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq
+
+          1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma
+
+          ySUlLeY=
+
+          -----END CERTIFICATE REQUEST-----'
+        domain_validation_methods:
+        - host_name: example.com
+          method: https
+        domain_validation_statuses:
+          ca_operation: request
+          ca_order_status: in_progress
+          ca_status: requested
+          status: open
+        email_approver: admin@example.com
+        email_reissue: admin@example.com
+        expiration_date: '2021-01-01 0:00:01'
+        features: ''
+        host_names:
+        - www.example.com
+        id: 123456789
+        intermediate_certificate: ''
+        options:
+          features: ''
+        order_date: '2019-01-01 0:00:01'
+        order_ends_at: '2019-01-01 0:00:01'
+        organization_handle: TH000001-NL
+        period: 2
+        product_id: 5
+        product_name: EssentialSSL
+        reissue_at: '2019-01-01 0:00:01'
+        root_certificate: ''
+        software: linux
+        sslinhva_order_id: 11111111-1111-1111-1111-111111111111
+        status: REQ
+        technical_handle: TH000001-NL
+        validation_method: domain
+        vendor_order_id: '123456789'
+        vendor_reference_id: '123456789'
+      desc: ''
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

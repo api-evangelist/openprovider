@@ -1,0 +1,440 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData EmailVerification API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: EmailVerification
+paths:
+  /v1beta/customers/verifications/emails/domains:
+    get:
+      tags:
+      - EmailVerification
+      summary: List domain email verifications
+      operationId: ListDomainEmailVerifications
+      parameters:
+      - type: integer
+        format: int32
+        description: The domain id.
+        name: domain_id
+        in: query
+      - type: string
+        description: The domain.
+        name: domain
+        in: query
+      - type: string
+        description: The email.
+        name: email
+        in: query
+      - type: string
+        description: The handle.
+        name: handle
+        in: query
+      - type: string
+        description: The status.
+        name: status
+        in: query
+      - type: string
+        description: The description.
+        name: description
+        in: query
+      - type: boolean
+        format: boolean
+        description: Is suspended.
+        name: is_suspended
+        in: query
+      - type: string
+        description: The type.
+        name: response.type
+        in: query
+      - type: string
+        description: The to.
+        name: response.to
+        in: query
+      - type: integer
+        format: int32
+        description: The limit.
+        name: limit
+        in: query
+      - type: integer
+        format: int32
+        description: The offset.
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/emailListDomainVerificationsResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/customers/verifications/emails/restart:
+    post:
+      tags:
+      - EmailVerification
+      summary: Restart email verification
+      operationId: RestartEmailVerification
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/emailRestartEmailVerificationRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/emailRestartEmailVerificationResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/customers/verifications/emails/start:
+    post:
+      tags:
+      - EmailVerification
+      summary: Start email verification
+      operationId: StartEmailVerification
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/emailStartEmailVerificationRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/emailStartEmailVerificationResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  emailStartEmailVerificationResponseData:
+    type: object
+    title: StartEmailVerificationResponseData
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object ID
+    example:
+      id: 123456789
+  emailStartEmailVerificationResponse:
+    type: object
+    title: StartEmailVerificationResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/emailStartEmailVerificationResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 20001
+      data:
+        id: 123456789
+      desc: Verification email in progress
+  emailRestartEmailVerificationResponseData:
+    type: object
+    title: RestartEmailVerificationResponseData
+    properties:
+      success:
+        type: boolean
+        format: boolean
+        title: Indicates if operation was successful
+    example:
+      success: false
+  emailRestartEmailVerificationRequest:
+    type: object
+    title: RestartEmailVerificationRequest
+    properties:
+      email:
+        type: string
+        title: Email address
+      language:
+        type: string
+        title: The language
+      tag:
+        type: string
+        title: The tag
+    example:
+      email: test@mail.tld
+      language: ''
+      tag: ''
+  emailListDomainVerificationsResponseData:
+    type: object
+    title: ListDomainVerificationsResponseData
+    properties:
+      results:
+        type: array
+        title: The results
+        items:
+          $ref: '#/definitions/emailDomainEmailVerification'
+      total:
+        type: integer
+        format: int32
+        title: The total
+    example:
+      results:
+      - description: ''
+        domain: ''
+        email: ''
+        expiration_date: ''
+        handle: ''
+        is_suspended: false
+        status: ''
+      total: 0
+  emailDomainEmailVerification:
+    type: object
+    title: DomainEmailVerification
+    properties:
+      description:
+        type: string
+        title: The description
+      domain:
+        type: string
+        title: The domain
+      email:
+        type: string
+        title: The email
+      expiration_date:
+        type: string
+        title: The expiration date
+      handle:
+        type: string
+        title: The handle
+      is_suspended:
+        type: boolean
+        format: boolean
+        title: Is suspended
+      status:
+        type: string
+        title: The status
+    example:
+      description: ''
+      domain: ''
+      email: ''
+      expiration_date: ''
+      handle: ''
+      is_suspended: false
+      status: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  emailRestartEmailVerificationResponse:
+    type: object
+    title: RestartEmailVerificationResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/emailRestartEmailVerificationResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        success: false
+      desc: ''
+  emailStartEmailVerificationRequest:
+    type: object
+    title: StartEmailVerificationRequest
+    properties:
+      email:
+        type: string
+        title: Email address
+      handle:
+        type: string
+        title: Customer's handle
+      language:
+        type: string
+        title: The language
+      tag:
+        type: string
+        title: The tag
+    example:
+      email: test@mail.tld
+      handle: ''
+      language: ''
+      tag: ''
+  emailListDomainVerificationsResponse:
+    type: object
+    title: ListDomainVerificationsResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: The code
+      data:
+        title: The data
+        $ref: '#/definitions/emailListDomainVerificationsResponseData'
+      desc:
+        type: string
+        title: The desc
+      maintenance:
+        type: boolean
+        format: boolean
+        title: The maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - description: ''
+          domain: ''
+          email: ''
+          expiration_date: ''
+          handle: ''
+          is_suspended: false
+          status: ''
+        total: 0
+      desc: ''
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

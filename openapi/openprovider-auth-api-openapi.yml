@@ -1,0 +1,208 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData Auth API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: Auth
+paths:
+  /v1beta/auth/login:
+    post:
+      tags:
+      - Auth
+      summary: Login with username and password
+      operationId: Login
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/authLoginRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/authLoginResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  authLoginResponseData:
+    type: object
+    title: LoginResponseData
+    properties:
+      reseller_id:
+        type: integer
+        format: int32
+        title: The reseller id
+      token:
+        type: string
+        title: The token
+    example:
+      reseller_id: 123456
+      token: 20d65561c9636d262e59aec8582c20c7
+  authLoginRequest:
+    type: object
+    title: LoginRequest
+    properties:
+      ip:
+        type: string
+        title: The IP address (0.0.0.0 is any IP address)
+      password:
+        type: string
+        title: The user's password
+      username:
+        type: string
+        title: The user's name
+    example:
+      ip: 123.123.123.123
+      password: eivr4ReKoz
+      username: openprovider
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  authLoginResponse:
+    type: object
+    title: LoginResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/authLoginResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        reseller_id: 123456
+        token: 20d65561c9636d262e59aec8582c20c7
+      desc: ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

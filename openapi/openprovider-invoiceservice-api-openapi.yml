@@ -1,0 +1,306 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData InvoiceService API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: InvoiceService
+  x-displayName: Invoice
+paths:
+  /v1beta/invoices:
+    get:
+      tags:
+      - InvoiceService
+      summary: List invoices
+      operationId: ListInvoices
+      parameters:
+      - type: integer
+        format: int32
+        description: The limit.
+        name: limit
+        in: query
+      - type: integer
+        format: int32
+        description: The offset.
+        name: offset
+        in: query
+      - type: string
+        description: The order.
+        name: order
+        in: query
+      - type: string
+        description: The order by.
+        name: order_by
+        in: query
+      - type: string
+        description: The start creation date.
+        name: start_creation_date
+        in: query
+      - type: string
+        description: The end creation date.
+        name: end_creation_date
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/invoiceListInvoicesResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  invoicePrices:
+    type: object
+    title: Prices
+    properties:
+      product:
+        title: Price in product currency
+        $ref: '#/definitions/invoicePrice'
+      reseller:
+        title: Price in reseller currency
+        $ref: '#/definitions/invoicePrice'
+    example:
+      product:
+        currency: EUR
+        price: 0
+      reseller:
+        currency: EUR
+        price: 0
+  invoiceListInvoicesResponse:
+    type: object
+    title: ListInvoicesResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: The code
+      data:
+        title: The data
+        $ref: '#/definitions/invoiceListInvoicesResponseData'
+      desc:
+        type: string
+        title: The desc
+      maintenance:
+        type: boolean
+        format: boolean
+        title: The maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - amount:
+            product:
+              currency: EUR
+              price: 0
+            reseller:
+              currency: EUR
+              price: 0
+          attachment_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
+          creation_date: '2006-09-29 0:00:00'
+          id: 1
+          invoice_number: XX123456
+          invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
+        total: 0
+      desc: ''
+  invoicePrice:
+    type: object
+    title: Price
+    properties:
+      currency:
+        type: string
+        title: The currency
+      price:
+        type: number
+        format: double
+        title: The price
+    example:
+      currency: EUR
+      price: 0
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  invoiceInvoice:
+    type: object
+    title: Invoice
+    properties:
+      amount:
+        title: The amount
+        $ref: '#/definitions/invoicePrices'
+      attachment_url:
+        type: string
+        title: The attachment url
+      creation_date:
+        type: string
+        title: The creation date
+      id:
+        type: integer
+        format: int32
+        title: The id
+      invoice_number:
+        type: string
+        title: The invoice number
+      invoice_url:
+        type: string
+        title: The invoice url
+    example:
+      amount:
+        product:
+          currency: EUR
+          price: 0
+        reseller:
+          currency: EUR
+          price: 0
+      attachment_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
+      creation_date: '2006-09-29 0:00:00'
+      id: 1
+      invoice_number: XX123456
+      invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
+  invoiceListInvoicesResponseData:
+    type: object
+    title: ListInvoicesResponseData
+    properties:
+      results:
+        type: array
+        title: The results
+        items:
+          $ref: '#/definitions/invoiceInvoice'
+      total:
+        type: integer
+        format: int32
+        title: The total
+    example:
+      results:
+      - amount:
+          product:
+            currency: EUR
+            price: 0
+          reseller:
+            currency: EUR
+            price: 0
+        attachment_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
+        creation_date: '2006-09-29 0:00:00'
+        id: 1
+        invoice_number: XX123456
+        invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
+      total: 0
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

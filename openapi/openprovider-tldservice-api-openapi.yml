@@ -1,0 +1,1310 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData TldService API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: TldService
+  x-displayName: Tld
+paths:
+  /v1beta/tlds:
+    get:
+      tags:
+      - TldService
+      summary: List tlds
+      operationId: ListTlds
+      parameters:
+      - type: integer
+        format: int32
+        description: Search query limit.
+        name: limit
+        in: query
+      - type: integer
+        format: int32
+        description: Search query offset.
+        name: offset
+        in: query
+      - type: string
+        description: Sorts output ASC or DESC.
+        name: order
+        in: query
+      - type: string
+        description: Sorts output by a field.
+        name: order_by
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: multi
+        description: Array of extensions.
+        name: extensions
+        in: query
+      - type: string
+        description: Extension name pattern. Wildcard (*) can be used.
+        name: name_pattern
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns only extension names in the output.
+        name: only_names
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns additional extension description.
+        name: with_description
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns list of extension restrictions.
+        name: with_restrictions
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns number of domains using specified extension in this account.
+        name: with_usage_count
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: multi
+        description: Array of extension application modes.
+        name: with_application_mode
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns extension prices.
+        name: with_price
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns extension prices for each Openprovider discount tier.
+        name: with_level_prices
+        in: query
+      - type: boolean
+        format: boolean
+        description: Indicates, if extension is active.
+        name: is_active
+        in: query
+      - type: boolean
+        format: boolean
+        description: Indicates, if extension is a newGTLD.
+        name: is_new_gtld
+        in: query
+      - type: string
+        description: Extension status.
+        name: status
+        in: query
+      - type: string
+        description: Pre-registration mode.
+        name: application_mode
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/tldListTldsResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/tlds/{name}:
+    get:
+      tags:
+      - TldService
+      summary: Get tld
+      operationId: GetTld
+      parameters:
+      - type: string
+        description: Extension name
+        name: name
+        in: path
+        required: true
+      - type: integer
+        format: int32
+        description: Search query limit.
+        name: limit
+        in: query
+      - type: integer
+        format: int32
+        description: Search query offset.
+        name: offset
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns additional extension description.
+        name: with_description
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns list of extension restrictions.
+        name: with_restrictions
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns extension prices.
+        name: with_price
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns extension prices for each Openprovider discount tier.
+        name: with_level_prices
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns number of domains using specified extension in this account.
+        name: with_usage_count
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: multi
+        description: Extension status.
+        name: status
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/tldGetTldResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  tldPriceInCurrency:
+    type: object
+    title: PriceInCurrency
+    properties:
+      currency:
+        type: string
+        title: Price currency
+      price:
+        type: number
+        format: double
+        title: Price in specified currency
+    example:
+      currency: USD
+      price: 226
+  tldListTldsResponse:
+    type: object
+    title: ListTldsResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/tldListTldsResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates, if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - admin_handle_supported: false
+          billing_handle_enabled: false
+          billing_handle_supported: false
+          description:
+            text: <p>La extensi&oacute;n de nombre de dominio .BIZ es el dominio de primer nivel orientado al sector de los negocios. La extensi&oacute;n de dominio .BIZ es utilizada por empresas que desean una &uacute;nica presencia en Internet. La extensi&oacute;n .BIZ ha sido desarrollada para promocionar la nueva generaci&oacute;n de comercio electr&oacute;nico, y de aplicaciones Internet.</p>
+            url: http://www.neustarregistry.biz
+          dnssec_algorithms:
+          - 3
+          dnssec_allowed: false
+          dnssec_digests_allowed: false
+          dnssec_keys_allowed: false
+          dnssec_max_records_amount: 0
+          domicile_available: false
+          is_auth_code_available: false
+          is_auth_code_changeable: false
+          is_auth_code_requested: false
+          is_private_whois_allowed: false
+          is_trade_auth_code_required: true
+          is_transfer_auth_code_required: true
+          level_prices:
+          - level: 1
+            price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+          max_period: 10
+          min_period: 1
+          name: eu
+          owner_handle_supported: false
+          prices:
+            create_price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+            domicile_price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+            max_period: 10
+            min_period: 1
+            renew_price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+            reseller_price:
+              product:
+                currency: USD
+                price: 226
+              promotion_details:
+                end_date: '1589932800'
+                non_promo_price:
+                  product:
+                    currency: USD
+                    price: 226
+                  reseller:
+                    currency: USD
+                    price: 226
+                start_date: '1582156800'
+              reseller:
+                currency: USD
+                price: 226
+            restore_price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+            setup_price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+            soft_restore_price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+            trade_price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+            transfer_price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+            update_price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+          quarantine_period: 38
+          renew_available: false
+          reseller_handle_enabled: false
+          reseller_handle_supported: false
+          restrictions:
+          - Los dominios premium (cortos y nombres genéricos) son más caros para registros y renovaciones
+          soft_quarantine_period: 44
+          status: ACT
+          supported_application_mode:
+          - name: claims
+            title: General Availability
+          supported_idn_scripts:
+          - description: Afrikaans
+            value: AFR
+          tech_handle_supported: false
+          trade_available: false
+          transfer_available: false
+          usage_count: 0
+        total: 999
+      desc: ''
+  tldGetTldResponse:
+    type: object
+    title: GetTldResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/tldTld'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates, if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        admin_handle_supported: false
+        billing_handle_enabled: false
+        billing_handle_supported: false
+        description:
+          text: <p>La extensi&oacute;n de nombre de dominio .BIZ es el dominio de primer nivel orientado al sector de los negocios. La extensi&oacute;n de dominio .BIZ es utilizada por empresas que desean una &uacute;nica presencia en Internet. La extensi&oacute;n .BIZ ha sido desarrollada para promocionar la nueva generaci&oacute;n de comercio electr&oacute;nico, y de aplicaciones Internet.</p>
+          url: http://www.neustarregistry.biz
+        dnssec_algorithms:
+        - 3
+        dnssec_allowed: false
+        dnssec_digests_allowed: false
+        dnssec_keys_allowed: false
+        dnssec_max_records_amount: 0
+        domicile_available: false
+        is_auth_code_available: false
+        is_auth_code_changeable: false
+        is_auth_code_requested: false
+        is_private_whois_allowed: false
+        is_trade_auth_code_required: true
+        is_transfer_auth_code_required: true
+        level_prices:
+        - level: 1
+          price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+        max_period: 10
+        min_period: 1
+        name: eu
+        owner_handle_supported: false
+        prices:
+          create_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          domicile_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          max_period: 10
+          min_period: 1
+          renew_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          reseller_price:
+            product:
+              currency: USD
+              price: 226
+            promotion_details:
+              end_date: '1589932800'
+              non_promo_price:
+                product:
+                  currency: USD
+                  price: 226
+                reseller:
+                  currency: USD
+                  price: 226
+              start_date: '1582156800'
+            reseller:
+              currency: USD
+              price: 226
+          restore_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          setup_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          soft_restore_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          trade_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          transfer_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          update_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+        quarantine_period: 38
+        renew_available: false
+        reseller_handle_enabled: false
+        reseller_handle_supported: false
+        restrictions:
+        - Los dominios premium (cortos y nombres genéricos) son más caros para registros y renovaciones
+        soft_quarantine_period: 44
+        status: ACT
+        supported_application_mode:
+        - name: claims
+          title: General Availability
+        supported_idn_scripts:
+        - description: Afrikaans
+          value: AFR
+        tech_handle_supported: false
+        trade_available: false
+        transfer_available: false
+        usage_count: 0
+      desc: ''
+  tldPrices:
+    type: object
+    title: Prices
+    properties:
+      create_price:
+        title: Domain registration price
+        $ref: '#/definitions/tldPrice'
+      domicile_price:
+        title: Local presence service (domicile) price
+        $ref: '#/definitions/tldPrice'
+      max_period:
+        type: integer
+        format: int32
+        title: Maximal operation period
+      min_period:
+        type: integer
+        format: int32
+        title: Minimal operation period
+      renew_price:
+        title: Domain renewal price
+        $ref: '#/definitions/tldPrice'
+      reseller_price:
+        title: Reseller's price with personal discounts or promo
+        $ref: '#/definitions/tldPriceWithPromoInfo'
+      restore_price:
+        title: Domain restoration price
+        $ref: '#/definitions/tldPrice'
+      setup_price:
+        title: Domain setup price
+        $ref: '#/definitions/tldPrice'
+      soft_restore_price:
+        title: Price of domain restoration during soft quarantine or grace period
+        $ref: '#/definitions/tldPrice'
+      trade_price:
+        title: Domain trade price
+        $ref: '#/definitions/tldPrice'
+      transfer_price:
+        title: Domain transfer price
+        $ref: '#/definitions/tldPrice'
+      update_price:
+        title: Domain update price
+        $ref: '#/definitions/tldPrice'
+    example:
+      create_price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+      domicile_price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+      max_period: 10
+      min_period: 1
+      renew_price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+      reseller_price:
+        product:
+          currency: USD
+          price: 226
+        promotion_details:
+          end_date: '1589932800'
+          non_promo_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          start_date: '1582156800'
+        reseller:
+          currency: USD
+          price: 226
+      restore_price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+      setup_price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+      soft_restore_price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+      trade_price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+      transfer_price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+      update_price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+  tldTld:
+    type: object
+    title: Tld
+    properties:
+      admin_handle_supported:
+        type: boolean
+        format: boolean
+        title: Indicates, if administrative domain handle is supported in specified extension
+      billing_handle_enabled:
+        type: boolean
+        format: boolean
+        title: Indicates, if billing domain handle is supported in specified extension
+      billing_handle_supported:
+        type: boolean
+        format: boolean
+        title: Indicates, if billing domain handle is supported in specified extension
+      description:
+        title: Extension description
+        $ref: '#/definitions/tldDescription'
+      dnssec_algorithms:
+        type: array
+        title: List of supported DNSSEC algorithms
+        items:
+          type: integer
+          format: int32
+      dnssec_allowed:
+        type: boolean
+        format: boolean
+        title: Indicates, if DNSSEC is supported by entension
+      dnssec_digests_allowed:
+        type: boolean
+        format: boolean
+        title: Indicates, if DNSSEC digests are supported by entension
+      dnssec_keys_allowed:
+        type: boolean
+        format: boolean
+        title: Indicates, if DNSSEC keys are supported by entension
+      dnssec_max_records_amount:
+        type: integer
+        format: int32
+        title: Indicates, how many DNSSEC records are allowed for the extension
+      domicile_available:
+        type: boolean
+        format: boolean
+        title: Indicates, if local presence service (domicile) is available for the extension
+      is_auth_code_available:
+        type: boolean
+        format: boolean
+        title: Indicates, if authcodes are supported by extension
+      is_auth_code_changeable:
+        type: boolean
+        format: boolean
+        title: Indicates, if authcode can be changed
+      is_auth_code_requested:
+        type: boolean
+        format: boolean
+        title: Indicates, if authcode can be requested
+      is_private_whois_allowed:
+        type: boolean
+        format: boolean
+        title: Indicates, if whois privacy protection service is available for the extension
+      is_trade_auth_code_required:
+        type: boolean
+        format: boolean
+        title: Indicates, if authcode is required for domain trade operation
+      is_transfer_auth_code_required:
+        type: boolean
+        format: boolean
+        title: Indicates, if authcode is required for domain transfer operation
+      level_prices:
+        type: array
+        title: List of prices by discount tier
+        items:
+          $ref: '#/definitions/tldLevelPrice'
+      max_period:
+        type: integer
+        format: int32
+        title: Maximal operation period
+      min_period:
+        type: integer
+        format: int32
+        title: Minimal operation period
+      name:
+        type: string
+        title: Extension name
+      owner_handle_supported:
+        type: boolean
+        format: boolean
+        title: Indicates, if domain owner handle is supported in specified extension
+      prices:
+        title: Array of prices
+        $ref: '#/definitions/tldPrices'
+      quarantine_period:
+        type: integer
+        format: int32
+        title: Extension hard quarantine period
+      renew_available:
+        type: boolean
+        format: boolean
+        title: Indicates, if domain renew is supported by extension
+      reseller_handle_enabled:
+        type: boolean
+        format: boolean
+        title: Indicates, if domain reseller handle is supported in specified extension
+      reseller_handle_supported:
+        type: boolean
+        format: boolean
+        title: Indicates, if domain reseller handle is supported in specified extension
+      restrictions:
+        type: array
+        title: Extension restrictions
+        items:
+          type: string
+      soft_quarantine_period:
+        type: integer
+        format: int32
+        title: Extension soft quarantine period
+      status:
+        type: string
+        title: Extension status
+      supported_application_mode:
+        type: array
+        title: List of supported pre-regitration modes
+        items:
+          $ref: '#/definitions/tldApplicationMode'
+      supported_idn_scripts:
+        type: array
+        title: List of supported IDN scripts
+        items:
+          $ref: '#/definitions/tldIdnScript'
+      tech_handle_supported:
+        type: boolean
+        format: boolean
+        title: Indicates, if domain technical handle is supported in specified extension
+      trade_available:
+        type: boolean
+        format: boolean
+        title: Indicates, if domain trade is supported by extension
+      transfer_available:
+        type: boolean
+        format: boolean
+        title: Indicates, if domain transfer is supported by extension
+      usage_count:
+        type: integer
+        format: int32
+        title: Returns count of domains using specified extension
+    example:
+      admin_handle_supported: false
+      billing_handle_enabled: false
+      billing_handle_supported: false
+      description:
+        text: <p>La extensi&oacute;n de nombre de dominio .BIZ es el dominio de primer nivel orientado al sector de los negocios. La extensi&oacute;n de dominio .BIZ es utilizada por empresas que desean una &uacute;nica presencia en Internet. La extensi&oacute;n .BIZ ha sido desarrollada para promocionar la nueva generaci&oacute;n de comercio electr&oacute;nico, y de aplicaciones Internet.</p>
+        url: http://www.neustarregistry.biz
+      dnssec_algorithms:
+      - 3
+      dnssec_allowed: false
+      dnssec_digests_allowed: false
+      dnssec_keys_allowed: false
+      dnssec_max_records_amount: 0
+      domicile_available: false
+      is_auth_code_available: false
+      is_auth_code_changeable: false
+      is_auth_code_requested: false
+      is_private_whois_allowed: false
+      is_trade_auth_code_required: true
+      is_transfer_auth_code_required: true
+      level_prices:
+      - level: 1
+        price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+      max_period: 10
+      min_period: 1
+      name: eu
+      owner_handle_supported: false
+      prices:
+        create_price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+        domicile_price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+        max_period: 10
+        min_period: 1
+        renew_price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+        reseller_price:
+          product:
+            currency: USD
+            price: 226
+          promotion_details:
+            end_date: '1589932800'
+            non_promo_price:
+              product:
+                currency: USD
+                price: 226
+              reseller:
+                currency: USD
+                price: 226
+            start_date: '1582156800'
+          reseller:
+            currency: USD
+            price: 226
+        restore_price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+        setup_price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+        soft_restore_price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+        trade_price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+        transfer_price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+        update_price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+      quarantine_period: 38
+      renew_available: false
+      reseller_handle_enabled: false
+      reseller_handle_supported: false
+      restrictions:
+      - Los dominios premium (cortos y nombres genéricos) son más caros para registros y renovaciones
+      soft_quarantine_period: 44
+      status: ACT
+      supported_application_mode:
+      - name: claims
+        title: General Availability
+      supported_idn_scripts:
+      - description: Afrikaans
+        value: AFR
+      tech_handle_supported: false
+      trade_available: false
+      transfer_available: false
+      usage_count: 0
+  tldDescription:
+    type: object
+    title: Description
+    properties:
+      text:
+        type: string
+        title: Description text
+      url:
+        type: string
+        title: Url
+    example:
+      text: <p>La extensi&oacute;n de nombre de dominio .BIZ es el dominio de primer nivel orientado al sector de los negocios. La extensi&oacute;n de dominio .BIZ es utilizada por empresas que desean una &uacute;nica presencia en Internet. La extensi&oacute;n .BIZ ha sido desarrollada para promocionar la nueva generaci&oacute;n de comercio electr&oacute;nico, y de aplicaciones Internet.</p>
+      url: http://www.neustarregistry.biz
+  tldLevelPrice:
+    type: object
+    title: LevelPrice
+    properties:
+      level:
+        type: integer
+        format: int32
+        title: Openprovider discount tier
+      price:
+        title: Tiered price
+        $ref: '#/definitions/tldPrice'
+    example:
+      level: 1
+      price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+  tldIdnScript:
+    type: object
+    title: IdnScript
+    properties:
+      description:
+        type: string
+        title: IDN script description
+      value:
+        type: string
+        title: IDN script parameter value
+    example:
+      description: Afrikaans
+      value: AFR
+  tldPriceWithPromoInfo:
+    type: object
+    title: PriceWithPromoInfo
+    properties:
+      product:
+        title: Price in product currency
+        $ref: '#/definitions/tldPriceInCurrency'
+      promotion_details:
+        title: Additional info about current promotion
+        $ref: '#/definitions/tldPromoDetails'
+      reseller:
+        title: Price in reseller's currency
+        $ref: '#/definitions/tldPriceInCurrency'
+    example:
+      product:
+        currency: USD
+        price: 226
+      promotion_details:
+        end_date: '1589932800'
+        non_promo_price:
+          product:
+            currency: USD
+            price: 226
+          reseller:
+            currency: USD
+            price: 226
+        start_date: '1582156800'
+      reseller:
+        currency: USD
+        price: 226
+  tldPrice:
+    type: object
+    title: Price
+    properties:
+      product:
+        title: Price in product currency
+        $ref: '#/definitions/tldPriceInCurrency'
+      reseller:
+        title: Price in reseller's currency
+        $ref: '#/definitions/tldPriceInCurrency'
+    example:
+      product:
+        currency: USD
+        price: 226
+      reseller:
+        currency: USD
+        price: 226
+  tldApplicationMode:
+    type: object
+    title: ApplicationMode
+    properties:
+      name:
+        type: string
+        title: Application mode name
+      title:
+        type: string
+        title: Pre-registration mode title
+    example:
+      name: claims
+      title: General Availability
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  tldListTldsResponseData:
+    type: object
+    title: ListTldsResponseData
+    properties:
+      results:
+        type: array
+        title: Array of results
+        items:
+          $ref: '#/definitions/tldTld'
+      total:
+        type: integer
+        format: int32
+        title: Results count
+    example:
+      results:
+      - admin_handle_supported: false
+        billing_handle_enabled: false
+        billing_handle_supported: false
+        description:
+          text: <p>La extensi&oacute;n de nombre de dominio .BIZ es el dominio de primer nivel orientado al sector de los negocios. La extensi&oacute;n de dominio .BIZ es utilizada por empresas que desean una &uacute;nica presencia en Internet. La extensi&oacute;n .BIZ ha sido desarrollada para promocionar la nueva generaci&oacute;n de comercio electr&oacute;nico, y de aplicaciones Internet.</p>
+          url: http://www.neustarregistry.biz
+        dnssec_algorithms:
+        - 3
+        dnssec_allowed: false
+        dnssec_digests_allowed: false
+        dnssec_keys_allowed: false
+        dnssec_max_records_amount: 0
+        domicile_available: false
+        is_auth_code_available: false
+        is_auth_code_changeable: false
+        is_auth_code_requested: false
+        is_private_whois_allowed: false
+        is_trade_auth_code_required: true
+        is_transfer_auth_code_required: true
+        level_prices:
+        - level: 1
+          price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+        max_period: 10
+        min_period: 1
+        name: eu
+        owner_handle_supported: false
+        prices:
+          create_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          domicile_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          max_period: 10
+          min_period: 1
+          renew_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          reseller_price:
+            product:
+              currency: USD
+              price: 226
+            promotion_details:
+              end_date: '1589932800'
+              non_promo_price:
+                product:
+                  currency: USD
+                  price: 226
+                reseller:
+                  currency: USD
+                  price: 226
+              start_date: '1582156800'
+            reseller:
+              currency: USD
+              price: 226
+          restore_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          setup_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          soft_restore_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          trade_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          transfer_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+          update_price:
+            product:
+              currency: USD
+              price: 226
+            reseller:
+              currency: USD
+              price: 226
+        quarantine_period: 38
+        renew_available: false
+        reseller_handle_enabled: false
+        reseller_handle_supported: false
+        restrictions:
+        - Los dominios premium (cortos y nombres genéricos) son más caros para registros y renovaciones
+        soft_quarantine_period: 44
+        status: ACT
+        supported_application_mode:
+        - name: claims
+          title: General Availability
+        supported_idn_scripts:
+        - description: Afrikaans
+          value: AFR
+        tech_handle_supported: false
+        trade_available: false
+        transfer_available: false
+        usage_count: 0
+      total: 999
+  tldPromoDetails:
+    type: object
+    title: PromoDetails
+    properties:
+      end_date:
+        type: string
+        title: Date when promotion is end
+      non_promo_price:
+        title: Domain regular price without promotions
+        $ref: '#/definitions/tldPrice'
+      start_date:
+        type: string
+        title: Date when promotion is start
+    example:
+      end_date: '1589932800'
+      non_promo_price:
+        product:
+          currency: USD
+          price: 226
+        reseller:
+          currency: USD
+          price: 226
+      start_date: '1582156800'
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

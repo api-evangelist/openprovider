@@ -1,0 +1,230 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData CustomerAdditionalData API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: CustomerAdditionalData
+paths:
+  /v1beta/domains/additional-data/customers:
+    get:
+      tags:
+      - CustomerAdditionalData
+      summary: Get data
+      operationId: GetData
+      parameters:
+      - type: string
+        description: Domain name without extension.
+        name: domain.name
+        in: query
+      - type: string
+        description: Domain extension.
+        name: domain.extension
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/customerGetDataResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  additional_dataSelectOption:
+    type: object
+    title: SelectOption
+    properties:
+      description:
+        type: string
+        title: Parameter description
+      value:
+        type: string
+        title: Option value
+    example:
+      description: Norwegian
+      value: 'no'
+  additional_dataSpecification:
+    type: object
+    title: Specification
+    properties:
+      description:
+        type: string
+        title: Parameter description
+      name:
+        type: string
+        title: Parameter name
+      options:
+        type: array
+        title: Array of options
+        items:
+          $ref: '#/definitions/additional_dataSelectOption'
+      required:
+        type: boolean
+        format: boolean
+        title: Indicates, if specified additional data parameter is mandatory
+      type:
+        type: string
+        title: Specification type
+    example:
+      description: IDN script states what language or character set the domain name is in
+      name: idnScript
+      options:
+      - description: Norwegian
+        value: 'no'
+      required: false
+      type: select
+  customerGetDataResponse:
+    type: object
+    title: GetDataResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        type: array
+        title: Response data
+        items:
+          $ref: '#/definitions/additional_dataSpecification'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+      - description: IDN script states what language or character set the domain name is in
+        name: idnScript
+        options:
+        - description: Norwegian
+          value: 'no'
+        required: false
+        type: select
+      desc: ''
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

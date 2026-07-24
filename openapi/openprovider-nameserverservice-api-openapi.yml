@@ -1,0 +1,432 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData NameserverService API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: NameserverService
+  x-displayName: Nameserver
+paths:
+  /v1beta/dns/nameservers:
+    get:
+      tags:
+      - NameserverService
+      summary: List nameservers
+      operationId: ListNameservers
+      parameters:
+      - type: string
+        description: Nameserver name.
+        name: name
+        in: query
+      - type: string
+        description: Nameserver IP.
+        name: ip
+        in: query
+      - type: string
+        description: Nameserver IPv6.
+        name: ip6
+        in: query
+      - type: string
+        description: Nameserver name search pattern. Wildcatd (*) can be used.
+        name: pattern
+        in: query
+      - type: integer
+        format: int32
+        default: 100
+        description: Limits the number of objects in the output.
+        name: limit
+        in: query
+      - type: string
+        description: Used to retrieve all objects from a certain offset up to the limit.
+        name: offset
+        in: query
+      - type: string
+        default: asc
+        description: Sorting type (asc/desc).
+        name: order
+        in: query
+      - type: string
+        default: name
+        description: 'Field for sorting output. Possible values: id, name.'
+        name: order_by
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/nameserverListNameserversResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    post:
+      tags:
+      - NameserverService
+      summary: Create nameserver
+      operationId: CreateNameserver
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/nameserverNameserver'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/nameserverCreateNameserverResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/dns/nameservers/{name}:
+    get:
+      tags:
+      - NameserverService
+      summary: Get nameserver
+      operationId: GetNameserver
+      parameters:
+      - type: string
+        description: Nameserver name
+        name: name
+        in: path
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/nameserverGetNameserverResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    put:
+      tags:
+      - NameserverService
+      summary: Update nameserver
+      operationId: UpdateNameserver
+      parameters:
+      - type: string
+        description: Nameserver name
+        name: name
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/nameserverNameserver'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/nameserverNameserverBoolResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    delete:
+      tags:
+      - NameserverService
+      summary: Delete nameserver
+      operationId: DeleteNameserver
+      parameters:
+      - type: string
+        description: Nameserver name
+        name: name
+        in: path
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/nameserverNameserverBoolResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  nameserverListNameserversResponse:
+    type: object
+    title: ListNameserversResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/nameserverListNameserversResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - ip: 127.0.0.1
+          ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+          name: ns1.domain.com
+        total: 9
+      desc: ''
+  nameserverGetNameserverResponse:
+    type: object
+    title: GetNameserverResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/nameserverNameserver'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        ip: 127.0.0.1
+        ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+        name: ns1.domain.com
+      desc: ''
+  nameserverNameserver:
+    type: object
+    title: Nameserver
+    properties:
+      ip:
+        type: string
+        title: Nameserver IP
+      ip6:
+        type: string
+        title: Nameserver IPv6
+      name:
+        type: string
+        title: Nameserver name
+    example:
+      ip: 127.0.0.1
+      ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+      name: ns1.domain.com
+  nameserverNameserverBoolResponseData:
+    type: object
+    title: NameserverBoolResponseData
+    properties:
+      success:
+        type: boolean
+        format: boolean
+        title: Indicates if request was successful
+    example:
+      success: false
+  nameserverCreateNameserverResponse:
+    type: object
+    title: CreateNameserverResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/nameserverNameserver'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        ip: 127.0.0.1
+        ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+        name: ns1.domain.com
+      desc: ''
+  nameserverNameserverBoolResponse:
+    type: object
+    title: NameserverBoolResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/nameserverNameserverBoolResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        success: false
+      desc: ''
+  nameserverListNameserversResponseData:
+    type: object
+    title: ListNameserversResponseData
+    properties:
+      results:
+        type: array
+        title: Array of results
+        items:
+          $ref: '#/definitions/nameserverNameserver'
+      total:
+        type: integer
+        format: int32
+        title: Results count
+    example:
+      results:
+      - ip: 127.0.0.1
+        ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+        name: ns1.domain.com
+      total: 9
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

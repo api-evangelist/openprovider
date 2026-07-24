@@ -1,0 +1,281 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData OrderApproverEmail API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: OrderApproverEmail
+paths:
+  /v1beta/ssl/orders/{id}/approver-email:
+    put:
+      tags:
+      - OrderApproverEmail
+      summary: Update approver email address
+      operationId: UpdateApproverEmailAddress
+      parameters:
+      - type: integer
+        format: int32
+        description: Object id
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/approveremailUpdateApproverEmailAddressRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/approveremailUpdateApproverEmailAddressResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/ssl/orders/{id}/approver-email/resend:
+    post:
+      tags:
+      - OrderApproverEmail
+      summary: Resend approver email
+      operationId: ResendApproverEmail
+      parameters:
+      - type: integer
+        format: int32
+        description: Object id
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/approveremailResendApproverEmailRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/approveremailResendApproverEmailResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  approveremailUpdateApproverEmailAddressResponseData:
+    type: object
+    title: UpdateApproverEmailAddressResponseData
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      id: 1
+  approveremailUpdateApproverEmailAddressRequest:
+    type: object
+    title: UpdateApproverEmailAddressRequest
+    properties:
+      approver_email:
+        description: Email for domain ownership verification. Should start with well-known generic name like admin@, hostmater@, administrator@, etc.
+        type: string
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      approver_email: admin@example.com
+      id: 1
+  approveremailUpdateApproverEmailAddressResponse:
+    type: object
+    title: UpdateApproverEmailAddressResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/approveremailUpdateApproverEmailAddressResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        id: 1
+      desc: ''
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  approveremailResendApproverEmailResponseData:
+    type: object
+    title: ResendApproverEmailResponseData
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      id: 1
+  approveremailResendApproverEmailRequest:
+    type: object
+    title: ResendApproverEmailRequest
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Object id
+    example:
+      id: 1
+  approveremailResendApproverEmailResponse:
+    type: object
+    title: ResendApproverEmailResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/approveremailResendApproverEmailResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        id: 1
+      desc: ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

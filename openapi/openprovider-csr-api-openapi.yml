@@ -1,0 +1,530 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData Csr API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: Csr
+paths:
+  /v1beta/ssl/csr:
+    post:
+      tags:
+      - Csr
+      summary: Create csr
+      externalDocs:
+        description: For more detailed information on this method check our guide
+        url: https://support.openprovider.eu/hc/en-us/articles/360024155173
+      operationId: CreateCsr
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/csrCreateCsrRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/csrCreateCsrResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/ssl/csr/decode:
+    post:
+      tags:
+      - Csr
+      summary: Decode csr
+      externalDocs:
+        description: For more detailed information on this method check our guide
+        url: https://support.openprovider.eu/hc/en-us/articles/360024176673
+      operationId: DecodeCsr
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/csrDecodeCsrRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/csrDecodeCsrResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  csrCreateCsrResponse:
+    type: object
+    title: CreateCsrResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/csrCreateCsrResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        command: ''
+        config: ''
+        config_path: ''
+        csr: '-----BEGIN CERTIFICATE REQUEST-----
+
+          MIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER
+
+          MA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp
+
+          dDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4
+
+          YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH
+
+          RldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK
+
+          h5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5
+
+          yaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos
+
+          qBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww
+
+          acElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo
+
+          JOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S
+
+          ZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi
+
+          cq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6
+
+          wCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk
+
+          99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq
+
+          1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma
+
+          ySUlLeY=
+
+          -----END CERTIFICATE REQUEST-----'
+        key: ''
+        key_path: ''
+      desc: ''
+  csrDecodeCsrResponseData:
+    type: object
+    title: DecodeCsrResponseData
+    properties:
+      domain_names_count:
+        type: integer
+        format: int32
+        title: Count of additional domain names
+      public_key:
+        title: Public key of the CSR
+        $ref: '#/definitions/csrCsrPublicKey'
+      signature_hash_algorithm:
+        type: string
+        title: Signature algorithm
+      subject:
+        description: Information about organization, country, etc.
+        $ref: '#/definitions/csrCsrSubject'
+      subject_alternative_name:
+        type: array
+        title: Additional domain names
+        items:
+          type: string
+    example:
+      domain_names_count: 2
+      public_key:
+        bits: 2048
+        key: ''
+      signature_hash_algorithm: sha2
+      subject:
+        common_name: example.com
+        country: NL
+        email: admin@example.com
+        locality: City
+        organization: MyCompany B.V.
+        state: Testprovince
+        unit: Domain Control Validated
+      subject_alternative_name:
+      - www.example.com
+  csrDecodeCsrResponse:
+    type: object
+    title: DecodeCsrResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/csrDecodeCsrResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        domain_names_count: 2
+        public_key:
+          bits: 2048
+          key: ''
+        signature_hash_algorithm: sha2
+        subject:
+          common_name: example.com
+          country: NL
+          email: admin@example.com
+          locality: City
+          organization: MyCompany B.V.
+          state: Testprovince
+          unit: Domain Control Validated
+        subject_alternative_name:
+        - www.example.com
+      desc: ''
+  csrCreateCsrResponseData:
+    type: object
+    title: CreateCsrResponseData
+    properties:
+      command:
+        type: string
+        title: OpenSSL command used to generate CSR
+      config:
+        type: string
+        title: Config file for OpenSSL command
+      config_path:
+        type: string
+        title: Config file path
+      csr:
+        type: string
+        title: Generated CSR
+      key:
+        type: string
+        title: Private key for the CSR
+      key_path:
+        type: string
+        title: Key path
+    example:
+      command: ''
+      config: ''
+      config_path: ''
+      csr: '-----BEGIN CERTIFICATE REQUEST-----
+
+        MIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER
+
+        MA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp
+
+        dDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4
+
+        YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH
+
+        RldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK
+
+        h5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5
+
+        yaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos
+
+        qBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww
+
+        acElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo
+
+        JOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S
+
+        ZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi
+
+        cq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6
+
+        wCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk
+
+        99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq
+
+        1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma
+
+        ySUlLeY=
+
+        -----END CERTIFICATE REQUEST-----'
+      key: ''
+      key_path: ''
+  csrDecodeCsrRequest:
+    type: object
+    title: DecodeCsrRequest
+    properties:
+      csr:
+        type: string
+        title: Encoded CSR Value
+    example:
+      csr: '-----BEGIN CERTIFICATE REQUEST-----
+
+        MIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER
+
+        MA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp
+
+        dDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4
+
+        YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH
+
+        RldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK
+
+        h5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5
+
+        yaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos
+
+        qBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww
+
+        acElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo
+
+        JOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S
+
+        ZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi
+
+        cq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6
+
+        wCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk
+
+        99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq
+
+        1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma
+
+        ySUlLeY=
+
+        -----END CERTIFICATE REQUEST-----'
+  csrCsrPublicKey:
+    type: object
+    title: CsrPublicKey
+    properties:
+      bits:
+        type: integer
+        format: int32
+        title: Key size in bits
+      key:
+        type: string
+        title: Individual private key for new CSR
+    example:
+      bits: 2048
+      key: ''
+  csrCsrSubject:
+    type: object
+    title: CsrSubject
+    properties:
+      common_name:
+        type: string
+        title: Common name used in CSR
+      country:
+        type: string
+        title: Country used in CSR
+      email:
+        type: string
+        title: Email used in CSR
+      locality:
+        type: string
+        title: Locality used in CSR
+      organization:
+        type: string
+        title: Company name used in CSR
+      state:
+        type: string
+        title: State / province used in CSR
+      unit:
+        type: string
+        title: Organization unit used in CSR
+    example:
+      common_name: example.com
+      country: NL
+      email: admin@example.com
+      locality: City
+      organization: MyCompany B.V.
+      state: Testprovince
+      unit: Domain Control Validated
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  csrCreateCsrRequest:
+    type: object
+    title: CreateCsrRequest
+    properties:
+      bits:
+        type: integer
+        format: int32
+        title: CSR key size. Values up to 4096 supported
+      common_name:
+        type: string
+        title: Domain name to protect
+      country:
+        type: string
+        title: Enrolling company's country code
+      email:
+        type: string
+        title: Requester email address
+      locality:
+        type: string
+        title: Enrolling company's location, i.e. street name and number
+      organization:
+        type: string
+        title: Enrolling company name
+      signature_hash_algorithm:
+        description: Redundant field, can be used as 'sha2'.
+        type: string
+      state:
+        type: string
+        title: Enrolling company's state / province
+      subject_alternative_name:
+        type: array
+        title: Additional domains in a case of Multi-domain certificate
+        items:
+          type: string
+      unit:
+        type: string
+        title: Enrolling company's organization unit. If empty can be left black or set to IT
+      with_config:
+        type: boolean
+        format: boolean
+        title: Config file for OpenSSL command dumped out when subjectAlternativeName domains are included
+        default: false
+    example:
+      bits: 2048
+      common_name: example.com
+      country: NL
+      email: admin@example.com
+      locality: City
+      organization: MyCompany B.V.
+      signature_hash_algorithm: sha2
+      state: Testprovince
+      subject_alternative_name:
+      - www.example.com
+      unit: Dev
+      with_config: true
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

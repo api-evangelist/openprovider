@@ -1,0 +1,1328 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData Settings API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: Settings
+paths:
+  /v1beta/resellers/settings:
+    get:
+      tags:
+      - Settings
+      summary: Get settings
+      operationId: GetSettings
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/settingsGetSettingsResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  settingsPaymentMethodSettings:
+    type: object
+    title: PaymentMethodSettings
+    properties:
+      limit:
+        title: Payment limits
+        $ref: '#/definitions/settingsPaymentMethodLimits'
+      transaction_fee:
+        type: number
+        format: double
+        title: Additional percentage fee per payment
+      transaction_fee_absolute:
+        type: number
+        format: double
+        title: Additional absolute fee per payment
+    example:
+      limit:
+        maximum:
+          aud: 0
+          bgn: 0
+          brl: 0
+          cad: 0
+          chf: 0
+          cny: 0
+          czk: 0
+          dkk: 0
+          eek: 0
+          eur: 0
+          gbp: 0
+          ghs: 0
+          hkd: 0
+          hrk: 0
+          huf: 0
+          idr: 0
+          ils: 0
+          inr: 0
+          jpy: 0
+          krw: 0
+          lkr: 0
+          ltl: 0
+          lvl: 0
+          mxn: 0
+          myr: 0
+          nok: 0
+          nzd: 0
+          php: 0
+          pln: 0
+          ron: 0
+          rub: 0
+          sek: 0
+          sgd: 0
+          thb: 0
+          try: 0
+          usd: 0
+          zar: 0
+        minimum:
+          aud: 0
+          bgn: 0
+          brl: 0
+          cad: 0
+          chf: 0
+          cny: 0
+          czk: 0
+          dkk: 0
+          eek: 0
+          eur: 0
+          gbp: 0
+          ghs: 0
+          hkd: 0
+          hrk: 0
+          huf: 0
+          idr: 0
+          ils: 0
+          inr: 0
+          jpy: 0
+          krw: 0
+          lkr: 0
+          ltl: 0
+          lvl: 0
+          mxn: 0
+          myr: 0
+          nok: 0
+          nzd: 0
+          php: 0
+          pln: 0
+          ron: 0
+          rub: 0
+          sek: 0
+          sgd: 0
+          thb: 0
+          try: 0
+          usd: 0
+          zar: 0
+      transaction_fee: 0
+      transaction_fee_absolute: 0
+  settingsPaymentMethods:
+    type: object
+    title: PaymentMethods
+    properties:
+      name:
+        type: string
+        title: Payment method name
+      settings:
+        title: Payment method settings
+        $ref: '#/definitions/settingsPaymentMethodSettings'
+    example:
+      name: ideal
+      settings:
+        limit:
+          maximum:
+            aud: 0
+            bgn: 0
+            brl: 0
+            cad: 0
+            chf: 0
+            cny: 0
+            czk: 0
+            dkk: 0
+            eek: 0
+            eur: 0
+            gbp: 0
+            ghs: 0
+            hkd: 0
+            hrk: 0
+            huf: 0
+            idr: 0
+            ils: 0
+            inr: 0
+            jpy: 0
+            krw: 0
+            lkr: 0
+            ltl: 0
+            lvl: 0
+            mxn: 0
+            myr: 0
+            nok: 0
+            nzd: 0
+            php: 0
+            pln: 0
+            ron: 0
+            rub: 0
+            sek: 0
+            sgd: 0
+            thb: 0
+            try: 0
+            usd: 0
+            zar: 0
+          minimum:
+            aud: 0
+            bgn: 0
+            brl: 0
+            cad: 0
+            chf: 0
+            cny: 0
+            czk: 0
+            dkk: 0
+            eek: 0
+            eur: 0
+            gbp: 0
+            ghs: 0
+            hkd: 0
+            hrk: 0
+            huf: 0
+            idr: 0
+            ils: 0
+            inr: 0
+            jpy: 0
+            krw: 0
+            lkr: 0
+            ltl: 0
+            lvl: 0
+            mxn: 0
+            myr: 0
+            nok: 0
+            nzd: 0
+            php: 0
+            pln: 0
+            ron: 0
+            rub: 0
+            sek: 0
+            sgd: 0
+            thb: 0
+            try: 0
+            usd: 0
+            zar: 0
+        transaction_fee: 0
+        transaction_fee_absolute: 0
+  settingsSignedContracts:
+    type: object
+    title: SignedContracts
+    properties:
+      contents:
+        type: string
+        title: Contract contents
+      id:
+        type: integer
+        format: int32
+        title: Object ID
+      is_signed:
+        type: boolean
+        format: boolean
+        title: Indicates if contract is signed
+      modification_date:
+        type: string
+        title: The modification date
+      sign_on_date:
+        type: string
+        title: Contract signing date
+      title:
+        type: string
+        title: The title
+      type:
+        type: string
+        title: The type
+      version_id:
+        type: integer
+        format: int32
+        title: Contract version ID
+    example:
+      contents: content for ac
+      id: 1
+      is_signed: false
+      modification_date: '2009-02-19 10:59:32'
+      sign_on_date: '2009-02-19 10:59:32'
+      title: .ac
+      type: ac
+      version_id: 1
+  settingsTacContract:
+    type: object
+    title: TacContract
+    properties:
+      is_signed:
+        type: boolean
+        format: boolean
+        title: Indicates if contract is signed
+      name:
+        type: string
+        title: The name
+      signed_at:
+        type: string
+        title: Contract signing date
+      type:
+        type: string
+        title: The type
+    example:
+      is_signed: false
+      name: opensign_terms_and_conditions
+      signed_at: '2014-07-16 15:22:48'
+      type: opensign
+  settingsGetSettingsResponse:
+    type: object
+    title: GetSettingsResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/settingsGetSettingsResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        av_handle: XX123456-XX
+        claims_confirm_url: http://www.domain.tld/confirm-tm_claims.php?domainId=%%domainId%%&domain=%%domain%%&code=%%authCode%%
+        claims_email_subject: Hi there! You need to accept registration for %%domain%%!
+        claims_reseller_name: Jon Doe's Webhosting!!
+        claims_sender_email: test@mail.tld
+        currency: EUR
+        default_domain_billing_handle: XX123456-XX
+        default_domain_reseller_handle: XX123456-XX
+        foa_confirm_url: ''
+        foa_email_subject: ''
+        foa_reseller_name: ''
+        foa_sender_email: ''
+        foa_terms_conditions_url: ''
+        is_auto_renew_enabled: false
+        is_custom_nses_enabled: false
+        ive2_customized_body: ''
+        ive2_email_subject: '[URGENT REMINDER] Request for e-mail address verification'
+        ive_confirm_url: http://icann-verification.registrar.eu/?email=%%email%%&authCode=%%authCode%%
+        ive_customized_body: ''
+        ive_email_subject: Request for e-mail address verification
+        ive_reseller_name: sdasd
+        ive_sender_email: do-not-reply@registrar.eu
+        jurisdiction: EU
+        language: EN
+        maximum_credit: 20000
+        maximum_credit_card_payment: 15000
+        maximum_i_deal_payment: 1000000
+        maximum_western_union_payment: 1000
+        minimum_payment: 20
+        minimum_western_union_payment: 500
+        pay_methods:
+        - ideal
+        payment_methods:
+        - name: ideal
+          settings:
+            limit:
+              maximum:
+                aud: 0
+                bgn: 0
+                brl: 0
+                cad: 0
+                chf: 0
+                cny: 0
+                czk: 0
+                dkk: 0
+                eek: 0
+                eur: 0
+                gbp: 0
+                ghs: 0
+                hkd: 0
+                hrk: 0
+                huf: 0
+                idr: 0
+                ils: 0
+                inr: 0
+                jpy: 0
+                krw: 0
+                lkr: 0
+                ltl: 0
+                lvl: 0
+                mxn: 0
+                myr: 0
+                nok: 0
+                nzd: 0
+                php: 0
+                pln: 0
+                ron: 0
+                rub: 0
+                sek: 0
+                sgd: 0
+                thb: 0
+                try: 0
+                usd: 0
+                zar: 0
+              minimum:
+                aud: 0
+                bgn: 0
+                brl: 0
+                cad: 0
+                chf: 0
+                cny: 0
+                czk: 0
+                dkk: 0
+                eek: 0
+                eur: 0
+                gbp: 0
+                ghs: 0
+                hkd: 0
+                hrk: 0
+                huf: 0
+                idr: 0
+                ils: 0
+                inr: 0
+                jpy: 0
+                krw: 0
+                lkr: 0
+                ltl: 0
+                lvl: 0
+                mxn: 0
+                myr: 0
+                nok: 0
+                nzd: 0
+                php: 0
+                pln: 0
+                ron: 0
+                rub: 0
+                sek: 0
+                sgd: 0
+                thb: 0
+                try: 0
+                usd: 0
+                zar: 0
+            transaction_fee: 0
+            transaction_fee_absolute: 0
+        preregistered_domain_priorities: '[]'
+        recurring_payment_methods:
+        - name: ideal
+          settings:
+            limit:
+              maximum:
+                aud: 0
+                bgn: 0
+                brl: 0
+                cad: 0
+                chf: 0
+                cny: 0
+                czk: 0
+                dkk: 0
+                eek: 0
+                eur: 0
+                gbp: 0
+                ghs: 0
+                hkd: 0
+                hrk: 0
+                huf: 0
+                idr: 0
+                ils: 0
+                inr: 0
+                jpy: 0
+                krw: 0
+                lkr: 0
+                ltl: 0
+                lvl: 0
+                mxn: 0
+                myr: 0
+                nok: 0
+                nzd: 0
+                php: 0
+                pln: 0
+                ron: 0
+                rub: 0
+                sek: 0
+                sgd: 0
+                thb: 0
+                try: 0
+                usd: 0
+                zar: 0
+              minimum:
+                aud: 0
+                bgn: 0
+                brl: 0
+                cad: 0
+                chf: 0
+                cny: 0
+                czk: 0
+                dkk: 0
+                eek: 0
+                eur: 0
+                gbp: 0
+                ghs: 0
+                hkd: 0
+                hrk: 0
+                huf: 0
+                idr: 0
+                ils: 0
+                inr: 0
+                jpy: 0
+                krw: 0
+                lkr: 0
+                ltl: 0
+                lvl: 0
+                mxn: 0
+                myr: 0
+                nok: 0
+                nzd: 0
+                php: 0
+                pln: 0
+                ron: 0
+                rub: 0
+                sek: 0
+                sgd: 0
+                thb: 0
+                try: 0
+                usd: 0
+                zar: 0
+            transaction_fee: 0
+            transaction_fee_absolute: 0
+        renew_notification_days:
+        - 1
+        renew_notification_every_week: false
+        signed_contracts:
+        - contents: content for ac
+          id: 1
+          is_signed: false
+          modification_date: '2009-02-19 10:59:32'
+          sign_on_date: '2009-02-19 10:59:32'
+          title: .ac
+          type: ac
+          version_id: 1
+        tac_contract:
+          is_signed: false
+          name: opensign_terms_and_conditions
+          signed_at: '2014-07-16 15:22:48'
+          type: opensign
+        tags:
+        - VIPCUSTOMER
+        transaction_fee:
+          bank: 0
+          credit_card: 3
+          ideal: 0
+          paypal: 5
+          western_union: 0
+          yandex: 5
+        type: normal
+      desc: ''
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  settingsPaymentMethodLimits:
+    type: object
+    title: PaymentMethodLimits
+    properties:
+      maximum:
+        title: Maximal payment
+        $ref: '#/definitions/settingsPaymentMethodLimit'
+      minimum:
+        title: Minimal payment
+        $ref: '#/definitions/settingsPaymentMethodLimit'
+    example:
+      maximum:
+        aud: 0
+        bgn: 0
+        brl: 0
+        cad: 0
+        chf: 0
+        cny: 0
+        czk: 0
+        dkk: 0
+        eek: 0
+        eur: 0
+        gbp: 0
+        ghs: 0
+        hkd: 0
+        hrk: 0
+        huf: 0
+        idr: 0
+        ils: 0
+        inr: 0
+        jpy: 0
+        krw: 0
+        lkr: 0
+        ltl: 0
+        lvl: 0
+        mxn: 0
+        myr: 0
+        nok: 0
+        nzd: 0
+        php: 0
+        pln: 0
+        ron: 0
+        rub: 0
+        sek: 0
+        sgd: 0
+        thb: 0
+        try: 0
+        usd: 0
+        zar: 0
+      minimum:
+        aud: 0
+        bgn: 0
+        brl: 0
+        cad: 0
+        chf: 0
+        cny: 0
+        czk: 0
+        dkk: 0
+        eek: 0
+        eur: 0
+        gbp: 0
+        ghs: 0
+        hkd: 0
+        hrk: 0
+        huf: 0
+        idr: 0
+        ils: 0
+        inr: 0
+        jpy: 0
+        krw: 0
+        lkr: 0
+        ltl: 0
+        lvl: 0
+        mxn: 0
+        myr: 0
+        nok: 0
+        nzd: 0
+        php: 0
+        pln: 0
+        ron: 0
+        rub: 0
+        sek: 0
+        sgd: 0
+        thb: 0
+        try: 0
+        usd: 0
+        zar: 0
+  settingsPaymentMethodLimit:
+    type: object
+    title: PaymentMethodLimit
+    properties:
+      AUD:
+        type: number
+        format: double
+        title: Currency
+      BGN:
+        type: number
+        format: double
+        title: Currency
+      BRL:
+        type: number
+        format: double
+        title: Currency
+      CAD:
+        type: number
+        format: double
+        title: Currency
+      CHF:
+        type: number
+        format: double
+        title: Currency
+      CNY:
+        type: number
+        format: double
+        title: Currency
+      CZK:
+        type: number
+        format: double
+        title: Currency
+      DKK:
+        type: number
+        format: double
+        title: Currency
+      EEK:
+        type: number
+        format: double
+        title: Currency
+      EUR:
+        type: number
+        format: double
+        title: Currency
+      GBP:
+        type: number
+        format: double
+        title: Currency
+      GHS:
+        type: number
+        format: double
+        title: Currency
+      HKD:
+        type: number
+        format: double
+        title: Currency
+      HRK:
+        type: number
+        format: double
+        title: Currency
+      HUF:
+        type: number
+        format: double
+        title: Currency
+      IDR:
+        type: number
+        format: double
+        title: Currency
+      ILS:
+        type: number
+        format: double
+        title: Currency
+      INR:
+        type: number
+        format: double
+        title: Currency
+      JPY:
+        type: number
+        format: double
+        title: Currency
+      KRW:
+        type: number
+        format: double
+        title: Currency
+      LKR:
+        type: number
+        format: double
+        title: Currency
+      LTL:
+        type: number
+        format: double
+        title: Currency
+      LVL:
+        type: number
+        format: double
+        title: Currency
+      MXN:
+        type: number
+        format: double
+        title: Currency
+      MYR:
+        type: number
+        format: double
+        title: Currency
+      NOK:
+        type: number
+        format: double
+        title: Currency
+      NZD:
+        type: number
+        format: double
+        title: Currency
+      PHP:
+        type: number
+        format: double
+        title: Currency
+      PLN:
+        type: number
+        format: double
+        title: Currency
+      RON:
+        type: number
+        format: double
+        title: Currency
+      RUB:
+        type: number
+        format: double
+        title: Currency
+      SEK:
+        type: number
+        format: double
+        title: Currency
+      SGD:
+        type: number
+        format: double
+        title: Currency
+      THB:
+        type: number
+        format: double
+        title: Currency
+      TRY:
+        type: number
+        format: double
+        title: Currency
+      USD:
+        type: number
+        format: double
+        title: Currency
+      ZAR:
+        type: number
+        format: double
+        title: Currency
+    example:
+      aud: 0
+      bgn: 0
+      brl: 0
+      cad: 0
+      chf: 0
+      cny: 0
+      czk: 0
+      dkk: 0
+      eek: 0
+      eur: 0
+      gbp: 0
+      ghs: 0
+      hkd: 0
+      hrk: 0
+      huf: 0
+      idr: 0
+      ils: 0
+      inr: 0
+      jpy: 0
+      krw: 0
+      lkr: 0
+      ltl: 0
+      lvl: 0
+      mxn: 0
+      myr: 0
+      nok: 0
+      nzd: 0
+      php: 0
+      pln: 0
+      ron: 0
+      rub: 0
+      sek: 0
+      sgd: 0
+      thb: 0
+      try: 0
+      usd: 0
+      zar: 0
+  settingsGetSettingsResponseData:
+    type: object
+    title: GetSettingsResponseData
+    properties:
+      av_handle:
+        type: string
+        title: Account administrative handle
+      claims_confirm_url:
+        type: string
+        title: Trademark claims confirmation URL
+      claims_email_subject:
+        type: string
+        title: Trademark claims email subject
+      claims_reseller_name:
+        type: string
+        title: Trademark claims reseller name
+      claims_sender_email:
+        type: string
+        title: Trademark claims sender email address
+      currency:
+        type: string
+        title: The currency
+      default_domain_billing_handle:
+        type: string
+        title: BIlling handle used by default for domain registrations
+      default_domain_reseller_handle:
+        type: string
+        title: Reseller handle used by default for domain registrations
+      foa_confirm_url:
+        type: string
+        title: Form of authorization confirmation URL
+      foa_email_subject:
+        type: string
+        title: Form of authorization email subject
+      foa_reseller_name:
+        type: string
+        title: Reseller name to display in form of authorization emails
+      foa_sender_email:
+        type: string
+        title: Sender email to display in form of authorization emails
+      foa_terms_conditions_url:
+        type: string
+        title: URL to form of authorization T&Cs to display
+      is_auto_renew_enabled:
+        type: boolean
+        format: boolean
+        title: Global autorenew setting status
+      is_custom_nses_enabled:
+        type: boolean
+        format: boolean
+        title: Indicates if custom NS records allowed for reseller's DNS zones
+      ive2_customized_body:
+        type: string
+        title: Customized subject of email verification reminder messages
+      ive2_email_subject:
+        type: string
+        title: Customized subject of email verification reminder messages
+      ive_confirm_url:
+        type: string
+        title: Email verification confirmation URL
+      ive_customized_body:
+        type: string
+        title: Customized contents of email verification messages
+      ive_email_subject:
+        type: string
+        title: Customized subject of email verification messages
+      ive_reseller_name:
+        type: string
+        title: Reseller name to display in email verification messages
+      ive_sender_email:
+        type: string
+        title: Sender email address to display in email verification messages
+      jurisdiction:
+        type: string
+        title: Reseller's jurisdiction
+      language:
+        type: string
+        title: The language
+      maximum_credit:
+        type: number
+        format: double
+        title: Maximum credit allowed for reseller
+      maximum_credit_card_payment:
+        type: number
+        format: double
+        title: Maximum amount allowed to be paid using specified payment method
+      maximum_i_deal_payment:
+        type: number
+        format: double
+        title: Maximum amount allowed to be paid using specified payment method
+      maximum_western_union_payment:
+        type: number
+        format: double
+        title: Maximum amount allowed to be paid using specified payment method
+      minimum_payment:
+        type: number
+        format: double
+        title: Minimal payment
+      minimum_western_union_payment:
+        type: number
+        format: double
+        title: Minimal amount allowed to be paid using specified payment method
+      pay_methods:
+        type: array
+        title: Payment methods
+        items:
+          type: string
+      payment_methods:
+        type: array
+        title: Reseller payment methods settings
+        items:
+          $ref: '#/definitions/settingsPaymentMethods'
+      preregistered_domain_priorities:
+        type: string
+        title: The preregistered domain priorities
+      recurring_payment_methods:
+        type: array
+        title: Reseller recurring payment methods settings
+        items:
+          $ref: '#/definitions/settingsPaymentMethods'
+      renew_notification_days:
+        type: array
+        title: Days before renewal reminder messages are sent
+        items:
+          type: integer
+          format: int32
+      renew_notification_every_week:
+        type: boolean
+        format: boolean
+        title: Renew notification every week setting
+      signed_contracts:
+        type: array
+        title: List of signed contracts
+        items:
+          $ref: '#/definitions/settingsSignedContracts'
+      tac_contract:
+        title: Openprovider T&C contract
+        $ref: '#/definitions/settingsTacContract'
+      tags:
+        type: array
+        title: Custom tags applied to entity
+        items:
+          type: string
+      transaction_fee:
+        title: Additional fee per payment
+        $ref: '#/definitions/settingsTransactionFee'
+      type:
+        type: string
+        title: The type
+    example:
+      av_handle: XX123456-XX
+      claims_confirm_url: http://www.domain.tld/confirm-tm_claims.php?domainId=%%domainId%%&domain=%%domain%%&code=%%authCode%%
+      claims_email_subject: Hi there! You need to accept registration for %%domain%%!
+      claims_reseller_name: Jon Doe's Webhosting!!
+      claims_sender_email: test@mail.tld
+      currency: EUR
+      default_domain_billing_handle: XX123456-XX
+      default_domain_reseller_handle: XX123456-XX
+      foa_confirm_url: ''
+      foa_email_subject: ''
+      foa_reseller_name: ''
+      foa_sender_email: ''
+      foa_terms_conditions_url: ''
+      is_auto_renew_enabled: false
+      is_custom_nses_enabled: false
+      ive2_customized_body: ''
+      ive2_email_subject: '[URGENT REMINDER] Request for e-mail address verification'
+      ive_confirm_url: http://icann-verification.registrar.eu/?email=%%email%%&authCode=%%authCode%%
+      ive_customized_body: ''
+      ive_email_subject: Request for e-mail address verification
+      ive_reseller_name: sdasd
+      ive_sender_email: do-not-reply@registrar.eu
+      jurisdiction: EU
+      language: EN
+      maximum_credit: 20000
+      maximum_credit_card_payment: 15000
+      maximum_i_deal_payment: 1000000
+      maximum_western_union_payment: 1000
+      minimum_payment: 20
+      minimum_western_union_payment: 500
+      pay_methods:
+      - ideal
+      payment_methods:
+      - name: ideal
+        settings:
+          limit:
+            maximum:
+              aud: 0
+              bgn: 0
+              brl: 0
+              cad: 0
+              chf: 0
+              cny: 0
+              czk: 0
+              dkk: 0
+              eek: 0
+              eur: 0
+              gbp: 0
+              ghs: 0
+              hkd: 0
+              hrk: 0
+              huf: 0
+              idr: 0
+              ils: 0
+              inr: 0
+              jpy: 0
+              krw: 0
+              lkr: 0
+              ltl: 0
+              lvl: 0
+              mxn: 0
+              myr: 0
+              nok: 0
+              nzd: 0
+              php: 0
+              pln: 0
+              ron: 0
+              rub: 0
+              sek: 0
+              sgd: 0
+              thb: 0
+              try: 0
+              usd: 0
+              zar: 0
+            minimum:
+              aud: 0
+              bgn: 0
+              brl: 0
+              cad: 0
+              chf: 0
+              cny: 0
+              czk: 0
+              dkk: 0
+              eek: 0
+              eur: 0
+              gbp: 0
+              ghs: 0
+              hkd: 0
+              hrk: 0
+              huf: 0
+              idr: 0
+              ils: 0
+              inr: 0
+              jpy: 0
+              krw: 0
+              lkr: 0
+              ltl: 0
+              lvl: 0
+              mxn: 0
+              myr: 0
+              nok: 0
+              nzd: 0
+              php: 0
+              pln: 0
+              ron: 0
+              rub: 0
+              sek: 0
+              sgd: 0
+              thb: 0
+              try: 0
+              usd: 0
+              zar: 0
+          transaction_fee: 0
+          transaction_fee_absolute: 0
+      preregistered_domain_priorities: '[]'
+      recurring_payment_methods:
+      - name: ideal
+        settings:
+          limit:
+            maximum:
+              aud: 0
+              bgn: 0
+              brl: 0
+              cad: 0
+              chf: 0
+              cny: 0
+              czk: 0
+              dkk: 0
+              eek: 0
+              eur: 0
+              gbp: 0
+              ghs: 0
+              hkd: 0
+              hrk: 0
+              huf: 0
+              idr: 0
+              ils: 0
+              inr: 0
+              jpy: 0
+              krw: 0
+              lkr: 0
+              ltl: 0
+              lvl: 0
+              mxn: 0
+              myr: 0
+              nok: 0
+              nzd: 0
+              php: 0
+              pln: 0
+              ron: 0
+              rub: 0
+              sek: 0
+              sgd: 0
+              thb: 0
+              try: 0
+              usd: 0
+              zar: 0
+            minimum:
+              aud: 0
+              bgn: 0
+              brl: 0
+              cad: 0
+              chf: 0
+              cny: 0
+              czk: 0
+              dkk: 0
+              eek: 0
+              eur: 0
+              gbp: 0
+              ghs: 0
+              hkd: 0
+              hrk: 0
+              huf: 0
+              idr: 0
+              ils: 0
+              inr: 0
+              jpy: 0
+              krw: 0
+              lkr: 0
+              ltl: 0
+              lvl: 0
+              mxn: 0
+              myr: 0
+              nok: 0
+              nzd: 0
+              php: 0
+              pln: 0
+              ron: 0
+              rub: 0
+              sek: 0
+              sgd: 0
+              thb: 0
+              try: 0
+              usd: 0
+              zar: 0
+          transaction_fee: 0
+          transaction_fee_absolute: 0
+      renew_notification_days:
+      - 1
+      renew_notification_every_week: false
+      signed_contracts:
+      - contents: content for ac
+        id: 1
+        is_signed: false
+        modification_date: '2009-02-19 10:59:32'
+        sign_on_date: '2009-02-19 10:59:32'
+        title: .ac
+        type: ac
+        version_id: 1
+      tac_contract:
+        is_signed: false
+        name: opensign_terms_and_conditions
+        signed_at: '2014-07-16 15:22:48'
+        type: opensign
+      tags:
+      - VIPCUSTOMER
+      transaction_fee:
+        bank: 0
+        credit_card: 3
+        ideal: 0
+        paypal: 5
+        western_union: 0
+        yandex: 5
+      type: normal
+  settingsTransactionFee:
+    type: object
+    title: TransactionFee
+    properties:
+      bank:
+        type: number
+        format: double
+        title: Payment method
+      credit_card:
+        type: number
+        format: double
+        title: Payment method
+      ideal:
+        type: number
+        format: double
+        title: Payment method
+      paypal:
+        type: number
+        format: double
+        title: Payment method
+      western_union:
+        type: number
+        format: double
+        title: Payment method
+      yandex:
+        type: number
+        format: double
+        title: Payment method
+    example:
+      bank: 0
+      credit_card: 3
+      ideal: 0
+      paypal: 5
+      western_union: 0
+      yandex: 5
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

@@ -1,0 +1,504 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData TemplateService API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: TemplateService
+  x-displayName: Template
+paths:
+  /v1beta/dns/templates:
+    get:
+      tags:
+      - TemplateService
+      summary: List templates
+      operationId: ListTemplates
+      parameters:
+      - type: integer
+        format: int32
+        default: 100
+        description: Limits the number of objects in the output.
+        name: limit
+        in: query
+      - type: string
+        description: Used to retrieve all objects from a certain offset up to the limit.
+        name: offset
+        in: query
+      - type: string
+        default: asc
+        description: Sorting type (asc/desc).
+        name: order
+        in: query
+      - type: string
+        default: name
+        description: 'Field for sorting output. Possible value: name.'
+        name: order_by
+        in: query
+      - type: boolean
+        format: boolean
+        default: false
+        description: Indicates if DNS records should be retrieved.
+        name: with_records
+        in: query
+      - type: string
+        description: Template name pattern. Wildcard (*)can be used.
+        name: name_pattern
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/templateListTemplatesResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    post:
+      tags:
+      - TemplateService
+      summary: Create template
+      operationId: CreateTemplate
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/templateCreateTemplateRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/templateCreateTemplateResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/dns/templates/{id}:
+    get:
+      tags:
+      - TemplateService
+      summary: Get template
+      operationId: GetTemplate
+      parameters:
+      - type: integer
+        format: int32
+        description: Template ID
+        name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/templateGetTemplateResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    delete:
+      tags:
+      - TemplateService
+      summary: Delete template
+      operationId: DeleteTemplate
+      parameters:
+      - type: integer
+        format: int32
+        description: Template ID
+        name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/templateTemplateBoolResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  templateListTemplatesResponse:
+    type: object
+    title: ListTemplatesResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/templateListTemplatesResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - id: 1
+          is_spamexperts_enabled: false
+          name: MyTemplate
+          records:
+          - id: 67377
+            name: ns1.domain.com
+            prio: 10
+            ttl: 86400
+            type: MX
+            value: abc.example.com
+        total: 20
+      desc: ''
+  templateRecord:
+    type: object
+    title: Record
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: DNS record ID
+      name:
+        type: string
+        title: DNS record name
+      prio:
+        type: integer
+        format: int32
+        title: DNS record priority
+      ttl:
+        type: integer
+        format: int32
+        title: DNS record TTL
+      type:
+        type: string
+        title: DNS record tyoe
+      value:
+        type: string
+        title: DNS record value
+    example:
+      id: 67377
+      name: ns1.domain.com
+      prio: 10
+      ttl: 86400
+      type: MX
+      value: abc.example.com
+  templateTemplateBoolResponseData:
+    type: object
+    title: TemplateBoolResponseData
+    properties:
+      success:
+        type: boolean
+        format: boolean
+        title: Indicates if request was successful
+    example:
+      success: false
+  templateGetTemplateResponse:
+    type: object
+    title: GetTemplateResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/templateTemplate'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        id: 1
+        is_spamexperts_enabled: false
+        name: MyTemplate
+        records:
+        - id: 67377
+          name: ns1.domain.com
+          prio: 10
+          ttl: 86400
+          type: MX
+          value: abc.example.com
+      desc: ''
+  templateTemplate:
+    type: object
+    title: Template
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Template ID
+      is_spamexperts_enabled:
+        type: boolean
+        format: boolean
+        title: Indicates if spam filtering is enabled for the DNS zone
+      name:
+        type: string
+        title: Template name
+      records:
+        type: array
+        title: Array of DNS zone records
+        items:
+          $ref: '#/definitions/templateRecord'
+    example:
+      id: 1
+      is_spamexperts_enabled: false
+      name: MyTemplate
+      records:
+      - id: 67377
+        name: ns1.domain.com
+        prio: 10
+        ttl: 86400
+        type: MX
+        value: abc.example.com
+  templateCreateTemplateResponse:
+    type: object
+    title: CreateTemplateResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/templateCreateTemplateResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        id: 39238
+      desc: ''
+  templateListTemplatesResponseData:
+    type: object
+    title: ListTemplatesResponseData
+    properties:
+      results:
+        type: array
+        title: Array of results
+        items:
+          $ref: '#/definitions/templateTemplate'
+      total:
+        type: integer
+        format: int32
+        title: Results count
+    example:
+      results:
+      - id: 1
+        is_spamexperts_enabled: false
+        name: MyTemplate
+        records:
+        - id: 67377
+          name: ns1.domain.com
+          prio: 10
+          ttl: 86400
+          type: MX
+          value: abc.example.com
+      total: 20
+  templateCreateTemplateResponseData:
+    type: object
+    title: CreateTemplateResponseData
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Template ID
+    example:
+      id: 39238
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  templateTemplateBoolResponse:
+    type: object
+    title: TemplateBoolResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/templateTemplateBoolResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        success: false
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  templateCreateTemplateRequest:
+    type: object
+    title: CreateTemplateRequest
+    properties:
+      is_spamexperts_enabled:
+        type: boolean
+        format: boolean
+        title: Idicates if spamfiltering is enabled for the DNS zone
+      name:
+        type: string
+        title: The name
+      records:
+        type: array
+        title: The records
+        items:
+          $ref: '#/definitions/templateRecord'
+    example:
+      is_spamexperts_enabled: false
+      name: MyTemplate
+      records:
+      - id: 67377
+        name: ns1.domain.com
+        prio: 10
+        ttl: 86400
+        type: MX
+        value: abc.example.com
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

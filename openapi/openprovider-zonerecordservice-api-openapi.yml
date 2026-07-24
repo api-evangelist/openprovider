@@ -1,0 +1,313 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData ZoneRecordService API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: ZoneRecordService
+  x-displayName: ZoneRecord
+paths:
+  /v1beta/dns/zones/{name}/records:
+    get:
+      tags:
+      - ZoneRecordService
+      summary: List zone records
+      operationId: ListZoneRecords
+      parameters:
+      - type: string
+        description: DNS record name
+        name: name
+        in: path
+        required: true
+      - type: integer
+        format: int32
+        description: DNS zone ID.
+        name: zone_id
+        in: query
+      - type: integer
+        format: int32
+        default: 100
+        description: 'How many records to retrieve (default: 100, max 500).'
+        name: limit
+        in: query
+      - type: integer
+        format: int32
+        description: 'From which record to retrieve (default: 0).'
+        name: offset
+        in: query
+      - type: string
+        default: asc
+        description: Sorting type (asc/desc).
+        name: order_by.type
+        in: query
+      - type: string
+        default: asc
+        description: Sorting type (asc/desc).
+        name: order_by.name
+        in: query
+      - type: string
+        description: Sorting type (asc/desc).
+        name: order_by.value
+        in: query
+      - type: string
+        description: Sorting type (asc/desc).
+        name: order_by.ttl
+        in: query
+      - type: string
+        description: Sorting type (asc/desc).
+        name: order_by.prio
+        in: query
+      - type: string
+        description: DNS record name pattern. Wildcard (*) can be used.
+        name: record_name_pattern
+        in: query
+      - type: string
+        description: DNS record value pattern. Wildcard (*) can be used.
+        name: value_pattern
+        in: query
+      - type: string
+        description: DNS record type.
+        name: type
+        in: query
+      - type: integer
+        format: int32
+        description: DNS record priority.
+        name: prio
+        in: query
+      - type: integer
+        format: int32
+        description: DNS record TTL.
+        name: ttl
+        in: query
+      - type: string
+        description: Name of the DNS provider. Set zone_provider=sectigo in case of only sectigo premium DNS zone records should be retrieved.
+        name: zone_provider
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recordListZoneRecordsResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  recordListZoneRecordsResponseData:
+    type: object
+    title: ListZoneRecordsResponseData
+    properties:
+      results:
+        type: array
+        title: Array of search results
+        items:
+          $ref: '#/definitions/recordRecordInfo'
+      total:
+        type: integer
+        format: int32
+        title: Number of search results
+    example:
+      results:
+      - creation_date: ''
+        ip: 127.0.0.1
+        modification_date: ''
+        name: domain.com
+        prio: 1
+        ttl: 900
+        type: CNAME
+        value: abcd.domain.com
+      total: 6
+  recordListZoneRecordsResponse:
+    type: object
+    title: ListZoneRecordsResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/recordListZoneRecordsResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - creation_date: ''
+          ip: 127.0.0.1
+          modification_date: ''
+          name: domain.com
+          prio: 1
+          ttl: 900
+          type: CNAME
+          value: abcd.domain.com
+        total: 6
+      desc: ''
+  recordRecordInfo:
+    type: object
+    title: RecordInfo
+    properties:
+      creation_date:
+        type: string
+        title: DNS record creation date
+      ip:
+        type: string
+        title: DNS record IP address
+      modification_date:
+        type: string
+        title: DNS record last modification date
+      name:
+        type: string
+        title: DNS record name
+      prio:
+        type: integer
+        format: int32
+        title: DNS record priority
+      ttl:
+        type: integer
+        format: int32
+        title: DNS record priority
+      type:
+        type: string
+        title: DNS record type
+      value:
+        type: string
+        title: DNS record value
+    example:
+      creation_date: ''
+      ip: 127.0.0.1
+      modification_date: ''
+      name: domain.com
+      prio: 1
+      ttl: 900
+      type: CNAME
+      value: abcd.domain.com
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

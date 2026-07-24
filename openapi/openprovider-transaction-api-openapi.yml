@@ -1,0 +1,391 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData Transaction API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: Transaction
+paths:
+  /v1beta/transactions:
+    get:
+      tags:
+      - Transaction
+      summary: List transactions
+      operationId: ListTransactions
+      parameters:
+      - type: integer
+        format: int32
+        description: The limit.
+        name: limit
+        in: query
+      - type: integer
+        format: int32
+        description: The offset.
+        name: offset
+        in: query
+      - type: string
+        description: The order.
+        name: order
+        in: query
+      - type: string
+        description: The order by.
+        name: order_by
+        in: query
+      - type: string
+        description: The start creation date.
+        name: start_creation_date
+        in: query
+      - type: string
+        description: The end creation date.
+        name: end_creation_date
+        in: query
+      - type: string
+        description: The filter for subject.
+        name: filter_for_subject
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/transactionListTransactionsResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  transactionPrices:
+    type: object
+    title: Prices
+    properties:
+      product:
+        title: Price in product currency
+        $ref: '#/definitions/transactionPrice'
+      reseller:
+        title: Price in reseller currency
+        $ref: '#/definitions/transactionPrice'
+    example:
+      product:
+        currency: EUR
+        price: 0
+      reseller:
+        currency: EUR
+        price: 0
+  transactionListTransactionsResponseData:
+    type: object
+    title: ListTransactionsResponseData
+    properties:
+      results:
+        type: array
+        title: The results
+        items:
+          $ref: '#/definitions/transactionListTransactionsResponseDataResults'
+      total:
+        type: integer
+        format: int32
+        title: The total
+    example:
+      results:
+      - action: NEW
+        creation_date: '2006-09-13 16:19:05'
+        discount: 0
+        exchange_rate: 0
+        object_type: ''
+        price:
+          product:
+            currency: EUR
+            price: 0
+          reseller:
+            currency: EUR
+            price: 0
+        quantity: 1
+        reference_id: 1
+        setup:
+          product:
+            currency: EUR
+            price: 0
+          reseller:
+            currency: EUR
+            price: 0
+        subject: ''
+        total:
+          product:
+            currency: EUR
+            price: 0
+          reseller:
+            currency: EUR
+            price: 0
+        type: transaction
+        vat: 1
+      total: 5389
+  transactionPrice:
+    type: object
+    title: Price
+    properties:
+      currency:
+        type: string
+        title: The currency
+      price:
+        type: number
+        format: double
+        title: The price
+    example:
+      currency: EUR
+      price: 0
+  transactionListTransactionsResponse:
+    type: object
+    title: ListTransactionsResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: The code
+      data:
+        title: The data
+        $ref: '#/definitions/transactionListTransactionsResponseData'
+      desc:
+        type: string
+        title: The desc
+      maintenance:
+        type: boolean
+        format: boolean
+        title: The maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - action: NEW
+          creation_date: '2006-09-13 16:19:05'
+          discount: 0
+          exchange_rate: 0
+          object_type: ''
+          price:
+            product:
+              currency: EUR
+              price: 0
+            reseller:
+              currency: EUR
+              price: 0
+          quantity: 1
+          reference_id: 1
+          setup:
+            product:
+              currency: EUR
+              price: 0
+            reseller:
+              currency: EUR
+              price: 0
+          subject: ''
+          total:
+            product:
+              currency: EUR
+              price: 0
+            reseller:
+              currency: EUR
+              price: 0
+          type: transaction
+          vat: 1
+        total: 5389
+      desc: ''
+  transactionListTransactionsResponseDataResults:
+    type: object
+    title: ListTransactionsResponseDataResults
+    properties:
+      action:
+        type: string
+        title: The action
+      creation_date:
+        type: string
+        title: The creation date
+      discount:
+        type: number
+        format: double
+        title: The discount
+      exchange_rate:
+        type: number
+        format: double
+        title: The exchange rate
+      object_type:
+        type: string
+        title: The object type
+      price:
+        title: The price
+        $ref: '#/definitions/transactionPrices'
+      quantity:
+        type: integer
+        format: int32
+        title: The quantity
+      reference_id:
+        type: integer
+        format: int32
+        title: The reference id
+      setup:
+        title: The setup
+        $ref: '#/definitions/transactionPrices'
+      subject:
+        type: string
+        title: The subject
+      total:
+        title: The total
+        $ref: '#/definitions/transactionPrices'
+      type:
+        type: string
+        title: The type
+      vat:
+        type: integer
+        format: int32
+        title: The vat
+    example:
+      action: NEW
+      creation_date: '2006-09-13 16:19:05'
+      discount: 0
+      exchange_rate: 0
+      object_type: ''
+      price:
+        product:
+          currency: EUR
+          price: 0
+        reseller:
+          currency: EUR
+          price: 0
+      quantity: 1
+      reference_id: 1
+      setup:
+        product:
+          currency: EUR
+          price: 0
+        reseller:
+          currency: EUR
+          price: 0
+      subject: ''
+      total:
+        product:
+          currency: EUR
+          price: 0
+        reseller:
+          currency: EUR
+          price: 0
+      type: transaction
+      vat: 1
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

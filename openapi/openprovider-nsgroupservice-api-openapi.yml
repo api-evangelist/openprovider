@@ -1,0 +1,551 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData NsGroupService API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: NsGroupService
+  x-displayName: NsGroup
+paths:
+  /v1beta/dns/nameservers/groups:
+    get:
+      tags:
+      - NsGroupService
+      summary: List groups
+      operationId: ListGroups
+      parameters:
+      - type: integer
+        format: int32
+        default: 100
+        description: Limits the number of objects in the output.
+        name: limit
+        in: query
+      - type: integer
+        format: int32
+        description: 'Used to retrieve all objects from a certain offset up to the limit. (default value: 0).'
+        name: offset
+        in: query
+      - type: string
+        default: asc
+        description: Sorting type (asc/desc).
+        name: order_by.ns_group
+        in: query
+      - type: string
+        description: Sorting type (asc/desc).
+        name: order_by.domain_count
+        in: query
+      - type: string
+        description: Sorting type (asc/desc).
+        name: order_by.ns_count
+        in: query
+      - type: boolean
+        format: boolean
+        description: Indicates if number of domains associated with the NS group should be returned.
+        name: with_domain_count
+        in: query
+      - type: boolean
+        format: boolean
+        description: Indicates if number of nameservers associated with the NS group should be returned.
+        name: with_ns_count
+        in: query
+      - type: string
+        description: NS group name pattern. Wildcard (*) can be used.
+        name: ns_group_pattern
+        in: query
+      - type: string
+        description: Nameserver name pattern. Wildcard (*) can be used.
+        name: ns_name_pattern
+        in: query
+      - type: string
+        description: Nameserver IP address pattern. Wildcard (*) can be used.
+        name: ns_ip_pattern
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/ns_groupListGroupsResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    post:
+      tags:
+      - NsGroupService
+      summary: Create group
+      operationId: CreateGroup
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ns_groupCreateGroupRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/ns_groupCreateGroupResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/dns/nameservers/groups/{ns_group}:
+    get:
+      tags:
+      - NsGroupService
+      summary: Get group
+      operationId: GetGroup
+      parameters:
+      - type: string
+        description: Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains.
+        name: ns_group
+        in: path
+        required: true
+      - type: integer
+        format: int32
+        description: Nameserver group ID.
+        name: id
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/ns_groupGetGroupResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    put:
+      tags:
+      - NsGroupService
+      summary: Update group
+      operationId: UpdateGroup
+      parameters:
+      - type: string
+        description: Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains.
+        name: ns_group
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ns_groupUpdateGroupRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/ns_groupGroupBoolResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    delete:
+      tags:
+      - NsGroupService
+      summary: Delete group
+      operationId: DeleteGroup
+      parameters:
+      - type: string
+        description: Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains.
+        name: ns_group
+        in: path
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/ns_groupGroupBoolResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  ns_groupGroupBoolResponseData:
+    type: object
+    title: GroupBoolResponseData
+    properties:
+      success:
+        type: boolean
+        format: boolean
+        title: Indicates if request has been succesful
+    example:
+      success: false
+  ns_groupGroupBoolResponse:
+    type: object
+    title: GroupBoolResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/ns_groupGroupBoolResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        success: false
+      desc: ''
+  ns_groupUpdateGroupRequest:
+    type: object
+    title: UpdateGroupRequest
+    properties:
+      name_servers:
+        type: array
+        title: Set of nameservers and their IP addresses
+        items:
+          $ref: '#/definitions/ns_groupNameServersSet'
+      ns_group:
+        description: Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains.
+        type: string
+    example:
+      name_servers:
+      - id: 0
+        ip: 127.0.0.1
+        ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+        name: ns1.domain.com
+        seq_nr: 0
+      ns_group: MyGroup
+  ns_groupListGroupsResponse:
+    type: object
+    title: ListGroupsResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/ns_groupListGroupsResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - domain_count: 0
+          id: 0
+          name_servers:
+          - id: 0
+            ip: 127.0.0.1
+            ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+            name: ns1.domain.com
+            seq_nr: 0
+          ns_count: 0
+          ns_group: mygroup
+        total: 17
+      desc: ''
+  ns_groupNameServersSet:
+    type: object
+    title: NameServersSet
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Nameserver ID
+      ip:
+        type: string
+        title: Nameserver IP
+      ip6:
+        type: string
+        title: Nameserver IPv6
+      name:
+        type: string
+        title: Nameserver name
+      seq_nr:
+        type: integer
+        format: int32
+        title: Nameserver position in the group
+    example:
+      id: 0
+      ip: 127.0.0.1
+      ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+      name: ns1.domain.com
+      seq_nr: 0
+  ns_groupCreateGroupResponse:
+    type: object
+    title: CreateGroupResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/ns_groupGroupBoolResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        success: false
+      desc: ''
+  ns_groupGetGroupResponse:
+    type: object
+    title: GetGroupResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: The data
+        $ref: '#/definitions/ns_groupGroup'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: The warnings
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        domain_count: 0
+        id: 0
+        name_servers:
+        - id: 0
+          ip: 127.0.0.1
+          ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+          name: ns1.domain.com
+          seq_nr: 0
+        ns_count: 0
+        ns_group: mygroup
+      desc: ''
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  ns_groupListGroupsResponseData:
+    type: object
+    title: ListGroupsResponseData
+    properties:
+      results:
+        type: array
+        title: Array of request results
+        items:
+          $ref: '#/definitions/ns_groupGroup'
+      total:
+        type: integer
+        format: int32
+        title: Results count
+    example:
+      results:
+      - domain_count: 0
+        id: 0
+        name_servers:
+        - id: 0
+          ip: 127.0.0.1
+          ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+          name: ns1.domain.com
+          seq_nr: 0
+        ns_count: 0
+        ns_group: mygroup
+      total: 17
+  ns_groupGroup:
+    type: object
+    title: Group
+    properties:
+      domain_count:
+        type: integer
+        format: int32
+        title: Number of domains associated with the group
+      id:
+        type: integer
+        format: int32
+        title: Nameserver group ID
+      name_servers:
+        type: array
+        title: List of nameservers
+        items:
+          $ref: '#/definitions/ns_groupNameServersSet'
+      ns_count:
+        type: integer
+        format: int32
+        title: Number of nameservers associated with the group
+      ns_group:
+        type: string
+        title: Nameserver group name
+    example:
+      domain_count: 0
+      id: 0
+      name_servers:
+      - id: 0
+        ip: 127.0.0.1
+        ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+        name: ns1.domain.com
+        seq_nr: 0
+      ns_count: 0
+      ns_group: mygroup
+  ns_groupCreateGroupRequest:
+    type: object
+    title: CreateGroupRequest
+    properties:
+      name_servers:
+        type: array
+        title: Set of nameservers and their IP addresses
+        items:
+          $ref: '#/definitions/ns_groupNameServersSet'
+      ns_group:
+        description: Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains.
+        type: string
+    example:
+      name_servers:
+      - id: 0
+        ip: 127.0.0.1
+        ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+        name: ns1.domain.com
+        seq_nr: 0
+      ns_group: MyGroup
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

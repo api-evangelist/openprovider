@@ -1,0 +1,3852 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData DomainService API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: DomainService
+  x-displayName: Domain
+paths:
+  /v1beta/domains:
+    get:
+      tags:
+      - DomainService
+      summary: List domains
+      operationId: ListDomains
+      parameters:
+      - type: string
+        description: Domain id number.
+        name: order_by.id
+        in: query
+      - type: string
+        description: The domain name.
+        name: order_by.domain_name
+        in: query
+      - type: string
+        description: Domain extension.
+        name: order_by.domain_extension
+        in: query
+      - type: string
+        description: The order date.
+        name: order_by.order_date
+        in: query
+      - type: string
+        description: The active date.
+        name: order_by.active_date
+        in: query
+      - type: string
+        description: Domain expiration date.
+        name: order_by.expiration_date
+        in: query
+      - type: string
+        description: Date on which domain will be renewed.
+        name: order_by.renewal_date
+        in: query
+      - type: string
+        description: Domain status.
+        name: order_by.status
+        in: query
+      - type: string
+        description: The transfer date.
+        name: order_by.transfer_date
+        in: query
+      - type: integer
+        format: int32
+        description: The limit.
+        name: limit
+        in: query
+      - type: integer
+        format: int32
+        description: The offset.
+        name: offset
+        in: query
+      - type: integer
+        format: int32
+        description: Domain id number.
+        name: id
+        in: query
+      - type: string
+        description: Domain extension.
+        name: extension
+        in: query
+      - type: string
+        description: Date on which domain will be renewed.
+        name: renewal_date
+        in: query
+      - type: string
+        description: Full name of the domain.
+        name: full_name
+        in: query
+      - type: string
+        description: The domain name pattern.
+        name: domain_name_pattern
+        in: query
+      - type: string
+        description: Nameserver group name pattern.
+        name: ns_group_pattern
+        in: query
+      - type: string
+        description: Domain status.
+        name: status
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: multi
+        description: Array of domain statuses to exclude.
+        name: status_not_equal
+        in: query
+      - type: string
+        description: The queue status.
+        name: queue_status
+        in: query
+      - type: string
+        description: Handle to filter by.
+        name: contact_handle
+        in: query
+      - type: string
+        description: The comment pattern.
+        name: comment_pattern
+        in: query
+      - type: boolean
+        format: boolean
+        description: With history.
+        name: with_history
+        in: query
+      - type: boolean
+        format: boolean
+        description: With api history.
+        name: with_api_history
+        in: query
+      - type: boolean
+        format: boolean
+        description: With additional data.
+        name: with_additional_data
+        in: query
+      - type: string
+        description: When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions.
+        name: application_mode
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns information about domain owner email verification status.
+        name: with_verification_email
+        in: query
+      - type: boolean
+        format: boolean
+        description: Indicates, if registry EPP statuses should be retrieved.
+        name: with_registry_statuses
+        in: query
+      - type: string
+        description: The type.
+        name: response.type
+        in: query
+      - type: string
+        description: The to.
+        name: response.to
+        in: query
+      - type: boolean
+        format: boolean
+        description: Indicates whether object is deleted.
+        name: is_deleted
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainListDomainsResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    post:
+      tags:
+      - DomainService
+      summary: Create domain
+      operationId: CreateDomain
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainCreateDomainRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainCreateDomainResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/check:
+    post:
+      tags:
+      - DomainService
+      summary: Check domain
+      operationId: CheckDomain
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainCheckDomainRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainCheckDomainResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/suggest-name:
+    post:
+      tags:
+      - DomainService
+      summary: Suggest name domain
+      operationId: SuggestNameDomain
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainSuggestNameDomainRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainSuggestNameDomainResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/trade:
+    post:
+      tags:
+      - DomainService
+      summary: Trade domain
+      operationId: TradeDomain
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainTradeDomainRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainTradeDomainResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/transfer:
+    post:
+      tags:
+      - DomainService
+      summary: Transfer domain
+      operationId: TransferDomain
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainTransferDomainRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainTransferDomainResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/{id}:
+    get:
+      tags:
+      - DomainService
+      summary: Get domain
+      operationId: GetDomain
+      parameters:
+      - type: integer
+        format: int32
+        description: Domain id number
+        name: id
+        in: path
+        required: true
+      - type: string
+        description: Domain name without extension.
+        name: domain.name
+        in: query
+      - type: string
+        description: Domain extension.
+        name: domain.extension
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns domain mutations history.
+        name: with_history
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns domain API calls history.
+        name: with_api_history
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns domain additional data.
+        name: with_additional_data
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns information about domain owner email verification status.
+        name: with_verification_email
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns domain abuse details.
+        name: with_abuse_details
+        in: query
+      - type: boolean
+        format: boolean
+        description: Returns WPP data.
+        name: with_whois_privacy_data
+        in: query
+      - type: boolean
+        format: boolean
+        description: Indicates, if registry EPP statuses should be retrieved.
+        name: with_registry_statuses
+        in: query
+      - type: boolean
+        format: boolean
+        description: Indicates whether object is deleted.
+        name: is_deleted
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainGetDomainResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    put:
+      tags:
+      - DomainService
+      summary: Update domain
+      operationId: UpdateDomain
+      parameters:
+      - type: integer
+        format: int32
+        description: Domain id number
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainUpdateDomainRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainUpdateDomainResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+    delete:
+      tags:
+      - DomainService
+      summary: Delete domain
+      operationId: DeleteDomain
+      parameters:
+      - type: integer
+        format: int32
+        description: Domain id number
+        name: id
+        in: path
+        required: true
+      - type: string
+        description: Domain name without extension.
+        name: domain.name
+        in: query
+      - type: string
+        description: Domain extension.
+        name: domain.extension
+        in: query
+      - type: string
+        description: Type of deletion request.
+        name: type
+        in: query
+      - type: boolean
+        format: boolean
+        description: Deletes domain, skipping the soft quarantine.
+        name: skip_soft_quarantine
+        in: query
+      - type: boolean
+        format: boolean
+        description: Force delete domain even if it has glue records.
+        name: force_delete
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainDeleteDomainResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/{id}/last-operation/restart:
+    post:
+      tags:
+      - DomainService
+      summary: Try again last operation
+      operationId: TryAgainLastOperation
+      parameters:
+      - type: integer
+        format: int32
+        description: Domain id number
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainTryAgainLastOperationRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/responseBoolResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/{id}/renew:
+    post:
+      tags:
+      - DomainService
+      summary: Renew domain
+      operationId: RenewDomain
+      parameters:
+      - type: integer
+        format: int32
+        description: Domain id number
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainRenewDomainRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainRenewDomainResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/{id}/restore:
+    post:
+      tags:
+      - DomainService
+      summary: Restore domain
+      operationId: RestoreDomain
+      parameters:
+      - type: integer
+        format: int32
+        description: Domain id number
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainRestoreDomainRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/domainRestoreDomainResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/{id}/transfer/approve:
+    post:
+      tags:
+      - DomainService
+      summary: Approve transfer
+      operationId: ApproveTransfer
+      parameters:
+      - type: integer
+        format: int32
+        description: Domain id number
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainApproveTransferRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/responseBoolResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/{id}/transfer/send-foa1:
+    post:
+      tags:
+      - DomainService
+      summary: Send foa1
+      operationId: SendFoa1
+      parameters:
+      - type: integer
+        format: int32
+        description: Domain id number
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/domainSendFoa1Request'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/responseBoolResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  domainTransferDomainRequest:
+    type: object
+    title: TransferDomainRequest
+    properties:
+      accept_premium_fee:
+        type: number
+        format: double
+        title: Required in case when domain is premium, value is the price returned in the response for TransferDomainRequest without acceptPremiumFee
+      additional_data:
+        title: Additional domain data
+        $ref: '#/definitions/domainTransferAdditionalData'
+      admin_handle:
+        type: string
+        title: Administrative contact handle
+      at:
+        type: string
+        title: Scheduled transfer date
+      auth_code:
+        type: string
+        title: Authorization code
+      autorenew:
+        type: string
+        title: 'Desired autorenew value: off, on, or default'
+        default: default
+      billing_handle:
+        type: string
+        title: Billing contact handle
+      comments:
+        type: string
+        title: Domain comments
+      dnssec_keys:
+        type: array
+        title: Array containing DNSSEC key information
+        items:
+          $ref: '#/definitions/domainDnssecKey'
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      import_contacts_from_registry:
+        description: Imports contacts data from registry and creates handles after the transfer. Allows to skip admin_handle, billing_handle, owner_handle, reseller_handle and tech_handle parameters.
+        type: boolean
+        format: boolean
+      import_nameservers_from_registry:
+        description: Imports nameservers from registry after the transfer. Allows to skip ns_group, ns_template_id and ns_template_name parameters.
+        type: boolean
+        format: boolean
+      is_dnssec_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables DNSSEC on domain
+      is_private_whois_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables whois privacy protection (WPP) on domain
+      name_servers:
+        type: array
+        title: Array containing name server information
+        items:
+          $ref: '#/definitions/domainNameserver'
+      ns_group:
+        type: string
+        title: Name of nameserver group
+      ns_template_id:
+        type: integer
+        format: int32
+        title: Id of nameserver template
+      ns_template_name:
+        type: string
+        title: Name of nameserver template
+      owner_handle:
+        type: string
+        title: Owner contact handle
+      promo_code:
+        type: string
+        title: Promo code to apply to operation
+      reseller_handle:
+        type: string
+        title: Reseller handle
+      roid:
+        type: string
+        title: Registry id of domain
+      tech_handle:
+        type: string
+        title: Tech contact handle
+      unit:
+        type: string
+        title: Unit of time to register domain, yearly, quarterly, or monthly
+      use_domicile:
+        type: boolean
+        format: boolean
+        title: Use of domicile or trustee address for TLDs that require local presence
+    example:
+      accept_premium_fee: 17
+      additional_data:
+        admin_sing_pass_id: ''
+        auth_code: ''
+        company_registration_number: XX123456789X03
+        customer_uin: '374892173498127349'
+        customer_uin_doc_type:
+          description: Singapore Personal Access ID
+          doc_type: singpass
+        domain_name_variants:
+        - xn--домен.cat
+        ftld_token: ''
+        gay_donation_acceptance: '1'
+        gay_rights_protection_acceptance: '1'
+        idn_script: SPA
+        intended_use: generic
+        legal_type: Individual
+        maintainer: ''
+        membership_id: A
+        mobile_phone_number_verification: ''
+        passport_number: X123458
+        self_service: '1'
+        trademark: '1'
+        vat: 11843009X
+        verification_code: ''
+      admin_handle: XX123456-XX
+      at: '2019-04-30'
+      auth_code: '12345678'
+      autorenew: default
+      billing_handle: XX123456-XX
+      comments: any comment here
+      dnssec_keys:
+      - alg: 8
+        flags: 257
+        protocol: 3
+        pub_key: WSgigdu8545g96
+        readonly: 1
+      domain:
+        extension: london
+        name: test4
+      import_contacts_from_registry: false
+      import_nameservers_from_registry: false
+      is_dnssec_enabled: false
+      is_private_whois_enabled: false
+      name_servers:
+      - ip: 12.3.123.121
+        ip6: 1s23:123:123:f
+        name: ns1.example.com
+        seq_nr: 1
+      ns_group: dns-openprovider
+      ns_template_id: 30951
+      ns_template_name: example
+      owner_handle: XX123456-XX
+      promo_code: PROMOCODE
+      reseller_handle: XX123456-XX
+      roid: 100590-UK
+      tech_handle: XX123456-XX
+      unit: y
+      use_domicile: false
+  domainRenewDomainResponse:
+    type: object
+    title: RenewDomainResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainRenewDomainResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        status: ACT
+      desc: ''
+  domainRestoreDomainResponseData:
+    type: object
+    title: RestoreDomainResponseData
+    properties:
+      status:
+        type: string
+        title: Domain status
+    example:
+      status: ACT
+  domainGetDomainResponse:
+    type: object
+    title: GetDomainResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainGetDomainResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        abuse_details:
+          abuse_id: 0
+          is_domain_held: false
+          message: ''
+        active_date: '2019-01-27 0:55:17'
+        additional_data:
+          abogado_acceptance: ''
+          admin_sing_pass_id: ''
+          ae_acceptance: '1'
+          allocation_token: ''
+          auth_code: ''
+          bank_acceptance: ''
+          company_registration_number: XX123456789X01
+          coop_acceptance: '1'
+          customer_uin: '374892173498127349'
+          customer_uin_doc_type:
+            description: Singapore Personal Access ID
+            doc_type: singpass
+          domain_name_variants:
+          - xn--домен.cat
+          eligibility_type: ''
+          eligibility_type_relationship: ''
+          es_annex_acceptance: '1'
+          ftld_token: ''
+          gay_donation_acceptance: '1'
+          gay_rights_protection_acceptance: '1'
+          id_number: 123456789X
+          id_type: ''
+          idn_script: SPA
+          insurance_acceptance: ''
+          intended_use: generic
+          law_acceptance: ''
+          legal_type: Individual
+          maintainer: ''
+          membership_id: A
+          mobile_phone_number_verification: ''
+          ngo_ong_eligibility_acceptance: ''
+          ngo_ong_policy_acceptance: ''
+          passport_number: X123456
+          rurf_blocked_domains: ''
+          self_service: '1'
+          trademark: '1'
+          trademark_id: ''
+          travel_acceptance: '1'
+          vat: 11843009X
+          verification_code: ''
+          vote_acceptance: ''
+          voto_acceptance: ''
+        admin_handle: XX123456-XX
+        api_history:
+        - cmd: deleteDomainRequest
+          created_at: '2018-09-05 13:58:55'
+          domain_id: 12345678
+          in: ''
+          out: ''
+        application_id: A743C511084404F31B15757DC979A1412-ABI
+        application_mode: ''
+        application_mode_expiration_date: ''
+        application_mode_title: ''
+        application_notice_id: 983bdc1a0000100000188801724
+        application_smd: ''
+        auth_code: 1a2b3c4d5e6f
+        autorenew: default
+        billing_handle: XX123456-XX
+        can_renew: false
+        comments: ''
+        comments_last_changed_at: '2018-01-30 14:37:49'
+        creation_date: '2013-07-04 17:14:44'
+        delete_status: quarantine
+        deleted_at: '0000-00-00 00:00:00'
+        dnssec: unsigned
+        dnssec_keys:
+        - alg: 8
+          flags: 257
+          protocol: 3
+          pub_key: WSgigdu8545g96
+          readonly: 1
+        domain:
+          extension: london
+          name: test4
+        expiration_date: '2014-07-04 17:14:44'
+        hard_quarantine_expiry_date: ''
+        has_active_sectigo_zone: false
+        has_history: false
+        history:
+        - contents: 'Domain: test-example.tldAction: registration succeededStatus: ACTOrder date: 2018-01-30Activation date: 2018-01-30Renewal date: 2019-01-27Expiration date: 2019-01-29Comments: registration of this domain has succeeded Nameserver addresses are automatically resolved by system; Nameserver IP addresses are only saved for glue records'
+          domain: example.com
+          ip: 12.123.3.12
+          subject: Sent status e-mail to admin@someemail.nl
+          timestamp: '2018-01-30T14:38:45+01:00'
+          type: I
+        id: 123456789
+        internal_auth_code: 1a2b3c4d5e6f
+        is_abusive: false
+        is_client_hold_enabled: 'no'
+        is_deleted: false
+        is_dnssec_enabled: false
+        is_hosted_whois: false
+        is_lockable: false
+        is_locked: false
+        is_parked: false
+        is_premium: false
+        is_private_whois_allowed: false
+        is_private_whois_enabled: false
+        is_sectigo_dns_enabled: false
+        is_spamexperts_enabled: false
+        last_changed: '2014-04-18 7:13:05'
+        modify_owner_allowed: false
+        name_servers:
+        - ip: 12.3.123.121
+          ip6: 1s23:123:123:f
+          name: ns1.example.com
+          seq_nr: 1
+        ns_group: dns-openprovider
+        ns_template_id: 0
+        ns_template_name: ''
+        nsgroup_id: 1
+        order_date: '2013-07-04 17:14:44'
+        owner:
+          company_name: Example company
+          full_name: Test Van Person
+        owner_company_name: Company Name
+        owner_handle: XX123456-XX
+        quarantine_expiration_date: ''
+        registry_expiration_date: '2020-01-29 0:00:00'
+        registry_statuses:
+          client_hold:
+            is_changeable: false
+            value: 0
+          client_transfer_prohibited:
+            is_changeable: false
+            value: 0
+        renew: 2
+        renewal_date: '2022-01-01 0:00:00'
+        reseller_handle: XX123456-XX
+        reseller_id: 12345
+        restorable_until: ''
+        scheduled_at: ''
+        scheduled_from: ''
+        soft_quarantine_expiry_date: ''
+        status: PRE
+        tech_handle: XX123456-XX
+        trade_allowed: false
+        trade_auth_code_required: 'no'
+        transfer_auth_code_required: 'yes'
+        transfer_cancel_supported: false
+        type: NEW
+        unit: y
+        use_domicile: false
+        verification_email_exp_date: '0000-00-00 00:00:00'
+        verification_email_name: test@example.com
+        verification_email_status: not verified
+        verification_email_status_description: '-'
+        whois_privacy_data:
+          expiration_date: '2020-04-29 17:15:19'
+      desc: ''
+  domainCheckDomainRequest:
+    type: object
+    title: CheckDomainRequest
+    properties:
+      additional_data:
+        title: Additional domain data
+        $ref: '#/definitions/domainCheckAdditionalData'
+      application_mode:
+        description: When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions.
+        type: string
+      domains:
+        type: array
+        title: Array of domains to check
+        items:
+          $ref: '#/definitions/domainDomain'
+      provider:
+        type: string
+        title: Indicates what provider should be chosen for domain operation
+      with_price:
+        type: boolean
+        format: boolean
+        title: Indicate whether to include the domain price with domain availability
+    example:
+      additional_data:
+        idn_script: cyrl
+      application_mode: preregistration
+      domains:
+      - extension: london
+        name: test4
+      provider: SEDO
+      with_price: false
+  domainPremiumPrice:
+    type: object
+    title: PremiumPrice
+    properties:
+      currency:
+        type: string
+        title: Price currency
+      price:
+        title: Operation price
+        $ref: '#/definitions/domainOperationPrice'
+    example:
+      currency: USD
+      price:
+        create: 0
+  domainOperationPrice:
+    type: object
+    title: OperationPrice
+    properties:
+      create:
+        type: number
+        format: double
+        title: Registration price
+    example:
+      create: 0
+  domainTransferDomainResponse:
+    type: object
+    title: TransferDomainResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainTransferDomainResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        auth_code: '12345678'
+        description: intendedUse value must contain information on how the domain name will be used
+        error: 'Nameserver 1: IPv4 is not specified'
+        expiration_date: '2020-03-31 23:59:59'
+        id: 123456789
+        name: intendedUse
+        renewal_date: '2020-03-29 23:59:59'
+        required: false
+        status: ACT
+        type: text
+      desc: ''
+  domainRenewDomainResponseData:
+    type: object
+    title: RenewDomainResponseData
+    properties:
+      status:
+        type: string
+        title: Domain status
+    example:
+      status: ACT
+  domainCheckAdditionalData:
+    type: object
+    title: CheckAdditionalData
+    properties:
+      idn_script:
+        type: string
+        title: 'The idn script states what language or character set the domain name is in
+
+          Applicable to: .actor, .ae.org, .airforce, .army, .art, .attorney, .auction, .band, .bar, .best, .br.com, .ceo, .cn.com, .college, .com, .com.de, .com.se, .consulting, .dance, .de.com, .degree, .democrat, .dentist, .design, .engineer, .eu.com, .eus, .feedback, .fm, .forsale, .frl, .fun, .futbol, .gal, .gb.net, .gives, .gr.com, .haus, .hiv, .host, .immobilien, .in.net, .info, .ink, .jp.net, .jpn.com, .kaufen, .kyoto, .lawyer, .love, .market, .me, .mex.com, .moda, .mortgage, .navy, .net, .ninja, .nrw, .online, .ooo, .org, .press, .protection, .pub, .pw, .quebec, .radio.am, .radio.fm, .realty, .rehab, .rent, .republican, .rest, .reviews, .rip, .rocks, .ru.com, .sa.com, .scot, .se.net, .security, .site, .social, .software, .space, .store, .tech, .theatre, .tickets, .top, .uk.com, .uk.net, .us.com, .us.org, .vet, .website, .wiki, .xn--4gbrim, .xn--55qx5d, .xn--5tzm5g, .xn--80asehdb, .xn--80aswg, .xn--c1avg, .xn--czru2d, .xn--i1b6b1a6a2e, .xn--io0a7i, .xn--mk1bu44c, .xn--ngbc5azd, .xn--nqv7f, .xn--t60b56a, .xn--tckwe, .xyz, .za.com'
+    example:
+      idn_script: cyrl
+  domainTryAgainLastOperationRequest:
+    type: object
+    title: TryAgainLastOperationRequest
+    properties:
+      auth_code:
+        type: string
+        title: Auth code for transfer
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+    example:
+      auth_code: 1a2b3c4d5e6f
+      domain:
+        extension: london
+        name: test4
+      id: 0
+  domainTransferDomainResponseData:
+    type: object
+    title: TransferDomainResponseData
+    properties:
+      auth_code:
+        type: string
+        title: Authorization code
+      description:
+        type: string
+        title: Parameter description
+      error:
+        type: string
+        title: The error
+      expiration_date:
+        type: string
+        title: Domain expiration date
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+      name:
+        type: string
+        title: Parameter name
+      renewal_date:
+        type: string
+        title: Date on which domain will be renewed
+      required:
+        type: boolean
+        format: boolean
+        title: Indicates, if parameter is required
+      status:
+        type: string
+        title: Domain status
+      type:
+        type: string
+        title: Parameter type
+    example:
+      auth_code: '12345678'
+      description: intendedUse value must contain information on how the domain name will be used
+      error: 'Nameserver 1: IPv4 is not specified'
+      expiration_date: '2020-03-31 23:59:59'
+      id: 123456789
+      name: intendedUse
+      renewal_date: '2020-03-29 23:59:59'
+      required: false
+      status: ACT
+      type: text
+  domainListDomainsResponseData:
+    type: object
+    title: ListDomainsResponseData
+    properties:
+      results:
+        type: array
+        title: The results
+        items:
+          $ref: '#/definitions/domainGetDomainResponseData'
+      total:
+        type: integer
+        format: int32
+        title: The total
+    example:
+      results:
+      - abuse_details:
+          abuse_id: 0
+          is_domain_held: false
+          message: ''
+        active_date: '2019-01-27 0:55:17'
+        additional_data:
+          abogado_acceptance: ''
+          admin_sing_pass_id: ''
+          ae_acceptance: '1'
+          allocation_token: ''
+          auth_code: ''
+          bank_acceptance: ''
+          company_registration_number: XX123456789X01
+          coop_acceptance: '1'
+          customer_uin: '374892173498127349'
+          customer_uin_doc_type:
+            description: Singapore Personal Access ID
+            doc_type: singpass
+          domain_name_variants:
+          - xn--домен.cat
+          eligibility_type: ''
+          eligibility_type_relationship: ''
+          es_annex_acceptance: '1'
+          ftld_token: ''
+          gay_donation_acceptance: '1'
+          gay_rights_protection_acceptance: '1'
+          id_number: 123456789X
+          id_type: ''
+          idn_script: SPA
+          insurance_acceptance: ''
+          intended_use: generic
+          law_acceptance: ''
+          legal_type: Individual
+          maintainer: ''
+          membership_id: A
+          mobile_phone_number_verification: ''
+          ngo_ong_eligibility_acceptance: ''
+          ngo_ong_policy_acceptance: ''
+          passport_number: X123456
+          rurf_blocked_domains: ''
+          self_service: '1'
+          trademark: '1'
+          trademark_id: ''
+          travel_acceptance: '1'
+          vat: 11843009X
+          verification_code: ''
+          vote_acceptance: ''
+          voto_acceptance: ''
+        admin_handle: XX123456-XX
+        api_history:
+        - cmd: deleteDomainRequest
+          created_at: '2018-09-05 13:58:55'
+          domain_id: 12345678
+          in: ''
+          out: ''
+        application_id: A743C511084404F31B15757DC979A1412-ABI
+        application_mode: ''
+        application_mode_expiration_date: ''
+        application_mode_title: ''
+        application_notice_id: 983bdc1a0000100000188801724
+        application_smd: ''
+        auth_code: 1a2b3c4d5e6f
+        autorenew: default
+        billing_handle: XX123456-XX
+        can_renew: false
+        comments: ''
+        comments_last_changed_at: '2018-01-30 14:37:49'
+        creation_date: '2013-07-04 17:14:44'
+        delete_status: quarantine
+        deleted_at: '0000-00-00 00:00:00'
+        dnssec: unsigned
+        dnssec_keys:
+        - alg: 8
+          flags: 257
+          protocol: 3
+          pub_key: WSgigdu8545g96
+          readonly: 1
+        domain:
+          extension: london
+          name: test4
+        expiration_date: '2014-07-04 17:14:44'
+        hard_quarantine_expiry_date: ''
+        has_active_sectigo_zone: false
+        has_history: false
+        history:
+        - contents: 'Domain: test-example.tldAction: registration succeededStatus: ACTOrder date: 2018-01-30Activation date: 2018-01-30Renewal date: 2019-01-27Expiration date: 2019-01-29Comments: registration of this domain has succeeded Nameserver addresses are automatically resolved by system; Nameserver IP addresses are only saved for glue records'
+          domain: example.com
+          ip: 12.123.3.12
+          subject: Sent status e-mail to admin@someemail.nl
+          timestamp: '2018-01-30T14:38:45+01:00'
+          type: I
+        id: 123456789
+        internal_auth_code: 1a2b3c4d5e6f
+        is_abusive: false
+        is_client_hold_enabled: 'no'
+        is_deleted: false
+        is_dnssec_enabled: false
+        is_hosted_whois: false
+        is_lockable: false
+        is_locked: false
+        is_parked: false
+        is_premium: false
+        is_private_whois_allowed: false
+        is_private_whois_enabled: false
+        is_sectigo_dns_enabled: false
+        is_spamexperts_enabled: false
+        last_changed: '2014-04-18 7:13:05'
+        modify_owner_allowed: false
+        name_servers:
+        - ip: 12.3.123.121
+          ip6: 1s23:123:123:f
+          name: ns1.example.com
+          seq_nr: 1
+        ns_group: dns-openprovider
+        ns_template_id: 0
+        ns_template_name: ''
+        nsgroup_id: 1
+        order_date: '2013-07-04 17:14:44'
+        owner:
+          company_name: Example company
+          full_name: Test Van Person
+        owner_company_name: Company Name
+        owner_handle: XX123456-XX
+        quarantine_expiration_date: ''
+        registry_expiration_date: '2020-01-29 0:00:00'
+        registry_statuses:
+          client_hold:
+            is_changeable: false
+            value: 0
+          client_transfer_prohibited:
+            is_changeable: false
+            value: 0
+        renew: 2
+        renewal_date: '2022-01-01 0:00:00'
+        reseller_handle: XX123456-XX
+        reseller_id: 12345
+        restorable_until: ''
+        scheduled_at: ''
+        scheduled_from: ''
+        soft_quarantine_expiry_date: ''
+        status: PRE
+        tech_handle: XX123456-XX
+        trade_allowed: false
+        trade_auth_code_required: 'no'
+        transfer_auth_code_required: 'yes'
+        transfer_cancel_supported: false
+        type: NEW
+        unit: y
+        use_domicile: false
+        verification_email_exp_date: '0000-00-00 00:00:00'
+        verification_email_name: test@example.com
+        verification_email_status: not verified
+        verification_email_status_description: '-'
+        whois_privacy_data:
+          expiration_date: '2020-04-29 17:15:19'
+      total: 999
+  domainApiHistory:
+    type: object
+    title: ApiHistory
+    properties:
+      cmd:
+        type: string
+        title: Command name
+      created_at:
+        type: string
+        title: Domain creation date
+      domain_id:
+        type: integer
+        format: int32
+        title: The domain id
+      in:
+        type: string
+        title: Request
+      out:
+        type: string
+        title: Response
+    example:
+      cmd: deleteDomainRequest
+      created_at: '2018-09-05 13:58:55'
+      domain_id: 12345678
+      in: ''
+      out: ''
+  domainDnssecKey:
+    type: object
+    title: DnssecKey
+    properties:
+      alg:
+        type: integer
+        format: int32
+        title: Algorithm
+      flags:
+        type: integer
+        format: int32
+        title: DNSSEC flags
+      protocol:
+        type: integer
+        format: int32
+        title: The protocol
+      pub_key:
+        type: string
+        title: Public key
+      readonly:
+        type: integer
+        format: int32
+        title: Read only flag
+    example:
+      alg: 8
+      flags: 257
+      protocol: 3
+      pub_key: WSgigdu8545g96
+      readonly: 1
+  domainCheckDomainResult:
+    type: object
+    title: CheckDomainResult
+    properties:
+      claim_key:
+        type: string
+        title: The claim key
+      domain:
+        type: string
+        title: Domain full name
+      is_premium:
+        type: boolean
+        format: boolean
+        title: Indicates that a domain has a premium price
+      premium:
+        title: Domain premium price
+        $ref: '#/definitions/domainPremiumPrice'
+      price:
+        title: Price for non-premium domain
+        $ref: '#/definitions/domainPriceGroup'
+      reason:
+        type: string
+        title: Reason for returned availability status
+      status:
+        type: string
+        title: Domain status (free or active)
+      whois:
+        type: string
+        title: Domain whois data
+    example:
+      claim_key: ''
+      domain: example.com
+      is_premium: false
+      premium:
+        currency: USD
+        price:
+          create: 0
+      price:
+        product:
+          currency: USD
+          price: 8.06
+        reseller:
+          currency: USD
+          price: 8.06
+      reason: Domain exists
+      status: active
+      whois: ''
+  domainOwner:
+    type: object
+    title: Owner
+    properties:
+      company_name:
+        type: string
+        title: Domain owner company name
+      full_name:
+        type: string
+        title: Domain owner full name
+    example:
+      company_name: Example company
+      full_name: Test Van Person
+  domainApproveTransferRequest:
+    type: object
+    title: ApproveTransferRequest
+    properties:
+      approve:
+        type: integer
+        format: int32
+        title: The approve
+      auth_code:
+        type: string
+        title: Authorization code
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+      registrar_tag:
+        type: string
+        title: Registrar tag for transfer of .uk domains
+    example:
+      approve: 1
+      auth_code: ''
+      domain:
+        extension: london
+        name: test4
+      id: 0
+      registrar_tag: REGISTRAR-TAG
+  domainDomain:
+    type: object
+    title: Domain
+    properties:
+      extension:
+        type: string
+        title: Domain extension
+      name:
+        type: string
+        title: Domain name without extension
+    example:
+      extension: london
+      name: test4
+  domainSuggestNameDomainResponseData:
+    type: object
+    title: SuggestNameDomainResponseData
+    properties:
+      results:
+        type: array
+        title: Array of results
+        items:
+          $ref: '#/definitions/domainSuggestNameDomainResult'
+    example:
+      results:
+      - domain: yourexampledomain
+        name: yourexampledomain.com
+        tld: com
+  responseBoolResponse:
+    type: object
+    title: BoolResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/responseBoolResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        success: false
+      desc: ''
+  domainTradeDomainRequest:
+    type: object
+    title: TradeDomainRequest
+    properties:
+      additional_data:
+        title: Additional domain data
+        $ref: '#/definitions/domainAdditionalData'
+      admin_handle:
+        type: string
+        title: Administrative contact handle
+      auth_code:
+        type: string
+        title: Authorization code
+      autorenew:
+        type: string
+        title: 'Desired autorenew value: off, on, or default'
+      billing_handle:
+        type: string
+        title: Billing contact handle
+      comments:
+        type: string
+        title: Domain comments
+      dnssec_keys:
+        type: array
+        title: Array containing DNSSEC key information
+        items:
+          $ref: '#/definitions/domainDnssecKey'
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      name_servers:
+        type: array
+        title: Array containing name server information
+        items:
+          $ref: '#/definitions/domainNameserver'
+      ns_group:
+        type: string
+        title: Name of nameserver group
+      ns_template_id:
+        type: integer
+        format: int32
+        title: Id of nameserver template
+      ns_template_name:
+        type: string
+        title: Name of nameserver template
+      owner_handle:
+        type: string
+        title: Owner contact handle
+      period:
+        type: integer
+        format: int32
+        title: Domain registration period in years unless otherwise specified
+      promo_code:
+        type: string
+        title: Promo code to apply to operation
+      tech_handle:
+        type: string
+        title: Tech contact handle
+      use_domicile:
+        type: boolean
+        format: boolean
+        title: Use of domicile or trustee address for TLDs that require local presence
+    example:
+      additional_data:
+        abogado_acceptance: ''
+        admin_sing_pass_id: ''
+        ae_acceptance: '1'
+        allocation_token: ''
+        auth_code: ''
+        bank_acceptance: ''
+        company_registration_number: XX123456789X01
+        coop_acceptance: '1'
+        customer_uin: '374892173498127349'
+        customer_uin_doc_type:
+          description: Singapore Personal Access ID
+          doc_type: singpass
+        domain_name_variants:
+        - xn--домен.cat
+        eligibility_type: ''
+        eligibility_type_relationship: ''
+        es_annex_acceptance: '1'
+        ftld_token: ''
+        gay_donation_acceptance: '1'
+        gay_rights_protection_acceptance: '1'
+        id_number: 123456789X
+        id_type: ''
+        idn_script: SPA
+        insurance_acceptance: ''
+        intended_use: generic
+        law_acceptance: ''
+        legal_type: Individual
+        maintainer: ''
+        membership_id: A
+        mobile_phone_number_verification: ''
+        ngo_ong_eligibility_acceptance: ''
+        ngo_ong_policy_acceptance: ''
+        passport_number: X123456
+        rurf_blocked_domains: ''
+        self_service: '1'
+        trademark: '1'
+        trademark_id: ''
+        travel_acceptance: '1'
+        vat: 11843009X
+        verification_code: ''
+        vote_acceptance: ''
+        voto_acceptance: ''
+      admin_handle: XX123456-XX
+      auth_code: '12345678'
+      autorenew: default
+      billing_handle: XX123456-XX
+      comments: ''
+      dnssec_keys:
+      - alg: 8
+        flags: 257
+        protocol: 3
+        pub_key: WSgigdu8545g96
+        readonly: 1
+      domain:
+        extension: london
+        name: test4
+      name_servers:
+      - ip: 12.3.123.121
+        ip6: 1s23:123:123:f
+        name: ns1.example.com
+        seq_nr: 1
+      ns_group: dns-openprovider
+      ns_template_id: 18354
+      ns_template_name: ''
+      owner_handle: XX123456-XX
+      period: 0
+      promo_code: ''
+      tech_handle: XX123456-XX
+      use_domicile: false
+  domainRegistryStatus:
+    type: object
+    title: RegistryStatus
+    properties:
+      is_changeable:
+        type: boolean
+        format: boolean
+        title: Indicate whether status can be removed
+      value:
+        type: integer
+        format: int32
+        title: Status value
+    example:
+      is_changeable: false
+      value: 0
+  domainUpdateAdditionalData:
+    type: object
+    title: UpdateAdditionalData
+    properties:
+      abogado_acceptance:
+        type: string
+        title: 'The abogado acceptance value should be set to 1
+
+          Applicable to: .abogado'
+      admin_sing_pass_id:
+        type: string
+        title: 'If the admin contact is a natural person located in Singapore, the corresponding Singapore Personal Access ID has to be given. The format of the SingPassID is: X1234567X   - where X is an upper case letter at the beginning and end of a seven digit string In case of a foreign organization, it is possible to use the SGNICID: SGNICID-X12-345678   - the SGNICID will look like this example
+
+          Applicable to: .com.sg, .sg'
+      auth_code:
+        type: string
+        title: 'The auth code
+
+          Applicable to: .nz'
+      company_registration_number:
+        type: string
+        title: 'For companies located in Singapore, the corresponding company registration number has to be given. For Singapore citizens and permanent residents, please provide NRIC or Passport No. For Singapore companies, please provide RCBID as it appears in RCB Certificate. For Singapore societies, please provide RCBID as it appears in ROS Certificate.
+
+          Applicable to: .com.sg, .no, .ro, .sg'
+      customer_uin:
+        type: string
+        title: 'Identification number of domain owner document that proves his identity (e.g. passport number, number of driving license or else in case if domain owner is a private person; chamber of commerce registration number, taxpayer number or else in case of legal entity)
+
+          Applicable for all TLDs which require documents to complete operation with domain (e.g. .bg, .cn etc.)'
+      customer_uin_doc_type:
+        title: 'Type of the domain owner document used to prove his identity (e.g. passport, driving license or else in case if domain owner is a private person; chamber of commerce extract, business certificate or else in case of legal entity)
+
+          Applicable for all TLDs which require documents to complete operation with domain (e.g. .bg, .cn etc.)'
+        $ref: '#/definitions/domainUINDocumentType'
+      domain_name_variants:
+        type: array
+        title: 'The domain name variants should be an array of strings, representing appropriate names
+
+          Applicable to: .cat'
+        items:
+          type: string
+      intended_use:
+        type: string
+        title: 'The intended use value should contain information on how the domain name will be used
+
+          Applicable to: .cat'
+      law_acceptance:
+        type: string
+        title: 'The law acceptance value should be set to 1
+
+          Applicable to: .law'
+      legal_type:
+        type: string
+        title: 'The legal type
+
+          Applicable to: .ca'
+      maintainer:
+        type: string
+        title: 'The maintainer value should be a string, specifying maintainer information. Maximum length 128 characters.
+
+          Applicable to: .cat'
+      membership_id:
+        type: string
+        title: 'The membership id value cannot be empty
+
+          Applicable to: .lotto, .xxx'
+      mobile_phone_number_verification:
+        type: string
+        title: 'The mobile phone''s verification via sms
+
+          Applicable to: .ru, .su, .xn--p1ai'
+      ngo_ong_eligibility_acceptance:
+        type: string
+        title: 'The ngo, ong eligibility acceptance value should be set to 1
+
+          Applicable to: .ngo, .ong'
+      ngo_ong_policy_acceptance:
+        type: string
+        title: 'The ngo, ong policy acceptance value should be set to 1
+
+          Applicable to: .ngo, .ong'
+      passport_number:
+        type: string
+        title: 'The passport number. Required in case if domain requester is a private individual
+
+          Applicable to: .co.hu, .hu'
+      vat:
+        type: string
+        title: 'The vat number. Required in case if domain requester is a legal entity
+
+          Applicable to: .co.hu, .hu'
+      verification_code:
+        type: string
+        title: 'The verification code value cannot be empty
+
+          Applicable to: .lotto'
+    example:
+      abogado_acceptance: ''
+      admin_sing_pass_id: ''
+      auth_code: ''
+      company_registration_number: XX123456789X02
+      customer_uin: '374892173498127349'
+      customer_uin_doc_type:
+        description: Singapore Personal Access ID
+        doc_type: singpass
+      domain_name_variants:
+      - xn--домен.cat
+      intended_use: generic
+      law_acceptance: ''
+      legal_type: Individual
+      maintainer: ''
+      membership_id: A
+      mobile_phone_number_verification: ''
+      ngo_ong_eligibility_acceptance: ''
+      ngo_ong_policy_acceptance: ''
+      passport_number: X123457
+      vat: 11843009X
+      verification_code: ''
+  domainHistory:
+    type: object
+    title: History
+    properties:
+      contents:
+        type: string
+        title: The contents
+      domain:
+        type: string
+        title: Domain full name
+      ip:
+        type: string
+        title: The ip
+      subject:
+        type: string
+        title: The subject
+      timestamp:
+        type: string
+        title: The timestamp
+      type:
+        type: string
+        title: API history type
+    example:
+      contents: 'Domain: test-example.tldAction: registration succeededStatus: ACTOrder date: 2018-01-30Activation date: 2018-01-30Renewal date: 2019-01-27Expiration date: 2019-01-29Comments: registration of this domain has succeeded Nameserver addresses are automatically resolved by system; Nameserver IP addresses are only saved for glue records'
+      domain: example.com
+      ip: 12.123.3.12
+      subject: Sent status e-mail to admin@someemail.nl
+      timestamp: '2018-01-30T14:38:45+01:00'
+      type: I
+  domainNameserver:
+    type: object
+    title: Nameserver
+    properties:
+      ip:
+        type: string
+        title: The ip
+      ip6:
+        type: string
+        title: The ip6
+      name:
+        type: string
+        title: Full name of the nameserver
+      seq_nr:
+        type: integer
+        format: int32
+        title: The seq nr
+    example:
+      ip: 12.3.123.121
+      ip6: 1s23:123:123:f
+      name: ns1.example.com
+      seq_nr: 1
+  domainCreateDomainResponseData:
+    type: object
+    title: CreateDomainResponseData
+    properties:
+      activation_date:
+        type: string
+        title: Domain activation date
+      additional_data:
+        title: Additional domain data
+        $ref: '#/definitions/domainAdditionalData'
+      auth_code:
+        type: string
+        title: Authorization code
+      expiration_date:
+        type: string
+        title: Domain expiration date
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+      renewal_date:
+        type: string
+        title: Date on which domain will be renewed
+      status:
+        type: string
+        title: Domain status
+    example:
+      activation_date: '2019-04-29 17:15:19'
+      additional_data:
+        abogado_acceptance: ''
+        admin_sing_pass_id: ''
+        ae_acceptance: '1'
+        allocation_token: ''
+        auth_code: ''
+        bank_acceptance: ''
+        company_registration_number: XX123456789X01
+        coop_acceptance: '1'
+        customer_uin: '374892173498127349'
+        customer_uin_doc_type:
+          description: Singapore Personal Access ID
+          doc_type: singpass
+        domain_name_variants:
+        - xn--домен.cat
+        eligibility_type: ''
+        eligibility_type_relationship: ''
+        es_annex_acceptance: '1'
+        ftld_token: ''
+        gay_donation_acceptance: '1'
+        gay_rights_protection_acceptance: '1'
+        id_number: 123456789X
+        id_type: ''
+        idn_script: SPA
+        insurance_acceptance: ''
+        intended_use: generic
+        law_acceptance: ''
+        legal_type: Individual
+        maintainer: ''
+        membership_id: A
+        mobile_phone_number_verification: ''
+        ngo_ong_eligibility_acceptance: ''
+        ngo_ong_policy_acceptance: ''
+        passport_number: X123456
+        rurf_blocked_domains: ''
+        self_service: '1'
+        trademark: '1'
+        trademark_id: ''
+        travel_acceptance: '1'
+        vat: 11843009X
+        verification_code: ''
+        vote_acceptance: ''
+        voto_acceptance: ''
+      auth_code: '12345678'
+      expiration_date: '2020-04-29 17:15:19'
+      id: 123456789
+      renewal_date: '2020-04-29 17:15:19'
+      status: ACT
+  domainRestoreDomainRequest:
+    type: object
+    title: RestoreDomainRequest
+    properties:
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+    example:
+      domain:
+        extension: london
+        name: test4
+      id: 0
+  responseBoolResponseData:
+    type: object
+    title: BoolResponseData
+    properties:
+      success:
+        type: boolean
+        format: boolean
+        title: Indicates if operation was successful
+    example:
+      success: false
+  domainRenewDomainRequest:
+    type: object
+    title: RenewDomainRequest
+    properties:
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+      period:
+        type: integer
+        format: int32
+        title: Domain registration period in years unless otherwise specified
+    example:
+      domain:
+        extension: london
+        name: test4
+      id: 0
+      period: 1
+  domainTradeDomainResponseData:
+    type: object
+    title: TradeDomainResponseData
+    properties:
+      creation_date:
+        type: string
+        title: Domain creation date
+      expiration_date:
+        type: string
+        title: Domain expiration date
+      renewal_date:
+        type: string
+        title: Date on which domain will be renewed
+      status:
+        type: string
+        title: Domain status
+    example:
+      creation_date: '2019-04-12 7:28:27'
+      expiration_date: '2020-04-16 13:18:54'
+      renewal_date: '2020-04-16 13:18:54'
+      status: ACT
+  domainPriceGroup:
+    type: object
+    title: PriceGroup
+    properties:
+      product:
+        title: Amount in product currency
+        $ref: '#/definitions/domainPrice'
+      reseller:
+        title: Amount in reseller currency
+        $ref: '#/definitions/domainPrice'
+    example:
+      product:
+        currency: USD
+        price: 8.06
+      reseller:
+        currency: USD
+        price: 8.06
+  domainCheckDomainResponse:
+    type: object
+    title: CheckDomainResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainCheckDomainResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - claim_key: ''
+          domain: example.com
+          is_premium: false
+          premium:
+            currency: USD
+            price:
+              create: 0
+          price:
+            product:
+              currency: USD
+              price: 8.06
+            reseller:
+              currency: USD
+              price: 8.06
+          reason: Domain exists
+          status: active
+          whois: ''
+      desc: ''
+  domainPrice:
+    type: object
+    title: Price
+    properties:
+      currency:
+        type: string
+        title: Product or reseller currency
+      price:
+        type: number
+        format: double
+        title: Amount in product or reseller currency
+    example:
+      currency: USD
+      price: 8.06
+  domainUpdateDomainResponse:
+    type: object
+    title: UpdateDomainResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainUpdateDomainResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        id: 123456789
+        status: ACT
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  domainSendFoa1Request:
+    type: object
+    title: SendFoa1Request
+    properties:
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+    example:
+      domain:
+        extension: london
+        name: test4
+      id: 0
+  domainSuggestNameDomainResponse:
+    type: object
+    title: SuggestNameDomainResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainSuggestNameDomainResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - domain: yourexampledomain
+          name: yourexampledomain.com
+          tld: com
+      desc: ''
+  domainAbuseDetails:
+    type: object
+    title: AbuseDetails
+    properties:
+      abuse_id:
+        type: integer
+        format: int32
+        title: The abuse id
+      is_domain_held:
+        type: boolean
+        format: boolean
+        title: Is domain held
+      message:
+        type: string
+        title: Message information
+    example:
+      abuse_id: 0
+      is_domain_held: false
+      message: ''
+  domainTradeDomainResponse:
+    type: object
+    title: TradeDomainResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainTradeDomainResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        creation_date: '2019-04-12 7:28:27'
+        expiration_date: '2020-04-16 13:18:54'
+        renewal_date: '2020-04-16 13:18:54'
+        status: ACT
+      desc: ''
+  domainWhoisPrivacyData:
+    type: object
+    title: WhoisPrivacyData
+    properties:
+      expiration_date:
+        type: string
+        title: WPP expiration date
+    example:
+      expiration_date: '2020-04-29 17:15:19'
+  domainUpdateDomainRequest:
+    type: object
+    title: UpdateDomainRequest
+    properties:
+      accept_update_fee:
+        type: number
+        format: double
+        title: Amount that will be charged for domain modification
+      additional_data:
+        title: Additional domain data
+        $ref: '#/definitions/domainUpdateAdditionalData'
+      admin_handle:
+        type: string
+        title: Administrative contact handle
+      auth_code:
+        type: string
+        title: Authorization code
+      autorenew:
+        type: string
+        title: 'Desired autorenew value: off, on, or default'
+      billing_handle:
+        type: string
+        title: Billing contact handle
+      comments:
+        type: string
+        title: Domain comments
+      dnssec_keys:
+        type: array
+        title: Array containing DNSSEC key information
+        items:
+          $ref: '#/definitions/domainDnssecKey'
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      force_registry_update:
+        type: boolean
+        format: boolean
+        title: Triggers enforced domain update in registry
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+      is_dnssec_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables DNSSEC on domain
+      is_locked:
+        type: boolean
+        format: boolean
+        title: Indicates that domain should be locked or unlocked
+      is_private_whois_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables whois privacy protection (WPP) on domain
+      is_sectigo_dns_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables premium Sectigo DNS on domain
+      is_spamexperts_enabled:
+        type: boolean
+        format: boolean
+        title: Enable Spam Experts spam protection for domain
+      name_servers:
+        type: array
+        title: Array containing name server information
+        items:
+          $ref: '#/definitions/domainNameserver'
+      ns_group:
+        type: string
+        title: Name of nameserver group
+      ns_template_id:
+        type: integer
+        format: int32
+        title: Id of nameserver template
+      ns_template_name:
+        type: string
+        title: Name of nameserver template
+      owner_handle:
+        type: string
+        title: Owner contact handle
+      remove_nses:
+        type: boolean
+        format: boolean
+        title: Use for deletion of existing nameservers
+      reseller_handle:
+        type: string
+        title: Reseller handle
+      reset_auth_code:
+        type: boolean
+        format: boolean
+        title: Resets domain authcode
+      scheduled_at:
+        type: string
+        title: The scheduled at
+      tech_handle:
+        type: string
+        title: Tech contact handle
+      use_domicile:
+        type: boolean
+        format: boolean
+        title: Use of domicile or trustee address for TLDs that require local presence
+    example:
+      accept_update_fee: 0
+      additional_data:
+        abogado_acceptance: ''
+        admin_sing_pass_id: ''
+        auth_code: ''
+        company_registration_number: XX123456789X02
+        customer_uin: '374892173498127349'
+        customer_uin_doc_type:
+          description: Singapore Personal Access ID
+          doc_type: singpass
+        domain_name_variants:
+        - xn--домен.cat
+        intended_use: generic
+        law_acceptance: ''
+        legal_type: Individual
+        maintainer: ''
+        membership_id: A
+        mobile_phone_number_verification: ''
+        ngo_ong_eligibility_acceptance: ''
+        ngo_ong_policy_acceptance: ''
+        passport_number: X123457
+        vat: 11843009X
+        verification_code: ''
+      admin_handle: XX123456-XX
+      auth_code: '12345678'
+      autorenew: default
+      billing_handle: XX123456-XX
+      comments: Test domain for explaining SSL Panel workflow.
+      dnssec_keys:
+      - alg: 8
+        flags: 257
+        protocol: 3
+        pub_key: WSgigdu8545g96
+        readonly: 1
+      domain:
+        extension: london
+        name: test4
+      force_registry_update: false
+      id: 0
+      is_dnssec_enabled: false
+      is_locked: false
+      is_private_whois_enabled: false
+      is_sectigo_dns_enabled: false
+      is_spamexperts_enabled: false
+      name_servers:
+      - ip: 12.3.123.121
+        ip6: 1s23:123:123:f
+        name: ns1.example.com
+        seq_nr: 1
+      ns_group: example
+      ns_template_id: 0
+      ns_template_name: Default
+      owner_handle: XX123456-XX
+      remove_nses: false
+      reseller_handle: XX123456-XX
+      reset_auth_code: false
+      scheduled_at: '2019-03-30'
+      tech_handle: XX123456-XX
+      use_domicile: false
+  domainRestoreDomainResponse:
+    type: object
+    title: RestoreDomainResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainRestoreDomainResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        status: ACT
+      desc: ''
+  domainDeleteDomainResponse:
+    type: object
+    title: DeleteDomainResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainDeleteDomainResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        status: ACT
+      desc: ''
+  domainCreateDomainResponse:
+    type: object
+    title: CreateDomainResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainCreateDomainResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        activation_date: '2019-04-29 17:15:19'
+        additional_data:
+          abogado_acceptance: ''
+          admin_sing_pass_id: ''
+          ae_acceptance: '1'
+          allocation_token: ''
+          auth_code: ''
+          bank_acceptance: ''
+          company_registration_number: XX123456789X01
+          coop_acceptance: '1'
+          customer_uin: '374892173498127349'
+          customer_uin_doc_type:
+            description: Singapore Personal Access ID
+            doc_type: singpass
+          domain_name_variants:
+          - xn--домен.cat
+          eligibility_type: ''
+          eligibility_type_relationship: ''
+          es_annex_acceptance: '1'
+          ftld_token: ''
+          gay_donation_acceptance: '1'
+          gay_rights_protection_acceptance: '1'
+          id_number: 123456789X
+          id_type: ''
+          idn_script: SPA
+          insurance_acceptance: ''
+          intended_use: generic
+          law_acceptance: ''
+          legal_type: Individual
+          maintainer: ''
+          membership_id: A
+          mobile_phone_number_verification: ''
+          ngo_ong_eligibility_acceptance: ''
+          ngo_ong_policy_acceptance: ''
+          passport_number: X123456
+          rurf_blocked_domains: ''
+          self_service: '1'
+          trademark: '1'
+          trademark_id: ''
+          travel_acceptance: '1'
+          vat: 11843009X
+          verification_code: ''
+          vote_acceptance: ''
+          voto_acceptance: ''
+        auth_code: '12345678'
+        expiration_date: '2020-04-29 17:15:19'
+        id: 123456789
+        renewal_date: '2020-04-29 17:15:19'
+        status: ACT
+      desc: ''
+  domainCreateDomainRequest:
+    type: object
+    title: CreateDomainRequest
+    properties:
+      accept_eap_fee:
+        type: number
+        format: double
+        title: Required for certain pre-pregistrations
+      accept_premium_fee:
+        type: number
+        format: double
+        title: Premium price fee acceptance
+      additional_data:
+        title: Additional domain data
+        $ref: '#/definitions/domainAdditionalData'
+      admin_handle:
+        type: string
+        title: Administrative contact handle
+      application_mode:
+        description: When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions.
+        type: string
+      application_notice_id:
+        type: string
+        title: The application notice id
+      application_smd:
+        type: string
+        title: The application smd
+      auth_code:
+        type: string
+        title: Authorization code
+      autorenew:
+        type: string
+        title: 'Desired autorenew value: off, on, or default'
+      billing_handle:
+        type: string
+        title: Billing contact handle
+      comments:
+        type: string
+        title: Domain comments
+      dnssec_keys:
+        type: array
+        title: Array containing DNSSEC key information
+        items:
+          $ref: '#/definitions/domainDnssecKey'
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      is_dnssec_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables DNSSEC on domain
+      is_easy_dmarc_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables easy dmarc protection for this domain
+        default: false
+      is_private_whois_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables whois privacy protection (WPP) on domain
+      is_sectigo_dns_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables premium Sectigo DNS on domain
+      is_spamexperts_enabled:
+        type: boolean
+        format: boolean
+        title: Enable Spam Experts spam protetion for domain
+      name_servers:
+        type: array
+        title: Array containing name server information
+        items:
+          $ref: '#/definitions/domainNameserver'
+      ns_group:
+        type: string
+        title: Name of nameserver group
+      ns_template_id:
+        type: integer
+        format: int32
+        title: Id of nameserver template
+      ns_template_name:
+        type: string
+        title: Name of nameserver template
+      owner_handle:
+        type: string
+        title: Owner contact handle
+      period:
+        type: integer
+        format: int32
+        title: Domain registration period in years unless otherwise specified
+      promo_code:
+        type: string
+        title: Promo code to apply to operation
+      provider:
+        type: string
+        title: Indicates what provider should be chosen for domain operation
+      reseller_handle:
+        type: string
+        title: Reseller handle
+      tech_handle:
+        type: string
+        title: Tech contact handle
+      unit:
+        type: string
+        title: Unit of time to register domain, yearly, quarterly, or monthly
+      use_domicile:
+        type: boolean
+        format: boolean
+        title: Use of domicile or trustee address for TLDs that require local presence
+    example:
+      accept_eap_fee: 0
+      accept_premium_fee: 0
+      additional_data:
+        abogado_acceptance: ''
+        admin_sing_pass_id: ''
+        ae_acceptance: '1'
+        allocation_token: ''
+        auth_code: ''
+        bank_acceptance: ''
+        company_registration_number: XX123456789X01
+        coop_acceptance: '1'
+        customer_uin: '374892173498127349'
+        customer_uin_doc_type:
+          description: Singapore Personal Access ID
+          doc_type: singpass
+        domain_name_variants:
+        - xn--домен.cat
+        eligibility_type: ''
+        eligibility_type_relationship: ''
+        es_annex_acceptance: '1'
+        ftld_token: ''
+        gay_donation_acceptance: '1'
+        gay_rights_protection_acceptance: '1'
+        id_number: 123456789X
+        id_type: ''
+        idn_script: SPA
+        insurance_acceptance: ''
+        intended_use: generic
+        law_acceptance: ''
+        legal_type: Individual
+        maintainer: ''
+        membership_id: A
+        mobile_phone_number_verification: ''
+        ngo_ong_eligibility_acceptance: ''
+        ngo_ong_policy_acceptance: ''
+        passport_number: X123456
+        rurf_blocked_domains: ''
+        self_service: '1'
+        trademark: '1'
+        trademark_id: ''
+        travel_acceptance: '1'
+        vat: 11843009X
+        verification_code: ''
+        vote_acceptance: ''
+        voto_acceptance: ''
+      admin_handle: XX123456-XX
+      application_mode: preregistration
+      application_notice_id: 983bdc1a0000100000188801724
+      application_smd: ''
+      auth_code: ''
+      autorenew: 'on'
+      billing_handle: XX123456-XX
+      comments: any comment here
+      dnssec_keys:
+      - alg: 8
+        flags: 257
+        protocol: 3
+        pub_key: WSgigdu8545g96
+        readonly: 1
+      domain:
+        extension: london
+        name: test4
+      is_dnssec_enabled: false
+      is_easy_dmarc_enabled: false
+      is_private_whois_enabled: false
+      is_sectigo_dns_enabled: false
+      is_spamexperts_enabled: false
+      name_servers:
+      - ip: 12.3.123.121
+        ip6: 1s23:123:123:f
+        name: ns1.example.com
+        seq_nr: 1
+      ns_group: example
+      ns_template_id: 14977
+      ns_template_name: Default
+      owner_handle: XX123456-XX
+      period: 1
+      promo_code: PROMOCODE
+      provider: SEDO
+      reseller_handle: XX123456-XX
+      tech_handle: XX123456-XX
+      unit: y
+      use_domicile: false
+  domainDeleteDomainResponseData:
+    type: object
+    title: DeleteDomainResponseData
+    properties:
+      status:
+        type: string
+        title: Domain status
+    example:
+      status: ACT
+  domainCheckDomainResponseData:
+    type: object
+    title: CheckDomainResponseData
+    properties:
+      results:
+        type: array
+        title: Array of results
+        items:
+          $ref: '#/definitions/domainCheckDomainResult'
+    example:
+      results:
+      - claim_key: ''
+        domain: example.com
+        is_premium: false
+        premium:
+          currency: USD
+          price:
+            create: 0
+        price:
+          product:
+            currency: USD
+            price: 8.06
+          reseller:
+            currency: USD
+            price: 8.06
+        reason: Domain exists
+        status: active
+        whois: ''
+  domainTransferAdditionalData:
+    type: object
+    title: TransferAdditionalData
+    properties:
+      admin_sing_pass_id:
+        type: string
+        title: 'If the admin contact is a natural person located in Singapore, the corresponding Singapore Personal Access ID has to be given. The format of the SingPassID is: X1234567X   - where X is an upper case letter at the beginning and end of a seven digit string In case of a foreign organization, it is possible to use the SGNICID: SGNICID-X12-345678   - the SGNICID will look like this example
+
+          Applicable to: .com.sg, .sg'
+      auth_code:
+        type: string
+        title: 'The auth code
+
+          Applicable to: .nz'
+      company_registration_number:
+        type: string
+        title: 'For companies located in Singapore, the corresponding company registration number has to be given. For Singapore citizens and permanent residents, please provide NRIC or Passport No. For Singapore companies, please provide RCBID as it appears in RCB Certificate. For Singapore societies, please provide RCBID as it appears in ROS Certificate.
+
+          Applicable to: .com.sg, .no, .ro, .sg'
+      customer_uin:
+        type: string
+        title: 'Identification number of domain owner document that proves his identity (e.g. passport number, number of driving license or else in case if domain owner is a private person; chamber of commerce registration number, taxpayer number or else in case of legal entity)
+
+          Applicable for all TLDs which require documents to complete operation with domain (e.g. .bg, .cn etc.)'
+      customer_uin_doc_type:
+        title: 'Type of the domain owner document used to prove his identity (e.g. passport, driving license or else in case if domain owner is a private person; chamber of commerce extract, business certificate or else in case of legal entity)
+
+          Applicable for all TLDs which require documents to complete operation with domain (e.g. .bg, .cn etc.)'
+        $ref: '#/definitions/domainUINDocumentType'
+      domain_name_variants:
+        type: array
+        title: 'The domain name variants should be an array of strings, representing appropriate names
+
+          Applicable to: .cat'
+        items:
+          type: string
+      ftld_token:
+        type: string
+        title: 'The fTLD token and data in owner handle must be exactly the same as in token. You need to request token from registry
+
+          Applicable to: .bank, .insurance'
+      gay_donation_acceptance:
+        type: string
+        title: 'The .gay donation acceptance value should be set to 1
+
+          Applicable to: .gay'
+      gay_rights_protection_acceptance:
+        type: string
+        title: 'The .gay rights protection acceptance value should be set to 1
+
+          Applicable to: .gay'
+      idn_script:
+        type: string
+        title: 'The idn script states what language or character set the domain name is in
+
+          Applicable to: .eus, .gal, .hiv, .quebec, .scot, .xn--55qx5d, .xn--5tzm5g, .xn--czru2d, .xn--io0a7i, .xn--mk1bu44c, .xn--t60b56a, .xn--tckwe'
+      intended_use:
+        type: string
+        title: 'The intended use value must contain information on how the domain name will be used
+
+          Applicable to:  .cat, .scot, .gal, .eus, .swiss, .radio, .barcelona, .sport, .pl, .aid.pl, .agro.pl, .atm.pl, .auto.pl, .biz.pl, .com.pl, .edu.pl, .gmina.pl, .gsm.pl, .info.pl, .mail.pl, .miasta.pl, .media.pl, .mil.pl, .net.pl, .nieruchomosci.pl, .nom.pl, .org.pl, .pc.pl, .powiat.pl, .priv.pl, .realestate.pl, .rel.pl, .sex.pl, .shop.pl, .sklep.pl, .sos.pl, .szkola.pl, .targi.pl, .tm.pl, .tourism.pl, .travel.pl, .turystyka.pl, .augustow.pl, .babia-gora.pl, .bedzin.pl, .beskidy.pl, .bialowieza.pl, .bialystok.pl, .bielawa.pl, .bieszczady.pl, .boleslawiec.pl, .bydgoszcz.pl, .bytom.pl, .cieszyn.pl, .czeladz.pl, .czest.pl, .dlugoleka.pl, .elblag.pl, .elk.pl, .glogow.pl, .gniezno.pl, .gorlice.pl, .grajewo.pl, .ilawa.pl, .jaworzno.pl, .jelenia-gora.pl, .jgora.pl, .kalisz.pl, .kazimierz-dolny.pl, .karpacz.pl, .kartuzy.pl, .kaszuby.pl, .katowice.pl, .kepno.pl, .ketrzyn.pl, .klodzko.pl, .kobierzyce.pl, .kolobrzeg.pl, .konin.pl, .konskowola.pl, .kutno.pl, .lapy.pl, .lebork.pl, .legnica.pl, .lezajsk.pl, .limanowa.pl, .lomza.pl, .lowicz.pl, .lubin.pl, .lukow.pl, .malbork.pl, .malopolska.pl, .mazowsze.pl, .mazury.pl, .mielec.pl, .mielno.pl, .mragowo.pl, .naklo.pl, .nowaruda.pl, .nysa.pl, .olawa.pl, .olecko.pl, .olkusz.pl, .olsztyn.pl, .opoczno.pl, .opole.pl, .ostroda.pl, .ostroleka.pl, .ostrowiec.pl, .ostrowwlkp.pl, .pila.pl, .pisz.pl, .podhale.pl, .podlasie.pl, .polkowice.pl, .pomorze.pl, .pomorskie.pl, .prochowice.pl, .pruszkow.pl, .przeworsk.pl, .pulawy.pl, .radom.pl, .rawa-maz.pl, .rybnik.pl, .rzeszow.pl, .sanok.pl, .sejny.pl, .slask.pl, .slupsk.pl, .sosnowiec.pl, .stalowa-wola.pl, .skoczow.pl, .starachowice.pl, .stargard.pl, .suwalki.pl, .swidnica.pl, .swiebodzin.pl, .swinoujscie.pl, .szczecin.pl, .szczytno.pl, .tarnobrzeg.pl, .tgory.pl, .turek.pl, .tychy.pl, .ustka.pl, .walbrzych.pl, .warmia.pl, .warszawa.pl, .waw.pl, .wegrow.pl, .wielun.pl, .wlocl.pl, .wloclawek.pl, .wodzislaw.pl, .wolomin.pl, .wroclaw.pl, .zachpomor.pl, .zagan.pl, .zarow.pl, .zgora.pl, .zgorzelec.pl'
+      legal_type:
+        type: string
+        title: 'The legal type
+
+          Applicable to: .ca'
+      maintainer:
+        type: string
+        title: 'The maintainer value should be a string, specifying maintainer information. Maximum length 128 characters.
+
+          Applicable to: .cat'
+      membership_id:
+        type: string
+        title: 'The membership id value cannot be empty
+
+          Applicable to: .lotto, .xxx'
+      mobile_phone_number_verification:
+        type: string
+        title: 'The mobile phone''s verification via sms
+
+          Applicable to: .ru, .su, .xn--p1ai'
+      passport_number:
+        type: string
+        title: 'The passport number. Required in case if domain requester is a private individual
+
+          Applicable to: .co.hu, .hu'
+      self_service:
+        type: string
+        title: 'The self service
+
+          Applicable to: .feedback'
+      trademark:
+        type: string
+        title: 'The trademark
+
+          Applicable to: .ca'
+      vat:
+        type: string
+        title: 'The vat number. Required in case if domain requester is a legal entity
+
+          Applicable to: .co.hu, .hu'
+      verification_code:
+        type: string
+        title: 'The verification code value cannot be empty
+
+          Applicable to: .lotto'
+    example:
+      admin_sing_pass_id: ''
+      auth_code: ''
+      company_registration_number: XX123456789X03
+      customer_uin: '374892173498127349'
+      customer_uin_doc_type:
+        description: Singapore Personal Access ID
+        doc_type: singpass
+      domain_name_variants:
+      - xn--домен.cat
+      ftld_token: ''
+      gay_donation_acceptance: '1'
+      gay_rights_protection_acceptance: '1'
+      idn_script: SPA
+      intended_use: generic
+      legal_type: Individual
+      maintainer: ''
+      membership_id: A
+      mobile_phone_number_verification: ''
+      passport_number: X123458
+      self_service: '1'
+      trademark: '1'
+      vat: 11843009X
+      verification_code: ''
+  domainSuggestNameDomainResult:
+    type: object
+    title: SuggestNameDomainResult
+    properties:
+      domain:
+        type: string
+        title: Domain name, not including the TLD
+      name:
+        type: string
+        title: Domain and TLD separated by '.'
+      tld:
+        type: string
+        title: TLD
+    example:
+      domain: yourexampledomain
+      name: yourexampledomain.com
+      tld: com
+  domainGetDomainResponseData:
+    type: object
+    title: GetDomainResponseData
+    properties:
+      abuse_details:
+        title: The abuse details
+        $ref: '#/definitions/domainAbuseDetails'
+      active_date:
+        type: string
+        title: Domain active date
+      additional_data:
+        title: Additional domain data
+        $ref: '#/definitions/domainAdditionalData'
+      admin_handle:
+        type: string
+        title: Administrative contact handle
+      api_history:
+        type: array
+        title: API calls history related to specified domain
+        items:
+          $ref: '#/definitions/domainApiHistory'
+      application_id:
+        type: string
+        title: The application id
+      application_mode:
+        description: When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions.
+        type: string
+      application_mode_expiration_date:
+        type: string
+        title: The application mode expiration date
+      application_mode_title:
+        type: string
+        title: The application mode title
+      application_notice_id:
+        type: string
+        title: The application notice id
+      application_smd:
+        type: string
+        title: The application smd
+      auth_code:
+        type: string
+        title: Authorization code
+      autorenew:
+        type: string
+        title: 'Desired autorenew value: off, on, or default'
+      billing_handle:
+        type: string
+        title: Billing contact handle
+      can_renew:
+        type: boolean
+        format: boolean
+        title: Indicates if domain can be renewed
+      comments:
+        type: string
+        title: Domain comments
+      comments_last_changed_at:
+        type: string
+        title: Timestamp indicating when domain comments were last edited
+      creation_date:
+        type: string
+        title: Domain creation date
+      delete_status:
+        type: string
+        title: Deletion status
+      deleted_at:
+        type: string
+        title: Date the domain has been deleted
+      dnssec:
+        description: 'Indicates, if DNSSEC is enabled. Possible values: signedDelegation, unsigned.'
+        type: string
+      dnssec_keys:
+        type: array
+        title: Array containing DNSSEC key information
+        items:
+          $ref: '#/definitions/domainDnssecKey'
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      expiration_date:
+        type: string
+        title: Domain expiration date
+      hard_quarantine_expiry_date:
+        type: string
+        title: Date of hard quarantine expiration
+      has_active_sectigo_zone:
+        type: boolean
+        format: boolean
+        title: Indicates if domain has an active dns zone in Sectigo
+      has_history:
+        type: boolean
+        format: boolean
+        title: Indicates if domain has history data
+      history:
+        type: array
+        title: Domain mutations history
+        items:
+          $ref: '#/definitions/domainHistory'
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+      internal_auth_code:
+        type: string
+        title: Authcode for internal transfers
+      is_abusive:
+        type: boolean
+        format: boolean
+        title: Indicates if domain is abusive
+      is_client_hold_enabled:
+        type: string
+        title: Indicates if domain is in clientHold EPP status
+      is_deleted:
+        type: boolean
+        format: boolean
+        title: Indicates whether object is deleted
+      is_dnssec_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables DNSSEC on domain
+      is_hosted_whois:
+        type: boolean
+        format: boolean
+        title: Indicates, if whois data is hosted at Openprovider
+      is_lockable:
+        type: boolean
+        format: boolean
+        title: Indicates, if domain can be transfer locked
+      is_locked:
+        type: boolean
+        format: boolean
+        title: Indicates that domain is locked for transfer
+      is_parked:
+        type: boolean
+        format: boolean
+        title: Indicates whether object is parked
+      is_premium:
+        type: boolean
+        format: boolean
+        title: Indicates that a domain has a premium price
+      is_private_whois_allowed:
+        type: boolean
+        format: boolean
+        title: Indicates, if whois privacy protection allowed
+      is_private_whois_enabled:
+        type: boolean
+        format: boolean
+        title: Enables or disables whois privacy protection (WPP) on domain
+      is_sectigo_dns_enabled:
+        type: boolean
+        format: boolean
+        title: Indicates if domain has an active dns zone in Sectigo
+      is_spamexperts_enabled:
+        type: boolean
+        format: boolean
+        title: Enable Spam Experts spam protetion for domain
+      last_changed:
+        type: string
+        title: Date of last domain update
+      modify_owner_allowed:
+        type: boolean
+        format: boolean
+        title: Indicates, if owner modification allowed
+      name_servers:
+        type: array
+        title: Array containing name server information
+        items:
+          $ref: '#/definitions/domainNameserver'
+      ns_group:
+        type: string
+        title: Name of nameserver group
+      ns_template_id:
+        type: integer
+        format: int32
+        title: Id of nameserver template
+      ns_template_name:
+        type: string
+        title: Name of nameserver template
+      nsgroup_id:
+        type: integer
+        format: int32
+        title: Id of nameserver group
+      order_date:
+        type: string
+        title: Domain order date
+      owner:
+        title: Domain owner details
+        $ref: '#/definitions/domainOwner'
+      owner_company_name:
+        type: string
+        title: Domain owner company name
+      owner_handle:
+        type: string
+        title: Owner contact handle
+      quarantine_expiration_date:
+        type: string
+        title: Quarantine expiration date
+      registry_expiration_date:
+        type: string
+        title: Domain expiration date in the registry
+      registry_statuses:
+        title: Array of registry statuses
+        $ref: '#/definitions/domainRegistryStatuses'
+      renew:
+        type: integer
+        format: int32
+        title: The renew
+      renewal_date:
+        type: string
+        title: Date on which domain will be renewed
+      reseller_handle:
+        type: string
+        title: Reseller handle
+      reseller_id:
+        type: integer
+        format: int32
+        title: Reseller id
+      restorable_until:
+        type: string
+        title: Date until which domain can be restored
+      scheduled_at:
+        type: string
+        title: The scheduled at
+      scheduled_from:
+        type: string
+        title: The scheduled from
+      soft_quarantine_expiry_date:
+        type: string
+        title: Date of soft quarantine expiration
+      status:
+        type: string
+        title: Domain status
+      tech_handle:
+        type: string
+        title: Tech contact handle
+      trade_allowed:
+        type: boolean
+        format: boolean
+        title: Indicates if trade is allowed
+      trade_auth_code_required:
+        type: string
+        title: Indicates if authcode required for trade
+      transfer_auth_code_required:
+        type: string
+        title: Indicates if authcode required for transfer
+      transfer_cancel_supported:
+        type: boolean
+        format: boolean
+        title: Indicates if transfer cancellation supported
+      type:
+        type: string
+        title: Domain type
+      unit:
+        type: string
+        title: Unit of time to register domain, yearly, quarterly, or monthly
+      use_domicile:
+        type: boolean
+        format: boolean
+        title: Use of domicile or trustee address for TLDs that require local presence
+      verification_email_exp_date:
+        type: string
+        title: The verification email exp date
+      verification_email_name:
+        type: string
+        title: The verification email name
+      verification_email_status:
+        type: string
+        title: The verification email status
+      verification_email_status_description:
+        type: string
+        title: The verification email status description
+      whois_privacy_data:
+        title: The whois privacy data
+        $ref: '#/definitions/domainWhoisPrivacyData'
+    example:
+      abuse_details:
+        abuse_id: 0
+        is_domain_held: false
+        message: ''
+      active_date: '2019-01-27 0:55:17'
+      additional_data:
+        abogado_acceptance: ''
+        admin_sing_pass_id: ''
+        ae_acceptance: '1'
+        allocation_token: ''
+        auth_code: ''
+        bank_acceptance: ''
+        company_registration_number: XX123456789X01
+        coop_acceptance: '1'
+        customer_uin: '374892173498127349'
+        customer_uin_doc_type:
+          description: Singapore Personal Access ID
+          doc_type: singpass
+        domain_name_variants:
+        - xn--домен.cat
+        eligibility_type: ''
+        eligibility_type_relationship: ''
+        es_annex_acceptance: '1'
+        ftld_token: ''
+        gay_donation_acceptance: '1'
+        gay_rights_protection_acceptance: '1'
+        id_number: 123456789X
+        id_type: ''
+        idn_script: SPA
+        insurance_acceptance: ''
+        intended_use: generic
+        law_acceptance: ''
+        legal_type: Individual
+        maintainer: ''
+        membership_id: A
+        mobile_phone_number_verification: ''
+        ngo_ong_eligibility_acceptance: ''
+        ngo_ong_policy_acceptance: ''
+        passport_number: X123456
+        rurf_blocked_domains: ''
+        self_service: '1'
+        trademark: '1'
+        trademark_id: ''
+        travel_acceptance: '1'
+        vat: 11843009X
+        verification_code: ''
+        vote_acceptance: ''
+        voto_acceptance: ''
+      admin_handle: XX123456-XX
+      api_history:
+      - cmd: deleteDomainRequest
+        created_at: '2018-09-05 13:58:55'
+        domain_id: 12345678
+        in: ''
+        out: ''
+      application_id: A743C511084404F31B15757DC979A1412-ABI
+      application_mode: ''
+      application_mode_expiration_date: ''
+      application_mode_title: ''
+      application_notice_id: 983bdc1a0000100000188801724
+      application_smd: ''
+      auth_code: 1a2b3c4d5e6f
+      autorenew: default
+      billing_handle: XX123456-XX
+      can_renew: false
+      comments: ''
+      comments_last_changed_at: '2018-01-30 14:37:49'
+      creation_date: '2013-07-04 17:14:44'
+      delete_status: quarantine
+      deleted_at: '0000-00-00 00:00:00'
+      dnssec: unsigned
+      dnssec_keys:
+      - alg: 8
+        flags: 257
+        protocol: 3
+        pub_key: WSgigdu8545g96
+        readonly: 1
+      domain:
+        extension: london
+        name: test4
+      expiration_date: '2014-07-04 17:14:44'
+      hard_quarantine_expiry_date: ''
+      has_active_sectigo_zone: false
+      has_history: false
+      history:
+      - contents: 'Domain: test-example.tldAction: registration succeededStatus: ACTOrder date: 2018-01-30Activation date: 2018-01-30Renewal date: 2019-01-27Expiration date: 2019-01-29Comments: registration of this domain has succeeded Nameserver addresses are automatically resolved by system; Nameserver IP addresses are only saved for glue records'
+        domain: example.com
+        ip: 12.123.3.12
+        subject: Sent status e-mail to admin@someemail.nl
+        timestamp: '2018-01-30T14:38:45+01:00'
+        type: I
+      id: 123456789
+      internal_auth_code: 1a2b3c4d5e6f
+      is_abusive: false
+      is_client_hold_enabled: 'no'
+      is_deleted: false
+      is_dnssec_enabled: false
+      is_hosted_whois: false
+      is_lockable: false
+      is_locked: false
+      is_parked: false
+      is_premium: false
+      is_private_whois_allowed: false
+      is_private_whois_enabled: false
+      is_sectigo_dns_enabled: false
+      is_spamexperts_enabled: false
+      last_changed: '2014-04-18 7:13:05'
+      modify_owner_allowed: false
+      name_servers:
+      - ip: 12.3.123.121
+        ip6: 1s23:123:123:f
+        name: ns1.example.com
+        seq_nr: 1
+      ns_group: dns-openprovider
+      ns_template_id: 0
+      ns_template_name: ''
+      nsgroup_id: 1
+      order_date: '2013-07-04 17:14:44'
+      owner:
+        company_name: Example company
+        full_name: Test Van Person
+      owner_company_name: Company Name
+      owner_handle: XX123456-XX
+      quarantine_expiration_date: ''
+      registry_expiration_date: '2020-01-29 0:00:00'
+      registry_statuses:
+        client_hold:
+          is_changeable: false
+          value: 0
+        client_transfer_prohibited:
+          is_changeable: false
+          value: 0
+      renew: 2
+      renewal_date: '2022-01-01 0:00:00'
+      reseller_handle: XX123456-XX
+      reseller_id: 12345
+      restorable_until: ''
+      scheduled_at: ''
+      scheduled_from: ''
+      soft_quarantine_expiry_date: ''
+      status: PRE
+      tech_handle: XX123456-XX
+      trade_allowed: false
+      trade_auth_code_required: 'no'
+      transfer_auth_code_required: 'yes'
+      transfer_cancel_supported: false
+      type: NEW
+      unit: y
+      use_domicile: false
+      verification_email_exp_date: '0000-00-00 00:00:00'
+      verification_email_name: test@example.com
+      verification_email_status: not verified
+      verification_email_status_description: '-'
+      whois_privacy_data:
+        expiration_date: '2020-04-29 17:15:19'
+  domainListDomainsResponse:
+    type: object
+    title: ListDomainsResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/domainListDomainsResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        results:
+        - abuse_details:
+            abuse_id: 0
+            is_domain_held: false
+            message: ''
+          active_date: '2019-01-27 0:55:17'
+          additional_data:
+            abogado_acceptance: ''
+            admin_sing_pass_id: ''
+            ae_acceptance: '1'
+            allocation_token: ''
+            auth_code: ''
+            bank_acceptance: ''
+            company_registration_number: XX123456789X01
+            coop_acceptance: '1'
+            customer_uin: '374892173498127349'
+            customer_uin_doc_type:
+              description: Singapore Personal Access ID
+              doc_type: singpass
+            domain_name_variants:
+            - xn--домен.cat
+            eligibility_type: ''
+            eligibility_type_relationship: ''
+            es_annex_acceptance: '1'
+            ftld_token: ''
+            gay_donation_acceptance: '1'
+            gay_rights_protection_acceptance: '1'
+            id_number: 123456789X
+            id_type: ''
+            idn_script: SPA
+            insurance_acceptance: ''
+            intended_use: generic
+            law_acceptance: ''
+            legal_type: Individual
+            maintainer: ''
+            membership_id: A
+            mobile_phone_number_verification: ''
+            ngo_ong_eligibility_acceptance: ''
+            ngo_ong_policy_acceptance: ''
+            passport_number: X123456
+            rurf_blocked_domains: ''
+            self_service: '1'
+            trademark: '1'
+            trademark_id: ''
+            travel_acceptance: '1'
+            vat: 11843009X
+            verification_code: ''
+            vote_acceptance: ''
+            voto_acceptance: ''
+          admin_handle: XX123456-XX
+          api_history:
+          - cmd: deleteDomainRequest
+            created_at: '2018-09-05 13:58:55'
+            domain_id: 12345678
+            in: ''
+            out: ''
+          application_id: A743C511084404F31B15757DC979A1412-ABI
+          application_mode: ''
+          application_mode_expiration_date: ''
+          application_mode_title: ''
+          application_notice_id: 983bdc1a0000100000188801724
+          application_smd: ''
+          auth_code: 1a2b3c4d5e6f
+          autorenew: default
+          billing_handle: XX123456-XX
+          can_renew: false
+          comments: ''
+          comments_last_changed_at: '2018-01-30 14:37:49'
+          creation_date: '2013-07-04 17:14:44'
+          delete_status: quarantine
+          deleted_at: '0000-00-00 00:00:00'
+          dnssec: unsigned
+          dnssec_keys:
+          - alg: 8
+            flags: 257
+            protocol: 3
+            pub_key: WSgigdu8545g96
+            readonly: 1
+          domain:
+            extension: london
+            name: test4
+          expiration_date: '2014-07-04 17:14:44'
+          hard_quarantine_expiry_date: ''
+          has_active_sectigo_zone: false
+          has_history: false
+          history:
+          - contents: 'Domain: test-example.tldAction: registration succeededStatus: ACTOrder date: 2018-01-30Activation date: 2018-01-30Renewal date: 2019-01-27Expiration date: 2019-01-29Comments: registration of this domain has succeeded Nameserver addresses are automatically resolved by system; Nameserver IP addresses are only saved for glue records'
+            domain: example.com
+            ip: 12.123.3.12
+            subject: Sent status e-mail to admin@someemail.nl
+            timestamp: '2018-01-30T14:38:45+01:00'
+            type: I
+          id: 123456789
+          internal_auth_code: 1a2b3c4d5e6f
+          is_abusive: false
+          is_client_hold_enabled: 'no'
+          is_deleted: false
+          is_dnssec_enabled: false
+          is_hosted_whois: false
+          is_lockable: false
+          is_locked: false
+          is_parked: false
+          is_premium: false
+          is_private_whois_allowed: false
+          is_private_whois_enabled: false
+          is_sectigo_dns_enabled: false
+          is_spamexperts_enabled: false
+          last_changed: '2014-04-18 7:13:05'
+          modify_owner_allowed: false
+          name_servers:
+          - ip: 12.3.123.121
+            ip6: 1s23:123:123:f
+            name: ns1.example.com
+            seq_nr: 1
+          ns_group: dns-openprovider
+          ns_template_id: 0
+          ns_template_name: ''
+          nsgroup_id: 1
+          order_date: '2013-07-04 17:14:44'
+          owner:
+            company_name: Example company
+            full_name: Test Van Person
+          owner_company_name: Company Name
+          owner_handle: XX123456-XX
+          quarantine_expiration_date: ''
+          registry_expiration_date: '2020-01-29 0:00:00'
+          registry_statuses:
+            client_hold:
+              is_changeable: false
+              value: 0
+            client_transfer_prohibited:
+              is_changeable: false
+              value: 0
+          renew: 2
+          renewal_date: '2022-01-01 0:00:00'
+          reseller_handle: XX123456-XX
+          reseller_id: 12345
+          restorable_until: ''
+          scheduled_at: ''
+          scheduled_from: ''
+          soft_quarantine_expiry_date: ''
+          status: PRE
+          tech_handle: XX123456-XX
+          trade_allowed: false
+          trade_auth_code_required: 'no'
+          transfer_auth_code_required: 'yes'
+          transfer_cancel_supported: false
+          type: NEW
+          unit: y
+          use_domicile: false
+          verification_email_exp_date: '0000-00-00 00:00:00'
+          verification_email_name: test@example.com
+          verification_email_status: not verified
+          verification_email_status_description: '-'
+          whois_privacy_data:
+            expiration_date: '2020-04-29 17:15:19'
+        total: 999
+      desc: ''
+  domainUpdateDomainResponseData:
+    type: object
+    title: UpdateDomainResponseData
+    properties:
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+      status:
+        type: string
+        title: Domain status
+    example:
+      id: 123456789
+      status: ACT
+  domainUINDocumentType:
+    type: object
+    title: UINDocumentType
+    properties:
+      description:
+        type: string
+        title: Brief description of the document used to prove domain owner's identity
+      doc_type:
+        type: string
+        title: Type of the document used to prove domain owner's identity
+    example:
+      description: Singapore Personal Access ID
+      doc_type: singpass
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  domainRegistryStatuses:
+    type: object
+    title: RegistryStatuses
+    properties:
+      client_hold:
+        title: Client hold EPP status
+        $ref: '#/definitions/domainRegistryStatus'
+      client_transfer_prohibited:
+        title: Client transfer prohibited EPP status
+        $ref: '#/definitions/domainRegistryStatus'
+    example:
+      client_hold:
+        is_changeable: false
+        value: 0
+      client_transfer_prohibited:
+        is_changeable: false
+        value: 0
+  domainAdditionalData:
+    type: object
+    title: AdditionalData
+    properties:
+      abogado_acceptance:
+        type: string
+        title: 'The abogado acceptance value should be set to 1
+
+          Applicable to: .abogado'
+      admin_sing_pass_id:
+        type: string
+        title: 'If the admin contact is a natural person located in Singapore, the corresponding Singapore Personal Access ID has to be given. The format of the SingPassID is: X1234567X   - where X is an upper case letter at the beginning and end of a seven digit string In case of a foreign organization, it is possible to use the SGNICID: SGNICID-X12-345678   - the SGNICID will look like this example
+
+          Applicable to: .com.sg, .sg'
+      ae_acceptance:
+        type: string
+        title: 'The ae acceptance value should be set to 1
+
+          Applicable to: .ae'
+      allocation_token:
+        type: string
+        title: 'The allocation token value cannot be empty
+
+          Applicable to: .abogado, .bayern, .beer, .blog, .boston, .broadway, .casa, .cooking, .cymru, .fashion, .fishing, .fit, .garden, .gop, .horse, .law, .luxe , .miami, .rodeo, .surf, .vip, .vodka, .vuelos, .wales, .wedding, .work, .yoga'
+      auth_code:
+        type: string
+        title: 'The auth code
+
+          Applicable to: .nz'
+      bank_acceptance:
+        type: string
+        title: 'The bank acceptance value should be set to 1
+
+          Applicable to: .bank'
+      company_registration_number:
+        type: string
+        title: 'For companies located in Singapore, the corresponding company registration number has to be given. For Singapore citizens and permanent residents, please provide NRIC or Passport No. For Singapore companies, please provide RCBID as it appears in RCB Certificate. For Singapore societies, please provide RCBID as it appears in ROS Certificate.
+
+          Applicable to: .com.sg, .no, .ro, .sg'
+      coop_acceptance:
+        type: string
+        title: 'The coop acceptance value should be set to 1
+
+          Applicable to: .coop'
+      customer_uin:
+        type: string
+        title: 'Identification number of domain owner document that proves his identity (e.g. passport number, number of driving license or else in case if domain owner is a private person; chamber of commerce registration number, taxpayer number or else in case of legal entity)
+
+          Applicable for all TLDs which require documents to complete operation with domain (e.g. .bg, .cn etc.)'
+      customer_uin_doc_type:
+        title: 'Type of the domain owner document used to prove his identity (e.g. passport, driving license or else in case if domain owner is a private person; chamber of commerce extract, business certificate or else in case of legal entity)
+
+          Applicable for all TLDs which require documents to complete operation with domain (e.g. .bg, .cn etc.)'
+        $ref: '#/definitions/domainUINDocumentType'
+      domain_name_variants:
+        type: array
+        title: 'The domain name variants should be an array of strings, representing appropriate names
+
+          Applicable to: .barcelona, .cat'
+        items:
+          type: string
+      eligibility_type:
+        type: string
+        title: 'The eligibility type value should be one from the options list
+
+          Applicable to: .com.au, .id.au, .net.au, .org.au'
+      eligibility_type_relationship:
+        type: string
+        title: 'The eligibility type relationship indicates the relationship between the Eligibility Type (e.g. business name) and domain name
+
+          Applicable to: .com.au, .id.au, .net.au, .org.au'
+      es_annex_acceptance:
+        type: string
+        title: 'Applicable to: .es'
+      ftld_token:
+        type: string
+        title: 'The fTLD token required for registration and data in owner handle must be exactly the same as in token. You need to request token from registry
+
+          Applicable to: .bank, .insurance'
+      gay_donation_acceptance:
+        type: string
+        title: 'The .gay donation acceptance value should be set to 1
+
+          Applicable to: .gay'
+      gay_rights_protection_acceptance:
+        type: string
+        title: 'The .gay rights protection acceptance value should be set to 1
+
+          Applicable to: .gay'
+      id_number:
+        type: string
+        title: 'The identification number
+
+          Applicable to: .com.au, .net.au, .org.au'
+      id_type:
+        type: string
+        title: 'The id type
+
+          Applicable to: .com.au, .net.au, .org.au'
+      idn_script:
+        type: string
+        title: 'The IDN script states what language or character set the domain name is in
+
+          Applicable to: .accountant, .actor, .ae.org, .airforce, .army, .art, .attorney, .auction, .band, .bar, .best, .bid, .br.com, .buzz, .ceo, .club, .cn.com, .college, .com, .com.de, .com.se, .consulting, .cricket, .dance, .date, .de.com, .degree, .democrat, .dentist, .design, .download, .engineer, .eu.com, .eus, .faith, .feedback, .fm, .forsale, .frl, .fun, .futbol, .gal, .gb.net, .gives, .gr.com, .haus, .hiv, .host, .immobilien, .in.net, .info, .ink, .jetzt, .jp.net, .jpn.com, .kaufen, .kyoto, .lawyer, .loan, .love, .market, .me, .mex.com, .moda, .moe, .mortgage, .navy, .net, .ninja, .nrw, .nyc, .online, .ooo, .org, .osaka, .party, .press, .protection, .pub, .pw, .qpon, .quebec, .racing, .radio.am, .radio.fm, .realty, .rehab, .rent, .republican, .rest, .review, .reviews, .rip, .rocks, .ru.com, .sa.com, .science, .scot, .se.net, .security, .shop, .site, .social, .software, .space, .store, .tech, .theatre, .tickets, .top, .trade, .uk.com, .uk.net, .uno, .us.com, .us.org, .vet, .webcam, .website, .whoswho, .wiki, .win, .xn--4gbrim, .xn--55qx5d, .xn--5tzm5g, .xn--80adxhks, .xn--80asehdb, .xn--80aswg, .xn--c1avg, .xn--czru2d, .xn--i1b6b1a6a2e, .xn--io0a7i, .xn--mk1bu44c, .xn--ngbc5azd, .xn--nqv7f, .xn--t60b56a, .xn--tckwe, .xyz, .za.com'
+      insurance_acceptance:
+        type: string
+        title: 'The insurance acceptance value should be set to 1
+
+          Applicable to: .insurance'
+      intended_use:
+        type: string
+        title: 'The intended use value should contain information on how the domain name will be used
+
+          Applicable to: .barcelona, .cat, .madrid, .radio, .sport, .swiss'
+      law_acceptance:
+        type: string
+        title: 'The law acceptance value should be set to 1
+
+          Applicable to: .law'
+      legal_type:
+        type: string
+        title: 'The legal type
+
+          Applicable to: .ca'
+      maintainer:
+        type: string
+        title: 'The maintainer value should be a string, specifying maintainer information. Maximum length 128 characters.
+
+          Applicable to: .cat'
+      membership_id:
+        type: string
+        title: 'The membership id value cannot be empty
+
+          Applicable to: .lotto, .xxx'
+      mobile_phone_number_verification:
+        type: string
+        title: 'The mobile phone verification via sms
+
+          Applicable to: .ru, .su, .xn--p1ai'
+      ngo_ong_eligibility_acceptance:
+        type: string
+        title: 'The ngo, ong eligibility acceptance value should be set to 1
+
+          Applicable to: .ngo, .ong'
+      ngo_ong_policy_acceptance:
+        type: string
+        title: 'The ngo, ong policy acceptance value should be set to 1
+
+          Applicable to: .ngo, .ong'
+      passport_number:
+        type: string
+        title: 'The passport number. Required in case if domain requester is a private individual
+
+          Applicable to: .co.hu, .hu'
+      rurf_blocked_domains:
+        type: string
+        title: 'The check domain name in blocked list of registry
+
+          Applicable to: .ru, .xn--p1ai'
+      self_service:
+        type: string
+        title: 'The self service
+
+          Applicable to: .feedback'
+      trademark:
+        type: string
+        title: 'The trademark
+
+          Applicable to: .ca'
+      trademark_id:
+        type: string
+        title: 'The local trademark ID required for Local Trademark phase
+
+          Applicable to: .barcelona'
+      travel_acceptance:
+        type: string
+        title: 'The .travel registration requires acknowledgement of the registrant that he is part of the travel industry
+
+          Applicable to: .travel'
+      vat:
+        type: string
+        title: 'The vat number. Required in case if domain requester is a legal entity
+
+          Applicable to: .co.hu, .hu'
+      verification_code:
+        type: string
+        title: 'The verification code value cannot be empty
+
+          Applicable to: .lotto'
+      vote_acceptance:
+        type: string
+        title: 'The vote acceptance value should be set to 1
+
+          Applicable to: .vote'
+      voto_acceptance:
+        type: string
+        title: 'The voto acceptance value should be set to 1
+
+          Applicable to: .voto'
+    example:
+      abogado_acceptance: ''
+      admin_sing_pass_id: ''
+      ae_acceptance: '1'
+      allocation_token: ''
+      auth_code: ''
+      bank_acceptance: ''
+      company_registration_number: XX123456789X01
+      coop_acceptance: '1'
+      customer_uin: '374892173498127349'
+      customer_uin_doc_type:
+        description: Singapore Personal Access ID
+        doc_type: singpass
+      domain_name_variants:
+      - xn--домен.cat
+      eligibility_type: ''
+      eligibility_type_relationship: ''
+      es_annex_acceptance: '1'
+      ftld_token: ''
+      gay_donation_acceptance: '1'
+      gay_rights_protection_acceptance: '1'
+      id_number: 123456789X
+      id_type: ''
+      idn_script: SPA
+      insurance_acceptance: ''
+      intended_use: generic
+      law_acceptance: ''
+      legal_type: Individual
+      maintainer: ''
+      membership_id: A
+      mobile_phone_number_verification: ''
+      ngo_ong_eligibility_acceptance: ''
+      ngo_ong_policy_acceptance: ''
+      passport_number: X123456
+      rurf_blocked_domains: ''
+      self_service: '1'
+      trademark: '1'
+      trademark_id: ''
+      travel_acceptance: '1'
+      vat: 11843009X
+      verification_code: ''
+      vote_acceptance: ''
+      voto_acceptance: ''
+  domainSuggestNameDomainRequest:
+    type: object
+    title: SuggestNameDomainRequest
+    properties:
+      language:
+        type: string
+        title: The three letter country code for the language in which responses should be generated (ISO-3166 ALPHA-3 code format)
+      limit:
+        type: integer
+        format: int32
+        title: Maximum number of suggestions to return
+      name:
+        type: string
+        title: The search term which will be used to generate matches
+      provider:
+        type: string
+        title: Provider of suggest name service
+      sensitive:
+        description: Set true to remove domain name suggestions deemed obscene by the supplier. set false to include obscene domain name suggestions.
+        type: boolean
+        format: boolean
+      tlds:
+        type: array
+        title: List of TLDs which will be used to generate matches
+        items:
+          type: string
+    example:
+      language: eng
+      limit: 50
+      name: example-domain
+      provider: namestudio
+      sensitive: false
+      tlds:
+      - ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

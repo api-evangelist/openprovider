@@ -1,0 +1,377 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData AuthCode API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: AuthCode
+paths:
+  /v1beta/domains/{id}/authcode:
+    get:
+      tags:
+      - AuthCode
+      summary: Get auth code
+      operationId: GetAuthCode
+      parameters:
+      - type: integer
+        format: int32
+        description: Domain id number
+        name: id
+        in: path
+        required: true
+      - type: string
+        description: Domain name without extension.
+        name: domain.name
+        in: query
+      - type: string
+        description: Domain extension.
+        name: domain.extension
+        in: query
+      - type: string
+        description: Type of transfer authorization code. external (default) or internal (for internal transfers between reseller accounts in Openprovider only).
+        name: auth_code_type
+        in: query
+      - type: string
+        description: 'Indicates how authcode should be provisioned to domain owner. For ru / xn--p1ai domains only. Possible values: sms, email letter.'
+        name: sending_type
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/authcodeGetAuthCodeResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+  /v1beta/domains/{id}/authcode/reset:
+    post:
+      tags:
+      - AuthCode
+      summary: Reset auth code
+      operationId: ResetAuthCode
+      parameters:
+      - type: integer
+        format: int32
+        description: Domain id number
+        name: id
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/authcodeResetAuthCodeRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/authcodeResetAuthCodeResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  authcodeAuthInfo:
+    type: object
+    title: AuthInfo
+    properties:
+      pw:
+        type: string
+        title: The pw
+    example:
+      pw: cyF2A7jPp+T#?5j*-G82
+  authcodeGetAuthCodeResponseData:
+    type: object
+    title: GetAuthCodeResponseData
+    properties:
+      auth_code:
+        type: string
+        title: Authorization code
+      success:
+        type: boolean
+        format: boolean
+        title: Indicates if operation is successful
+      type:
+        type: string
+        title: Authorization code type
+    example:
+      auth_code: '12345678'
+      success: false
+      type: external
+  authcodeResetAuthCodeRequest:
+    type: object
+    title: ResetAuthCodeRequest
+    properties:
+      auth_code_type:
+        type: string
+        title: Type of transfer authorization code. external (default) or internal (for internal transfers between reseller accounts in Openprovider only)
+      domain:
+        title: Domain name and extension
+        $ref: '#/definitions/domainDomain'
+      id:
+        type: integer
+        format: int32
+        title: Domain id number
+      sending_type:
+        type: string
+        title: 'Indicates how authcode should be provisioned to domain owner. For ru / xn--p1ai domains only. Possible values: sms, email letter'
+    example:
+      auth_code_type: internal
+      domain:
+        extension: london
+        name: test4
+      id: 0
+      sending_type: ''
+  authcodeGetAuthCodeResponse:
+    type: object
+    title: GetAuthCodeResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/authcodeGetAuthCodeResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        auth_code: '12345678'
+        success: false
+        type: external
+      desc: ''
+  authcodeResetAuthCodeResponse:
+    type: object
+    title: ResetAuthCodeResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/authcodeResetAuthCodeResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+      warnings:
+        type: array
+        title: Contains warning responses if any
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        auth_code: '12345678'
+        auth_info:
+          pw: cyF2A7jPp+T#?5j*-G82
+        domain_roid: ''
+        epp_statuses:
+        - ''
+        rgp_statuses:
+          add_period: '2019-05-23 12:05:48'
+          auto_renew_period: '2019-05-23 12:05:48'
+        success: false
+        type: internal
+      desc: ''
+  authcodeResetAuthCodeResponseData:
+    type: object
+    title: ResetAuthCodeResponseData
+    properties:
+      auth_code:
+        type: string
+        title: Authorization code
+      auth_info:
+        title: The auth info
+        $ref: '#/definitions/authcodeAuthInfo'
+      domain_roid:
+        type: string
+        title: The domain roid
+      epp_statuses:
+        type: array
+        title: Array of EPP statuses
+        items:
+          type: string
+      rgp_statuses:
+        title: The rgp statuses
+        $ref: '#/definitions/authcodeRgpStatuses'
+      success:
+        type: boolean
+        format: boolean
+        title: Indicates if operation is successful
+      type:
+        type: string
+        title: Authorization code type
+    example:
+      auth_code: '12345678'
+      auth_info:
+        pw: cyF2A7jPp+T#?5j*-G82
+      domain_roid: ''
+      epp_statuses:
+      - ''
+      rgp_statuses:
+        add_period: '2019-05-23 12:05:48'
+        auto_renew_period: '2019-05-23 12:05:48'
+      success: false
+      type: internal
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  authcodeRgpStatuses:
+    type: object
+    title: RgpStatuses
+    properties:
+      add_period:
+        type: string
+        title: The add period
+      auto_renew_period:
+        type: string
+        title: The auto renew period
+    example:
+      add_period: '2019-05-23 12:05:48'
+      auto_renew_period: '2019-05-23 12:05:48'
+  domainDomain:
+    type: object
+    title: Domain
+    properties:
+      extension:
+        type: string
+        title: Domain extension
+      name:
+        type: string
+        title: Domain name without extension
+    example:
+      extension: london
+      name: test4
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product

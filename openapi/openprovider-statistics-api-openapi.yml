@@ -1,0 +1,475 @@
+swagger: '2.0'
+info:
+  title: REST AdditionalData Statistics API
+  version: 1.0.0-beta
+host: api.openprovider.eu
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+tags:
+- name: Statistics
+paths:
+  /v1beta/resellers/statistics:
+    get:
+      tags:
+      - Statistics
+      summary: Get statistics
+      operationId: GetStatistics
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/statisticsGetStatisticsResponse'
+        default:
+          description: (empty)
+          schema:
+            $ref: '#/definitions/errorError'
+definitions:
+  statisticsSpamExpertsStatistics:
+    type: object
+    title: SpamExpertsStatistics
+    properties:
+      activated_at:
+        type: string
+        title: Spamexperts bundle activation date
+      created_at:
+        type: string
+        title: Date of Spamexperts bundle creation
+      exists:
+        type: boolean
+        format: boolean
+        title: Indicates if Spamexperts bundle exists
+      expired_at:
+        type: string
+        title: Date of Spamexperts bundle expiration
+      incoming_count:
+        type: integer
+        format: int32
+        title: Incoming filters count
+      incoming_limit:
+        type: integer
+        format: int32
+        title: Incoming filters limit
+      outgoing_count:
+        type: integer
+        format: int32
+        title: Outgoing filters count
+      outgoing_limit:
+        type: integer
+        format: int32
+        title: Outgoing filters limit
+      status:
+        type: string
+        title: The status
+      with_outgoing_filter:
+        type: boolean
+        format: boolean
+        title: Indicates if Spamexperts bundle supports outgoing filtering
+    example:
+      activated_at: '2012-10-29 10:48:30'
+      created_at: '2012-10-29 10:48:30'
+      exists: false
+      expired_at: '2016-04-05 8:50:34'
+      incoming_count: 0
+      incoming_limit: 10
+      outgoing_count: 0
+      outgoing_limit: 1
+      status: deleted
+      with_outgoing_filter: false
+  statisticsSslStatistics:
+    type: object
+    title: SslStatistics
+    properties:
+      by_status:
+        title: Sort output by status
+        $ref: '#/definitions/statisticsSslStatisticsByStatus'
+      total:
+        type: integer
+        format: int32
+        title: Total number of entities matching search criteria
+    example:
+      by_status:
+        act: 7
+        fai: 419
+        nsr: 0
+        pen: 0
+        rej: 5
+        req: 15
+      total: 999
+  statisticsDnsStatistics:
+    type: object
+    title: DnsStatistics
+    properties:
+      total:
+        type: integer
+        format: int32
+        title: Total number of entities matching search criteria
+    example:
+      total: 999
+  statisticsDomainStatistics:
+    type: object
+    title: DomainStatistics
+    properties:
+      by_status:
+        title: Sort output by status
+        $ref: '#/definitions/statisticsDomainStatisticsByStatus'
+      total:
+        type: integer
+        format: int32
+        title: Total number of entities matching search criteria
+    example:
+      by_status:
+        act: 7
+        fai: 419
+        nsr: 0
+        pen: 0
+        rej: 5
+        req: 15
+      total: 999
+  statisticsGetStatisticsResponseData:
+    type: object
+    title: GetStatisticsResponseData
+    properties:
+      currency:
+        title: The currency
+        $ref: '#/definitions/statisticsCurrencyStatistics'
+      customer:
+        title: The customer
+        $ref: '#/definitions/statisticsCustomerStatistics'
+      dns:
+        title: Total count of DNS zones
+        $ref: '#/definitions/statisticsDnsStatistics'
+      domain:
+        title: Total count of domains
+        $ref: '#/definitions/statisticsDomainStatistics'
+      license:
+        title: Statistics for Plesk / Virtuozzo licenses
+        $ref: '#/definitions/statisticsLicenseStatistics'
+      spam_experts:
+        title: Statistics for Spamexperts bundles
+        $ref: '#/definitions/statisticsSpamExpertsStatistics'
+      ssl:
+        title: Statistics for SSL
+        $ref: '#/definitions/statisticsSslStatistics'
+    example:
+      currency:
+        modified: '2010-08-01 9:30:54'
+      customer:
+        modified: '2019-05-03 13:23:01'
+        total: 999
+      dns:
+        total: 999
+      domain:
+        by_status:
+          act: 7
+          fai: 419
+          nsr: 0
+          pen: 0
+          rej: 5
+          req: 15
+        total: 999
+      license:
+        total: 999
+      spam_experts:
+        activated_at: '2012-10-29 10:48:30'
+        created_at: '2012-10-29 10:48:30'
+        exists: false
+        expired_at: '2016-04-05 8:50:34'
+        incoming_count: 0
+        incoming_limit: 10
+        outgoing_count: 0
+        outgoing_limit: 1
+        status: deleted
+        with_outgoing_filter: false
+      ssl:
+        by_status:
+          act: 7
+          fai: 419
+          nsr: 0
+          pen: 0
+          rej: 5
+          req: 15
+        total: 999
+  statisticsSslStatisticsByStatus:
+    type: object
+    title: SslStatisticsByStatus
+    properties:
+      ACT:
+        type: integer
+        format: int32
+        title: Active SSL certificates count
+      FAI:
+        type: integer
+        format: int32
+        title: Fax number
+      NSR:
+        type: integer
+        format: int32
+        title: The nsr
+      PEN:
+        type: integer
+        format: int32
+        title: Pending status
+      REJ:
+        type: integer
+        format: int32
+        title: Rejected status
+      REQ:
+        type: integer
+        format: int32
+        title: Requested status
+    example:
+      act: 7
+      fai: 419
+      nsr: 0
+      pen: 0
+      rej: 5
+      req: 15
+  statisticsGetStatisticsResponse:
+    type: object
+    title: GetStatisticsResponse
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Response code
+      data:
+        title: Response data
+        $ref: '#/definitions/statisticsGetStatisticsResponseData'
+      desc:
+        type: string
+        title: Response description
+      maintenance:
+        type: boolean
+        format: boolean
+        title: Indicates if Openprovider API is on maintenance
+      warnings:
+        type: array
+        title: Array of warning messages
+        items:
+          $ref: '#/definitions/errorWarning'
+    example:
+      code: 0
+      data:
+        currency:
+          modified: '2010-08-01 9:30:54'
+        customer:
+          modified: '2019-05-03 13:23:01'
+          total: 999
+        dns:
+          total: 999
+        domain:
+          by_status:
+            act: 7
+            fai: 419
+            nsr: 0
+            pen: 0
+            rej: 5
+            req: 15
+          total: 999
+        license:
+          total: 999
+        spam_experts:
+          activated_at: '2012-10-29 10:48:30'
+          created_at: '2012-10-29 10:48:30'
+          exists: false
+          expired_at: '2016-04-05 8:50:34'
+          incoming_count: 0
+          incoming_limit: 10
+          outgoing_count: 0
+          outgoing_limit: 1
+          status: deleted
+          with_outgoing_filter: false
+        ssl:
+          by_status:
+            act: 7
+            fai: 419
+            nsr: 0
+            pen: 0
+            rej: 5
+            req: 15
+          total: 999
+      desc: ''
+  statisticsLicenseStatistics:
+    type: object
+    title: LicenseStatistics
+    properties:
+      total:
+        type: integer
+        format: int32
+        title: Total number of entities matching search criteria
+    example:
+      total: 999
+  statisticsDomainStatisticsByStatus:
+    type: object
+    title: DomainStatisticsByStatus
+    properties:
+      ACT:
+        type: integer
+        format: int32
+        title: Active domains count
+      FAI:
+        type: integer
+        format: int32
+        title: Fax number
+      NSR:
+        type: integer
+        format: int32
+        title: The nsr
+      PEN:
+        type: integer
+        format: int32
+        title: Pending status
+      REJ:
+        type: integer
+        format: int32
+        title: Rejected status
+      REQ:
+        type: integer
+        format: int32
+        title: Requested status
+    example:
+      act: 7
+      fai: 419
+      nsr: 0
+      pen: 0
+      rej: 5
+      req: 15
+  errorError:
+    type: object
+    title: Error
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Error code
+      data:
+        type: string
+        title: Additional error description
+      desc:
+        type: string
+        title: Error description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  errorWarning:
+    type: object
+    title: Warning
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: Warning code
+      data:
+        type: string
+        title: Additional warning description
+      desc:
+        type: string
+        title: Warning description
+    example:
+      code: 0
+      data: ''
+      desc: ''
+  statisticsCustomerStatistics:
+    type: object
+    title: CustomerStatistics
+    properties:
+      modified:
+        type: string
+        title: The modified
+      total:
+        type: integer
+        format: int32
+        title: Total number of entities matching search criteria
+    example:
+      modified: '2019-05-03 13:23:01'
+      total: 999
+  statisticsCurrencyStatistics:
+    type: object
+    title: CurrencyStatistics
+    properties:
+      modified:
+        type: string
+        title: The modified
+    example:
+      modified: '2010-08-01 9:30:54'
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-linkTo: tag/descAuthentication
+x-tagGroups:
+- name: Introduction
+  tags:
+  - descAbout
+  - descGettingStarted
+  - descEndpoints
+  - descAuthentication
+- name: Quick Start
+  tags:
+  - descCustomerQuickstart
+  - descDomainQuickstart
+  - descTLDQuickstart
+  - descDNSQuickstart
+  - descSSLQuickstart
+- name: Auth
+  tags:
+  - Auth
+  - SpamExpert
+- name: Billing
+  tags:
+  - InvoiceService
+  - Payment
+  - Transaction
+- name: DNS
+  tags:
+  - DomainToken
+  - NameserverService
+  - NsGroupService
+  - TemplateService
+  - ZoneService
+  - ZoneRecordService
+- name: Domain
+  tags:
+  - DomainService
+  - AdditionalData
+  - CustomerAdditionalData
+  - DomainPriceService
+  - AuthCode
+  - TldService
+- name: EasyDmarc
+  tags:
+  - EasydmarcOrder
+- name: Email template
+  tags:
+  - Email
+- name: License
+  tags:
+  - LicenseService
+- name: Reseller/Customer
+  tags:
+  - ContactService
+  - Customer
+  - EmailVerification
+  - ResellerService
+  - Settings
+  - Statistics
+  - TagService
+- name: Spam Experts
+  tags:
+  - SEDomain
+- name: SSL
+  tags:
+  - ApproverEmail
+  - Csr
+  - Order
+  - OrderApproverEmail
+  - OtpToken
+  - Product
