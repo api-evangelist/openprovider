@@ -6,9 +6,22 @@ description: >-
   domains, new gTLDs, SSL certificates, licenses for Plesk and Virtuozzo, spam
   filters, and more.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/openprovider.png
 tags:
   - Domains
   - DNS
@@ -22,26 +35,366 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/openprovider/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: openprovider:openprovider-api
-    name: Openprovider API
-    description: >-
-      The Openprovider Reseller API provides programmatic access to domain
-      registration and management, DNS, SSL certificate provisioning, hosting
-      products, and customer/billing operations across the Openprovider
-      wholesale platform.
-    humanURL: https://docs.openprovider.com/doc/all
-    baseURL: https://api.openprovider.eu/v1beta
-    properties:
-      - type: Documentation
-        url: https://docs.openprovider.com/doc/all
-      - type: Portal
-        url: https://www.openprovider.com/
-      - type: Support
-        url: https://support.openprovider.eu/
-    tags:
-      - Domains
-      - DNS
-      - SSL Certificates
+- aid: openprovider:openprovider-api
+  name: Openprovider API
+  description: >-
+    The Openprovider Reseller API provides programmatic access to domain registration and management,
+    DNS, SSL certificate provisioning, hosting products, and customer/billing operations across the Openprovider
+    wholesale platform.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  properties:
+  - type: Documentation
+    url: https://docs.openprovider.com/doc/all
+  - type: Portal
+    url: https://www.openprovider.com/
+  - type: Support
+    url: https://support.openprovider.eu/
+  tags:
+  - Domains
+  - DNS
+  - SSL Certificates
+- aid: openprovider:openprovider-additionaldata-api
+  name: Openprovider AdditionalData API
+  description: The AdditionalData API from Openprovider — 1 operation(s) for additionaldata.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - AdditionalData
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-additionaldata-api-openapi.yml
+- aid: openprovider:openprovider-approveremail-api
+  name: Openprovider ApproverEmail API
+  description: The ApproverEmail API from Openprovider — 1 operation(s) for approveremail.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - ApproverEmail
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-approveremail-api-openapi.yml
+- aid: openprovider:openprovider-auth-api
+  name: Openprovider Auth API
+  description: The Auth API from Openprovider — 1 operation(s) for auth.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-auth-api-openapi.yml
+- aid: openprovider:openprovider-authcode-api
+  name: Openprovider AuthCode API
+  description: The AuthCode API from Openprovider — 2 operation(s) for authcode.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - AuthCode
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-authcode-api-openapi.yml
+- aid: openprovider:openprovider-contactservice-api
+  name: Openprovider ContactService API
+  description: The ContactService API from Openprovider — 2 operation(s) for contactservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - ContactService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-contactservice-api-openapi.yml
+- aid: openprovider:openprovider-csr-api
+  name: Openprovider Csr API
+  description: The Csr API from Openprovider — 2 operation(s) for csr.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Csr
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-csr-api-openapi.yml
+- aid: openprovider:openprovider-customer-api
+  name: Openprovider Customer API
+  description: The Customer API from Openprovider — 2 operation(s) for customer.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Customer
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-customer-api-openapi.yml
+- aid: openprovider:openprovider-customeradditionaldata-api
+  name: Openprovider CustomerAdditionalData API
+  description: >-
+    The CustomerAdditionalData API from Openprovider — 1 operation(s) for customeradditionaldata.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - CustomerAdditionalData
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-customeradditionaldata-api-openapi.yml
+- aid: openprovider:openprovider-domainpriceservice-api
+  name: Openprovider DomainPriceService API
+  description: The DomainPriceService API from Openprovider — 1 operation(s) for domainpriceservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - DomainPriceService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-domainpriceservice-api-openapi.yml
+- aid: openprovider:openprovider-domainservice-api
+  name: Openprovider DomainService API
+  description: The DomainService API from Openprovider — 11 operation(s) for domainservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - DomainService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-domainservice-api-openapi.yml
+- aid: openprovider:openprovider-domaintoken-api
+  name: Openprovider DomainToken API
+  description: The DomainToken API from Openprovider — 1 operation(s) for domaintoken.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - DomainToken
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-domaintoken-api-openapi.yml
+- aid: openprovider:openprovider-easydmarcorder-api
+  name: Openprovider EasydmarcOrder API
+  description: The EasydmarcOrder API from Openprovider — 5 operation(s) for easydmarcorder.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - EasydmarcOrder
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-easydmarcorder-api-openapi.yml
+- aid: openprovider:openprovider-email-api
+  name: Openprovider Email API
+  description: The Email API from Openprovider — 2 operation(s) for email.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Email
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-email-api-openapi.yml
+- aid: openprovider:openprovider-emailverification-api
+  name: Openprovider EmailVerification API
+  description: The EmailVerification API from Openprovider — 3 operation(s) for emailverification.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - EmailVerification
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-emailverification-api-openapi.yml
+- aid: openprovider:openprovider-invoiceservice-api
+  name: Openprovider InvoiceService API
+  description: The InvoiceService API from Openprovider — 1 operation(s) for invoiceservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - InvoiceService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-invoiceservice-api-openapi.yml
+- aid: openprovider:openprovider-licenseservice-api
+  name: Openprovider LicenseService API
+  description: The LicenseService API from Openprovider — 9 operation(s) for licenseservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - LicenseService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-licenseservice-api-openapi.yml
+- aid: openprovider:openprovider-nameserverservice-api
+  name: Openprovider NameserverService API
+  description: The NameserverService API from Openprovider — 2 operation(s) for nameserverservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - NameserverService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-nameserverservice-api-openapi.yml
+- aid: openprovider:openprovider-nsgroupservice-api
+  name: Openprovider NsGroupService API
+  description: The NsGroupService API from Openprovider — 2 operation(s) for nsgroupservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - NsGroupService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-nsgroupservice-api-openapi.yml
+- aid: openprovider:openprovider-order-api
+  name: Openprovider Order API
+  description: The Order API from Openprovider — 5 operation(s) for order.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Order
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-order-api-openapi.yml
+- aid: openprovider:openprovider-orderapproveremail-api
+  name: Openprovider OrderApproverEmail API
+  description: The OrderApproverEmail API from Openprovider — 2 operation(s) for orderapproveremail.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - OrderApproverEmail
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-orderapproveremail-api-openapi.yml
+- aid: openprovider:openprovider-otptoken-api
+  name: Openprovider OtpToken API
+  description: The OtpToken API from Openprovider — 1 operation(s) for otptoken.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - OtpToken
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-otptoken-api-openapi.yml
+- aid: openprovider:openprovider-payment-api
+  name: Openprovider Payment API
+  description: The Payment API from Openprovider — 1 operation(s) for payment.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Payment
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-payment-api-openapi.yml
+- aid: openprovider:openprovider-product-api
+  name: Openprovider Product API
+  description: The Product API from Openprovider — 2 operation(s) for product.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Product
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-product-api-openapi.yml
+- aid: openprovider:openprovider-resellerservice-api
+  name: Openprovider ResellerService API
+  description: The ResellerService API from Openprovider — 2 operation(s) for resellerservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - ResellerService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-resellerservice-api-openapi.yml
+- aid: openprovider:openprovider-sedomain-api
+  name: Openprovider SEDomain API
+  description: The SEDomain API from Openprovider — 2 operation(s) for sedomain.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - SEDomain
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-sedomain-api-openapi.yml
+- aid: openprovider:openprovider-settings-api
+  name: Openprovider Settings API
+  description: The Settings API from Openprovider — 1 operation(s) for settings.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-settings-api-openapi.yml
+- aid: openprovider:openprovider-spamexpert-api
+  name: Openprovider SpamExpert API
+  description: The SpamExpert API from Openprovider — 1 operation(s) for spamexpert.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - SpamExpert
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-spamexpert-api-openapi.yml
+- aid: openprovider:openprovider-statistics-api
+  name: Openprovider Statistics API
+  description: The Statistics API from Openprovider — 1 operation(s) for statistics.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Statistics
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-statistics-api-openapi.yml
+- aid: openprovider:openprovider-tagservice-api
+  name: Openprovider TagService API
+  description: The TagService API from Openprovider — 1 operation(s) for tagservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - TagService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-tagservice-api-openapi.yml
+- aid: openprovider:openprovider-templateservice-api
+  name: Openprovider TemplateService API
+  description: The TemplateService API from Openprovider — 2 operation(s) for templateservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - TemplateService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-templateservice-api-openapi.yml
+- aid: openprovider:openprovider-tldservice-api
+  name: Openprovider TldService API
+  description: The TldService API from Openprovider — 2 operation(s) for tldservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - TldService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-tldservice-api-openapi.yml
+- aid: openprovider:openprovider-transaction-api
+  name: Openprovider Transaction API
+  description: The Transaction API from Openprovider — 1 operation(s) for transaction.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Transaction
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-transaction-api-openapi.yml
+- aid: openprovider:openprovider-zonerecordservice-api
+  name: Openprovider ZoneRecordService API
+  description: The ZoneRecordService API from Openprovider — 1 operation(s) for zonerecordservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - ZoneRecordService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-zonerecordservice-api-openapi.yml
+- aid: openprovider:openprovider-zoneservice-api
+  name: Openprovider ZoneService API
+  description: The ZoneService API from Openprovider — 2 operation(s) for zoneservice.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - ZoneService
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-zoneservice-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/openprovider-agentic-access.yml
