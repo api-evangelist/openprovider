@@ -1,0 +1,173 @@
+{
+  "item": [
+    {
+      "id": "d49ad23c-8d73-4ed0-bba4-b22f0005ce2d",
+      "name": "Settings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "42b236ff-e34a-4429-adba-30676995b0d5",
+          "name": "Get settings",
+          "request": {
+            "name": "Get settings",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "resellers",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c01cf6f-664a-436b-9d59-be48f901fea6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "resellers",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"av_handle\": \"XX123456-XX\",\n    \"claims_confirm_url\": \"http://www.domain.tld/confirm-tm_claims.php?domainId=%%domainId%%&domain=%%domain%%&code=%%authCode%%\",\n    \"claims_email_subject\": \"Hi there! You need to accept registration for %%domain%%!\",\n    \"claims_reseller_name\": \"Jon Doe's Webhosting!!\",\n    \"claims_sender_email\": \"test@mail.tld\",\n    \"currency\": \"EUR\",\n    \"default_domain_billing_handle\": \"XX123456-XX\",\n    \"default_domain_reseller_handle\": \"XX123456-XX\",\n    \"foa_confirm_url\": \"\",\n    \"foa_email_subject\": \"\",\n    \"foa_reseller_name\": \"\",\n    \"foa_sender_email\": \"\",\n    \"foa_terms_conditions_url\": \"\",\n    \"is_auto_renew_enabled\": false,\n    \"is_custom_nses_enabled\": false,\n    \"ive2_customized_body\": \"\",\n    \"ive2_email_subject\": \"[URGENT REMINDER] Request for e-mail address verification\",\n    \"ive_confirm_url\": \"http://icann-verification.registrar.eu/?email=%%email%%&authCode=%%authCode%%\",\n    \"ive_customized_body\": \"\",\n    \"ive_email_subject\": \"Request for e-mail address verification\",\n    \"ive_reseller_name\": \"sdasd\",\n    \"ive_sender_email\": \"do-not-reply@registrar.eu\",\n    \"jurisdiction\": \"EU\",\n    \"language\": \"EN\",\n    \"maximum_credit\": 20000,\n    \"maximum_credit_card_payment\": 15000,\n    \"maximum_i_deal_payment\": 1000000,\n    \"maximum_western_union_payment\": 1000,\n    \"minimum_payment\": 20,\n    \"minimum_western_union_payment\": 500,\n    \"pay_methods\": [\n      \"ideal\"\n    ],\n    \"payment_methods\": [\n      {\n        \"name\": \"ideal\",\n        \"settings\": {\n          \"limit\": {\n            \"maximum\": {\n              \"aud\": 0,\n              \"bgn\": 0,\n              \"brl\": 0,\n              \"cad\": 0,\n              \"chf\": 0,\n              \"cny\": 0,\n              \"czk\": 0,\n              \"dkk\": 0,\n              \"eek\": 0,\n              \"eur\": 0,\n              \"gbp\": 0,\n              \"ghs\": 0,\n              \"hkd\": 0,\n              \"hrk\": 0,\n              \"huf\": 0,\n              \"idr\": 0,\n              \"ils\": 0,\n              \"inr\": 0,\n              \"jpy\": 0,\n              \"krw\": 0,\n              \"lkr\": 0,\n              \"ltl\": 0,\n              \"lvl\": 0,\n              \"mxn\": 0,\n              \"myr\": 0,\n              \"nok\": 0,\n              \"nzd\": 0,\n              \"php\": 0,\n              \"pln\": 0,\n              \"ron\": 0,\n              \"rub\": 0,\n              \"sek\": 0,\n              \"sgd\": 0,\n              \"thb\": 0,\n              \"try\": 0,\n              \"usd\": 0,\n              \"zar\": 0\n            },\n            \"minimum\": {\n              \"aud\": 0,\n              \"bgn\": 0,\n              \"brl\": 0,\n              \"cad\": 0,\n              \"chf\": 0,\n              \"cny\": 0,\n              \"czk\": 0,\n              \"dkk\": 0,\n              \"eek\": 0,\n              \"eur\": 0,\n              \"gbp\": 0,\n              \"ghs\": 0,\n              \"hkd\": 0,\n              \"hrk\": 0,\n              \"huf\": 0,\n              \"idr\": 0,\n              \"ils\": 0,\n              \"inr\": 0,\n              \"jpy\": 0,\n              \"krw\": 0,\n              \"lkr\": 0,\n              \"ltl\": 0,\n              \"lvl\": 0,\n              \"mxn\": 0,\n              \"myr\": 0,\n              \"nok\": 0,\n              \"nzd\": 0,\n              \"php\": 0,\n              \"pln\": 0,\n              \"ron\": 0,\n              \"rub\": 0,\n              \"sek\": 0,\n              \"sgd\": 0,\n              \"thb\": 0,\n              \"try\": 0,\n              \"usd\": 0,\n              \"zar\": 0\n            }\n          },\n          \"transaction_fee\": 0,\n          \"transaction_fee_absolute\": 0\n        }\n      }\n    ],\n    \"preregistered_domain_priorities\": \"[]\",\n    \"recurring_payment_methods\": [\n      {\n        \"name\": \"ideal\",\n        \"settings\": {\n          \"limit\": {\n            \"maximum\": {\n              \"aud\": 0,\n              \"bgn\": 0,\n              \"brl\": 0,\n              \"cad\": 0,\n              \"chf\": 0,\n              \"cny\": 0,\n              \"czk\": 0,\n              \"dkk\": 0,\n              \"eek\": 0,\n              \"eur\": 0,\n              \"gbp\": 0,\n              \"ghs\": 0,\n              \"hkd\": 0,\n              \"hrk\": 0,\n              \"huf\": 0,\n              \"idr\": 0,\n              \"ils\": 0,\n              \"inr\": 0,\n              \"jpy\": 0,\n              \"krw\": 0,\n              \"lkr\": 0,\n              \"ltl\": 0,\n              \"lvl\": 0,\n              \"mxn\": 0,\n              \"myr\": 0,\n              \"nok\": 0,\n              \"nzd\": 0,\n              \"php\": 0,\n              \"pln\": 0,\n              \"ron\": 0,\n              \"rub\": 0,\n              \"sek\": 0,\n              \"sgd\": 0,\n              \"thb\": 0,\n              \"try\": 0,\n              \"usd\": 0,\n              \"zar\": 0\n            },\n            \"minimum\": {\n              \"aud\": 0,\n              \"bgn\": 0,\n              \"brl\": 0,\n              \"cad\": 0,\n              \"chf\": 0,\n              \"cny\": 0,\n              \"czk\": 0,\n              \"dkk\": 0,\n              \"eek\": 0,\n              \"eur\": 0,\n              \"gbp\": 0,\n              \"ghs\": 0,\n              \"hkd\": 0,\n              \"hrk\": 0,\n              \"huf\": 0,\n              \"idr\": 0,\n              \"ils\": 0,\n              \"inr\": 0,\n              \"jpy\": 0,\n              \"krw\": 0,\n              \"lkr\": 0,\n              \"ltl\": 0,\n              \"lvl\": 0,\n              \"mxn\": 0,\n              \"myr\": 0,\n              \"nok\": 0,\n              \"nzd\": 0,\n              \"php\": 0,\n              \"pln\": 0,\n              \"ron\": 0,\n              \"rub\": 0,\n              \"sek\": 0,\n              \"sgd\": 0,\n              \"thb\": 0,\n              \"try\": 0,\n              \"usd\": 0,\n              \"zar\": 0\n            }\n          },\n          \"transaction_fee\": 0,\n          \"transaction_fee_absolute\": 0\n        }\n      }\n    ],\n    \"renew_notification_days\": [\n      1\n    ],\n    \"renew_notification_every_week\": false,\n    \"signed_contracts\": [\n      {\n        \"contents\": \"content for ac\",\n        \"id\": 1,\n        \"is_signed\": false,\n        \"modification_date\": \"2009-02-19 10:59:32\",\n        \"sign_on_date\": \"2009-02-19 10:59:32\",\n        \"title\": \".ac\",\n        \"type\": \"ac\",\n        \"version_id\": 1\n      }\n    ],\n    \"tac_contract\": {\n      \"is_signed\": false,\n      \"name\": \"opensign_terms_and_conditions\",\n      \"signed_at\": \"2014-07-16 15:22:48\",\n      \"type\": \"opensign\"\n    },\n    \"tags\": [\n      \"VIPCUSTOMER\"\n    ],\n    \"transaction_fee\": {\n      \"bank\": 0,\n      \"credit_card\": 3,\n      \"ideal\": 0,\n      \"paypal\": 5,\n      \"western_union\": 0,\n      \"yandex\": 5\n    },\n    \"type\": \"normal\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3a4d7091-feb8-4f55-8a6f-41107da9caf1",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "resellers",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "af83121a-c712-4f92-b6d9-184f12e58af3",
+    "name": "REST AdditionalData Settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

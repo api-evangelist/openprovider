@@ -1,0 +1,202 @@
+{
+  "item": [
+    {
+      "id": "2b3113d7-bae7-4de5-b7e5-3abb36fa733c",
+      "name": "DomainToken",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e91377c5-e263-498b-93d3-c026f318ad23",
+          "name": "Create token",
+          "request": {
+            "name": "Create token",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "domain-token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"<string>\",\n  \"zone_provider\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2678779e-c771-408d-b9ad-9c3f19c37a4c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "domain-token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": \"example.com\",\n  \"zone_provider\": \"sectigo\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg\",\n    \"url\": \"https://single-domain.example.com?token=eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg&lang=ru_ru\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c801468-50b2-4207-b099-5ba65012abf6",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "domain-token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": \"example.com\",\n  \"zone_provider\": \"sectigo\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ab3f2363-c1d7-486d-8e1a-b10051042fc9",
+    "name": "REST AdditionalData DomainToken API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

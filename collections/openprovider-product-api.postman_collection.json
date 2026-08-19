@@ -1,0 +1,481 @@
+{
+  "item": [
+    {
+      "id": "eb143094-87b4-4c0c-bbd8-2274f0505954",
+      "name": "Product",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "93dcf3fb-5bfd-4675-9c68-8dddef3bae2d",
+          "name": "List products",
+          "request": {
+            "name": "List products",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "ssl",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Search query limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Search query offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_price",
+                  "value": "<boolean>",
+                  "description": "Returns product price in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_supported_software",
+                  "value": "false",
+                  "description": "Returns a list of supported software patforms."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_description",
+                  "value": "<boolean>",
+                  "description": "Returns a description for each product, if exists."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.name",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.brand_name",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.category",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.sub_category",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.brand_seqno",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.product_seqno",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "897e23fb-f1db-454c-ae68-3961320f5024",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "ssl",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "with_price",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_supported_software",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "order_by.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.brand_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.sub_category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.brand_seqno",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.product_seqno",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"results\": [\n      {\n        \"brand_name\": \"Comodo\",\n        \"bypass_san\": false,\n        \"category\": \"domain_validation\",\n        \"delivery_time\": \"10m\",\n        \"description\": \"An EssentialSSL certificate from Comodo is an affordable solution for securing your lite website or intranet. No hassle with paperworks, as the issuance is based on realtime domain checks.\",\n        \"encryption\": \"40/256 bits\",\n        \"free_refund_period\": \"30d\",\n        \"free_reissue_period\": \"lifetime\",\n        \"id\": 123456789,\n        \"included_domains_count\": 1,\n        \"is_extended_validation_supported\": false,\n        \"is_idn_supported\": false,\n        \"is_mobile_supported\": false,\n        \"is_sgc_supported\": false,\n        \"is_wildcard_multidomain_supported\": false,\n        \"is_wildcard_supported\": false,\n        \"level_prices\": [\n          {\n            \"level\": 1,\n            \"name\": \"EssentialSSL\",\n            \"prices\": [\n              {\n                \"extra_domain_price\": {\n                  \"product\": {\n                    \"currency\": \"USD\",\n                    \"price\": 0\n                  },\n                  \"reseller\": {\n                    \"currency\": \"EUR\",\n                    \"price\": 0\n                  }\n                },\n                \"extra_wildcard_domain_price\": {\n                  \"product\": {\n                    \"currency\": \"USD\",\n                    \"price\": 0\n                  },\n                  \"reseller\": {\n                    \"currency\": \"EUR\",\n                    \"price\": 0\n                  }\n                },\n                \"period\": 1,\n                \"price\": {\n                  \"product\": {\n                    \"currency\": \"USD\",\n                    \"price\": 0\n                  },\n                  \"reseller\": {\n                    \"currency\": \"EUR\",\n                    \"price\": 0\n                  }\n                }\n              }\n            ]\n          }\n        ],\n        \"max_domains\": 1,\n        \"max_period\": 2,\n        \"name\": \"EssentialSSL\",\n        \"number_of_domains\": 1,\n        \"order_module\": \"comodo\",\n        \"prices\": [\n          {\n            \"extra_domain_price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            },\n            \"extra_wildcard_domain_price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            },\n            \"period\": 1,\n            \"price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            }\n          }\n        ],\n        \"root\": \"Chained root\",\n        \"sub_category\": \"\",\n        \"supported_software\": [\n          {\n            \"title\": \"Linux\"\n          }\n        ],\n        \"validation_method\": \"domain\",\n        \"warranty\": {\n          \"product\": {\n            \"currency\": \"USD\",\n            \"price\": 0\n          },\n          \"reseller\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          }\n        }\n      }\n    ],\n    \"total\": 999\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "247bdcac-310b-442d-a6b3-e88971b5bcec",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "ssl",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "with_price",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_supported_software",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "order_by.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.brand_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.sub_category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.brand_seqno",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.product_seqno",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f70d706e-f1e1-4089-b45e-90475fe880ae",
+          "name": "Get product",
+          "request": {
+            "name": "Get product",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "ssl",
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Object id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68a68e15-675f-4fc0-8ed0-dc709536dfe6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "ssl",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Object id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 287,\n  \"data\": {\n    \"brand_name\": \"string\",\n    \"bypass_san\": false,\n    \"category\": \"string\",\n    \"delivery_time\": \"string\",\n    \"description\": \"string\",\n    \"encryption\": \"string\",\n    \"free_refund_period\": \"string\",\n    \"free_reissue_period\": \"string\",\n    \"id\": 3205,\n    \"included_domains_count\": 1422,\n    \"is_extended_validation_supported\": true,\n    \"is_idn_supported\": false,\n    \"is_mobile_supported\": false,\n    \"is_sgc_supported\": true,\n    \"is_wildcard_multidomain_supported\": true,\n    \"is_wildcard_supported\": false,\n    \"level_prices\": [\n      {\n        \"level\": 8562,\n        \"name\": \"string\",\n        \"prices\": [\n          {\n            \"extra_domain_price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            },\n            \"extra_wildcard_domain_price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            },\n            \"period\": 1,\n            \"price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            }\n          },\n          {\n            \"extra_domain_price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            },\n            \"extra_wildcard_domain_price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            },\n            \"period\": 1,\n            \"price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            }\n          }\n        ]\n      },\n      {\n        \"level\": 914,\n        \"name\": \"string\",\n        \"prices\": [\n          {\n            \"extra_domain_price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            },\n            \"extra_wildcard_domain_price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            },\n            \"period\": 1,\n            \"price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            }\n          },\n          {\n            \"extra_domain_price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            },\n            \"extra_wildcard_domain_price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            },\n            \"period\": 1,\n            \"price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 0\n              },\n              \"reseller\": {\n                \"currency\": \"EUR\",\n                \"price\": 0\n              }\n            }\n          }\n        ]\n      }\n    ],\n    \"max_domains\": 941,\n    \"max_period\": 5045,\n    \"name\": \"string\",\n    \"number_of_domains\": 5602,\n    \"order_module\": \"string\",\n    \"prices\": [\n      {\n        \"extra_domain_price\": {\n          \"product\": {\n            \"currency\": \"USD\",\n            \"price\": 0\n          },\n          \"reseller\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          }\n        },\n        \"extra_wildcard_domain_price\": {\n          \"product\": {\n            \"currency\": \"USD\",\n            \"price\": 0\n          },\n          \"reseller\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          }\n        },\n        \"period\": 1,\n        \"price\": {\n          \"product\": {\n            \"currency\": \"USD\",\n            \"price\": 0\n          },\n          \"reseller\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          }\n        }\n      },\n      {\n        \"extra_domain_price\": {\n          \"product\": {\n            \"currency\": \"USD\",\n            \"price\": 0\n          },\n          \"reseller\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          }\n        },\n        \"extra_wildcard_domain_price\": {\n          \"product\": {\n            \"currency\": \"USD\",\n            \"price\": 0\n          },\n          \"reseller\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          }\n        },\n        \"period\": 1,\n        \"price\": {\n          \"product\": {\n            \"currency\": \"USD\",\n            \"price\": 0\n          },\n          \"reseller\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          }\n        }\n      }\n    ],\n    \"root\": \"string\",\n    \"sub_category\": \"string\",\n    \"supported_software\": [\n      {\n        \"title\": \"Linux\"\n      },\n      {\n        \"title\": \"Linux\"\n      }\n    ],\n    \"validation_method\": \"string\",\n    \"warranty\": {\n      \"product\": {\n        \"currency\": \"USD\",\n        \"price\": 0\n      },\n      \"reseller\": {\n        \"currency\": \"EUR\",\n        \"price\": 0\n      }\n    }\n  },\n  \"desc\": \"string\",\n  \"maintenance\": true,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2093b0ff-bd96-4cf8-8338-31ee56b8259f",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "ssl",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Object id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a32eb0ff-67a4-4742-a48e-b1fa5fac358a",
+    "name": "REST AdditionalData Product API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData ContactService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ContactService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/contacts",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Output ordering pattern. ASC / DESC."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order output by field (i.e. first_name)."
+              },
+              {
+                "name": "email_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial email address. Wildcard (*) can be used."
+              },
+              {
+                "name": "last_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial last name. Wildcard (*) can be used."
+              },
+              {
+                "name": "company_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial company name. Wildcard (*) can be used."
+              },
+              {
+                "name": "username_pattern",
+                "value": "",
+                "type": "query",
+                "description": "The username pattern."
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query",
+                "description": "Contact's role."
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves objects with (1) or without (0) additional data."
+              }
+            ]
+          },
+          "docs": "List contacts"
+        },
+        {
+          "info": {
+            "name": "Create contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/contacts"
+          },
+          "docs": "Create contact"
+        },
+        {
+          "info": {
+            "name": "Get contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/contacts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves objects with (1) or without (0) additional data."
+              }
+            ]
+          },
+          "docs": "Get contact"
+        },
+        {
+          "info": {
+            "name": "Update contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/contacts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Update contact"
+        },
+        {
+          "info": {
+            "name": "Delete contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/contacts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Delete contact"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

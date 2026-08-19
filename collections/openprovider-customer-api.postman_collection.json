@@ -1,0 +1,1037 @@
+{
+  "item": [
+    {
+      "id": "ddb32181-3ab6-4066-903b-b5d7b70b0426",
+      "name": "Customer",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "85db333a-5ce9-414b-a196-e8aab254c4a6",
+          "name": "List customers",
+          "request": {
+            "name": "List customers",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "reseller_id",
+                  "value": "<integer>",
+                  "description": "Your reseller id is used by default. Other values not accepted."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Output limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Output offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Output ordering pattern. ASC / DESC."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "Order output by field (i.e. first_name)."
+                },
+                {
+                  "disabled": false,
+                  "key": "email_pattern",
+                  "value": "<string>",
+                  "description": "Full or partial email address. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "company_name_pattern",
+                  "value": "<string>",
+                  "description": "Full or partial company name. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_name_pattern",
+                  "value": "<string>",
+                  "description": "Full or partial last name. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "first_name_pattern",
+                  "value": "<string>",
+                  "description": "Full or partial first name. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "comment_pattern",
+                  "value": "<string>",
+                  "description": "Full or partial comment value. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "handle_pattern",
+                  "value": "<string>",
+                  "description": "Full or partial handle name. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "pattern",
+                  "value": "<string>",
+                  "description": "ull or partial first name or last name or company name or handle. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_additional_data",
+                  "value": "<boolean>",
+                  "description": "Retrieves objects with (1) or without (0) additional data."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Customer type: 'company' or 'individual'. If customer has not empty 'companyName' than type is 'company', otherwise 'individual'."
+                },
+                {
+                  "disabled": false,
+                  "key": "columns",
+                  "value": "<string>",
+                  "description": "Сolumns to retrieve. Possible values: 'firstName', 'prefix', 'initials', 'lastName', 'companyName', 'email', 'handle', 'id', 'fullName'."
+                },
+                {
+                  "disabled": false,
+                  "key": "columns",
+                  "value": "<string>",
+                  "description": "Сolumns to retrieve. Possible values: 'firstName', 'prefix', 'initials', 'lastName', 'companyName', 'email', 'handle', 'id', 'fullName'."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1825db92-3c43-4185-bbe4-08ca00c931c8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "reseller_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "company_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "first_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "comment_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "handle_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "columns",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"results\": [\n      {\n        \"additional_data\": {\n          \"attached_files\": [\n            {\n              \"description\": \"My passport scan\",\n              \"doc_type\": \"passport\",\n              \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n            }\n          ],\n          \"birth_address\": \"test street 45\",\n          \"birth_city\": \"Test city\",\n          \"birth_country\": \"NL\",\n          \"birth_date\": \"1970-01-01\",\n          \"birth_state\": \"Testprovince\",\n          \"birth_zipcode\": \"123\",\n          \"company_registration_city\": \"Testcity\",\n          \"company_registration_number\": \"XX123456789X04\",\n          \"company_registration_subscription_date\": \"2000-01-01\",\n          \"company_url\": \"https://openprovider.com\",\n          \"headquarters_address\": \"Test street 5\",\n          \"headquarters_city\": \"Testcity\",\n          \"headquarters_country\": \"NL\",\n          \"headquarters_state\": \"Testprovince\",\n          \"headquarters_zipcode\": \"123\",\n          \"passport_number\": \"123456\",\n          \"social_security_number\": \"6543210\",\n          \"trading_name\": \"Openprovider\"\n        },\n        \"address\": {\n          \"city\": \"Test city\",\n          \"country\": \"NL\",\n          \"number\": \"123\",\n          \"state\": \"Testprovince\",\n          \"street\": \"Test street\",\n          \"suffix\": \"A\",\n          \"zipcode\": \"1235 XX\"\n        },\n        \"comments\": \"\",\n        \"comments_last_changed_at\": \"\",\n        \"company_name\": \"\",\n        \"deleted_at\": \"0000-00-00 00:00:00\",\n        \"email\": \"test@mail.tld\",\n        \"email_verification_status\": \"FAI\",\n        \"extension_additional_data\": [\n          {\n            \"data\": {\n              \"admin_type\": \"1\",\n              \"applicant_purpose\": \"P3\",\n              \"birth_date\": \"1970-01-01\",\n              \"company_name_cyrillic\": \"Example company\",\n              \"company_name_latin\": \"Example company\",\n              \"company_registration_number\": \"XX123456789X11\",\n              \"contact_title\": \"CEO\",\n              \"country_of_citizenship\": \"NL\",\n              \"customer_uin\": \"\",\n              \"ens_auth_id\": \"\",\n              \"ens_key\": \"\",\n              \"first_name_cyrillic\": \"Test\",\n              \"first_name_latin\": \"Test\",\n              \"hr_member\": \"\",\n              \"industry_class\": \"19\",\n              \"is_private_enterpreneur\": \"\",\n              \"last_name_cyrillic\": \"Person\",\n              \"last_name_latin\": \"Person\",\n              \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n              \"legal_type\": \"FCORP\",\n              \"middle_name_cyrillic\": \"Nikolaevich\",\n              \"middle_name_latin\": \"Nikolaevich\",\n              \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n              \"nexus_category\": \"C31\",\n              \"org_type\": \"1\",\n              \"passport_issue_date\": \"2009-01-11\",\n              \"passport_issuer\": \"Issuer name\",\n              \"passport_number\": \"12345678\",\n              \"passport_series\": \"1234\",\n              \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n              \"social_security_number\": \"X123455123X\",\n              \"tax_payer_number\": \"1345678\",\n              \"uin\": \"12345-6\",\n              \"user_type\": \"Individual\",\n              \"vat\": \"XX123456789X12\",\n              \"website\": \"http://example.com\",\n              \"whois_email\": \"test@mail.tld\"\n            },\n            \"name\": \"ru\"\n          }\n        ],\n        \"handle\": \"XX123456-XX\",\n        \"id\": 123456789,\n        \"is_deleted\": false,\n        \"locale\": \"nl_NL\",\n        \"name\": {\n          \"first_name\": \"Test\",\n          \"full_name\": \"Test Person\",\n          \"initials\": \"T P\",\n          \"last_name\": \"Person\",\n          \"prefix\": \"Mr\"\n        },\n        \"phone\": {\n          \"area_code\": \"111\",\n          \"country_code\": \"+03\",\n          \"subscriber_number\": \"123456\"\n        },\n        \"reseller_id\": 5349,\n        \"tags\": [\n          {\n            \"key\": \"customer\",\n            \"value\": \"VIP\"\n          }\n        ]\n      }\n    ],\n    \"total\": 999\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec7e050b-99fd-4ea9-a65b-ffa77b0dc86e",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "reseller_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "company_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "first_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "comment_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "handle_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "columns",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de7b04a3-ba78-442b-8736-4c09e0519981",
+          "name": "Create customer",
+          "request": {
+            "name": "Create customer",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"additional_data\": {\n    \"attached_files\": [\n      {\n        \"description\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"description\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ],\n    \"birth_address\": \"<string>\",\n    \"birth_city\": \"<string>\",\n    \"birth_country\": \"<string>\",\n    \"birth_date\": \"<string>\",\n    \"birth_state\": \"<string>\",\n    \"birth_zipcode\": \"<string>\",\n    \"company_registration_city\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"company_registration_subscription_date\": \"<string>\",\n    \"company_url\": \"<string>\",\n    \"headquarters_address\": \"<string>\",\n    \"headquarters_city\": \"<string>\",\n    \"headquarters_country\": \"<string>\",\n    \"headquarters_state\": \"<string>\",\n    \"headquarters_zipcode\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"social_security_number\": \"<string>\",\n    \"trading_name\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"number\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"suffix\": \"<string>\",\n    \"zipcode\": \"<string>\"\n  },\n  \"comments\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"extension_additional_data\": [\n    {\n      \"data\": {\n        \"admin_type\": \"<string>\",\n        \"applicant_purpose\": \"<string>\",\n        \"birth_date\": \"<string>\",\n        \"company_name_cyrillic\": \"<string>\",\n        \"company_name_latin\": \"<string>\",\n        \"company_registration_number\": \"<string>\",\n        \"contact_title\": \"<string>\",\n        \"country_of_citizenship\": \"<string>\",\n        \"customer_uin\": \"<string>\",\n        \"ens_auth_id\": \"<string>\",\n        \"ens_key\": \"<string>\",\n        \"first_name_cyrillic\": \"<string>\",\n        \"first_name_latin\": \"<string>\",\n        \"hr_member\": \"<string>\",\n        \"industry_class\": \"<string>\",\n        \"is_private_enterpreneur\": \"<string>\",\n        \"last_name_cyrillic\": \"<string>\",\n        \"last_name_latin\": \"<string>\",\n        \"legal_address_cyrillic\": \"<string>\",\n        \"legal_type\": \"<string>\",\n        \"middle_name_cyrillic\": \"<string>\",\n        \"middle_name_latin\": \"<string>\",\n        \"mobile_phone_number\": \"<string>\",\n        \"nexus_category\": \"<string>\",\n        \"org_type\": \"<string>\",\n        \"passport_issue_date\": \"<string>\",\n        \"passport_issuer\": \"<string>\",\n        \"passport_number\": \"<string>\",\n        \"passport_series\": \"<string>\",\n        \"postal_address_cyrillic\": \"<string>\",\n        \"social_security_number\": \"<string>\",\n        \"tax_payer_number\": \"<string>\",\n        \"uin\": \"<string>\",\n        \"user_type\": \"<string>\",\n        \"vat\": \"<string>\",\n        \"website\": \"<string>\",\n        \"whois_email\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    {\n      \"data\": {\n        \"admin_type\": \"<string>\",\n        \"applicant_purpose\": \"<string>\",\n        \"birth_date\": \"<string>\",\n        \"company_name_cyrillic\": \"<string>\",\n        \"company_name_latin\": \"<string>\",\n        \"company_registration_number\": \"<string>\",\n        \"contact_title\": \"<string>\",\n        \"country_of_citizenship\": \"<string>\",\n        \"customer_uin\": \"<string>\",\n        \"ens_auth_id\": \"<string>\",\n        \"ens_key\": \"<string>\",\n        \"first_name_cyrillic\": \"<string>\",\n        \"first_name_latin\": \"<string>\",\n        \"hr_member\": \"<string>\",\n        \"industry_class\": \"<string>\",\n        \"is_private_enterpreneur\": \"<string>\",\n        \"last_name_cyrillic\": \"<string>\",\n        \"last_name_latin\": \"<string>\",\n        \"legal_address_cyrillic\": \"<string>\",\n        \"legal_type\": \"<string>\",\n        \"middle_name_cyrillic\": \"<string>\",\n        \"middle_name_latin\": \"<string>\",\n        \"mobile_phone_number\": \"<string>\",\n        \"nexus_category\": \"<string>\",\n        \"org_type\": \"<string>\",\n        \"passport_issue_date\": \"<string>\",\n        \"passport_issuer\": \"<string>\",\n        \"passport_number\": \"<string>\",\n        \"passport_series\": \"<string>\",\n        \"postal_address_cyrillic\": \"<string>\",\n        \"social_security_number\": \"<string>\",\n        \"tax_payer_number\": \"<string>\",\n        \"uin\": \"<string>\",\n        \"user_type\": \"<string>\",\n        \"vat\": \"<string>\",\n        \"website\": \"<string>\",\n        \"whois_email\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    }\n  ],\n  \"fax\": {\n    \"area_code\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"subscriber_number\": \"<string>\"\n  },\n  \"locale\": \"<string>\",\n  \"name\": {\n    \"first_name\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"initials\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"prefix\": \"<string>\"\n  },\n  \"phone\": {\n    \"area_code\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"subscriber_number\": \"<string>\"\n  },\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"vat\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "59a4b20c-1a68-455a-bb31-099c37eb0961",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"attached_files\": [\n      {\n        \"description\": \"My passport scan\",\n        \"doc_type\": \"passport\",\n        \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n      },\n      {\n        \"description\": \"My passport scan\",\n        \"doc_type\": \"passport\",\n        \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n      }\n    ],\n    \"birth_address\": \"<string>\",\n    \"birth_city\": \"<string>\",\n    \"birth_country\": \"<string>\",\n    \"birth_date\": \"<string>\",\n    \"birth_state\": \"<string>\",\n    \"birth_zipcode\": \"<string>\",\n    \"company_registration_city\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"company_registration_subscription_date\": \"<string>\",\n    \"company_url\": \"<string>\",\n    \"headquarters_address\": \"<string>\",\n    \"headquarters_city\": \"<string>\",\n    \"headquarters_country\": \"<string>\",\n    \"headquarters_state\": \"<string>\",\n    \"headquarters_zipcode\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"social_security_number\": \"<string>\",\n    \"trading_name\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"Test city\",\n    \"country\": \"NL\",\n    \"number\": \"123\",\n    \"state\": \"Testprovince\",\n    \"street\": \"Test street\",\n    \"suffix\": \"A\",\n    \"zipcode\": \"1235 XX\"\n  },\n  \"comments\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"extension_additional_data\": [\n    {\n      \"data\": {\n        \"admin_type\": \"1\",\n        \"applicant_purpose\": \"P3\",\n        \"birth_date\": \"1970-01-01\",\n        \"company_name_cyrillic\": \"Example company\",\n        \"company_name_latin\": \"Example company\",\n        \"company_registration_number\": \"XX123456789X11\",\n        \"contact_title\": \"CEO\",\n        \"country_of_citizenship\": \"NL\",\n        \"customer_uin\": \"\",\n        \"ens_auth_id\": \"\",\n        \"ens_key\": \"\",\n        \"first_name_cyrillic\": \"Test\",\n        \"first_name_latin\": \"Test\",\n        \"hr_member\": \"\",\n        \"industry_class\": \"19\",\n        \"is_private_enterpreneur\": \"\",\n        \"last_name_cyrillic\": \"Person\",\n        \"last_name_latin\": \"Person\",\n        \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n        \"legal_type\": \"FCORP\",\n        \"middle_name_cyrillic\": \"Nikolaevich\",\n        \"middle_name_latin\": \"Nikolaevich\",\n        \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n        \"nexus_category\": \"C31\",\n        \"org_type\": \"1\",\n        \"passport_issue_date\": \"2009-01-11\",\n        \"passport_issuer\": \"Issuer name\",\n        \"passport_number\": \"12345678\",\n        \"passport_series\": \"1234\",\n        \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n        \"social_security_number\": \"X123455123X\",\n        \"tax_payer_number\": \"1345678\",\n        \"uin\": \"12345-6\",\n        \"user_type\": \"Individual\",\n        \"vat\": \"XX123456789X12\",\n        \"website\": \"http://example.com\",\n        \"whois_email\": \"test@mail.tld\"\n      },\n      \"name\": \"ru\"\n    },\n    {\n      \"data\": {\n        \"admin_type\": \"1\",\n        \"applicant_purpose\": \"P3\",\n        \"birth_date\": \"1970-01-01\",\n        \"company_name_cyrillic\": \"Example company\",\n        \"company_name_latin\": \"Example company\",\n        \"company_registration_number\": \"XX123456789X11\",\n        \"contact_title\": \"CEO\",\n        \"country_of_citizenship\": \"NL\",\n        \"customer_uin\": \"\",\n        \"ens_auth_id\": \"\",\n        \"ens_key\": \"\",\n        \"first_name_cyrillic\": \"Test\",\n        \"first_name_latin\": \"Test\",\n        \"hr_member\": \"\",\n        \"industry_class\": \"19\",\n        \"is_private_enterpreneur\": \"\",\n        \"last_name_cyrillic\": \"Person\",\n        \"last_name_latin\": \"Person\",\n        \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n        \"legal_type\": \"FCORP\",\n        \"middle_name_cyrillic\": \"Nikolaevich\",\n        \"middle_name_latin\": \"Nikolaevich\",\n        \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n        \"nexus_category\": \"C31\",\n        \"org_type\": \"1\",\n        \"passport_issue_date\": \"2009-01-11\",\n        \"passport_issuer\": \"Issuer name\",\n        \"passport_number\": \"12345678\",\n        \"passport_series\": \"1234\",\n        \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n        \"social_security_number\": \"X123455123X\",\n        \"tax_payer_number\": \"1345678\",\n        \"uin\": \"12345-6\",\n        \"user_type\": \"Individual\",\n        \"vat\": \"XX123456789X12\",\n        \"website\": \"http://example.com\",\n        \"whois_email\": \"test@mail.tld\"\n      },\n      \"name\": \"ru\"\n    }\n  ],\n  \"fax\": {\n    \"area_code\": \"\",\n    \"country_code\": \"\",\n    \"subscriber_number\": \"\"\n  },\n  \"locale\": \"<string>\",\n  \"name\": {\n    \"first_name\": \"Test\",\n    \"full_name\": \"Test Person\",\n    \"initials\": \"T P\",\n    \"last_name\": \"Person\",\n    \"prefix\": \"Mr\"\n  },\n  \"phone\": {\n    \"area_code\": \"111\",\n    \"country_code\": \"+03\",\n    \"subscriber_number\": \"123456\"\n  },\n  \"tags\": [\n    {\n      \"key\": \"customer\",\n      \"value\": \"VIP\"\n    },\n    {\n      \"key\": \"customer\",\n      \"value\": \"VIP\"\n    }\n  ],\n  \"vat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"handle\": \"XX123456-XX\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c259d903-ba92-4b12-9183-fef904c7d128",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"attached_files\": [\n      {\n        \"description\": \"My passport scan\",\n        \"doc_type\": \"passport\",\n        \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n      },\n      {\n        \"description\": \"My passport scan\",\n        \"doc_type\": \"passport\",\n        \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n      }\n    ],\n    \"birth_address\": \"<string>\",\n    \"birth_city\": \"<string>\",\n    \"birth_country\": \"<string>\",\n    \"birth_date\": \"<string>\",\n    \"birth_state\": \"<string>\",\n    \"birth_zipcode\": \"<string>\",\n    \"company_registration_city\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"company_registration_subscription_date\": \"<string>\",\n    \"company_url\": \"<string>\",\n    \"headquarters_address\": \"<string>\",\n    \"headquarters_city\": \"<string>\",\n    \"headquarters_country\": \"<string>\",\n    \"headquarters_state\": \"<string>\",\n    \"headquarters_zipcode\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"social_security_number\": \"<string>\",\n    \"trading_name\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"Test city\",\n    \"country\": \"NL\",\n    \"number\": \"123\",\n    \"state\": \"Testprovince\",\n    \"street\": \"Test street\",\n    \"suffix\": \"A\",\n    \"zipcode\": \"1235 XX\"\n  },\n  \"comments\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"extension_additional_data\": [\n    {\n      \"data\": {\n        \"admin_type\": \"1\",\n        \"applicant_purpose\": \"P3\",\n        \"birth_date\": \"1970-01-01\",\n        \"company_name_cyrillic\": \"Example company\",\n        \"company_name_latin\": \"Example company\",\n        \"company_registration_number\": \"XX123456789X11\",\n        \"contact_title\": \"CEO\",\n        \"country_of_citizenship\": \"NL\",\n        \"customer_uin\": \"\",\n        \"ens_auth_id\": \"\",\n        \"ens_key\": \"\",\n        \"first_name_cyrillic\": \"Test\",\n        \"first_name_latin\": \"Test\",\n        \"hr_member\": \"\",\n        \"industry_class\": \"19\",\n        \"is_private_enterpreneur\": \"\",\n        \"last_name_cyrillic\": \"Person\",\n        \"last_name_latin\": \"Person\",\n        \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n        \"legal_type\": \"FCORP\",\n        \"middle_name_cyrillic\": \"Nikolaevich\",\n        \"middle_name_latin\": \"Nikolaevich\",\n        \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n        \"nexus_category\": \"C31\",\n        \"org_type\": \"1\",\n        \"passport_issue_date\": \"2009-01-11\",\n        \"passport_issuer\": \"Issuer name\",\n        \"passport_number\": \"12345678\",\n        \"passport_series\": \"1234\",\n        \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n        \"social_security_number\": \"X123455123X\",\n        \"tax_payer_number\": \"1345678\",\n        \"uin\": \"12345-6\",\n        \"user_type\": \"Individual\",\n        \"vat\": \"XX123456789X12\",\n        \"website\": \"http://example.com\",\n        \"whois_email\": \"test@mail.tld\"\n      },\n      \"name\": \"ru\"\n    },\n    {\n      \"data\": {\n        \"admin_type\": \"1\",\n        \"applicant_purpose\": \"P3\",\n        \"birth_date\": \"1970-01-01\",\n        \"company_name_cyrillic\": \"Example company\",\n        \"company_name_latin\": \"Example company\",\n        \"company_registration_number\": \"XX123456789X11\",\n        \"contact_title\": \"CEO\",\n        \"country_of_citizenship\": \"NL\",\n        \"customer_uin\": \"\",\n        \"ens_auth_id\": \"\",\n        \"ens_key\": \"\",\n        \"first_name_cyrillic\": \"Test\",\n        \"first_name_latin\": \"Test\",\n        \"hr_member\": \"\",\n        \"industry_class\": \"19\",\n        \"is_private_enterpreneur\": \"\",\n        \"last_name_cyrillic\": \"Person\",\n        \"last_name_latin\": \"Person\",\n        \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n        \"legal_type\": \"FCORP\",\n        \"middle_name_cyrillic\": \"Nikolaevich\",\n        \"middle_name_latin\": \"Nikolaevich\",\n        \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n        \"nexus_category\": \"C31\",\n        \"org_type\": \"1\",\n        \"passport_issue_date\": \"2009-01-11\",\n        \"passport_issuer\": \"Issuer name\",\n        \"passport_number\": \"12345678\",\n        \"passport_series\": \"1234\",\n        \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n        \"social_security_number\": \"X123455123X\",\n        \"tax_payer_number\": \"1345678\",\n        \"uin\": \"12345-6\",\n        \"user_type\": \"Individual\",\n        \"vat\": \"XX123456789X12\",\n        \"website\": \"http://example.com\",\n        \"whois_email\": \"test@mail.tld\"\n      },\n      \"name\": \"ru\"\n    }\n  ],\n  \"fax\": {\n    \"area_code\": \"\",\n    \"country_code\": \"\",\n    \"subscriber_number\": \"\"\n  },\n  \"locale\": \"<string>\",\n  \"name\": {\n    \"first_name\": \"Test\",\n    \"full_name\": \"Test Person\",\n    \"initials\": \"T P\",\n    \"last_name\": \"Person\",\n    \"prefix\": \"Mr\"\n  },\n  \"phone\": {\n    \"area_code\": \"111\",\n    \"country_code\": \"+03\",\n    \"subscriber_number\": \"123456\"\n  },\n  \"tags\": [\n    {\n      \"key\": \"customer\",\n      \"value\": \"VIP\"\n    },\n    {\n      \"key\": \"customer\",\n      \"value\": \"VIP\"\n    }\n  ],\n  \"vat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b79c8d82-036b-48cc-9abd-6c8d6d38e3aa",
+          "name": "Get customer",
+          "request": {
+            "name": "Get customer",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "customers",
+                ":handle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "with_additional_data",
+                  "value": "<boolean>",
+                  "description": "Retrieves objects with (1) or without (0) additional data."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "handle",
+                  "description": "(Required) Customer unique identifier or handle, which can be created via CreateCustomer API method"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "070168ac-bd49-4767-b2d4-c6ace721b7f1",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "customers",
+                    ":handle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handle",
+                      "description": "(Required) Customer unique identifier or handle, which can be created via CreateCustomer API method"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7725,\n  \"data\": {\n    \"additional_data\": {\n      \"attached_files\": [\n        {\n          \"description\": \"My passport scan\",\n          \"doc_type\": \"passport\",\n          \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n        },\n        {\n          \"description\": \"My passport scan\",\n          \"doc_type\": \"passport\",\n          \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n        }\n      ],\n      \"birth_address\": \"<string>\",\n      \"birth_city\": \"<string>\",\n      \"birth_country\": \"<string>\",\n      \"birth_date\": \"<string>\",\n      \"birth_state\": \"<string>\",\n      \"birth_zipcode\": \"<string>\",\n      \"company_registration_city\": \"<string>\",\n      \"company_registration_number\": \"<string>\",\n      \"company_registration_subscription_date\": \"<string>\",\n      \"company_url\": \"<string>\",\n      \"headquarters_address\": \"<string>\",\n      \"headquarters_city\": \"<string>\",\n      \"headquarters_country\": \"<string>\",\n      \"headquarters_state\": \"<string>\",\n      \"headquarters_zipcode\": \"<string>\",\n      \"passport_number\": \"<string>\",\n      \"social_security_number\": \"<string>\",\n      \"trading_name\": \"<string>\"\n    },\n    \"address\": {\n      \"city\": \"Test city\",\n      \"country\": \"NL\",\n      \"number\": \"123\",\n      \"state\": \"Testprovince\",\n      \"street\": \"Test street\",\n      \"suffix\": \"A\",\n      \"zipcode\": \"1235 XX\"\n    },\n    \"comments\": \"string\",\n    \"comments_last_changed_at\": \"string\",\n    \"company_name\": \"string\",\n    \"deleted_at\": \"string\",\n    \"email\": \"string\",\n    \"email_verification_status\": \"string\",\n    \"extension_additional_data\": [\n      {\n        \"data\": {\n          \"admin_type\": \"1\",\n          \"applicant_purpose\": \"P3\",\n          \"birth_date\": \"1970-01-01\",\n          \"company_name_cyrillic\": \"Example company\",\n          \"company_name_latin\": \"Example company\",\n          \"company_registration_number\": \"XX123456789X11\",\n          \"contact_title\": \"CEO\",\n          \"country_of_citizenship\": \"NL\",\n          \"customer_uin\": \"\",\n          \"ens_auth_id\": \"\",\n          \"ens_key\": \"\",\n          \"first_name_cyrillic\": \"Test\",\n          \"first_name_latin\": \"Test\",\n          \"hr_member\": \"\",\n          \"industry_class\": \"19\",\n          \"is_private_enterpreneur\": \"\",\n          \"last_name_cyrillic\": \"Person\",\n          \"last_name_latin\": \"Person\",\n          \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n          \"legal_type\": \"FCORP\",\n          \"middle_name_cyrillic\": \"Nikolaevich\",\n          \"middle_name_latin\": \"Nikolaevich\",\n          \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n          \"nexus_category\": \"C31\",\n          \"org_type\": \"1\",\n          \"passport_issue_date\": \"2009-01-11\",\n          \"passport_issuer\": \"Issuer name\",\n          \"passport_number\": \"12345678\",\n          \"passport_series\": \"1234\",\n          \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n          \"social_security_number\": \"X123455123X\",\n          \"tax_payer_number\": \"1345678\",\n          \"uin\": \"12345-6\",\n          \"user_type\": \"Individual\",\n          \"vat\": \"XX123456789X12\",\n          \"website\": \"http://example.com\",\n          \"whois_email\": \"test@mail.tld\"\n        },\n        \"name\": \"ru\"\n      },\n      {\n        \"data\": {\n          \"admin_type\": \"1\",\n          \"applicant_purpose\": \"P3\",\n          \"birth_date\": \"1970-01-01\",\n          \"company_name_cyrillic\": \"Example company\",\n          \"company_name_latin\": \"Example company\",\n          \"company_registration_number\": \"XX123456789X11\",\n          \"contact_title\": \"CEO\",\n          \"country_of_citizenship\": \"NL\",\n          \"customer_uin\": \"\",\n          \"ens_auth_id\": \"\",\n          \"ens_key\": \"\",\n          \"first_name_cyrillic\": \"Test\",\n          \"first_name_latin\": \"Test\",\n          \"hr_member\": \"\",\n          \"industry_class\": \"19\",\n          \"is_private_enterpreneur\": \"\",\n          \"last_name_cyrillic\": \"Person\",\n          \"last_name_latin\": \"Person\",\n          \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n          \"legal_type\": \"FCORP\",\n          \"middle_name_cyrillic\": \"Nikolaevich\",\n          \"middle_name_latin\": \"Nikolaevich\",\n          \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n          \"nexus_category\": \"C31\",\n          \"org_type\": \"1\",\n          \"passport_issue_date\": \"2009-01-11\",\n          \"passport_issuer\": \"Issuer name\",\n          \"passport_number\": \"12345678\",\n          \"passport_series\": \"1234\",\n          \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n          \"social_security_number\": \"X123455123X\",\n          \"tax_payer_number\": \"1345678\",\n          \"uin\": \"12345-6\",\n          \"user_type\": \"Individual\",\n          \"vat\": \"XX123456789X12\",\n          \"website\": \"http://example.com\",\n          \"whois_email\": \"test@mail.tld\"\n        },\n        \"name\": \"ru\"\n      }\n    ],\n    \"fax\": {\n      \"area_code\": \"\",\n      \"country_code\": \"\",\n      \"subscriber_number\": \"\"\n    },\n    \"handle\": \"string\",\n    \"id\": 7602,\n    \"inn\": \"string\",\n    \"is_deleted\": true,\n    \"locale\": \"string\",\n    \"name\": {\n      \"first_name\": \"Test\",\n      \"full_name\": \"Test Person\",\n      \"initials\": \"T P\",\n      \"last_name\": \"Person\",\n      \"prefix\": \"Mr\"\n    },\n    \"phone\": {\n      \"area_code\": \"111\",\n      \"country_code\": \"+03\",\n      \"subscriber_number\": \"123456\"\n    },\n    \"reseller_id\": 8641,\n    \"tags\": [\n      {\n        \"key\": \"customer\",\n        \"value\": \"VIP\"\n      },\n      {\n        \"key\": \"customer\",\n        \"value\": \"VIP\"\n      }\n    ],\n    \"vat\": \"string\"\n  },\n  \"desc\": \"string\",\n  \"maintenance\": false,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef5be8ee-3a8b-4e72-8bb8-617b4325dbbe",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "customers",
+                    ":handle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handle",
+                      "description": "(Required) Customer unique identifier or handle, which can be created via CreateCustomer API method"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29f2ee02-1e10-4c35-b012-2e0c50855677",
+          "name": "Update customer",
+          "request": {
+            "name": "Update customer",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "customers",
+                ":handle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "handle",
+                  "description": "(Required) Customer unique identifier or handle, which can be created via CreateCustomer API method"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"additional_data\": {\n    \"attached_files\": [\n      {\n        \"description\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"description\": \"<string>\",\n        \"doc_type\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ],\n    \"birth_address\": \"<string>\",\n    \"birth_city\": \"<string>\",\n    \"birth_country\": \"<string>\",\n    \"birth_date\": \"<string>\",\n    \"birth_state\": \"<string>\",\n    \"birth_zipcode\": \"<string>\",\n    \"company_registration_city\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"company_registration_subscription_date\": \"<string>\",\n    \"company_url\": \"<string>\",\n    \"headquarters_address\": \"<string>\",\n    \"headquarters_city\": \"<string>\",\n    \"headquarters_country\": \"<string>\",\n    \"headquarters_state\": \"<string>\",\n    \"headquarters_zipcode\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"social_security_number\": \"<string>\",\n    \"trading_name\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"number\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"suffix\": \"<string>\",\n    \"zipcode\": \"<string>\"\n  },\n  \"comments\": \"<string>\",\n  \"email\": \"<string>\",\n  \"extension_additional_data\": [\n    {\n      \"data\": {\n        \"admin_type\": \"<string>\",\n        \"applicant_purpose\": \"<string>\",\n        \"birth_date\": \"<string>\",\n        \"company_name_cyrillic\": \"<string>\",\n        \"company_name_latin\": \"<string>\",\n        \"company_registration_number\": \"<string>\",\n        \"contact_title\": \"<string>\",\n        \"country_of_citizenship\": \"<string>\",\n        \"customer_uin\": \"<string>\",\n        \"ens_auth_id\": \"<string>\",\n        \"ens_key\": \"<string>\",\n        \"first_name_cyrillic\": \"<string>\",\n        \"first_name_latin\": \"<string>\",\n        \"hr_member\": \"<string>\",\n        \"industry_class\": \"<string>\",\n        \"is_private_enterpreneur\": \"<string>\",\n        \"last_name_cyrillic\": \"<string>\",\n        \"last_name_latin\": \"<string>\",\n        \"legal_address_cyrillic\": \"<string>\",\n        \"legal_type\": \"<string>\",\n        \"middle_name_cyrillic\": \"<string>\",\n        \"middle_name_latin\": \"<string>\",\n        \"mobile_phone_number\": \"<string>\",\n        \"nexus_category\": \"<string>\",\n        \"org_type\": \"<string>\",\n        \"passport_issue_date\": \"<string>\",\n        \"passport_issuer\": \"<string>\",\n        \"passport_number\": \"<string>\",\n        \"passport_series\": \"<string>\",\n        \"postal_address_cyrillic\": \"<string>\",\n        \"social_security_number\": \"<string>\",\n        \"tax_payer_number\": \"<string>\",\n        \"uin\": \"<string>\",\n        \"user_type\": \"<string>\",\n        \"vat\": \"<string>\",\n        \"website\": \"<string>\",\n        \"whois_email\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    {\n      \"data\": {\n        \"admin_type\": \"<string>\",\n        \"applicant_purpose\": \"<string>\",\n        \"birth_date\": \"<string>\",\n        \"company_name_cyrillic\": \"<string>\",\n        \"company_name_latin\": \"<string>\",\n        \"company_registration_number\": \"<string>\",\n        \"contact_title\": \"<string>\",\n        \"country_of_citizenship\": \"<string>\",\n        \"customer_uin\": \"<string>\",\n        \"ens_auth_id\": \"<string>\",\n        \"ens_key\": \"<string>\",\n        \"first_name_cyrillic\": \"<string>\",\n        \"first_name_latin\": \"<string>\",\n        \"hr_member\": \"<string>\",\n        \"industry_class\": \"<string>\",\n        \"is_private_enterpreneur\": \"<string>\",\n        \"last_name_cyrillic\": \"<string>\",\n        \"last_name_latin\": \"<string>\",\n        \"legal_address_cyrillic\": \"<string>\",\n        \"legal_type\": \"<string>\",\n        \"middle_name_cyrillic\": \"<string>\",\n        \"middle_name_latin\": \"<string>\",\n        \"mobile_phone_number\": \"<string>\",\n        \"nexus_category\": \"<string>\",\n        \"org_type\": \"<string>\",\n        \"passport_issue_date\": \"<string>\",\n        \"passport_issuer\": \"<string>\",\n        \"passport_number\": \"<string>\",\n        \"passport_series\": \"<string>\",\n        \"postal_address_cyrillic\": \"<string>\",\n        \"social_security_number\": \"<string>\",\n        \"tax_payer_number\": \"<string>\",\n        \"uin\": \"<string>\",\n        \"user_type\": \"<string>\",\n        \"vat\": \"<string>\",\n        \"website\": \"<string>\",\n        \"whois_email\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    }\n  ],\n  \"fax\": {\n    \"area_code\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"subscriber_number\": \"<string>\"\n  },\n  \"handle\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"phone\": {\n    \"area_code\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"subscriber_number\": \"<string>\"\n  },\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"vat\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5c7482f-8150-40ff-af51-08022cc386db",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "customers",
+                    ":handle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handle",
+                      "description": "(Required) Customer unique identifier or handle, which can be created via CreateCustomer API method"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"attached_files\": [\n      {\n        \"description\": \"My passport scan\",\n        \"doc_type\": \"passport\",\n        \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n      },\n      {\n        \"description\": \"My passport scan\",\n        \"doc_type\": \"passport\",\n        \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n      }\n    ],\n    \"birth_address\": \"<string>\",\n    \"birth_city\": \"<string>\",\n    \"birth_country\": \"<string>\",\n    \"birth_date\": \"<string>\",\n    \"birth_state\": \"<string>\",\n    \"birth_zipcode\": \"<string>\",\n    \"company_registration_city\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"company_registration_subscription_date\": \"<string>\",\n    \"company_url\": \"<string>\",\n    \"headquarters_address\": \"<string>\",\n    \"headquarters_city\": \"<string>\",\n    \"headquarters_country\": \"<string>\",\n    \"headquarters_state\": \"<string>\",\n    \"headquarters_zipcode\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"social_security_number\": \"<string>\",\n    \"trading_name\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"Test city\",\n    \"country\": \"NL\",\n    \"number\": \"123\",\n    \"state\": \"Testprovince\",\n    \"street\": \"Test street\",\n    \"suffix\": \"A\",\n    \"zipcode\": \"1235 XX\"\n  },\n  \"comments\": \"<string>\",\n  \"email\": \"<string>\",\n  \"extension_additional_data\": [\n    {\n      \"data\": {\n        \"admin_type\": \"1\",\n        \"applicant_purpose\": \"P3\",\n        \"birth_date\": \"1970-01-01\",\n        \"company_name_cyrillic\": \"Example company\",\n        \"company_name_latin\": \"Example company\",\n        \"company_registration_number\": \"XX123456789X11\",\n        \"contact_title\": \"CEO\",\n        \"country_of_citizenship\": \"NL\",\n        \"customer_uin\": \"\",\n        \"ens_auth_id\": \"\",\n        \"ens_key\": \"\",\n        \"first_name_cyrillic\": \"Test\",\n        \"first_name_latin\": \"Test\",\n        \"hr_member\": \"\",\n        \"industry_class\": \"19\",\n        \"is_private_enterpreneur\": \"\",\n        \"last_name_cyrillic\": \"Person\",\n        \"last_name_latin\": \"Person\",\n        \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n        \"legal_type\": \"FCORP\",\n        \"middle_name_cyrillic\": \"Nikolaevich\",\n        \"middle_name_latin\": \"Nikolaevich\",\n        \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n        \"nexus_category\": \"C31\",\n        \"org_type\": \"1\",\n        \"passport_issue_date\": \"2009-01-11\",\n        \"passport_issuer\": \"Issuer name\",\n        \"passport_number\": \"12345678\",\n        \"passport_series\": \"1234\",\n        \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n        \"social_security_number\": \"X123455123X\",\n        \"tax_payer_number\": \"1345678\",\n        \"uin\": \"12345-6\",\n        \"user_type\": \"Individual\",\n        \"vat\": \"XX123456789X12\",\n        \"website\": \"http://example.com\",\n        \"whois_email\": \"test@mail.tld\"\n      },\n      \"name\": \"ru\"\n    },\n    {\n      \"data\": {\n        \"admin_type\": \"1\",\n        \"applicant_purpose\": \"P3\",\n        \"birth_date\": \"1970-01-01\",\n        \"company_name_cyrillic\": \"Example company\",\n        \"company_name_latin\": \"Example company\",\n        \"company_registration_number\": \"XX123456789X11\",\n        \"contact_title\": \"CEO\",\n        \"country_of_citizenship\": \"NL\",\n        \"customer_uin\": \"\",\n        \"ens_auth_id\": \"\",\n        \"ens_key\": \"\",\n        \"first_name_cyrillic\": \"Test\",\n        \"first_name_latin\": \"Test\",\n        \"hr_member\": \"\",\n        \"industry_class\": \"19\",\n        \"is_private_enterpreneur\": \"\",\n        \"last_name_cyrillic\": \"Person\",\n        \"last_name_latin\": \"Person\",\n        \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n        \"legal_type\": \"FCORP\",\n        \"middle_name_cyrillic\": \"Nikolaevich\",\n        \"middle_name_latin\": \"Nikolaevich\",\n        \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n        \"nexus_category\": \"C31\",\n        \"org_type\": \"1\",\n        \"passport_issue_date\": \"2009-01-11\",\n        \"passport_issuer\": \"Issuer name\",\n        \"passport_number\": \"12345678\",\n        \"passport_series\": \"1234\",\n        \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n        \"social_security_number\": \"X123455123X\",\n        \"tax_payer_number\": \"1345678\",\n        \"uin\": \"12345-6\",\n        \"user_type\": \"Individual\",\n        \"vat\": \"XX123456789X12\",\n        \"website\": \"http://example.com\",\n        \"whois_email\": \"test@mail.tld\"\n      },\n      \"name\": \"ru\"\n    }\n  ],\n  \"fax\": {\n    \"area_code\": \"\",\n    \"country_code\": \"\",\n    \"subscriber_number\": \"\"\n  },\n  \"handle\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"phone\": {\n    \"area_code\": \"111\",\n    \"country_code\": \"+03\",\n    \"subscriber_number\": \"123456\"\n  },\n  \"tags\": [\n    {\n      \"key\": \"customer\",\n      \"value\": \"VIP\"\n    },\n    {\n      \"key\": \"customer\",\n      \"value\": \"VIP\"\n    }\n  ],\n  \"vat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa1f4ca6-ffe5-404b-8d9f-3f763d88a26b",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "customers",
+                    ":handle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handle",
+                      "description": "(Required) Customer unique identifier or handle, which can be created via CreateCustomer API method"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"attached_files\": [\n      {\n        \"description\": \"My passport scan\",\n        \"doc_type\": \"passport\",\n        \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n      },\n      {\n        \"description\": \"My passport scan\",\n        \"doc_type\": \"passport\",\n        \"path\": \"https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE\"\n      }\n    ],\n    \"birth_address\": \"<string>\",\n    \"birth_city\": \"<string>\",\n    \"birth_country\": \"<string>\",\n    \"birth_date\": \"<string>\",\n    \"birth_state\": \"<string>\",\n    \"birth_zipcode\": \"<string>\",\n    \"company_registration_city\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"company_registration_subscription_date\": \"<string>\",\n    \"company_url\": \"<string>\",\n    \"headquarters_address\": \"<string>\",\n    \"headquarters_city\": \"<string>\",\n    \"headquarters_country\": \"<string>\",\n    \"headquarters_state\": \"<string>\",\n    \"headquarters_zipcode\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"social_security_number\": \"<string>\",\n    \"trading_name\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"Test city\",\n    \"country\": \"NL\",\n    \"number\": \"123\",\n    \"state\": \"Testprovince\",\n    \"street\": \"Test street\",\n    \"suffix\": \"A\",\n    \"zipcode\": \"1235 XX\"\n  },\n  \"comments\": \"<string>\",\n  \"email\": \"<string>\",\n  \"extension_additional_data\": [\n    {\n      \"data\": {\n        \"admin_type\": \"1\",\n        \"applicant_purpose\": \"P3\",\n        \"birth_date\": \"1970-01-01\",\n        \"company_name_cyrillic\": \"Example company\",\n        \"company_name_latin\": \"Example company\",\n        \"company_registration_number\": \"XX123456789X11\",\n        \"contact_title\": \"CEO\",\n        \"country_of_citizenship\": \"NL\",\n        \"customer_uin\": \"\",\n        \"ens_auth_id\": \"\",\n        \"ens_key\": \"\",\n        \"first_name_cyrillic\": \"Test\",\n        \"first_name_latin\": \"Test\",\n        \"hr_member\": \"\",\n        \"industry_class\": \"19\",\n        \"is_private_enterpreneur\": \"\",\n        \"last_name_cyrillic\": \"Person\",\n        \"last_name_latin\": \"Person\",\n        \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n        \"legal_type\": \"FCORP\",\n        \"middle_name_cyrillic\": \"Nikolaevich\",\n        \"middle_name_latin\": \"Nikolaevich\",\n        \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n        \"nexus_category\": \"C31\",\n        \"org_type\": \"1\",\n        \"passport_issue_date\": \"2009-01-11\",\n        \"passport_issuer\": \"Issuer name\",\n        \"passport_number\": \"12345678\",\n        \"passport_series\": \"1234\",\n        \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n        \"social_security_number\": \"X123455123X\",\n        \"tax_payer_number\": \"1345678\",\n        \"uin\": \"12345-6\",\n        \"user_type\": \"Individual\",\n        \"vat\": \"XX123456789X12\",\n        \"website\": \"http://example.com\",\n        \"whois_email\": \"test@mail.tld\"\n      },\n      \"name\": \"ru\"\n    },\n    {\n      \"data\": {\n        \"admin_type\": \"1\",\n        \"applicant_purpose\": \"P3\",\n        \"birth_date\": \"1970-01-01\",\n        \"company_name_cyrillic\": \"Example company\",\n        \"company_name_latin\": \"Example company\",\n        \"company_registration_number\": \"XX123456789X11\",\n        \"contact_title\": \"CEO\",\n        \"country_of_citizenship\": \"NL\",\n        \"customer_uin\": \"\",\n        \"ens_auth_id\": \"\",\n        \"ens_key\": \"\",\n        \"first_name_cyrillic\": \"Test\",\n        \"first_name_latin\": \"Test\",\n        \"hr_member\": \"\",\n        \"industry_class\": \"19\",\n        \"is_private_enterpreneur\": \"\",\n        \"last_name_cyrillic\": \"Person\",\n        \"last_name_latin\": \"Person\",\n        \"legal_address_cyrillic\": \"13245 Country, City, street, 2\",\n        \"legal_type\": \"FCORP\",\n        \"middle_name_cyrillic\": \"Nikolaevich\",\n        \"middle_name_latin\": \"Nikolaevich\",\n        \"mobile_phone_number\": \"+7 (123) 456-78-90\",\n        \"nexus_category\": \"C31\",\n        \"org_type\": \"1\",\n        \"passport_issue_date\": \"2009-01-11\",\n        \"passport_issuer\": \"Issuer name\",\n        \"passport_number\": \"12345678\",\n        \"passport_series\": \"1234\",\n        \"postal_address_cyrillic\": \"12345 Country, City, street, 1\",\n        \"social_security_number\": \"X123455123X\",\n        \"tax_payer_number\": \"1345678\",\n        \"uin\": \"12345-6\",\n        \"user_type\": \"Individual\",\n        \"vat\": \"XX123456789X12\",\n        \"website\": \"http://example.com\",\n        \"whois_email\": \"test@mail.tld\"\n      },\n      \"name\": \"ru\"\n    }\n  ],\n  \"fax\": {\n    \"area_code\": \"\",\n    \"country_code\": \"\",\n    \"subscriber_number\": \"\"\n  },\n  \"handle\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"phone\": {\n    \"area_code\": \"111\",\n    \"country_code\": \"+03\",\n    \"subscriber_number\": \"123456\"\n  },\n  \"tags\": [\n    {\n      \"key\": \"customer\",\n      \"value\": \"VIP\"\n    },\n    {\n      \"key\": \"customer\",\n      \"value\": \"VIP\"\n    }\n  ],\n  \"vat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c6a0329-0319-480a-be46-a7ecff0b6d43",
+          "name": "Delete customer",
+          "request": {
+            "name": "Delete customer",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "customers",
+                ":handle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "handle",
+                  "description": "(Required) Customer unique identifier or handle, which can be created via CreateCustomer API method"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4b947cd-0ef0-4957-85d7-594a49986b43",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "customers",
+                    ":handle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handle",
+                      "description": "(Required) Customer unique identifier or handle, which can be created via CreateCustomer API method"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b886968f-fbcc-45c6-8fc6-df150a8332f8",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "customers",
+                    ":handle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handle",
+                      "description": "(Required) Customer unique identifier or handle, which can be created via CreateCustomer API method"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fa96981c-6a06-47c9-8214-65bdce09eaf7",
+    "name": "REST AdditionalData Customer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

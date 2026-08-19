@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData NameserverService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NameserverService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List nameservers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver name."
+              },
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver IP."
+              },
+              {
+                "name": "ip6",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver IPv6."
+              },
+              {
+                "name": "pattern",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver name search pattern. Wildcatd (*) can be used."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of objects in the output."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Used to retrieve all objects from a certain offset up to the limit."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Field for sorting output. Possible values: id, name."
+              }
+            ]
+          },
+          "docs": "List nameservers"
+        },
+        {
+          "info": {
+            "name": "Create nameserver",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers"
+          },
+          "docs": "Create nameserver"
+        },
+        {
+          "info": {
+            "name": "Get nameserver",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Nameserver name"
+              }
+            ]
+          },
+          "docs": "Get nameserver"
+        },
+        {
+          "info": {
+            "name": "Update nameserver",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Nameserver name"
+              }
+            ]
+          },
+          "docs": "Update nameserver"
+        },
+        {
+          "info": {
+            "name": "Delete nameserver",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Nameserver name"
+              }
+            ]
+          },
+          "docs": "Delete nameserver"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

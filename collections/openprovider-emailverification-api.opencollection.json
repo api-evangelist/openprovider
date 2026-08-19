@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData EmailVerification API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EmailVerification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List domain email verifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/customers/verifications/emails/domains",
+            "params": [
+              {
+                "name": "domain_id",
+                "value": "",
+                "type": "query",
+                "description": "The domain id."
+              },
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query",
+                "description": "The domain."
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "The email."
+              },
+              {
+                "name": "handle",
+                "value": "",
+                "type": "query",
+                "description": "The handle."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status."
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "The description."
+              },
+              {
+                "name": "is_suspended",
+                "value": "",
+                "type": "query",
+                "description": "Is suspended."
+              },
+              {
+                "name": "response.type",
+                "value": "",
+                "type": "query",
+                "description": "The type."
+              },
+              {
+                "name": "response.to",
+                "value": "",
+                "type": "query",
+                "description": "The to."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset."
+              }
+            ]
+          },
+          "docs": "List domain email verifications"
+        },
+        {
+          "info": {
+            "name": "Restart email verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/customers/verifications/emails/restart"
+          },
+          "docs": "Restart email verification"
+        },
+        {
+          "info": {
+            "name": "Start email verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/customers/verifications/emails/start"
+          },
+          "docs": "Start email verification"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

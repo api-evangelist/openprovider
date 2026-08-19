@@ -1,0 +1,732 @@
+{
+  "item": [
+    {
+      "id": "4d0df9d8-e057-4c64-8359-78954e004bf8",
+      "name": "SEDomain",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c4cb2788-71ba-4331-8a19-7fe435ad4dd1",
+          "name": "Create domain",
+          "request": {
+            "name": "Create domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "spam-expert",
+                "domains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"bundle\": \"<boolean>\",\n  \"destinations\": [\n    {\n      \"hostname\": \"<string>\",\n      \"port\": \"<integer>\"\n    },\n    {\n      \"hostname\": \"<string>\",\n      \"port\": \"<integer>\"\n    }\n  ],\n  \"domain_name\": \"<string>\",\n  \"products\": {\n    \"archiving\": \"<boolean>\",\n    \"incoming\": \"<boolean>\",\n    \"outgoing\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "add717bc-b79e-4f24-8b15-3fba1caad156",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "spam-expert",
+                    "domains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"bundle\": \"<boolean>\",\n  \"destinations\": [\n    {\n      \"hostname\": \"dest.example.com\",\n      \"port\": 25\n    },\n    {\n      \"hostname\": \"dest.example.com\",\n      \"port\": 25\n    }\n  ],\n  \"domain_name\": \"<string>\",\n  \"products\": {\n    \"archiving\": false,\n    \"incoming\": false,\n    \"outgoing\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bfacb006-1fe5-45af-8019-5c56ebb0c783",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "spam-expert",
+                    "domains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"bundle\": \"<boolean>\",\n  \"destinations\": [\n    {\n      \"hostname\": \"dest.example.com\",\n      \"port\": 25\n    },\n    {\n      \"hostname\": \"dest.example.com\",\n      \"port\": 25\n    }\n  ],\n  \"domain_name\": \"<string>\",\n  \"products\": {\n    \"archiving\": false,\n    \"incoming\": false,\n    \"outgoing\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f384cb9c-e8ab-4e40-a28d-e6b0bffdbdf8",
+          "name": "Get domain",
+          "request": {
+            "name": "Get domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "spam-expert",
+                "domains",
+                ":domain_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "with_records",
+                  "value": "false",
+                  "description": "Indicates, whether records should be displayed in output."
+                },
+                {
+                  "disabled": false,
+                  "key": "bundle",
+                  "value": "<boolean>",
+                  "description": "Indicates if old subscriptions backward compatibility is used."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "domain_name",
+                  "description": "(Required) Domain full name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19319911-4f2a-4942-8c3c-71469c1e569c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "spam-expert",
+                    "domains",
+                    ":domain_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "with_records",
+                      "value": "false"
+                    },
+                    {
+                      "key": "bundle",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain_name",
+                      "description": "(Required) Domain full name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"bundle\": false,\n    \"domain_name\": \"example-filter.nl\",\n    \"expiration_date\": \"2018-08-21 09:03:38\",\n    \"id\": 0,\n    \"is_active\": false,\n    \"order_id\": 0,\n    \"products\": {\n      \"archiving\": false,\n      \"incoming\": false,\n      \"outgoing\": false\n    },\n    \"records\": {\n      \"aliases\": [\n        \"alias.example.com\"\n      ],\n      \"destinations\": [\n        {\n          \"hostname\": \"dest.example.com\",\n          \"port\": 25\n        }\n      ],\n      \"outgoing_user_ips\": [\n        \"123.123.123.123\"\n      ]\n    },\n    \"reseller_id\": 0,\n    \"smtp_password\": \"567example912\",\n    \"user_email\": \"admin@example-filter.nl\",\n    \"user_password\": \"123example567\",\n    \"with_outgoing_filter\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9cd1939d-e2d1-4c86-a19f-7490328a895e",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "spam-expert",
+                    "domains",
+                    ":domain_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "with_records",
+                      "value": "false"
+                    },
+                    {
+                      "key": "bundle",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain_name",
+                      "description": "(Required) Domain full name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "283cf322-a0db-4dff-b09f-1ace76bfb3fb",
+          "name": "Update domain",
+          "request": {
+            "name": "Update domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "spam-expert",
+                "domains",
+                ":domain_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "domain_name",
+                  "description": "(Required) Domain full name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aliases\": {\n    \"add\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"remove\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"bundle\": \"<boolean>\",\n  \"destinations\": [\n    {\n      \"hostname\": \"<string>\",\n      \"port\": \"<integer>\"\n    },\n    {\n      \"hostname\": \"<string>\",\n      \"port\": \"<integer>\"\n    }\n  ],\n  \"domain_name\": \"<string>\",\n  \"products\": {\n    \"archiving\": \"<boolean>\",\n    \"incoming\": \"<boolean>\",\n    \"outgoing\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ce19262-e76d-4cd1-8019-6a74d55d48c5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "spam-expert",
+                    "domains",
+                    ":domain_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain_name",
+                      "description": "(Required) Domain full name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aliases\": {\n    \"add\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"remove\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"bundle\": \"<boolean>\",\n  \"destinations\": [\n    {\n      \"hostname\": \"dest.example.com\",\n      \"port\": 25\n    },\n    {\n      \"hostname\": \"dest.example.com\",\n      \"port\": 25\n    }\n  ],\n  \"domain_name\": \"<string>\",\n  \"products\": {\n    \"archiving\": false,\n    \"incoming\": false,\n    \"outgoing\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "960d99df-1d24-4fc5-85d1-bac339b8aed4",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "spam-expert",
+                    "domains",
+                    ":domain_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain_name",
+                      "description": "(Required) Domain full name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aliases\": {\n    \"add\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"remove\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"bundle\": \"<boolean>\",\n  \"destinations\": [\n    {\n      \"hostname\": \"dest.example.com\",\n      \"port\": 25\n    },\n    {\n      \"hostname\": \"dest.example.com\",\n      \"port\": 25\n    }\n  ],\n  \"domain_name\": \"<string>\",\n  \"products\": {\n    \"archiving\": false,\n    \"incoming\": false,\n    \"outgoing\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c316935-26c6-4977-bcdc-01574a989d94",
+          "name": "Delete domain",
+          "request": {
+            "name": "Delete domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "spam-expert",
+                "domains",
+                ":domain_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bundle",
+                  "value": "<boolean>",
+                  "description": "Indicates if old subscriptions backward compatibility is used."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "domain_name",
+                  "description": "(Required) Domain full name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "761370d4-75d0-41fd-8049-ae1e1ab0671b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "spam-expert",
+                    "domains",
+                    ":domain_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bundle",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain_name",
+                      "description": "(Required) Domain full name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3e9070a-5f26-4cf1-a238-f40565d2fc6d",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "spam-expert",
+                    "domains",
+                    ":domain_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bundle",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain_name",
+                      "description": "(Required) Domain full name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3d72e6d9-0ba6-42a0-a183-725205de4c2c",
+    "name": "REST AdditionalData SEDomain API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

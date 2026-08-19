@@ -1,0 +1,406 @@
+{
+  "item": [
+    {
+      "id": "9c0128ed-9dfb-412f-add5-bec6a8f654b3",
+      "name": "ResellerService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "831946a6-470a-474b-9e29-983a5672eab7",
+          "name": "Get reseller",
+          "request": {
+            "name": "Get reseller",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "resellers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "with_additional_data",
+                  "value": "<boolean>",
+                  "description": "Retrieves objects with (1) or without (0) additional data."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_statistics",
+                  "value": "<boolean>",
+                  "description": "Indicates if reseller statistics should be retrieved."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_settings",
+                  "value": "<boolean>",
+                  "description": "Indicates if reseller settings should be retrieved."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_contacts",
+                  "value": "<boolean>",
+                  "description": "Indicates if reseller contacts should be retrieved."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "956abf1e-3177-408e-9d94-52752caa19d6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "resellers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_statistics",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_settings",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_contacts",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6460,\n  \"data\": {\n    \"additional_data\": {\n      \"cif_nif_number\": \"12345678\",\n      \"gstin\": \"123456789aaa\",\n      \"internal_reference\": \"\"\n    },\n    \"address\": {\n      \"city\": \"Test city\",\n      \"country\": \"NL\",\n      \"number\": \"123\",\n      \"state\": \"Testprovince\",\n      \"street\": \"Test street\",\n      \"suffix\": \"A\",\n      \"zipcode\": \"1235 XX\"\n    },\n    \"balance\": 1694.853059927488,\n    \"comments\": \"string\",\n    \"company_name\": \"string\",\n    \"contacts\": [\n      {\n        \"additional_data\": {\n          \"birth_city\": \"Test city\",\n          \"birth_date\": \"1969-12-31\",\n          \"social_security_number\": \"12326178T\"\n        },\n        \"address\": {\n          \"city\": \"Test city\",\n          \"country\": \"NL\",\n          \"number\": \"123\",\n          \"state\": \"Testprovince\",\n          \"street\": \"Test street\",\n          \"suffix\": \"A\",\n          \"zipcode\": \"1235 XX\"\n        },\n        \"api_access_enabled\": true,\n        \"api_client_ip_list\": {\n          \"allow\": [\n            \"127.0.0.1\"\n          ],\n          \"deny\": [\n            \"127.0.0.1\"\n          ]\n        },\n        \"auth_type\": \"string\",\n        \"comments\": \"string\",\n        \"company_name\": \"string\",\n        \"email\": \"string\",\n        \"hash_changed_at\": \"string\",\n        \"id\": 4726,\n        \"is_active\": true,\n        \"last_api_call_at\": \"string\",\n        \"last_login_at\": \"string\",\n        \"locale\": \"string\",\n        \"name\": {\n          \"first_name\": \"Test\",\n          \"full_name\": \"Test Person\",\n          \"initials\": \"T P\",\n          \"last_name\": \"Person\",\n          \"prefix\": \"Mr\"\n        },\n        \"password_change_declined_at\": \"string\",\n        \"password_changed_at\": \"string\",\n        \"phone\": {\n          \"area_code\": \"111\",\n          \"country_code\": \"+03\",\n          \"subscriber_number\": \"123456\"\n        },\n        \"rcp_client_ip_list\": {\n          \"allow\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deny\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"reseller_id\": 7349,\n        \"role\": \"string\",\n        \"secret_key\": \"string\",\n        \"username\": \"string\",\n        \"vat\": \"string\"\n      },\n      {\n        \"additional_data\": {\n          \"birth_city\": \"Test city\",\n          \"birth_date\": \"1969-12-31\",\n          \"social_security_number\": \"12326178T\"\n        },\n        \"address\": {\n          \"city\": \"Test city\",\n          \"country\": \"NL\",\n          \"number\": \"123\",\n          \"state\": \"Testprovince\",\n          \"street\": \"Test street\",\n          \"suffix\": \"A\",\n          \"zipcode\": \"1235 XX\"\n        },\n        \"api_access_enabled\": false,\n        \"api_client_ip_list\": {\n          \"allow\": [\n            \"127.0.0.1\"\n          ],\n          \"deny\": [\n            \"127.0.0.1\"\n          ]\n        },\n        \"auth_type\": \"string\",\n        \"comments\": \"string\",\n        \"company_name\": \"string\",\n        \"email\": \"string\",\n        \"hash_changed_at\": \"string\",\n        \"id\": 5525,\n        \"is_active\": false,\n        \"last_api_call_at\": \"string\",\n        \"last_login_at\": \"string\",\n        \"locale\": \"string\",\n        \"name\": {\n          \"first_name\": \"Test\",\n          \"full_name\": \"Test Person\",\n          \"initials\": \"T P\",\n          \"last_name\": \"Person\",\n          \"prefix\": \"Mr\"\n        },\n        \"password_change_declined_at\": \"string\",\n        \"password_changed_at\": \"string\",\n        \"phone\": {\n          \"area_code\": \"111\",\n          \"country_code\": \"+03\",\n          \"subscriber_number\": \"123456\"\n        },\n        \"rcp_client_ip_list\": {\n          \"allow\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deny\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"reseller_id\": 5607,\n        \"role\": \"string\",\n        \"secret_key\": \"string\",\n        \"username\": \"string\",\n        \"vat\": \"string\"\n      }\n    ],\n    \"email\": \"string\",\n    \"fax\": {\n      \"area_code\": \"\",\n      \"country_code\": \"\",\n      \"subscriber_number\": \"\"\n    },\n    \"id\": 8424,\n    \"locale\": \"string\",\n    \"name\": {\n      \"first_name\": \"Test\",\n      \"full_name\": \"Test Person\",\n      \"initials\": \"T P\",\n      \"last_name\": \"Person\",\n      \"prefix\": \"Mr\"\n    },\n    \"phone\": {\n      \"area_code\": \"111\",\n      \"country_code\": \"+03\",\n      \"subscriber_number\": \"123456\"\n    },\n    \"reserved_balance\": 1897.8422496227997,\n    \"settings\": {\n      \"av_handle\": \"XX123456-XX\",\n      \"claims_confirm_url\": \"http://www.domain.tld/confirm-tm_claims.php?domainId=%%domainId%%&domain=%%domain%%&code=%%authCode%%\",\n      \"claims_email_subject\": \"Hi there! You need to accept registration for %%domain%%!\",\n      \"claims_reseller_name\": \"Jon Doe's Webhosting!!\",\n      \"claims_sender_email\": \"test@mail.tld\",\n      \"currency\": \"EUR\",\n      \"default_domain_billing_handle\": \"XX123456-XX\",\n      \"default_domain_reseller_handle\": \"XX123456-XX\",\n      \"foa_confirm_url\": \"\",\n      \"foa_email_subject\": \"\",\n      \"foa_reseller_name\": \"\",\n      \"foa_sender_email\": \"\",\n      \"foa_terms_conditions_url\": \"\",\n      \"is_auto_renew_enabled\": false,\n      \"is_custom_nses_enabled\": false,\n      \"ive2_customized_body\": \"\",\n      \"ive2_email_subject\": \"[URGENT REMINDER] Request for e-mail address verification\",\n      \"ive_confirm_url\": \"http://icann-verification.registrar.eu/?email=%%email%%&authCode=%%authCode%%\",\n      \"ive_customized_body\": \"\",\n      \"ive_email_subject\": \"Request for e-mail address verification\",\n      \"ive_reseller_name\": \"sdasd\",\n      \"ive_sender_email\": \"do-not-reply@registrar.eu\",\n      \"jurisdiction\": \"EU\",\n      \"language\": \"EN\",\n      \"maximum_credit\": 20000,\n      \"maximum_credit_card_payment\": 15000,\n      \"maximum_i_deal_payment\": 1000000,\n      \"maximum_western_union_payment\": 1000,\n      \"minimum_payment\": 20,\n      \"minimum_western_union_payment\": 500,\n      \"pay_methods\": [\n        \"ideal\"\n      ],\n      \"payment_methods\": [\n        {\n          \"name\": \"ideal\",\n          \"settings\": {\n            \"limit\": {\n              \"maximum\": {\n                \"aud\": 0,\n                \"bgn\": 0,\n                \"brl\": 0,\n                \"cad\": 0,\n                \"chf\": 0,\n                \"cny\": 0,\n                \"czk\": 0,\n                \"dkk\": 0,\n                \"eek\": 0,\n                \"eur\": 0,\n                \"gbp\": 0,\n                \"ghs\": 0,\n                \"hkd\": 0,\n                \"hrk\": 0,\n                \"huf\": 0,\n                \"idr\": 0,\n                \"ils\": 0,\n                \"inr\": 0,\n                \"jpy\": 0,\n                \"krw\": 0,\n                \"lkr\": 0,\n                \"ltl\": 0,\n                \"lvl\": 0,\n                \"mxn\": 0,\n                \"myr\": 0,\n                \"nok\": 0,\n                \"nzd\": 0,\n                \"php\": 0,\n                \"pln\": 0,\n                \"ron\": 0,\n                \"rub\": 0,\n                \"sek\": 0,\n                \"sgd\": 0,\n                \"thb\": 0,\n                \"try\": 0,\n                \"usd\": 0,\n                \"zar\": 0\n              },\n              \"minimum\": {\n                \"aud\": 0,\n                \"bgn\": 0,\n                \"brl\": 0,\n                \"cad\": 0,\n                \"chf\": 0,\n                \"cny\": 0,\n                \"czk\": 0,\n                \"dkk\": 0,\n                \"eek\": 0,\n                \"eur\": 0,\n                \"gbp\": 0,\n                \"ghs\": 0,\n                \"hkd\": 0,\n                \"hrk\": 0,\n                \"huf\": 0,\n                \"idr\": 0,\n                \"ils\": 0,\n                \"inr\": 0,\n                \"jpy\": 0,\n                \"krw\": 0,\n                \"lkr\": 0,\n                \"ltl\": 0,\n                \"lvl\": 0,\n                \"mxn\": 0,\n                \"myr\": 0,\n                \"nok\": 0,\n                \"nzd\": 0,\n                \"php\": 0,\n                \"pln\": 0,\n                \"ron\": 0,\n                \"rub\": 0,\n                \"sek\": 0,\n                \"sgd\": 0,\n                \"thb\": 0,\n                \"try\": 0,\n                \"usd\": 0,\n                \"zar\": 0\n              }\n            },\n            \"transaction_fee\": 0,\n            \"transaction_fee_absolute\": 0\n          }\n        }\n      ],\n      \"preregistered_domain_priorities\": \"[]\",\n      \"recurring_payment_methods\": [\n        {\n          \"name\": \"ideal\",\n          \"settings\": {\n            \"limit\": {\n              \"maximum\": {\n                \"aud\": 0,\n                \"bgn\": 0,\n                \"brl\": 0,\n                \"cad\": 0,\n                \"chf\": 0,\n                \"cny\": 0,\n                \"czk\": 0,\n                \"dkk\": 0,\n                \"eek\": 0,\n                \"eur\": 0,\n                \"gbp\": 0,\n                \"ghs\": 0,\n                \"hkd\": 0,\n                \"hrk\": 0,\n                \"huf\": 0,\n                \"idr\": 0,\n                \"ils\": 0,\n                \"inr\": 0,\n                \"jpy\": 0,\n                \"krw\": 0,\n                \"lkr\": 0,\n                \"ltl\": 0,\n                \"lvl\": 0,\n                \"mxn\": 0,\n                \"myr\": 0,\n                \"nok\": 0,\n                \"nzd\": 0,\n                \"php\": 0,\n                \"pln\": 0,\n                \"ron\": 0,\n                \"rub\": 0,\n                \"sek\": 0,\n                \"sgd\": 0,\n                \"thb\": 0,\n                \"try\": 0,\n                \"usd\": 0,\n                \"zar\": 0\n              },\n              \"minimum\": {\n                \"aud\": 0,\n                \"bgn\": 0,\n                \"brl\": 0,\n                \"cad\": 0,\n                \"chf\": 0,\n                \"cny\": 0,\n                \"czk\": 0,\n                \"dkk\": 0,\n                \"eek\": 0,\n                \"eur\": 0,\n                \"gbp\": 0,\n                \"ghs\": 0,\n                \"hkd\": 0,\n                \"hrk\": 0,\n                \"huf\": 0,\n                \"idr\": 0,\n                \"ils\": 0,\n                \"inr\": 0,\n                \"jpy\": 0,\n                \"krw\": 0,\n                \"lkr\": 0,\n                \"ltl\": 0,\n                \"lvl\": 0,\n                \"mxn\": 0,\n                \"myr\": 0,\n                \"nok\": 0,\n                \"nzd\": 0,\n                \"php\": 0,\n                \"pln\": 0,\n                \"ron\": 0,\n                \"rub\": 0,\n                \"sek\": 0,\n                \"sgd\": 0,\n                \"thb\": 0,\n                \"try\": 0,\n                \"usd\": 0,\n                \"zar\": 0\n              }\n            },\n            \"transaction_fee\": 0,\n            \"transaction_fee_absolute\": 0\n          }\n        }\n      ],\n      \"renew_notification_days\": [\n        1\n      ],\n      \"renew_notification_every_week\": false,\n      \"tac_contract\": {\n        \"is_signed\": false,\n        \"name\": \"opensign_terms_and_conditions\",\n        \"signed_at\": \"2014-07-16 15:22:48\",\n        \"type\": \"opensign\"\n      },\n      \"tags\": [\n        \"VIPCUSTOMER\"\n      ],\n      \"transaction_fee\": {\n        \"bank\": 0,\n        \"credit_card\": 3,\n        \"ideal\": 0,\n        \"paypal\": 5,\n        \"western_union\": 0,\n        \"yandex\": 5\n      },\n      \"type\": \"normal\"\n    },\n    \"statistics\": {\n      \"currency\": {\n        \"modified\": \"2010-08-01 9:30:54\"\n      },\n      \"customer\": {\n        \"modified\": \"2019-05-03 13:23:01\",\n        \"total\": 999\n      },\n      \"dns\": {\n        \"total\": 999\n      },\n      \"domain\": {\n        \"by_status\": {\n          \"act\": 7,\n          \"fai\": 419,\n          \"nsr\": 0,\n          \"pen\": 0,\n          \"rej\": 5,\n          \"req\": 15\n        },\n        \"total\": 999\n      },\n      \"level\": 3,\n      \"license\": {\n        \"total\": 999\n      },\n      \"spam_experts\": {\n        \"activated_at\": \"2012-10-29 10:48:30\",\n        \"created_at\": \"2012-10-29 10:48:30\",\n        \"exists\": false,\n        \"expired_at\": \"2016-04-05 8:50:34\",\n        \"incoming_count\": 0,\n        \"incoming_limit\": 10,\n        \"outgoing_count\": 0,\n        \"outgoing_limit\": 1,\n        \"status\": \"deleted\",\n        \"with_outgoing_filter\": false\n      },\n      \"ssl\": {\n        \"by_status\": {\n          \"act\": 7,\n          \"fai\": 419,\n          \"nsr\": 0,\n          \"pen\": 0,\n          \"rej\": 5,\n          \"req\": 15\n        },\n        \"total\": 999\n      }\n    },\n    \"status\": \"string\",\n    \"tier\": 2626,\n    \"vat\": \"string\",\n    \"vatperc\": 7607.072971777859\n  },\n  \"desc\": \"string\",\n  \"maintenance\": false,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b14e1fd2-c1c0-4846-9a9c-f9d45032b2d0",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "resellers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_statistics",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_settings",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_contacts",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0144f98-6191-4879-a33a-8b55b4dc4e17",
+          "name": "Update reseller",
+          "request": {
+            "name": "Update reseller",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "resellers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Object ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"additional_data\": {\n    \"cif_nif_number\": \"<string>\",\n    \"gstin\": \"<string>\",\n    \"internal_reference\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"number\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"suffix\": \"<string>\",\n    \"zipcode\": \"<string>\"\n  },\n  \"comments\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"company_size\": \"UNKNOWN_COMPANY_SIZE\",\n  \"designation\": \"UNKNOWN_DESIGNATION\",\n  \"fax\": {\n    \"area_code\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"subscriber_number\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"industry\": \"UNKNOWN_INDUSTRY\",\n  \"inn\": \"<string>\",\n  \"kpp\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"name\": {\n    \"first_name\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"initials\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"prefix\": \"<string>\"\n  },\n  \"phone\": {\n    \"area_code\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"subscriber_number\": \"<string>\"\n  },\n  \"referral_source\": \"UNKNOWN_REFERRAL_SOURCE\",\n  \"vat\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e36720e-0fa9-4f0d-b851-c97c167d284e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "resellers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"cif_nif_number\": \"12345678\",\n    \"gstin\": \"123456789aaa\",\n    \"internal_reference\": \"\"\n  },\n  \"address\": {\n    \"city\": \"Test city\",\n    \"country\": \"NL\",\n    \"number\": \"123\",\n    \"state\": \"Testprovince\",\n    \"street\": \"Test street\",\n    \"suffix\": \"A\",\n    \"zipcode\": \"1235 XX\"\n  },\n  \"comments\": \"\",\n  \"company_name\": \"Example company\",\n  \"company_size\": \"MORE_THAN_1000\",\n  \"designation\": \"UNKNOWN_DESIGNATION\",\n  \"fax\": {\n    \"area_code\": \"\",\n    \"country_code\": \"\",\n    \"subscriber_number\": \"\"\n  },\n  \"id\": 123456789,\n  \"industry\": \"UNKNOWN_INDUSTRY\",\n  \"inn\": \"\",\n  \"kpp\": \"\",\n  \"locale\": \"\",\n  \"name\": {\n    \"first_name\": \"Test\",\n    \"full_name\": \"Test Person\",\n    \"initials\": \"T P\",\n    \"last_name\": \"Person\",\n    \"prefix\": \"Mr\"\n  },\n  \"phone\": {\n    \"area_code\": \"111\",\n    \"country_code\": \"+03\",\n    \"subscriber_number\": \"123456\"\n  },\n  \"referral_source\": \"UNKNOWN_REFERRAL_SOURCE\",\n  \"vat\": \"XX123456789X13\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5ea8065-e980-4757-9183-5769170d6a9d",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "resellers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"cif_nif_number\": \"12345678\",\n    \"gstin\": \"123456789aaa\",\n    \"internal_reference\": \"\"\n  },\n  \"address\": {\n    \"city\": \"Test city\",\n    \"country\": \"NL\",\n    \"number\": \"123\",\n    \"state\": \"Testprovince\",\n    \"street\": \"Test street\",\n    \"suffix\": \"A\",\n    \"zipcode\": \"1235 XX\"\n  },\n  \"comments\": \"\",\n  \"company_name\": \"Example company\",\n  \"company_size\": \"MORE_THAN_1000\",\n  \"designation\": \"UNKNOWN_DESIGNATION\",\n  \"fax\": {\n    \"area_code\": \"\",\n    \"country_code\": \"\",\n    \"subscriber_number\": \"\"\n  },\n  \"id\": 123456789,\n  \"industry\": \"UNKNOWN_INDUSTRY\",\n  \"inn\": \"\",\n  \"kpp\": \"\",\n  \"locale\": \"\",\n  \"name\": {\n    \"first_name\": \"Test\",\n    \"full_name\": \"Test Person\",\n    \"initials\": \"T P\",\n    \"last_name\": \"Person\",\n    \"prefix\": \"Mr\"\n  },\n  \"phone\": {\n    \"area_code\": \"111\",\n    \"country_code\": \"+03\",\n    \"subscriber_number\": \"123456\"\n  },\n  \"referral_source\": \"UNKNOWN_REFERRAL_SOURCE\",\n  \"vat\": \"XX123456789X13\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "50f16596-2d2e-4673-ae9d-9b398aeb9a83",
+    "name": "REST AdditionalData ResellerService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

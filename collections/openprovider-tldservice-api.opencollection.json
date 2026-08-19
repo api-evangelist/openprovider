@@ -1,0 +1,200 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData TldService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TldService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tlds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/tlds",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search query limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Search query offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sorts output ASC or DESC."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorts output by a field."
+              },
+              {
+                "name": "extensions",
+                "value": "",
+                "type": "query",
+                "description": "Array of extensions."
+              },
+              {
+                "name": "name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Extension name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "only_names",
+                "value": "",
+                "type": "query",
+                "description": "Returns only extension names in the output."
+              },
+              {
+                "name": "with_description",
+                "value": "",
+                "type": "query",
+                "description": "Returns additional extension description."
+              },
+              {
+                "name": "with_restrictions",
+                "value": "",
+                "type": "query",
+                "description": "Returns list of extension restrictions."
+              },
+              {
+                "name": "with_usage_count",
+                "value": "",
+                "type": "query",
+                "description": "Returns number of domains using specified extension in this account."
+              },
+              {
+                "name": "with_application_mode",
+                "value": "",
+                "type": "query",
+                "description": "Array of extension application modes."
+              },
+              {
+                "name": "with_price",
+                "value": "",
+                "type": "query",
+                "description": "Returns extension prices."
+              },
+              {
+                "name": "with_level_prices",
+                "value": "",
+                "type": "query",
+                "description": "Returns extension prices for each Openprovider discount tier."
+              },
+              {
+                "name": "is_active",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, if extension is active."
+              },
+              {
+                "name": "is_new_gtld",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, if extension is a newGTLD."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Extension status."
+              },
+              {
+                "name": "application_mode",
+                "value": "",
+                "type": "query",
+                "description": "Pre-registration mode."
+              }
+            ]
+          },
+          "docs": "List tlds"
+        },
+        {
+          "info": {
+            "name": "Get tld",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/tlds/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Extension name"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search query limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Search query offset."
+              },
+              {
+                "name": "with_description",
+                "value": "",
+                "type": "query",
+                "description": "Returns additional extension description."
+              },
+              {
+                "name": "with_restrictions",
+                "value": "",
+                "type": "query",
+                "description": "Returns list of extension restrictions."
+              },
+              {
+                "name": "with_price",
+                "value": "",
+                "type": "query",
+                "description": "Returns extension prices."
+              },
+              {
+                "name": "with_level_prices",
+                "value": "",
+                "type": "query",
+                "description": "Returns extension prices for each Openprovider discount tier."
+              },
+              {
+                "name": "with_usage_count",
+                "value": "",
+                "type": "query",
+                "description": "Returns number of domains using specified extension in this account."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Extension status."
+              }
+            ]
+          },
+          "docs": "Get tld"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

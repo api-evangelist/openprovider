@@ -1,0 +1,953 @@
+{
+  "item": [
+    {
+      "id": "8b601c69-e138-44b8-b397-4c0e5fbfeb35",
+      "name": "ContactService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1a5d095-3748-4ab9-99c7-18a80334e474",
+          "name": "List contacts",
+          "request": {
+            "name": "List contacts",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Output limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Output offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Output ordering pattern. ASC / DESC."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "Order output by field (i.e. first_name)."
+                },
+                {
+                  "disabled": false,
+                  "key": "email_pattern",
+                  "value": "<string>",
+                  "description": "Full or partial email address. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_name_pattern",
+                  "value": "<string>",
+                  "description": "Full or partial last name. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "company_name_pattern",
+                  "value": "<string>",
+                  "description": "Full or partial company name. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "username_pattern",
+                  "value": "<string>",
+                  "description": "The username pattern."
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "Contact's role."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_additional_data",
+                  "value": "<boolean>",
+                  "description": "Retrieves objects with (1) or without (0) additional data."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65b5cc67-7d2a-4810-99a1-66f8cea18264",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "company_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "username_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 97,\n  \"data\": {\n    \"results\": [\n      {\n        \"additional_data\": {\n          \"birth_city\": \"Test city\",\n          \"birth_date\": \"1969-12-31\",\n          \"social_security_number\": \"12326178T\"\n        },\n        \"address\": {\n          \"city\": \"Test city\",\n          \"country\": \"NL\",\n          \"number\": \"123\",\n          \"state\": \"Testprovince\",\n          \"street\": \"Test street\",\n          \"suffix\": \"A\",\n          \"zipcode\": \"1235 XX\"\n        },\n        \"api_access_enabled\": false,\n        \"api_client_ip_list\": {\n          \"allow\": [\n            \"127.0.0.1\"\n          ],\n          \"deny\": [\n            \"127.0.0.1\"\n          ]\n        },\n        \"auth_type\": \"string\",\n        \"comments\": \"string\",\n        \"company_name\": \"string\",\n        \"email\": \"string\",\n        \"hash_changed_at\": \"string\",\n        \"id\": 9894,\n        \"is_active\": false,\n        \"last_api_call_at\": \"string\",\n        \"last_login_at\": \"string\",\n        \"locale\": \"string\",\n        \"name\": {\n          \"first_name\": \"Test\",\n          \"full_name\": \"Test Person\",\n          \"initials\": \"T P\",\n          \"last_name\": \"Person\",\n          \"prefix\": \"Mr\"\n        },\n        \"password_change_declined_at\": \"string\",\n        \"password_changed_at\": \"string\",\n        \"phone\": {\n          \"area_code\": \"111\",\n          \"country_code\": \"+03\",\n          \"subscriber_number\": \"123456\"\n        },\n        \"rcp_client_ip_list\": {\n          \"allow\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deny\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"reseller_id\": 2980,\n        \"role\": \"string\",\n        \"secret_key\": \"string\",\n        \"username\": \"string\",\n        \"vat\": \"string\"\n      },\n      {\n        \"additional_data\": {\n          \"birth_city\": \"Test city\",\n          \"birth_date\": \"1969-12-31\",\n          \"social_security_number\": \"12326178T\"\n        },\n        \"address\": {\n          \"city\": \"Test city\",\n          \"country\": \"NL\",\n          \"number\": \"123\",\n          \"state\": \"Testprovince\",\n          \"street\": \"Test street\",\n          \"suffix\": \"A\",\n          \"zipcode\": \"1235 XX\"\n        },\n        \"api_access_enabled\": true,\n        \"api_client_ip_list\": {\n          \"allow\": [\n            \"127.0.0.1\"\n          ],\n          \"deny\": [\n            \"127.0.0.1\"\n          ]\n        },\n        \"auth_type\": \"string\",\n        \"comments\": \"string\",\n        \"company_name\": \"string\",\n        \"email\": \"string\",\n        \"hash_changed_at\": \"string\",\n        \"id\": 2819,\n        \"is_active\": true,\n        \"last_api_call_at\": \"string\",\n        \"last_login_at\": \"string\",\n        \"locale\": \"string\",\n        \"name\": {\n          \"first_name\": \"Test\",\n          \"full_name\": \"Test Person\",\n          \"initials\": \"T P\",\n          \"last_name\": \"Person\",\n          \"prefix\": \"Mr\"\n        },\n        \"password_change_declined_at\": \"string\",\n        \"password_changed_at\": \"string\",\n        \"phone\": {\n          \"area_code\": \"111\",\n          \"country_code\": \"+03\",\n          \"subscriber_number\": \"123456\"\n        },\n        \"rcp_client_ip_list\": {\n          \"allow\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deny\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"reseller_id\": 8328,\n        \"role\": \"string\",\n        \"secret_key\": \"string\",\n        \"username\": \"string\",\n        \"vat\": \"string\"\n      }\n    ],\n    \"total\": 9980\n  },\n  \"desc\": \"string\",\n  \"maintenance\": true,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d96e9f18-a5ec-452b-a3b4-8e729de6a4c6",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "company_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "username_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10b639c3-341d-4e63-b70e-586f350c667c",
+          "name": "Create contact",
+          "request": {
+            "name": "Create contact",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"additional_data\": {\n    \"birth_city\": \"<string>\",\n    \"birth_date\": \"<string>\",\n    \"social_security_number\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"number\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"suffix\": \"<string>\",\n    \"zipcode\": \"<string>\"\n  },\n  \"api_access_enabled\": \"<boolean>\",\n  \"comments\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"inn\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"kpp\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"name\": {\n    \"first_name\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"initials\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"prefix\": \"<string>\"\n  },\n  \"password\": \"<string>\",\n  \"phone\": {\n    \"area_code\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"subscriber_number\": \"<string>\"\n  },\n  \"role\": \"<string>\",\n  \"username\": \"<string>\",\n  \"vat\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "89bd3d40-c59b-48c3-bfc8-d46e551cfd26",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"birth_city\": \"Test city\",\n    \"birth_date\": \"1969-12-31\",\n    \"social_security_number\": \"12326178T\"\n  },\n  \"address\": {\n    \"city\": \"Test city\",\n    \"country\": \"NL\",\n    \"number\": \"123\",\n    \"state\": \"Testprovince\",\n    \"street\": \"Test street\",\n    \"suffix\": \"A\",\n    \"zipcode\": \"1235 XX\"\n  },\n  \"api_access_enabled\": false,\n  \"comments\": \"\",\n  \"company_name\": \"\",\n  \"email\": \"\",\n  \"inn\": \"\",\n  \"is_active\": false,\n  \"kpp\": \"\",\n  \"locale\": \"\",\n  \"name\": {\n    \"first_name\": \"Test\",\n    \"full_name\": \"Test Person\",\n    \"initials\": \"T P\",\n    \"last_name\": \"Person\",\n    \"prefix\": \"Mr\"\n  },\n  \"password\": \"\",\n  \"phone\": {\n    \"area_code\": \"111\",\n    \"country_code\": \"+03\",\n    \"subscriber_number\": \"123456\"\n  },\n  \"role\": \"tech\",\n  \"username\": \"\",\n  \"vat\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"id\": 1,\n    \"token\": \"b1fe1g5c8crd8c120426725t756054d9561hly4p\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "931a538d-57fd-46ec-8bd8-abd5609c869d",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"birth_city\": \"Test city\",\n    \"birth_date\": \"1969-12-31\",\n    \"social_security_number\": \"12326178T\"\n  },\n  \"address\": {\n    \"city\": \"Test city\",\n    \"country\": \"NL\",\n    \"number\": \"123\",\n    \"state\": \"Testprovince\",\n    \"street\": \"Test street\",\n    \"suffix\": \"A\",\n    \"zipcode\": \"1235 XX\"\n  },\n  \"api_access_enabled\": false,\n  \"comments\": \"\",\n  \"company_name\": \"\",\n  \"email\": \"\",\n  \"inn\": \"\",\n  \"is_active\": false,\n  \"kpp\": \"\",\n  \"locale\": \"\",\n  \"name\": {\n    \"first_name\": \"Test\",\n    \"full_name\": \"Test Person\",\n    \"initials\": \"T P\",\n    \"last_name\": \"Person\",\n    \"prefix\": \"Mr\"\n  },\n  \"password\": \"\",\n  \"phone\": {\n    \"area_code\": \"111\",\n    \"country_code\": \"+03\",\n    \"subscriber_number\": \"123456\"\n  },\n  \"role\": \"tech\",\n  \"username\": \"\",\n  \"vat\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec61a72d-f79f-40fa-ab17-64f29f1bf9b0",
+          "name": "Get contact",
+          "request": {
+            "name": "Get contact",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "with_additional_data",
+                  "value": "<boolean>",
+                  "description": "Retrieves objects with (1) or without (0) additional data."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Object ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40e8e453-6da1-4885-8f37-d151f65629f0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9818,\n  \"data\": {\n    \"additional_data\": {\n      \"birth_city\": \"Test city\",\n      \"birth_date\": \"1969-12-31\",\n      \"social_security_number\": \"12326178T\"\n    },\n    \"address\": {\n      \"city\": \"Test city\",\n      \"country\": \"NL\",\n      \"number\": \"123\",\n      \"state\": \"Testprovince\",\n      \"street\": \"Test street\",\n      \"suffix\": \"A\",\n      \"zipcode\": \"1235 XX\"\n    },\n    \"api_access_enabled\": true,\n    \"api_client_ip_list\": {\n      \"allow\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deny\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"auth_type\": \"string\",\n    \"comments\": \"string\",\n    \"company_name\": \"string\",\n    \"email\": \"string\",\n    \"hash_changed_at\": \"string\",\n    \"id\": 1940,\n    \"is_active\": false,\n    \"last_api_call_at\": \"string\",\n    \"last_login_at\": \"string\",\n    \"locale\": \"string\",\n    \"name\": {\n      \"first_name\": \"Test\",\n      \"full_name\": \"Test Person\",\n      \"initials\": \"T P\",\n      \"last_name\": \"Person\",\n      \"prefix\": \"Mr\"\n    },\n    \"password_change_declined_at\": \"string\",\n    \"password_changed_at\": \"string\",\n    \"phone\": {\n      \"area_code\": \"111\",\n      \"country_code\": \"+03\",\n      \"subscriber_number\": \"123456\"\n    },\n    \"rcp_client_ip_list\": {\n      \"allow\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deny\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"reseller_id\": 6346,\n    \"role\": \"string\",\n    \"secret_key\": \"string\",\n    \"username\": \"string\",\n    \"vat\": \"string\"\n  },\n  \"desc\": \"string\",\n  \"maintenance\": false,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b87f4299-9dbc-4210-8685-ac352e43a9ec",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4450dc7b-c150-4ff8-99ed-ef029236fab2",
+          "name": "Update contact",
+          "request": {
+            "name": "Update contact",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Object ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"additional_data\": {\n    \"birth_city\": \"<string>\",\n    \"birth_date\": \"<string>\",\n    \"social_security_number\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"number\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"suffix\": \"<string>\",\n    \"zipcode\": \"<string>\"\n  },\n  \"api_access_enabled\": \"<boolean>\",\n  \"api_client_ip_list\": {\n    \"allow\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deny\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"auth_type\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"inn\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"kpp\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"name\": {\n    \"first_name\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"initials\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"prefix\": \"<string>\"\n  },\n  \"password_change_declined_at\": \"<string>\",\n  \"phone\": {\n    \"area_code\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"subscriber_number\": \"<string>\"\n  },\n  \"rcp_client_ip_list\": {\n    \"allow\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deny\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"role\": \"<string>\",\n  \"type\": \"<string>\",\n  \"vat\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9af3272c-8634-4e65-9288-c7c3f7a561d9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"birth_city\": \"Test city\",\n    \"birth_date\": \"1969-12-31\",\n    \"social_security_number\": \"12326178T\"\n  },\n  \"address\": {\n    \"city\": \"Test city\",\n    \"country\": \"NL\",\n    \"number\": \"123\",\n    \"state\": \"Testprovince\",\n    \"street\": \"Test street\",\n    \"suffix\": \"A\",\n    \"zipcode\": \"1235 XX\"\n  },\n  \"api_access_enabled\": \"<boolean>\",\n  \"api_client_ip_list\": {\n    \"allow\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deny\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"auth_type\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"inn\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"kpp\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"name\": {\n    \"first_name\": \"Test\",\n    \"full_name\": \"Test Person\",\n    \"initials\": \"T P\",\n    \"last_name\": \"Person\",\n    \"prefix\": \"Mr\"\n  },\n  \"password_change_declined_at\": \"<string>\",\n  \"phone\": {\n    \"area_code\": \"111\",\n    \"country_code\": \"+03\",\n    \"subscriber_number\": \"123456\"\n  },\n  \"rcp_client_ip_list\": {\n    \"allow\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deny\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"role\": \"<string>\",\n  \"type\": \"<string>\",\n  \"vat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5db7f12-fe32-405a-91e7-83cda421b922",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"birth_city\": \"Test city\",\n    \"birth_date\": \"1969-12-31\",\n    \"social_security_number\": \"12326178T\"\n  },\n  \"address\": {\n    \"city\": \"Test city\",\n    \"country\": \"NL\",\n    \"number\": \"123\",\n    \"state\": \"Testprovince\",\n    \"street\": \"Test street\",\n    \"suffix\": \"A\",\n    \"zipcode\": \"1235 XX\"\n  },\n  \"api_access_enabled\": \"<boolean>\",\n  \"api_client_ip_list\": {\n    \"allow\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deny\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"auth_type\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"inn\": \"<string>\",\n  \"is_active\": \"<boolean>\",\n  \"kpp\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"name\": {\n    \"first_name\": \"Test\",\n    \"full_name\": \"Test Person\",\n    \"initials\": \"T P\",\n    \"last_name\": \"Person\",\n    \"prefix\": \"Mr\"\n  },\n  \"password_change_declined_at\": \"<string>\",\n  \"phone\": {\n    \"area_code\": \"111\",\n    \"country_code\": \"+03\",\n    \"subscriber_number\": \"123456\"\n  },\n  \"rcp_client_ip_list\": {\n    \"allow\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deny\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"role\": \"<string>\",\n  \"type\": \"<string>\",\n  \"vat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c3b853c-d6a4-4e9f-86b8-bd894de1ed3b",
+          "name": "Delete contact",
+          "request": {
+            "name": "Delete contact",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Object ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12fa4f8c-add3-459f-8e41-498e21ffd8c2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c34d148-507b-4f3a-93f6-6808cd630cfd",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ffca7e4c-d5db-454f-af7c-106f6858eab2",
+    "name": "REST AdditionalData ContactService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

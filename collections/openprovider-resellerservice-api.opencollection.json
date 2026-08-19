@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData ResellerService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResellerService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get reseller",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/resellers",
+            "params": [
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves objects with (1) or without (0) additional data."
+              },
+              {
+                "name": "with_statistics",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if reseller statistics should be retrieved."
+              },
+              {
+                "name": "with_settings",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if reseller settings should be retrieved."
+              },
+              {
+                "name": "with_contacts",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if reseller contacts should be retrieved."
+              }
+            ]
+          },
+          "docs": "Get reseller"
+        },
+        {
+          "info": {
+            "name": "Update reseller",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/resellers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Update reseller"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData TagService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TagService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/tags",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "The key of the tag. Allowed values: 'customer'."
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query",
+                "description": "The value of the tag. I.e.: VIP customer."
+              }
+            ]
+          },
+          "docs": "List tags"
+        },
+        {
+          "info": {
+            "name": "Create tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/tags"
+          },
+          "docs": "Create tag"
+        },
+        {
+          "info": {
+            "name": "Delete tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/tags",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "The key of the tag. Allowed values: 'customer'."
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query",
+                "description": "The value of the tag. I.e.: VIP customer."
+              }
+            ]
+          },
+          "docs": "Delete tag"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

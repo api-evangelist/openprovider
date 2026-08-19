@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData SEDomain API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SEDomain",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/spam-expert/domains"
+          },
+          "docs": "Create domain"
+        },
+        {
+          "info": {
+            "name": "Get domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/spam-expert/domains/:domain_name",
+            "params": [
+              {
+                "name": "domain_name",
+                "value": "",
+                "type": "path",
+                "description": "Domain full name"
+              },
+              {
+                "name": "with_records",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether records should be displayed in output."
+              },
+              {
+                "name": "bundle",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if old subscriptions backward compatibility is used."
+              }
+            ]
+          },
+          "docs": "Get domain"
+        },
+        {
+          "info": {
+            "name": "Update domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/spam-expert/domains/:domain_name",
+            "params": [
+              {
+                "name": "domain_name",
+                "value": "",
+                "type": "path",
+                "description": "Domain full name"
+              }
+            ]
+          },
+          "docs": "Update domain"
+        },
+        {
+          "info": {
+            "name": "Delete domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/spam-expert/domains/:domain_name",
+            "params": [
+              {
+                "name": "domain_name",
+                "value": "",
+                "type": "path",
+                "description": "Domain full name"
+              },
+              {
+                "name": "bundle",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if old subscriptions backward compatibility is used."
+              }
+            ]
+          },
+          "docs": "Delete domain"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

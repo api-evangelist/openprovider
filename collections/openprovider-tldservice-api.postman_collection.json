@@ -1,0 +1,716 @@
+{
+  "item": [
+    {
+      "id": "03545e29-1a7b-4161-8a44-d98a6fb84e77",
+      "name": "TldService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6e14e2dc-05b4-4f45-92da-fa86ebfe68fc",
+          "name": "List tlds",
+          "request": {
+            "name": "List tlds",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "tlds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Search query limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Search query offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Sorts output ASC or DESC."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "Sorts output by a field."
+                },
+                {
+                  "disabled": false,
+                  "key": "extensions",
+                  "value": "<string>",
+                  "description": "Array of extensions."
+                },
+                {
+                  "disabled": false,
+                  "key": "extensions",
+                  "value": "<string>",
+                  "description": "Array of extensions."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_pattern",
+                  "value": "<string>",
+                  "description": "Extension name pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "only_names",
+                  "value": "<boolean>",
+                  "description": "Returns only extension names in the output."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_description",
+                  "value": "<boolean>",
+                  "description": "Returns additional extension description."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_restrictions",
+                  "value": "<boolean>",
+                  "description": "Returns list of extension restrictions."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_usage_count",
+                  "value": "<boolean>",
+                  "description": "Returns number of domains using specified extension in this account."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_application_mode",
+                  "value": "<string>",
+                  "description": "Array of extension application modes."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_application_mode",
+                  "value": "<string>",
+                  "description": "Array of extension application modes."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_price",
+                  "value": "<boolean>",
+                  "description": "Returns extension prices."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_level_prices",
+                  "value": "<boolean>",
+                  "description": "Returns extension prices for each Openprovider discount tier."
+                },
+                {
+                  "disabled": false,
+                  "key": "is_active",
+                  "value": "<boolean>",
+                  "description": "Indicates, if extension is active."
+                },
+                {
+                  "disabled": false,
+                  "key": "is_new_gtld",
+                  "value": "<boolean>",
+                  "description": "Indicates, if extension is a newGTLD."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Extension status."
+                },
+                {
+                  "disabled": false,
+                  "key": "application_mode",
+                  "value": "<string>",
+                  "description": "Pre-registration mode."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e5ff1cce-ab9a-4e8f-bb53-1195b40c0aab",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "tlds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "extensions",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "extensions",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_names",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_restrictions",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_usage_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_application_mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_application_mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_price",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_level_prices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_new_gtld",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "application_mode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"results\": [\n      {\n        \"admin_handle_supported\": false,\n        \"billing_handle_enabled\": false,\n        \"billing_handle_supported\": false,\n        \"description\": {\n          \"text\": \"<p>La extensi&oacute;n de nombre de dominio .BIZ es el dominio de primer nivel orientado al sector de los negocios. La extensi&oacute;n de dominio .BIZ es utilizada por empresas que desean una &uacute;nica presencia en Internet. La extensi&oacute;n .BIZ ha sido desarrollada para promocionar la nueva generaci&oacute;n de comercio electr&oacute;nico, y de aplicaciones Internet.</p>\",\n          \"url\": \"http://www.neustarregistry.biz\"\n        },\n        \"dnssec_algorithms\": [\n          3\n        ],\n        \"dnssec_allowed\": false,\n        \"dnssec_digests_allowed\": false,\n        \"dnssec_keys_allowed\": false,\n        \"dnssec_max_records_amount\": 0,\n        \"domicile_available\": false,\n        \"is_auth_code_available\": false,\n        \"is_auth_code_changeable\": false,\n        \"is_auth_code_requested\": false,\n        \"is_private_whois_allowed\": false,\n        \"is_trade_auth_code_required\": true,\n        \"is_transfer_auth_code_required\": true,\n        \"level_prices\": [\n          {\n            \"level\": 1,\n            \"price\": {\n              \"product\": {\n                \"currency\": \"USD\",\n                \"price\": 226\n              },\n              \"reseller\": {\n                \"currency\": \"USD\",\n                \"price\": 226\n              }\n            }\n          }\n        ],\n        \"max_period\": 10,\n        \"min_period\": 1,\n        \"name\": \"eu\",\n        \"owner_handle_supported\": false,\n        \"prices\": {\n          \"create_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          },\n          \"domicile_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          },\n          \"max_period\": 10,\n          \"min_period\": 1,\n          \"renew_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          },\n          \"reseller_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"promotion_details\": {\n              \"end_date\": \"1589932800\",\n              \"non_promo_price\": {\n                \"product\": {\n                  \"currency\": \"USD\",\n                  \"price\": 226\n                },\n                \"reseller\": {\n                  \"currency\": \"USD\",\n                  \"price\": 226\n                }\n              },\n              \"start_date\": \"1582156800\"\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          },\n          \"restore_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          },\n          \"setup_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          },\n          \"soft_restore_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          },\n          \"trade_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          },\n          \"transfer_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          },\n          \"update_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          }\n        },\n        \"quarantine_period\": 38,\n        \"renew_available\": false,\n        \"reseller_handle_enabled\": false,\n        \"reseller_handle_supported\": false,\n        \"restrictions\": [\n          \"Los dominios premium (cortos y nombres genéricos) son más caros para registros y renovaciones\"\n        ],\n        \"soft_quarantine_period\": 44,\n        \"status\": \"ACT\",\n        \"supported_application_mode\": [\n          {\n            \"name\": \"claims\",\n            \"title\": \"General Availability\"\n          }\n        ],\n        \"supported_idn_scripts\": [\n          {\n            \"description\": \"Afrikaans\",\n            \"value\": \"AFR\"\n          }\n        ],\n        \"tech_handle_supported\": false,\n        \"trade_available\": false,\n        \"transfer_available\": false,\n        \"usage_count\": 0\n      }\n    ],\n    \"total\": 999\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75874232-d89f-4430-89f0-2569e6bd9ad5",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "tlds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "extensions",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "extensions",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_names",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_restrictions",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_usage_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_application_mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_application_mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_price",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_level_prices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_new_gtld",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "application_mode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19fa4cbe-3cec-4dd1-a0de-557bd3983e4c",
+          "name": "Get tld",
+          "request": {
+            "name": "Get tld",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "tlds",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Search query limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Search query offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_description",
+                  "value": "<boolean>",
+                  "description": "Returns additional extension description."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_restrictions",
+                  "value": "<boolean>",
+                  "description": "Returns list of extension restrictions."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_price",
+                  "value": "<boolean>",
+                  "description": "Returns extension prices."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_level_prices",
+                  "value": "<boolean>",
+                  "description": "Returns extension prices for each Openprovider discount tier."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_usage_count",
+                  "value": "<boolean>",
+                  "description": "Returns number of domains using specified extension in this account."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Extension status."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Extension status."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Extension name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14beb62a-74cd-45be-9aa8-eae3293c9bf7",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "tlds",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "with_description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_restrictions",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_price",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_level_prices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_usage_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Extension name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2908,\n  \"data\": {\n    \"admin_handle_supported\": true,\n    \"billing_handle_enabled\": true,\n    \"billing_handle_supported\": true,\n    \"description\": {\n      \"text\": \"<p>La extensi&oacute;n de nombre de dominio .BIZ es el dominio de primer nivel orientado al sector de los negocios. La extensi&oacute;n de dominio .BIZ es utilizada por empresas que desean una &uacute;nica presencia en Internet. La extensi&oacute;n .BIZ ha sido desarrollada para promocionar la nueva generaci&oacute;n de comercio electr&oacute;nico, y de aplicaciones Internet.</p>\",\n      \"url\": \"http://www.neustarregistry.biz\"\n    },\n    \"dnssec_algorithms\": [\n      8527,\n      7286\n    ],\n    \"dnssec_allowed\": false,\n    \"dnssec_digests_allowed\": false,\n    \"dnssec_keys_allowed\": true,\n    \"dnssec_max_records_amount\": 3267,\n    \"domicile_available\": true,\n    \"is_auth_code_available\": true,\n    \"is_auth_code_changeable\": false,\n    \"is_auth_code_requested\": false,\n    \"is_private_whois_allowed\": true,\n    \"is_trade_auth_code_required\": true,\n    \"is_transfer_auth_code_required\": true,\n    \"level_prices\": [\n      {\n        \"level\": 1,\n        \"price\": {\n          \"product\": {\n            \"currency\": \"USD\",\n            \"price\": 226\n          },\n          \"reseller\": {\n            \"currency\": \"USD\",\n            \"price\": 226\n          }\n        }\n      },\n      {\n        \"level\": 1,\n        \"price\": {\n          \"product\": {\n            \"currency\": \"USD\",\n            \"price\": 226\n          },\n          \"reseller\": {\n            \"currency\": \"USD\",\n            \"price\": 226\n          }\n        }\n      }\n    ],\n    \"max_period\": 7477,\n    \"min_period\": 9952,\n    \"name\": \"string\",\n    \"owner_handle_supported\": false,\n    \"prices\": {\n      \"create_price\": {\n        \"product\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        },\n        \"reseller\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        }\n      },\n      \"domicile_price\": {\n        \"product\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        },\n        \"reseller\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        }\n      },\n      \"max_period\": 10,\n      \"min_period\": 1,\n      \"renew_price\": {\n        \"product\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        },\n        \"reseller\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        }\n      },\n      \"reseller_price\": {\n        \"product\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        },\n        \"promotion_details\": {\n          \"end_date\": \"1589932800\",\n          \"non_promo_price\": {\n            \"product\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            },\n            \"reseller\": {\n              \"currency\": \"USD\",\n              \"price\": 226\n            }\n          },\n          \"start_date\": \"1582156800\"\n        },\n        \"reseller\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        }\n      },\n      \"restore_price\": {\n        \"product\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        },\n        \"reseller\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        }\n      },\n      \"setup_price\": {\n        \"product\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        },\n        \"reseller\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        }\n      },\n      \"soft_restore_price\": {\n        \"product\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        },\n        \"reseller\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        }\n      },\n      \"trade_price\": {\n        \"product\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        },\n        \"reseller\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        }\n      },\n      \"transfer_price\": {\n        \"product\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        },\n        \"reseller\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        }\n      },\n      \"update_price\": {\n        \"product\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        },\n        \"reseller\": {\n          \"currency\": \"USD\",\n          \"price\": 226\n        }\n      }\n    },\n    \"quarantine_period\": 5640,\n    \"renew_available\": true,\n    \"reseller_handle_enabled\": false,\n    \"reseller_handle_supported\": false,\n    \"restrictions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"soft_quarantine_period\": 8043,\n    \"status\": \"string\",\n    \"supported_application_mode\": [\n      {\n        \"name\": \"claims\",\n        \"title\": \"General Availability\"\n      },\n      {\n        \"name\": \"claims\",\n        \"title\": \"General Availability\"\n      }\n    ],\n    \"supported_idn_scripts\": [\n      {\n        \"description\": \"Afrikaans\",\n        \"value\": \"AFR\"\n      },\n      {\n        \"description\": \"Afrikaans\",\n        \"value\": \"AFR\"\n      }\n    ],\n    \"tech_handle_supported\": true,\n    \"trade_available\": true,\n    \"transfer_available\": false,\n    \"usage_count\": 9294\n  },\n  \"desc\": \"string\",\n  \"maintenance\": true,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8ac818a-93ee-452d-8ba9-05d361fb2047",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "tlds",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "with_description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_restrictions",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_price",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_level_prices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_usage_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Extension name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d440246f-1e83-4b52-a363-eeaac41830f6",
+    "name": "REST AdditionalData TldService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

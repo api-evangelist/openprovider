@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData DomainPriceService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DomainPriceService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains/prices",
+            "params": [
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "operation",
+                "value": "",
+                "type": "query",
+                "description": "Domain operation."
+              },
+              {
+                "name": "additional_data.idn_script",
+                "value": "",
+                "type": "query",
+                "description": "The idn script states what language or character set the domain name is in\nApplicable to: .actor, .ae.org, .airforce, .army, .art, .attorney, .auction, .band, .bar, .best, .br.com, .ceo, .cn.com, .college, .com, .com.de, .com.se, .consulting, .dance, .de.com, .degree, .democrat, .dentist, .design, .engineer, .eu.com, .eus, .feedback, .fm, .forsale, .frl, .fun, .futbol, .gal, .gb.net, .gives, .gr.com, .haus, .hiv, .host, .immobilien, .in.net, .info, .ink, .jp.net, .jpn.com, .kaufen, .kyoto, .lawyer, .love, .market, .me, .mex.com, .moda, .mortgage, .navy, .net, .ninja, .nrw, .online, .ooo, .org, .press, .protection, .pub, .pw, .quebec, .radio.am, .radio.fm, .realty, .rehab, .rent, .republican, .rest, .reviews, .rip, .rocks, .ru.com, .sa.com, .scot, .se.net, .security, .site, .social, .software, .space, .store, .tech, .theatre, .tickets, .top, .uk.com, .uk.net, .us.com, .us.org, .vet, .website, .wiki, .xn--4gbrim, .xn--55qx5d, .xn--5tzm5g, .xn--80asehdb, .xn--80aswg, .xn--c1avg, .xn--czru2d, .xn--i1b6b1a6a2e, .xn--io0a7i, .xn--mk1bu44c, .xn--ngbc5azd, .xn--nqv7f, .xn--t60b56a, .xn--tckwe, .xyz, .za.com."
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Operation period."
+              }
+            ]
+          },
+          "docs": "Get price"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

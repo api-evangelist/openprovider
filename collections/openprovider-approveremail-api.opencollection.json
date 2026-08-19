@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData ApproverEmail API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApproverEmail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List approver emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/ssl/approver-emails",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of product order will be created for."
+              },
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query",
+                "description": "Domain name."
+              }
+            ]
+          },
+          "docs": "List approver emails"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

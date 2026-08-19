@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData ZoneRecordService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ZoneRecordService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List zone records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/zones/:name/records",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "DNS record name"
+              },
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "query",
+                "description": "DNS zone ID."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "How many records to retrieve (default: 100, max 500)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "From which record to retrieve (default: 0)."
+              },
+              {
+                "name": "order_by.type",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.name",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.value",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.ttl",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.prio",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "record_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "DNS record name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "value_pattern",
+                "value": "",
+                "type": "query",
+                "description": "DNS record value pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "DNS record type."
+              },
+              {
+                "name": "prio",
+                "value": "",
+                "type": "query",
+                "description": "DNS record priority."
+              },
+              {
+                "name": "ttl",
+                "value": "",
+                "type": "query",
+                "description": "DNS record TTL."
+              },
+              {
+                "name": "zone_provider",
+                "value": "",
+                "type": "query",
+                "description": "Name of the DNS provider. Set zone_provider=sectigo in case of only sectigo premium DNS zone records should be retrieved."
+              }
+            ]
+          },
+          "docs": "List zone records"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

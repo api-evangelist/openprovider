@@ -1,0 +1,1097 @@
+{
+  "item": [
+    {
+      "id": "d09dcf6d-de83-4b87-afdb-e48558395cf6",
+      "name": "ZoneService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7a98604b-8d52-4bb7-bb5b-1ddf9ce33bc3",
+          "name": "List zones",
+          "request": {
+            "name": "List zones",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "zones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Limits the number of objects in the output. (default value: 100, maximum value: 500)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Used to retrieve all objects from a certain offset up to the. (default value: 0)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.creation_date",
+                  "value": "desc",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.modification_date",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.name",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "DNS zone type (master or slave)."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_pattern",
+                  "value": "<string>",
+                  "description": "DNS zone name pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_records",
+                  "value": "<boolean>",
+                  "description": "Indicates, whether DNS records should be displayed in output."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_history",
+                  "value": "<boolean>",
+                  "description": "Indicates, whether DNS zone history should be displayed in output."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_dnskey",
+                  "value": "<boolean>",
+                  "description": "Indicates, whether DNSSEC keys should be displayed in output."
+                },
+                {
+                  "disabled": false,
+                  "key": "provider",
+                  "value": "<string>",
+                  "description": "Name of the DNS provider. Set provider=sectigo in case of only sectigo premium DNS zone should be retrieved."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2f1f92e-f362-4a1e-b92c-991d9d56e2bf",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by.creation_date",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "order_by.modification_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_records",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_history",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_dnskey",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "provider",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1477,\n  \"data\": {\n    \"results\": [\n      {\n        \"active\": false,\n        \"creation_date\": \"string\",\n        \"dnskey\": \"string\",\n        \"history\": [\n          {\n            \"date\": \"2019-06-19 17:40:09\",\n            \"is\": \"+ A |  | 8.8.8.8\",\n            \"source\": \"\",\n            \"was\": \"\"\n          },\n          {\n            \"date\": \"2019-06-19 17:40:09\",\n            \"is\": \"+ A |  | 8.8.8.8\",\n            \"source\": \"\",\n            \"was\": \"\"\n          }\n        ],\n        \"id\": 263,\n        \"ip\": \"string\",\n        \"is_deleted\": false,\n        \"is_shadow\": false,\n        \"is_spamexperts_enabled\": true,\n        \"modification_date\": \"string\",\n        \"name\": \"string\",\n        \"premium_dns\": {\n          \"sectigo\": {\n            \"autorenew\": false,\n            \"order_date\": \"2021-08-05 7:37:28\",\n            \"renewal_date\": \"2022-11-28 6:57:05\",\n            \"secured\": false,\n            \"website_id\": 123456\n          }\n        },\n        \"provider\": \"string\",\n        \"records\": [\n          {\n            \"creation_date\": \"\",\n            \"ip\": \"127.0.0.1\",\n            \"modification_date\": \"\",\n            \"name\": \"domain.com\",\n            \"prio\": 1,\n            \"ttl\": 900,\n            \"type\": \"CNAME\",\n            \"value\": \"abcd.domain.com\"\n          },\n          {\n            \"creation_date\": \"\",\n            \"ip\": \"127.0.0.1\",\n            \"modification_date\": \"\",\n            \"name\": \"domain.com\",\n            \"prio\": 1,\n            \"ttl\": 900,\n            \"type\": \"CNAME\",\n            \"value\": \"abcd.domain.com\"\n          }\n        ],\n        \"reseller_id\": 4230,\n        \"type\": \"string\"\n      },\n      {\n        \"active\": true,\n        \"creation_date\": \"string\",\n        \"dnskey\": \"string\",\n        \"history\": [\n          {\n            \"date\": \"2019-06-19 17:40:09\",\n            \"is\": \"+ A |  | 8.8.8.8\",\n            \"source\": \"\",\n            \"was\": \"\"\n          },\n          {\n            \"date\": \"2019-06-19 17:40:09\",\n            \"is\": \"+ A |  | 8.8.8.8\",\n            \"source\": \"\",\n            \"was\": \"\"\n          }\n        ],\n        \"id\": 2287,\n        \"ip\": \"string\",\n        \"is_deleted\": false,\n        \"is_shadow\": true,\n        \"is_spamexperts_enabled\": false,\n        \"modification_date\": \"string\",\n        \"name\": \"string\",\n        \"premium_dns\": {\n          \"sectigo\": {\n            \"autorenew\": false,\n            \"order_date\": \"2021-08-05 7:37:28\",\n            \"renewal_date\": \"2022-11-28 6:57:05\",\n            \"secured\": false,\n            \"website_id\": 123456\n          }\n        },\n        \"provider\": \"string\",\n        \"records\": [\n          {\n            \"creation_date\": \"\",\n            \"ip\": \"127.0.0.1\",\n            \"modification_date\": \"\",\n            \"name\": \"domain.com\",\n            \"prio\": 1,\n            \"ttl\": 900,\n            \"type\": \"CNAME\",\n            \"value\": \"abcd.domain.com\"\n          },\n          {\n            \"creation_date\": \"\",\n            \"ip\": \"127.0.0.1\",\n            \"modification_date\": \"\",\n            \"name\": \"domain.com\",\n            \"prio\": 1,\n            \"ttl\": 900,\n            \"type\": \"CNAME\",\n            \"value\": \"abcd.domain.com\"\n          }\n        ],\n        \"reseller_id\": 8578,\n        \"type\": \"string\"\n      }\n    ],\n    \"total\": 8322\n  },\n  \"desc\": \"string\",\n  \"maintenance\": true,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03373a1b-dfb0-4b00-a50e-32938afe7494",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by.creation_date",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "order_by.modification_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_records",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_history",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_dnskey",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "provider",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7a2434f-b556-4498-8d2c-bc8d56b756be",
+          "name": "Create zone",
+          "request": {
+            "name": "Create zone",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "zones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"is_spamexperts_enabled\": \"<string>\",\n  \"master_ip\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"records\": [\n    {\n      \"name\": \"<string>\",\n      \"prio\": \"<integer>\",\n      \"ttl\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"prio\": \"<integer>\",\n      \"ttl\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"secured\": \"<boolean>\",\n  \"template_name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "11318698-8b3a-403d-a56a-05af6a16966b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": {\n    \"extension\": \"com\",\n    \"name\": \"domain\"\n  },\n  \"is_spamexperts_enabled\": \"<string>\",\n  \"master_ip\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"records\": [\n    {\n      \"name\": \"domain.com\",\n      \"prio\": 1,\n      \"ttl\": 900,\n      \"type\": \"CNAME\",\n      \"value\": \"abcd.domain.com\"\n    },\n    {\n      \"name\": \"domain.com\",\n      \"prio\": 1,\n      \"ttl\": 900,\n      \"type\": \"CNAME\",\n      \"value\": \"abcd.domain.com\"\n    }\n  ],\n  \"secured\": \"<boolean>\",\n  \"template_name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cbc7ba0-7870-4477-8053-a434d0521e78",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": {\n    \"extension\": \"com\",\n    \"name\": \"domain\"\n  },\n  \"is_spamexperts_enabled\": \"<string>\",\n  \"master_ip\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"records\": [\n    {\n      \"name\": \"domain.com\",\n      \"prio\": 1,\n      \"ttl\": 900,\n      \"type\": \"CNAME\",\n      \"value\": \"abcd.domain.com\"\n    },\n    {\n      \"name\": \"domain.com\",\n      \"prio\": 1,\n      \"ttl\": 900,\n      \"type\": \"CNAME\",\n      \"value\": \"abcd.domain.com\"\n    }\n  ],\n  \"secured\": \"<boolean>\",\n  \"template_name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1d7c497-0906-4b80-9a89-58f0f1eca3e9",
+          "name": "Get zone",
+          "request": {
+            "name": "Get zone",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "zones",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "DNS zone ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_records",
+                  "value": "false",
+                  "description": "Indicates, whether DNS records should be displayed in output."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_history",
+                  "value": "false",
+                  "description": "Indicates, whether DNS zone history should be displayed in output."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_dnskey",
+                  "value": "<boolean>",
+                  "description": "Indicates, whether DNSSEC keys should be displayed in output."
+                },
+                {
+                  "disabled": false,
+                  "key": "provider",
+                  "value": "<string>",
+                  "description": "Name of the DNS provider. Set provider=sectigo in case of only sectigo premium DNS zone should be retrieved."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Name of the domain to which DNS zone corresponds"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7755b9fe-d7a1-4f26-aacb-737eff4048de",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_records",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_history",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_dnskey",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "provider",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Name of the domain to which DNS zone corresponds"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5231,\n  \"data\": {\n    \"active\": true,\n    \"creation_date\": \"string\",\n    \"dnskey\": \"string\",\n    \"history\": [\n      {\n        \"date\": \"2019-06-19 17:40:09\",\n        \"is\": \"+ A |  | 8.8.8.8\",\n        \"source\": \"\",\n        \"was\": \"\"\n      },\n      {\n        \"date\": \"2019-06-19 17:40:09\",\n        \"is\": \"+ A |  | 8.8.8.8\",\n        \"source\": \"\",\n        \"was\": \"\"\n      }\n    ],\n    \"id\": 5123,\n    \"ip\": \"string\",\n    \"is_deleted\": false,\n    \"is_shadow\": true,\n    \"is_spamexperts_enabled\": true,\n    \"modification_date\": \"string\",\n    \"name\": \"string\",\n    \"premium_dns\": {\n      \"sectigo\": {\n        \"autorenew\": false,\n        \"order_date\": \"2021-08-05 7:37:28\",\n        \"renewal_date\": \"2022-11-28 6:57:05\",\n        \"secured\": false,\n        \"website_id\": 123456\n      }\n    },\n    \"provider\": \"string\",\n    \"records\": [\n      {\n        \"creation_date\": \"\",\n        \"ip\": \"127.0.0.1\",\n        \"modification_date\": \"\",\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      },\n      {\n        \"creation_date\": \"\",\n        \"ip\": \"127.0.0.1\",\n        \"modification_date\": \"\",\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      }\n    ],\n    \"reseller_id\": 8475,\n    \"type\": \"string\"\n  },\n  \"desc\": \"string\",\n  \"maintenance\": false,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce7b8d5d-86c8-4545-b973-18d8d62d2080",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_records",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_history",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_dnskey",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "provider",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Name of the domain to which DNS zone corresponds"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66a75dfb-c631-4512-af83-b6ab6e696ddc",
+          "name": "Update zone",
+          "request": {
+            "name": "Update zone",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "zones",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Name of the domain to which DNS zone corresponds"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"is_spamexperts_enabled\": \"<boolean>\",\n  \"master_ip\": \"<string>\",\n  \"name\": \"<string>\",\n  \"premium_dns\": {\n    \"sectigo\": {\n      \"autorenew\": \"<boolean>\",\n      \"order_date\": \"<string>\",\n      \"renewal_date\": \"<string>\",\n      \"secured\": \"<boolean>\",\n      \"website_id\": \"<integer>\"\n    }\n  },\n  \"provider\": \"<string>\",\n  \"records\": {\n    \"add\": [\n      {\n        \"name\": \"<string>\",\n        \"prio\": \"<integer>\",\n        \"ttl\": \"<integer>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"prio\": \"<integer>\",\n        \"ttl\": \"<integer>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"remove\": [\n      {\n        \"name\": \"<string>\",\n        \"prio\": \"<integer>\",\n        \"ttl\": \"<integer>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"prio\": \"<integer>\",\n        \"ttl\": \"<integer>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"replace\": [\n      {\n        \"name\": \"<string>\",\n        \"prio\": \"<integer>\",\n        \"ttl\": \"<integer>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"prio\": \"<integer>\",\n        \"ttl\": \"<integer>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"update\": [\n      {\n        \"original_record\": {\n          \"name\": \"<string>\",\n          \"prio\": \"<integer>\",\n          \"ttl\": \"<integer>\",\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        \"record\": {\n          \"name\": \"<string>\",\n          \"prio\": \"<integer>\",\n          \"ttl\": \"<integer>\",\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      },\n      {\n        \"original_record\": {\n          \"name\": \"<string>\",\n          \"prio\": \"<integer>\",\n          \"ttl\": \"<integer>\",\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        \"record\": {\n          \"name\": \"<string>\",\n          \"prio\": \"<integer>\",\n          \"ttl\": \"<integer>\",\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de2c566e-138e-44b4-8cc1-1ad5cdb28f59",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Name of the domain to which DNS zone corresponds"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": {\n    \"extension\": \"com\",\n    \"name\": \"domain\"\n  },\n  \"id\": \"<integer>\",\n  \"is_spamexperts_enabled\": \"<boolean>\",\n  \"master_ip\": \"<string>\",\n  \"name\": \"<string>\",\n  \"premium_dns\": {\n    \"sectigo\": {\n      \"autorenew\": false,\n      \"order_date\": \"2021-08-05 7:37:28\",\n      \"renewal_date\": \"2022-11-28 6:57:05\",\n      \"secured\": false,\n      \"website_id\": 123456\n    }\n  },\n  \"provider\": \"<string>\",\n  \"records\": {\n    \"add\": [\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      },\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      }\n    ],\n    \"remove\": [\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      },\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      }\n    ],\n    \"replace\": [\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      },\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      }\n    ],\n    \"update\": [\n      {\n        \"original_record\": {\n          \"name\": \"domain.com\",\n          \"prio\": 1,\n          \"ttl\": 900,\n          \"type\": \"CNAME\",\n          \"value\": \"abcd.domain.com\"\n        },\n        \"record\": {\n          \"name\": \"domain.com\",\n          \"prio\": 1,\n          \"ttl\": 900,\n          \"type\": \"CNAME\",\n          \"value\": \"abcd.domain.com\"\n        }\n      },\n      {\n        \"original_record\": {\n          \"name\": \"domain.com\",\n          \"prio\": 1,\n          \"ttl\": 900,\n          \"type\": \"CNAME\",\n          \"value\": \"abcd.domain.com\"\n        },\n        \"record\": {\n          \"name\": \"domain.com\",\n          \"prio\": 1,\n          \"ttl\": 900,\n          \"type\": \"CNAME\",\n          \"value\": \"abcd.domain.com\"\n        }\n      }\n    ]\n  },\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24eb2717-73e2-4009-ba70-5db496fc072a",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Name of the domain to which DNS zone corresponds"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": {\n    \"extension\": \"com\",\n    \"name\": \"domain\"\n  },\n  \"id\": \"<integer>\",\n  \"is_spamexperts_enabled\": \"<boolean>\",\n  \"master_ip\": \"<string>\",\n  \"name\": \"<string>\",\n  \"premium_dns\": {\n    \"sectigo\": {\n      \"autorenew\": false,\n      \"order_date\": \"2021-08-05 7:37:28\",\n      \"renewal_date\": \"2022-11-28 6:57:05\",\n      \"secured\": false,\n      \"website_id\": 123456\n    }\n  },\n  \"provider\": \"<string>\",\n  \"records\": {\n    \"add\": [\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      },\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      }\n    ],\n    \"remove\": [\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      },\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      }\n    ],\n    \"replace\": [\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      },\n      {\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      }\n    ],\n    \"update\": [\n      {\n        \"original_record\": {\n          \"name\": \"domain.com\",\n          \"prio\": 1,\n          \"ttl\": 900,\n          \"type\": \"CNAME\",\n          \"value\": \"abcd.domain.com\"\n        },\n        \"record\": {\n          \"name\": \"domain.com\",\n          \"prio\": 1,\n          \"ttl\": 900,\n          \"type\": \"CNAME\",\n          \"value\": \"abcd.domain.com\"\n        }\n      },\n      {\n        \"original_record\": {\n          \"name\": \"domain.com\",\n          \"prio\": 1,\n          \"ttl\": 900,\n          \"type\": \"CNAME\",\n          \"value\": \"abcd.domain.com\"\n        },\n        \"record\": {\n          \"name\": \"domain.com\",\n          \"prio\": 1,\n          \"ttl\": 900,\n          \"type\": \"CNAME\",\n          \"value\": \"abcd.domain.com\"\n        }\n      }\n    ]\n  },\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50774024-bc85-480e-9fa7-f3c46f69403c",
+          "name": "Delete zone",
+          "request": {
+            "name": "Delete zone",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "zones",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "DNS zone ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "domain.name",
+                  "value": "<string>",
+                  "description": "Domain name without extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "domain.extension",
+                  "value": "<string>",
+                  "description": "Domain extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "provider",
+                  "value": "<string>",
+                  "description": "Name of the DNS provider. Set provider=sectigo in case of sectigo premium DNS zone should be deleted."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Name of the domain to which DNS zone corresponds"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9ffa3d7-a04e-4648-a4a6-6f072aed1b63",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "provider",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Name of the domain to which DNS zone corresponds"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c5a4900-9dd7-4270-b5c8-afc21fde541a",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "provider",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Name of the domain to which DNS zone corresponds"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9bb66e5f-610d-4712-8a82-d412acf23ea7",
+    "name": "REST AdditionalData ZoneService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

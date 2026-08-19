@@ -1,0 +1,514 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData DomainService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DomainService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains",
+            "params": [
+              {
+                "name": "order_by.id",
+                "value": "",
+                "type": "query",
+                "description": "Domain id number."
+              },
+              {
+                "name": "order_by.domain_name",
+                "value": "",
+                "type": "query",
+                "description": "The domain name."
+              },
+              {
+                "name": "order_by.domain_extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "order_by.order_date",
+                "value": "",
+                "type": "query",
+                "description": "The order date."
+              },
+              {
+                "name": "order_by.active_date",
+                "value": "",
+                "type": "query",
+                "description": "The active date."
+              },
+              {
+                "name": "order_by.expiration_date",
+                "value": "",
+                "type": "query",
+                "description": "Domain expiration date."
+              },
+              {
+                "name": "order_by.renewal_date",
+                "value": "",
+                "type": "query",
+                "description": "Date on which domain will be renewed."
+              },
+              {
+                "name": "order_by.status",
+                "value": "",
+                "type": "query",
+                "description": "Domain status."
+              },
+              {
+                "name": "order_by.transfer_date",
+                "value": "",
+                "type": "query",
+                "description": "The transfer date."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Domain id number."
+              },
+              {
+                "name": "extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "renewal_date",
+                "value": "",
+                "type": "query",
+                "description": "Date on which domain will be renewed."
+              },
+              {
+                "name": "full_name",
+                "value": "",
+                "type": "query",
+                "description": "Full name of the domain."
+              },
+              {
+                "name": "domain_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "The domain name pattern."
+              },
+              {
+                "name": "ns_group_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver group name pattern."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Domain status."
+              },
+              {
+                "name": "status_not_equal",
+                "value": "",
+                "type": "query",
+                "description": "Array of domain statuses to exclude."
+              },
+              {
+                "name": "queue_status",
+                "value": "",
+                "type": "query",
+                "description": "The queue status."
+              },
+              {
+                "name": "contact_handle",
+                "value": "",
+                "type": "query",
+                "description": "Handle to filter by."
+              },
+              {
+                "name": "comment_pattern",
+                "value": "",
+                "type": "query",
+                "description": "The comment pattern."
+              },
+              {
+                "name": "with_history",
+                "value": "",
+                "type": "query",
+                "description": "With history."
+              },
+              {
+                "name": "with_api_history",
+                "value": "",
+                "type": "query",
+                "description": "With api history."
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "With additional data."
+              },
+              {
+                "name": "application_mode",
+                "value": "",
+                "type": "query",
+                "description": "When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions."
+              },
+              {
+                "name": "with_verification_email",
+                "value": "",
+                "type": "query",
+                "description": "Returns information about domain owner email verification status."
+              },
+              {
+                "name": "with_registry_statuses",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, if registry EPP statuses should be retrieved."
+              },
+              {
+                "name": "response.type",
+                "value": "",
+                "type": "query",
+                "description": "The type."
+              },
+              {
+                "name": "response.to",
+                "value": "",
+                "type": "query",
+                "description": "The to."
+              },
+              {
+                "name": "is_deleted",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether object is deleted."
+              }
+            ]
+          },
+          "docs": "List domains"
+        },
+        {
+          "info": {
+            "name": "Create domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains"
+          },
+          "docs": "Create domain"
+        },
+        {
+          "info": {
+            "name": "Check domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/check"
+          },
+          "docs": "Check domain"
+        },
+        {
+          "info": {
+            "name": "Suggest name domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/suggest-name"
+          },
+          "docs": "Suggest name domain"
+        },
+        {
+          "info": {
+            "name": "Trade domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/trade"
+          },
+          "docs": "Trade domain"
+        },
+        {
+          "info": {
+            "name": "Transfer domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/transfer"
+          },
+          "docs": "Transfer domain"
+        },
+        {
+          "info": {
+            "name": "Get domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              },
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "with_history",
+                "value": "",
+                "type": "query",
+                "description": "Returns domain mutations history."
+              },
+              {
+                "name": "with_api_history",
+                "value": "",
+                "type": "query",
+                "description": "Returns domain API calls history."
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Returns domain additional data."
+              },
+              {
+                "name": "with_verification_email",
+                "value": "",
+                "type": "query",
+                "description": "Returns information about domain owner email verification status."
+              },
+              {
+                "name": "with_abuse_details",
+                "value": "",
+                "type": "query",
+                "description": "Returns domain abuse details."
+              },
+              {
+                "name": "with_whois_privacy_data",
+                "value": "",
+                "type": "query",
+                "description": "Returns WPP data."
+              },
+              {
+                "name": "with_registry_statuses",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, if registry EPP statuses should be retrieved."
+              },
+              {
+                "name": "is_deleted",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether object is deleted."
+              }
+            ]
+          },
+          "docs": "Get domain"
+        },
+        {
+          "info": {
+            "name": "Update domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/domains/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Update domain"
+        },
+        {
+          "info": {
+            "name": "Delete domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/domains/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              },
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type of deletion request."
+              },
+              {
+                "name": "skip_soft_quarantine",
+                "value": "",
+                "type": "query",
+                "description": "Deletes domain, skipping the soft quarantine."
+              },
+              {
+                "name": "force_delete",
+                "value": "",
+                "type": "query",
+                "description": "Force delete domain even if it has glue records."
+              }
+            ]
+          },
+          "docs": "Delete domain"
+        },
+        {
+          "info": {
+            "name": "Try again last operation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/last-operation/restart",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Try again last operation"
+        },
+        {
+          "info": {
+            "name": "Renew domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/renew",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Renew domain"
+        },
+        {
+          "info": {
+            "name": "Restore domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/restore",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Restore domain"
+        },
+        {
+          "info": {
+            "name": "Approve transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/transfer/approve",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Approve transfer"
+        },
+        {
+          "info": {
+            "name": "Send foa1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/transfer/send-foa1",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Send foa1"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,271 @@
+{
+  "item": [
+    {
+      "id": "f1bf8803-ec25-4476-98e9-c7f12e56cea4",
+      "name": "Transaction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bb1114d9-8c3e-454b-afe3-9c2086fb7e03",
+          "name": "List transactions",
+          "request": {
+            "name": "List transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "The order."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "The order by."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_creation_date",
+                  "value": "<string>",
+                  "description": "The start creation date."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_creation_date",
+                  "value": "<string>",
+                  "description": "The end creation date."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_for_subject",
+                  "value": "<string>",
+                  "description": "The filter for subject."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "949056f8-5cf6-494d-9d01-04d0dcc5d599",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_creation_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_creation_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter_for_subject",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"results\": [\n      {\n        \"action\": \"NEW\",\n        \"creation_date\": \"2006-09-13 16:19:05\",\n        \"discount\": 0,\n        \"exchange_rate\": 0,\n        \"object_type\": \"\",\n        \"price\": {\n          \"product\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          },\n          \"reseller\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          }\n        },\n        \"quantity\": 1,\n        \"reference_id\": 1,\n        \"setup\": {\n          \"product\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          },\n          \"reseller\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          }\n        },\n        \"subject\": \"\",\n        \"total\": {\n          \"product\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          },\n          \"reseller\": {\n            \"currency\": \"EUR\",\n            \"price\": 0\n          }\n        },\n        \"type\": \"transaction\",\n        \"vat\": 1\n      }\n    ],\n    \"total\": 5389\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b996277-820c-4f4f-87d8-2199ebf85f67",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_creation_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_creation_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter_for_subject",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3b34816c-c745-4c13-af75-7bd19b20d8f7",
+    "name": "REST AdditionalData Transaction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

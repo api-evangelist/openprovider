@@ -1,0 +1,195 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData Customer API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/customers",
+            "params": [
+              {
+                "name": "reseller_id",
+                "value": "",
+                "type": "query",
+                "description": "Your reseller id is used by default. Other values not accepted."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Output ordering pattern. ASC / DESC."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order output by field (i.e. first_name)."
+              },
+              {
+                "name": "email_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial email address. Wildcard (*) can be used."
+              },
+              {
+                "name": "company_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial company name. Wildcard (*) can be used."
+              },
+              {
+                "name": "last_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial last name. Wildcard (*) can be used."
+              },
+              {
+                "name": "first_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial first name. Wildcard (*) can be used."
+              },
+              {
+                "name": "comment_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial comment value. Wildcard (*) can be used."
+              },
+              {
+                "name": "handle_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial handle name. Wildcard (*) can be used."
+              },
+              {
+                "name": "pattern",
+                "value": "",
+                "type": "query",
+                "description": "ull or partial first name or last name or company name or handle. Wildcard (*) can be used."
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves objects with (1) or without (0) additional data."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Customer type: 'company' or 'individual'. If customer has not empty 'companyName' than type is 'company', otherwise 'individual'."
+              },
+              {
+                "name": "columns",
+                "value": "",
+                "type": "query",
+                "description": "Сolumns to retrieve. Possible values: 'firstName', 'prefix', 'initials', 'lastName', 'companyName', 'email', 'handle', 'id', 'fullName'."
+              }
+            ]
+          },
+          "docs": "List customers"
+        },
+        {
+          "info": {
+            "name": "Create customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/customers"
+          },
+          "docs": "Create customer"
+        },
+        {
+          "info": {
+            "name": "Get customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/customers/:handle",
+            "params": [
+              {
+                "name": "handle",
+                "value": "",
+                "type": "path",
+                "description": "Customer unique identifier or handle, which can be created via CreateCustomer API method"
+              },
+              {
+                "name": "with_additional_data",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves objects with (1) or without (0) additional data."
+              }
+            ]
+          },
+          "docs": "Get customer"
+        },
+        {
+          "info": {
+            "name": "Update customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/customers/:handle",
+            "params": [
+              {
+                "name": "handle",
+                "value": "",
+                "type": "path",
+                "description": "Customer unique identifier or handle, which can be created via CreateCustomer API method"
+              }
+            ]
+          },
+          "docs": "Update customer"
+        },
+        {
+          "info": {
+            "name": "Delete customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/customers/:handle",
+            "params": [
+              {
+                "name": "handle",
+                "value": "",
+                "type": "path",
+                "description": "Customer unique identifier or handle, which can be created via CreateCustomer API method"
+              }
+            ]
+          },
+          "docs": "Delete customer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

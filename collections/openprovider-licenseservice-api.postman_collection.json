@@ -1,0 +1,2885 @@
+{
+  "item": [
+    {
+      "id": "43825942-f349-423b-b78a-2d5192210ac1",
+      "name": "LicenseService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4434a00b-2144-4d05-810f-6c9c07319f5e",
+          "name": "List licenses with price version",
+          "request": {
+            "name": "List licenses with price version",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Output limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Output offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.id",
+                  "value": "<string>",
+                  "description": "Object ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.key_id",
+                  "value": "<string>",
+                  "description": "License key ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.title",
+                  "value": "<string>",
+                  "description": "Custom license title."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.product",
+                  "value": "<string>",
+                  "description": "Product type (only Plesk is available)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.status",
+                  "value": "<string>",
+                  "description": "License status."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.key_number",
+                  "value": "<string>",
+                  "description": "License key number."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.expiration_date",
+                  "value": "<string>",
+                  "description": "License expiration date."
+                },
+                {
+                  "disabled": false,
+                  "key": "product",
+                  "value": "<string>",
+                  "description": "Product type (only Plesk is available)."
+                },
+                {
+                  "disabled": false,
+                  "key": "key_number",
+                  "value": "<string>",
+                  "description": "License key number."
+                },
+                {
+                  "disabled": false,
+                  "key": "title_pattern",
+                  "value": "<string>",
+                  "description": "Custom title pattern. Wildcard (*) can be sued."
+                },
+                {
+                  "disabled": false,
+                  "key": "key_number_pattern",
+                  "value": "<string>",
+                  "description": "License key number pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent_key_id",
+                  "value": "<integer>",
+                  "description": "Key ID of the partent license."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "License status."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a39e7f6c-ae4e-4f19-8aa5-6fd4a13eaa7b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.key_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.key_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.expiration_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key_number_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent_key_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4502,\n  \"data\": {\n    \"results\": [\n      {\n        \"activation_code\": \"string\",\n        \"billing_type\": \"string\",\n        \"comment\": \"string\",\n        \"contract\": \"string\",\n        \"expiration_date\": \"string\",\n        \"items\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key_id\": 7382,\n        \"key_number\": \"string\",\n        \"order_date\": \"string\",\n        \"parent_key_id\": 1356,\n        \"period\": 7590,\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": true\n        },\n        \"status\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"activation_code\": \"string\",\n        \"billing_type\": \"string\",\n        \"comment\": \"string\",\n        \"contract\": \"string\",\n        \"expiration_date\": \"string\",\n        \"items\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key_id\": 8581,\n        \"key_number\": \"string\",\n        \"order_date\": \"string\",\n        \"parent_key_id\": 1253,\n        \"period\": 9318,\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": false,\n          \"key_1\": true\n        },\n        \"status\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"total\": 1396\n  },\n  \"desc\": \"string\",\n  \"maintenance\": false,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4846af7-93ed-43e8-af6c-68e11aea05e5",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.key_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.key_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.expiration_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key_number_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent_key_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b7907eb-ce4b-4561-a611-7e675dbd4b58",
+          "name": "Reset hwid",
+          "request": {
+            "name": "Reset hwid",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "hwids",
+                "reset",
+                ":product",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product",
+                  "description": "(Required) Product type (only Plesk is available)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "key_id",
+                  "description": "(Required) License key ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_id\": \"<integer>\",\n  \"product\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80b8e4a5-4074-4334-aaed-a0cb5bf598f9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "hwids",
+                    "reset",
+                    ":product",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product",
+                      "description": "(Required) Product type (only Plesk is available)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_id\": 12345,\n  \"product\": \"plesk\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a47e577-bba6-4277-aa05-c60ba136c86c",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "hwids",
+                    "reset",
+                    ":product",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product",
+                      "description": "(Required) Product type (only Plesk is available)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_id\": 12345,\n  \"product\": \"plesk\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ca57085-e835-47ab-9b2c-8f1f91862f8e",
+          "name": "List items",
+          "request": {
+            "name": "List items",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Output limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Output offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.id",
+                  "value": "<string>",
+                  "description": "Object ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.key_id",
+                  "value": "<string>",
+                  "description": "License key ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.title",
+                  "value": "<string>",
+                  "description": "Custom license title."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.product",
+                  "value": "<string>",
+                  "description": "Product type (only Plesk is available)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.status",
+                  "value": "<string>",
+                  "description": "License status."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.key_number",
+                  "value": "<string>",
+                  "description": "License key number."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.expiration_date",
+                  "value": "<string>",
+                  "description": "License expiration date."
+                },
+                {
+                  "disabled": false,
+                  "key": "product",
+                  "value": "<string>",
+                  "description": "Product type (only Plesk is available)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5bca42c-250d-4e38-99d5-33b96ffb69a8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.key_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.key_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.expiration_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "product",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8500,\n  \"data\": {\n    \"results\": [\n      {\n        \"item\": \"string\",\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": false,\n          \"key_1\": false,\n          \"key_2\": false\n        },\n        \"title\": \"string\"\n      },\n      {\n        \"item\": \"string\",\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": false,\n          \"key_1\": true\n        },\n        \"title\": \"string\"\n      }\n    ],\n    \"total\": 9691\n  },\n  \"desc\": \"string\",\n  \"maintenance\": false,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d10536da-cf1e-4c56-81f1-361f7d447d0e",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.key_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.key_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.expiration_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "product",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08d294ff-671f-4796-9350-ffe0accf4fea",
+          "name": "List plesk licenses",
+          "request": {
+            "name": "List plesk licenses",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "plesk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Output limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Output offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "key_id",
+                  "value": "<integer>",
+                  "description": "License key ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "key_number",
+                  "value": "<string>",
+                  "description": "License key number."
+                },
+                {
+                  "disabled": false,
+                  "key": "title_pattern",
+                  "value": "<string>",
+                  "description": "Custom title pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "key_number_pattern",
+                  "value": "<string>",
+                  "description": "License key number pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent_key_id",
+                  "value": "<integer>",
+                  "description": "Key ID of the partent license."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf20e6bf-d1ef-40e0-98ed-f6b574a6f3d1",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key_number_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent_key_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1609,\n  \"data\": {\n    \"results\": [\n      {\n        \"activation_code\": \"string\",\n        \"billing_type\": \"string\",\n        \"comment\": \"string\",\n        \"contract\": \"string\",\n        \"expiration_date\": \"string\",\n        \"ip_address_binding\": \"string\",\n        \"items\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key_id\": 9837,\n        \"key_number\": \"string\",\n        \"order_date\": \"string\",\n        \"parent_key_id\": 1970,\n        \"period\": 1326,\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": false,\n          \"key_1\": false,\n          \"key_2\": true\n        },\n        \"status\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"activation_code\": \"string\",\n        \"billing_type\": \"string\",\n        \"comment\": \"string\",\n        \"contract\": \"string\",\n        \"expiration_date\": \"string\",\n        \"ip_address_binding\": \"string\",\n        \"items\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key_id\": 806,\n        \"key_number\": \"string\",\n        \"order_date\": \"string\",\n        \"parent_key_id\": 4700,\n        \"period\": 6003,\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": false,\n          \"key_1\": true,\n          \"key_2\": false\n        },\n        \"status\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"total\": 9333\n  },\n  \"desc\": \"string\",\n  \"maintenance\": true,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "145e5400-9e18-470b-b88e-8dd39ea73446",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key_number_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent_key_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20690c5d-1bc0-4534-ab6b-a766c1987f5d",
+          "name": "Create plesk license",
+          "request": {
+            "name": "Create plesk license",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "plesk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parent_key_id\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9313d8dd-ed33-4ef6-a598-59734786d8a9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parent_key_id\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"attached_keys\": [\n      123456\n    ],\n    \"key_id\": 123456\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2099acbc-cd2a-4461-83ac-632ec1a7c9eb",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parent_key_id\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec5acbee-adbd-4c29-9490-21ff82d30704",
+          "name": "Get plesk key",
+          "request": {
+            "name": "Get plesk key",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "plesk",
+                "key",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "key_id",
+                  "description": "(Required) License key ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3177f4f-e93c-4712-b0b1-6570259d905e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk",
+                    "key",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"key\": \"\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67c6508b-1edc-4e64-8740-c9d96ae33006",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk",
+                    "key",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "626c6f27-d9d7-4c2c-9b4c-ffabf3866780",
+          "name": "Get plesk license",
+          "request": {
+            "name": "Get plesk license",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "plesk",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "key_id",
+                  "description": "(Required) License key ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f49c7fe8-2407-4d09-bf91-7d761fa3f4d9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6642,\n  \"data\": {\n    \"activation_code\": \"string\",\n    \"billing_type\": \"string\",\n    \"comment\": \"string\",\n    \"contract\": \"string\",\n    \"expiration_date\": \"string\",\n    \"extensions\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/licenseExtendedLicense detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/licenseExtendedLicense detected>\"\n      }\n    ],\n    \"features\": [\n      {\n        \"item\": \"string\",\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": true\n        },\n        \"title\": \"string\"\n      },\n      {\n        \"item\": \"string\",\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": false\n        },\n        \"title\": \"string\"\n      }\n    ],\n    \"ip_address_binding\": \"string\",\n    \"items\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key\": {\n      \"item\": \"string\",\n      \"product\": \"string\",\n      \"sku_values\": {\n        \"key_0\": false,\n        \"key_1\": false\n      },\n      \"title\": \"string\"\n    },\n    \"key_id\": 3097,\n    \"key_number\": \"string\",\n    \"order_date\": \"string\",\n    \"parent_key_id\": 9356,\n    \"period\": 8708,\n    \"product\": \"string\",\n    \"sku_values\": {\n      \"key_0\": false,\n      \"key_1\": false\n    },\n    \"status\": \"string\",\n    \"title\": \"string\"\n  },\n  \"desc\": \"string\",\n  \"maintenance\": false,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d8b5277-b25c-474f-aef7-b69bb420639c",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90d9751f-bdd2-48d4-a799-8643dfe9d0a0",
+          "name": "Update plesk license",
+          "request": {
+            "name": "Update plesk license",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "plesk",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "key_id",
+                  "description": "(Required) License key ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_id\": \"<integer>\",\n  \"parent_key_id\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"suspended\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "031ba370-e84b-4f20-a38d-c038cb2cead9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_id\": \"<integer>\",\n  \"parent_key_id\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"suspended\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "071078e8-d5d2-4a8f-850d-2bd5acbb042c",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_id\": \"<integer>\",\n  \"parent_key_id\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"suspended\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37cbe4b3-f560-459d-bbcd-b472ec147e5c",
+          "name": "Delete plesk license",
+          "request": {
+            "name": "Delete plesk license",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "plesk",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "key_id",
+                  "description": "(Required) License key ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd12f18f-4f43-481c-a4e4-b2280e17963b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe81d42f-bb05-4856-bf95-3960ca36a3fc",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "plesk",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "239779f0-266e-480e-b5df-144905818f17",
+          "name": "List virtuozzo licenses",
+          "request": {
+            "name": "List virtuozzo licenses",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "virtuozzo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Output limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Output offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "key_id",
+                  "value": "<integer>",
+                  "description": "License key ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "key_number",
+                  "value": "<string>",
+                  "description": "License key number."
+                },
+                {
+                  "disabled": false,
+                  "key": "title_pattern",
+                  "value": "<string>",
+                  "description": "Custom title pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "key_number_pattern",
+                  "value": "<string>",
+                  "description": "License key number pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent_key_id",
+                  "value": "<integer>",
+                  "description": "Key ID of the partent license."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03c4c8f6-387d-4e37-887a-e9f770bf5d1f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key_number_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent_key_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5638,\n  \"data\": {\n    \"results\": [\n      {\n        \"activation_code\": \"string\",\n        \"billing_type\": \"string\",\n        \"comment\": \"string\",\n        \"contract\": \"string\",\n        \"expiration_date\": \"string\",\n        \"ip_address_binding\": \"string\",\n        \"items\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key_id\": 2093,\n        \"key_number\": \"string\",\n        \"order_date\": \"string\",\n        \"parent_key_id\": 9954,\n        \"period\": 3942,\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": true,\n          \"key_1\": true,\n          \"key_2\": true\n        },\n        \"status\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"activation_code\": \"string\",\n        \"billing_type\": \"string\",\n        \"comment\": \"string\",\n        \"contract\": \"string\",\n        \"expiration_date\": \"string\",\n        \"ip_address_binding\": \"string\",\n        \"items\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key_id\": 4231,\n        \"key_number\": \"string\",\n        \"order_date\": \"string\",\n        \"parent_key_id\": 2827,\n        \"period\": 218,\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": false,\n          \"key_1\": false\n        },\n        \"status\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"total\": 9521\n  },\n  \"desc\": \"string\",\n  \"maintenance\": true,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "090209a1-0292-4082-9be0-3c0ecf953272",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key_number_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent_key_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e4a5817-fe4a-44f5-bb66-bb8d7aa12ccf",
+          "name": "Create virtuozzo license",
+          "request": {
+            "name": "Create virtuozzo license",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "virtuozzo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parent_key_id\": \"<integer>\",\n  \"pcs_capacity\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b231f3c6-58b4-4113-bd34-f928518dff3c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parent_key_id\": \"<integer>\",\n  \"pcs_capacity\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3190,\n  \"data\": {\n    \"attached_keys\": [\n      8177,\n      521\n    ],\n    \"key_id\": 587\n  },\n  \"desc\": \"string\",\n  \"maintenance\": true,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66829250-6904-4e9d-b43e-abd53e3e1f39",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parent_key_id\": \"<integer>\",\n  \"pcs_capacity\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d89a00b9-4ffe-4ae7-8522-b80dd319a8ab",
+          "name": "Get virtuozzo license",
+          "request": {
+            "name": "Get virtuozzo license",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "virtuozzo",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "key_id",
+                  "description": "(Required) License key ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22df76a4-ad01-473e-a3ca-47b28374d9b4",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6098,\n  \"data\": {\n    \"activation_code\": \"string\",\n    \"billing_type\": \"string\",\n    \"comment\": \"string\",\n    \"contract\": \"string\",\n    \"expiration_date\": \"string\",\n    \"extensions\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/licenseExtendedLicense detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/licenseExtendedLicense detected>\"\n      }\n    ],\n    \"features\": [\n      {\n        \"item\": \"string\",\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": true,\n          \"key_1\": true,\n          \"key_2\": false,\n          \"key_3\": false\n        },\n        \"title\": \"string\"\n      },\n      {\n        \"item\": \"string\",\n        \"product\": \"string\",\n        \"sku_values\": {\n          \"key_0\": false,\n          \"key_1\": false,\n          \"key_2\": true,\n          \"key_3\": false,\n          \"key_4\": false\n        },\n        \"title\": \"string\"\n      }\n    ],\n    \"ip_address_binding\": \"string\",\n    \"items\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key\": {\n      \"item\": \"string\",\n      \"product\": \"string\",\n      \"sku_values\": {\n        \"key_0\": true\n      },\n      \"title\": \"string\"\n    },\n    \"key_id\": 190,\n    \"key_number\": \"string\",\n    \"order_date\": \"string\",\n    \"parent_key_id\": 4201,\n    \"period\": 582,\n    \"product\": \"string\",\n    \"sku_values\": {\n      \"key_0\": true\n    },\n    \"status\": \"string\",\n    \"title\": \"string\"\n  },\n  \"desc\": \"string\",\n  \"maintenance\": true,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7391a753-da9c-4f1d-bf43-205bd1b2bc46",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5b8f284-41d0-4b44-9a65-3ba70bb2818a",
+          "name": "Update virtuozzo license",
+          "request": {
+            "name": "Update virtuozzo license",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "virtuozzo",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "key_id",
+                  "description": "(Required) License key ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_id\": \"<integer>\",\n  \"parent_key_id\": \"<integer>\",\n  \"pcs_capacity\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"suspended\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0f18a0c-debf-41c6-88ea-71e4dbd0a9ec",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_id\": \"<integer>\",\n  \"parent_key_id\": \"<integer>\",\n  \"pcs_capacity\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"suspended\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c436c40-86d5-4742-9bf4-6d7dc19576af",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attached_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comment\": \"<string>\",\n  \"ip_address_binding\": \"<string>\",\n  \"items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_id\": \"<integer>\",\n  \"parent_key_id\": \"<integer>\",\n  \"pcs_capacity\": \"<integer>\",\n  \"period\": \"<integer>\",\n  \"restrict_ip_binding\": \"<boolean>\",\n  \"suspended\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab1ed496-78f6-40bd-ba1f-da76aef0fdf8",
+          "name": "Delete virtuozzo license",
+          "request": {
+            "name": "Delete virtuozzo license",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "virtuozzo",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "key_id",
+                  "description": "(Required) License key ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41a67198-0b76-4d8b-9321-dddaa72ce331",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e10b3ec7-134b-45d4-b4ac-aca1e95314c7",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3481f0da-a709-4642-941d-1742a3dde689",
+          "name": "Get virtuozzo key",
+          "request": {
+            "name": "Get virtuozzo key",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "licenses",
+                "virtuozzo",
+                ":key_id",
+                "key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "key_id",
+                  "description": "(Required) License key ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db787e6a-89e8-4fde-a20b-d8deff46a37f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo",
+                    ":key_id",
+                    "key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"key\": \"\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "330999f7-9eaf-472a-9cf5-3361cb8193d3",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "licenses",
+                    "virtuozzo",
+                    ":key_id",
+                    "key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "key_id",
+                      "description": "(Required) License key ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ebd4d0e3-2531-43ab-a7a2-c4c0a2103979",
+    "name": "REST AdditionalData LicenseService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

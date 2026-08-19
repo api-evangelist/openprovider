@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData InvoiceService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "InvoiceService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/invoices",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "The order by."
+              },
+              {
+                "name": "start_creation_date",
+                "value": "",
+                "type": "query",
+                "description": "The start creation date."
+              },
+              {
+                "name": "end_creation_date",
+                "value": "",
+                "type": "query",
+                "description": "The end creation date."
+              }
+            ]
+          },
+          "docs": "List invoices"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

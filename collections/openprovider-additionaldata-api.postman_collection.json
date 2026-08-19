@@ -1,0 +1,218 @@
+{
+  "item": [
+    {
+      "id": "1b3ff02d-3647-4584-a7a3-9b08b84e2a59",
+      "name": "AdditionalData",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d2280619-d556-4cd6-b83b-67d5910f3bbd",
+          "name": "Get additional data",
+          "request": {
+            "name": "Get additional data",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                "additional-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domain.name",
+                  "value": "<string>",
+                  "description": "Domain name without extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "domain.extension",
+                  "value": "<string>",
+                  "description": "Domain extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "operation",
+                  "value": "<string>",
+                  "description": "The operation."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da9239c3-5ba0-4731-8c2e-2ee1e7fae02d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "additional-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": [\n    {\n      \"description\": \"IDN script states what language or character set the domain name is in\",\n      \"name\": \"idnScript\",\n      \"options\": [\n        {\n          \"description\": \"Norwegian\",\n          \"value\": \"no\"\n        }\n      ],\n      \"required\": false,\n      \"type\": \"select\"\n    }\n  ],\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f48a9d5-165f-48c1-878b-db8bea000b8e",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "additional-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4af89022-de61-432c-aae7-c9d2e08d8817",
+    "name": "REST AdditionalData API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

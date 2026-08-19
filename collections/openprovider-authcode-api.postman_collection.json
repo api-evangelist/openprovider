@@ -1,0 +1,442 @@
+{
+  "item": [
+    {
+      "id": "8711e7c9-5545-4c2f-8629-f9202ad98496",
+      "name": "AuthCode",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ccff2c54-8b24-41fc-8079-3d7bd6f5c39d",
+          "name": "Get auth code",
+          "request": {
+            "name": "Get auth code",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                ":id",
+                "authcode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domain.name",
+                  "value": "<string>",
+                  "description": "Domain name without extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "domain.extension",
+                  "value": "<string>",
+                  "description": "Domain extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "auth_code_type",
+                  "value": "<string>",
+                  "description": "Type of transfer authorization code. external (default) or internal (for internal transfers between reseller accounts in Openprovider only)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sending_type",
+                  "value": "<string>",
+                  "description": "Indicates how authcode should be provisioned to domain owner. For ru / xn--p1ai domains only. Possible values: sms, email letter."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Domain id number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65b85810-1f3b-4bae-9622-7fcf613bb28f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "authcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auth_code_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sending_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"auth_code\": \"12345678\",\n    \"success\": false,\n    \"type\": \"external\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e57c8a83-bf7b-4656-be23-0fbac743f564",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "authcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auth_code_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sending_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3dee393b-b9e1-42d0-a1c4-50b544b9255b",
+          "name": "Reset auth code",
+          "request": {
+            "name": "Reset auth code",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                ":id",
+                "authcode",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Domain id number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"auth_code_type\": \"<string>\",\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"sending_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fcdfdde3-57cd-45a2-96d3-f755b415cdd7",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "authcode",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"auth_code_type\": \"internal\",\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0,\n  \"sending_type\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"auth_code\": \"12345678\",\n    \"auth_info\": {\n      \"pw\": \"cyF2A7jPp+T#?5j*-G82\"\n    },\n    \"domain_roid\": \"\",\n    \"epp_statuses\": [\n      \"\"\n    ],\n    \"rgp_statuses\": {\n      \"add_period\": \"2019-05-23 12:05:48\",\n      \"auto_renew_period\": \"2019-05-23 12:05:48\"\n    },\n    \"success\": false,\n    \"type\": \"internal\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5e6a521-c090-47c0-91e4-ee44ae6ae531",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "authcode",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"auth_code_type\": \"internal\",\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0,\n  \"sending_type\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ecc28b8c-3e4d-49f7-828d-08a9ce74a027",
+    "name": "REST AdditionalData AuthCode API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

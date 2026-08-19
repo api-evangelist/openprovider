@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData OtpToken API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OtpToken",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create otp token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/otp-tokens",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Create otp token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

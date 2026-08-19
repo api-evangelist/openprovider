@@ -1,0 +1,173 @@
+{
+  "item": [
+    {
+      "id": "29a9f471-2a8c-4bb9-8c75-9496fe066d95",
+      "name": "Statistics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "041e434a-45eb-4fd7-b919-213a2bd69935",
+          "name": "Get statistics",
+          "request": {
+            "name": "Get statistics",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "resellers",
+                "statistics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d978e186-5445-4349-8045-86fee608efc7",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "resellers",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"currency\": {\n      \"modified\": \"2010-08-01 9:30:54\"\n    },\n    \"customer\": {\n      \"modified\": \"2019-05-03 13:23:01\",\n      \"total\": 999\n    },\n    \"dns\": {\n      \"total\": 999\n    },\n    \"domain\": {\n      \"by_status\": {\n        \"act\": 7,\n        \"fai\": 419,\n        \"nsr\": 0,\n        \"pen\": 0,\n        \"rej\": 5,\n        \"req\": 15\n      },\n      \"total\": 999\n    },\n    \"license\": {\n      \"total\": 999\n    },\n    \"spam_experts\": {\n      \"activated_at\": \"2012-10-29 10:48:30\",\n      \"created_at\": \"2012-10-29 10:48:30\",\n      \"exists\": false,\n      \"expired_at\": \"2016-04-05 8:50:34\",\n      \"incoming_count\": 0,\n      \"incoming_limit\": 10,\n      \"outgoing_count\": 0,\n      \"outgoing_limit\": 1,\n      \"status\": \"deleted\",\n      \"with_outgoing_filter\": false\n    },\n    \"ssl\": {\n      \"by_status\": {\n        \"act\": 7,\n        \"fai\": 419,\n        \"nsr\": 0,\n        \"pen\": 0,\n        \"rej\": 5,\n        \"req\": 15\n      },\n      \"total\": 999\n    }\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57c7efd5-9349-42d4-a051-d28e0e8ccb5d",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "resellers",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b98fdc64-7f47-46ab-a69e-b736f4799f37",
+    "name": "REST AdditionalData Statistics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

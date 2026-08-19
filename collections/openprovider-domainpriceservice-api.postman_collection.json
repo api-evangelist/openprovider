@@ -1,0 +1,246 @@
+{
+  "item": [
+    {
+      "id": "2dc7318a-4d2f-4f9d-9a0c-d8499be7625a",
+      "name": "DomainPriceService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ddf4c36-fac8-44c3-a9e3-237d03e2a1ee",
+          "name": "Get price",
+          "request": {
+            "name": "Get price",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                "prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domain.name",
+                  "value": "<string>",
+                  "description": "Domain name without extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "domain.extension",
+                  "value": "<string>",
+                  "description": "Domain extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "operation",
+                  "value": "<string>",
+                  "description": "Domain operation."
+                },
+                {
+                  "disabled": false,
+                  "key": "additional_data.idn_script",
+                  "value": "<string>",
+                  "description": "The idn script states what language or character set the domain name is in\nApplicable to: .actor, .ae.org, .airforce, .army, .art, .attorney, .auction, .band, .bar, .best, .br.com, .ceo, .cn.com, .college, .com, .com.de, .com.se, .consulting, .dance, .de.com, .degree, .democrat, .dentist, .design, .engineer, .eu.com, .eus, .feedback, .fm, .forsale, .frl, .fun, .futbol, .gal, .gb.net, .gives, .gr.com, .haus, .hiv, .host, .immobilien, .in.net, .info, .ink, .jp.net, .jpn.com, .kaufen, .kyoto, .lawyer, .love, .market, .me, .mex.com, .moda, .mortgage, .navy, .net, .ninja, .nrw, .online, .ooo, .org, .press, .protection, .pub, .pw, .quebec, .radio.am, .radio.fm, .realty, .rehab, .rent, .republican, .rest, .reviews, .rip, .rocks, .ru.com, .sa.com, .scot, .se.net, .security, .site, .social, .software, .space, .store, .tech, .theatre, .tickets, .top, .uk.com, .uk.net, .us.com, .us.org, .vet, .website, .wiki, .xn--4gbrim, .xn--55qx5d, .xn--5tzm5g, .xn--80asehdb, .xn--80aswg, .xn--c1avg, .xn--czru2d, .xn--i1b6b1a6a2e, .xn--io0a7i, .xn--mk1bu44c, .xn--ngbc5azd, .xn--nqv7f, .xn--t60b56a, .xn--tckwe, .xyz, .za.com."
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<integer>",
+                  "description": "Operation period."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27b13d49-da4e-4a87-82d2-ba78524ab821",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "additional_data.idn_script",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"is_premium\": false,\n    \"is_promotion\": false,\n    \"membership_price\": {\n      \"product\": {\n        \"currency\": \"USD\",\n        \"price\": 8.06\n      },\n      \"reseller\": {\n        \"currency\": \"USD\",\n        \"price\": 8.06\n      }\n    },\n    \"price\": {\n      \"product\": {\n        \"currency\": \"USD\",\n        \"price\": 8.06\n      },\n      \"reseller\": {\n        \"currency\": \"USD\",\n        \"price\": 8.06\n      }\n    },\n    \"promotion_data\": {\n      \"end_date\": \"1589932800\",\n      \"start_date\": \"1582156800\"\n    },\n    \"tier_price\": {\n      \"product\": {\n        \"currency\": \"USD\",\n        \"price\": 8.06\n      },\n      \"reseller\": {\n        \"currency\": \"USD\",\n        \"price\": 8.06\n      }\n    }\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "285ddc4e-c5fc-463c-aa03-bdfe83e4f0a9",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "additional_data.idn_script",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b4255ff3-cca3-4cd2-9ef5-734d9d639388",
+    "name": "REST AdditionalData DomainPriceService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

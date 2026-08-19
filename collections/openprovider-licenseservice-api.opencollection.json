@@ -1,0 +1,503 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData LicenseService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LicenseService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List licenses with price version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "order_by.id",
+                "value": "",
+                "type": "query",
+                "description": "Object ID."
+              },
+              {
+                "name": "order_by.key_id",
+                "value": "",
+                "type": "query",
+                "description": "License key ID."
+              },
+              {
+                "name": "order_by.title",
+                "value": "",
+                "type": "query",
+                "description": "Custom license title."
+              },
+              {
+                "name": "order_by.product",
+                "value": "",
+                "type": "query",
+                "description": "Product type (only Plesk is available)."
+              },
+              {
+                "name": "order_by.status",
+                "value": "",
+                "type": "query",
+                "description": "License status."
+              },
+              {
+                "name": "order_by.key_number",
+                "value": "",
+                "type": "query",
+                "description": "License key number."
+              },
+              {
+                "name": "order_by.expiration_date",
+                "value": "",
+                "type": "query",
+                "description": "License expiration date."
+              },
+              {
+                "name": "product",
+                "value": "",
+                "type": "query",
+                "description": "Product type (only Plesk is available)."
+              },
+              {
+                "name": "key_number",
+                "value": "",
+                "type": "query",
+                "description": "License key number."
+              },
+              {
+                "name": "title_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Custom title pattern. Wildcard (*) can be sued."
+              },
+              {
+                "name": "key_number_pattern",
+                "value": "",
+                "type": "query",
+                "description": "License key number pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "parent_key_id",
+                "value": "",
+                "type": "query",
+                "description": "Key ID of the partent license."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "License status."
+              }
+            ]
+          },
+          "docs": "List licenses with price version"
+        },
+        {
+          "info": {
+            "name": "Reset hwid",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/licenses/hwids/reset/:product/:key_id",
+            "params": [
+              {
+                "name": "product",
+                "value": "",
+                "type": "path",
+                "description": "Product type (only Plesk is available)"
+              },
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Reset hwid"
+        },
+        {
+          "info": {
+            "name": "List items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/items",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "order_by.id",
+                "value": "",
+                "type": "query",
+                "description": "Object ID."
+              },
+              {
+                "name": "order_by.key_id",
+                "value": "",
+                "type": "query",
+                "description": "License key ID."
+              },
+              {
+                "name": "order_by.title",
+                "value": "",
+                "type": "query",
+                "description": "Custom license title."
+              },
+              {
+                "name": "order_by.product",
+                "value": "",
+                "type": "query",
+                "description": "Product type (only Plesk is available)."
+              },
+              {
+                "name": "order_by.status",
+                "value": "",
+                "type": "query",
+                "description": "License status."
+              },
+              {
+                "name": "order_by.key_number",
+                "value": "",
+                "type": "query",
+                "description": "License key number."
+              },
+              {
+                "name": "order_by.expiration_date",
+                "value": "",
+                "type": "query",
+                "description": "License expiration date."
+              },
+              {
+                "name": "product",
+                "value": "",
+                "type": "query",
+                "description": "Product type (only Plesk is available)."
+              }
+            ]
+          },
+          "docs": "List items"
+        },
+        {
+          "info": {
+            "name": "List plesk licenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "query",
+                "description": "License key ID."
+              },
+              {
+                "name": "key_number",
+                "value": "",
+                "type": "query",
+                "description": "License key number."
+              },
+              {
+                "name": "title_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Custom title pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "key_number_pattern",
+                "value": "",
+                "type": "query",
+                "description": "License key number pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "parent_key_id",
+                "value": "",
+                "type": "query",
+                "description": "Key ID of the partent license."
+              }
+            ]
+          },
+          "docs": "List plesk licenses"
+        },
+        {
+          "info": {
+            "name": "Create plesk license",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk"
+          },
+          "docs": "Create plesk license"
+        },
+        {
+          "info": {
+            "name": "Get plesk key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk/key/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Get plesk key"
+        },
+        {
+          "info": {
+            "name": "Get plesk license",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Get plesk license"
+        },
+        {
+          "info": {
+            "name": "Update plesk license",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Update plesk license"
+        },
+        {
+          "info": {
+            "name": "Delete plesk license",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/licenses/plesk/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Delete plesk license"
+        },
+        {
+          "info": {
+            "name": "List virtuozzo licenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "query",
+                "description": "License key ID."
+              },
+              {
+                "name": "key_number",
+                "value": "",
+                "type": "query",
+                "description": "License key number."
+              },
+              {
+                "name": "title_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Custom title pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "key_number_pattern",
+                "value": "",
+                "type": "query",
+                "description": "License key number pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "parent_key_id",
+                "value": "",
+                "type": "query",
+                "description": "Key ID of the partent license."
+              }
+            ]
+          },
+          "docs": "List virtuozzo licenses"
+        },
+        {
+          "info": {
+            "name": "Create virtuozzo license",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo"
+          },
+          "docs": "Create virtuozzo license"
+        },
+        {
+          "info": {
+            "name": "Get virtuozzo license",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Get virtuozzo license"
+        },
+        {
+          "info": {
+            "name": "Update virtuozzo license",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Update virtuozzo license"
+        },
+        {
+          "info": {
+            "name": "Delete virtuozzo license",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Delete virtuozzo license"
+        },
+        {
+          "info": {
+            "name": "Get virtuozzo key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/licenses/virtuozzo/:key_id/key",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "License key ID"
+              }
+            ]
+          },
+          "docs": "Get virtuozzo key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData Product API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/ssl/products",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search query limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Search query offset."
+              },
+              {
+                "name": "with_price",
+                "value": "",
+                "type": "query",
+                "description": "Returns product price in the response."
+              },
+              {
+                "name": "with_supported_software",
+                "value": "",
+                "type": "query",
+                "description": "Returns a list of supported software patforms."
+              },
+              {
+                "name": "with_description",
+                "value": "",
+                "type": "query",
+                "description": "Returns a description for each product, if exists."
+              },
+              {
+                "name": "order_by.name",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.brand_name",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.category",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.sub_category",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.brand_seqno",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.product_seqno",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              }
+            ]
+          },
+          "docs": "List products"
+        },
+        {
+          "info": {
+            "name": "Get product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/ssl/products/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Get product"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

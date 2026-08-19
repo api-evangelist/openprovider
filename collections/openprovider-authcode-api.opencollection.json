@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData AuthCode API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AuthCode",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get auth code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains/:id/authcode",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              },
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "auth_code_type",
+                "value": "",
+                "type": "query",
+                "description": "Type of transfer authorization code. external (default) or internal (for internal transfers between reseller accounts in Openprovider only)."
+              },
+              {
+                "name": "sending_type",
+                "value": "",
+                "type": "query",
+                "description": "Indicates how authcode should be provisioned to domain owner. For ru / xn--p1ai domains only. Possible values: sms, email letter."
+              }
+            ]
+          },
+          "docs": "Get auth code"
+        },
+        {
+          "info": {
+            "name": "Reset auth code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/domains/:id/authcode/reset",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Domain id number"
+              }
+            ]
+          },
+          "docs": "Reset auth code"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

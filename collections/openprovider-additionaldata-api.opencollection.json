@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AdditionalData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get additional data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/domains/additional-data",
+            "params": [
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "operation",
+                "value": "",
+                "type": "query",
+                "description": "The operation."
+              }
+            ]
+          },
+          "docs": "Get additional data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

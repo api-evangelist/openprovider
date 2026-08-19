@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData EasydmarcOrder API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EasydmarcOrder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get easy dmarc",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/easydmarcs",
+            "params": [
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              }
+            ]
+          },
+          "docs": "Get easy dmarc"
+        },
+        {
+          "info": {
+            "name": "Create easy dmarc",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/easydmarcs"
+          },
+          "docs": "Create easy dmarc"
+        },
+        {
+          "info": {
+            "name": "List easy dmarc",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/easydmarcs/list",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search query limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Search query offset."
+              },
+              {
+                "name": "order_by.id",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Array of order statuses."
+              },
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              }
+            ]
+          },
+          "docs": "List easy dmarc"
+        },
+        {
+          "info": {
+            "name": "Delete easy dmarc",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/easydmarcs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Easydmarc id (order number)"
+              }
+            ]
+          },
+          "docs": "Delete easy dmarc"
+        },
+        {
+          "info": {
+            "name": "Retry easy dmarc",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/easydmarcs/:id/retry",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Easydmarc id (order number)"
+              }
+            ]
+          },
+          "docs": "Retry easy dmarc"
+        },
+        {
+          "info": {
+            "name": "Get easy dmarc sso",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/easydmarcs/:id/sso",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Easy Dmarc id (order id)"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "SSO url on behalf of the customer or reseller."
+              }
+            ]
+          },
+          "docs": "Get easy dmarc sso"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

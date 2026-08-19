@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData Email API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Email",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/emails",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Object ID."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Template name."
+              },
+              {
+                "name": "group",
+                "value": "",
+                "type": "query",
+                "description": "Email template type. There are several types of ICANN emails that can be customized in Openprovider: -errp (Expired Registration Recovery policy emails) -foa (Form of Authorization emails for domain transfers approval rejection) -ive (Information verification emails, such emails used to verify email address of the customer) -tcn (Trademark Claims Notification emails) -wdrp (Whois Data Reminder Policy emails)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Output offset."
+              },
+              {
+                "name": "is_system",
+                "value": "",
+                "type": "query",
+                "description": "Is system."
+              }
+            ]
+          },
+          "docs": "List emails"
+        },
+        {
+          "info": {
+            "name": "Create email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/emails"
+          },
+          "docs": "Create email"
+        },
+        {
+          "info": {
+            "name": "Update email",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/emails/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Update email"
+        },
+        {
+          "info": {
+            "name": "Delete email",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/emails/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Delete email"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

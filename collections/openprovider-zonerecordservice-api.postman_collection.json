@@ -1,0 +1,402 @@
+{
+  "item": [
+    {
+      "id": "b9e32be7-0be7-4c6f-a881-a938b29e115b",
+      "name": "ZoneRecordService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe27f9d5-ea58-4f31-a43e-ab6b3dea62d6",
+          "name": "List zone records",
+          "request": {
+            "name": "List zone records",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "zones",
+                ":name",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "zone_id",
+                  "value": "<integer>",
+                  "description": "DNS zone ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "How many records to retrieve (default: 100, max 500)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "From which record to retrieve (default: 0)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.type",
+                  "value": "asc",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.name",
+                  "value": "asc",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.value",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.ttl",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.prio",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "record_name_pattern",
+                  "value": "<string>",
+                  "description": "DNS record name pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "value_pattern",
+                  "value": "<string>",
+                  "description": "DNS record value pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "DNS record type."
+                },
+                {
+                  "disabled": false,
+                  "key": "prio",
+                  "value": "<integer>",
+                  "description": "DNS record priority."
+                },
+                {
+                  "disabled": false,
+                  "key": "ttl",
+                  "value": "<integer>",
+                  "description": "DNS record TTL."
+                },
+                {
+                  "disabled": false,
+                  "key": "zone_provider",
+                  "value": "<string>",
+                  "description": "Name of the DNS provider. Set zone_provider=sectigo in case of only sectigo premium DNS zone records should be retrieved."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) DNS record name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1845338f-875d-469f-b6bf-10201d0ad343",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones",
+                    ":name",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "zone_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by.type",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order_by.name",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order_by.value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.ttl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.prio",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "record_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prio",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ttl",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "zone_provider",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) DNS record name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"results\": [\n      {\n        \"creation_date\": \"\",\n        \"ip\": \"127.0.0.1\",\n        \"modification_date\": \"\",\n        \"name\": \"domain.com\",\n        \"prio\": 1,\n        \"ttl\": 900,\n        \"type\": \"CNAME\",\n        \"value\": \"abcd.domain.com\"\n      }\n    ],\n    \"total\": 6\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a500f61-89ec-462b-a777-43f9a27147d3",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "zones",
+                    ":name",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "zone_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by.type",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order_by.name",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order_by.value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.ttl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.prio",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "record_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prio",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ttl",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "zone_provider",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) DNS record name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "77fb51f2-2901-4bf1-bae3-f43988499dad",
+    "name": "REST AdditionalData ZoneRecordService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData ZoneService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ZoneService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/zones",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of objects in the output. (default value: 100, maximum value: 500)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Used to retrieve all objects from a certain offset up to the. (default value: 0)."
+              },
+              {
+                "name": "order_by.creation_date",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.modification_date",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.name",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "DNS zone type (master or slave)."
+              },
+              {
+                "name": "name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "DNS zone name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "with_records",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNS records should be displayed in output."
+              },
+              {
+                "name": "with_history",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNS zone history should be displayed in output."
+              },
+              {
+                "name": "with_dnskey",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNSSEC keys should be displayed in output."
+              },
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query",
+                "description": "Name of the DNS provider. Set provider=sectigo in case of only sectigo premium DNS zone should be retrieved."
+              }
+            ]
+          },
+          "docs": "List zones"
+        },
+        {
+          "info": {
+            "name": "Create zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/dns/zones"
+          },
+          "docs": "Create zone"
+        },
+        {
+          "info": {
+            "name": "Get zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/zones/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the domain to which DNS zone corresponds"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "DNS zone ID."
+              },
+              {
+                "name": "with_records",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNS records should be displayed in output."
+              },
+              {
+                "name": "with_history",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNS zone history should be displayed in output."
+              },
+              {
+                "name": "with_dnskey",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether DNSSEC keys should be displayed in output."
+              },
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query",
+                "description": "Name of the DNS provider. Set provider=sectigo in case of only sectigo premium DNS zone should be retrieved."
+              }
+            ]
+          },
+          "docs": "Get zone"
+        },
+        {
+          "info": {
+            "name": "Update zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/dns/zones/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the domain to which DNS zone corresponds"
+              }
+            ]
+          },
+          "docs": "Update zone"
+        },
+        {
+          "info": {
+            "name": "Delete zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/dns/zones/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the domain to which DNS zone corresponds"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "DNS zone ID."
+              },
+              {
+                "name": "domain.name",
+                "value": "",
+                "type": "query",
+                "description": "Domain name without extension."
+              },
+              {
+                "name": "domain.extension",
+                "value": "",
+                "type": "query",
+                "description": "Domain extension."
+              },
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query",
+                "description": "Name of the DNS provider. Set provider=sectigo in case of sectigo premium DNS zone should be deleted."
+              }
+            ]
+          },
+          "docs": "Delete zone"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

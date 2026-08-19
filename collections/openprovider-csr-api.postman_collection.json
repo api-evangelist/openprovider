@@ -1,0 +1,358 @@
+{
+  "item": [
+    {
+      "id": "1911b51b-3351-4dc8-9ef9-f65f734e45a9",
+      "name": "Csr",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3474f7bb-18db-4129-acac-2f0223bf89e0",
+          "name": "Create csr",
+          "request": {
+            "name": "Create csr",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "ssl",
+                "csr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bits\": \"<integer>\",\n  \"common_name\": \"<string>\",\n  \"country\": \"<string>\",\n  \"email\": \"<string>\",\n  \"locality\": \"<string>\",\n  \"organization\": \"<string>\",\n  \"signature_hash_algorithm\": \"<string>\",\n  \"state\": \"<string>\",\n  \"subject_alternative_name\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"unit\": \"<string>\",\n  \"with_config\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3fdd0cc-5d25-4bf2-822c-8c37ad867a43",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "ssl",
+                    "csr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bits\": \"<integer>\",\n  \"common_name\": \"<string>\",\n  \"country\": \"<string>\",\n  \"email\": \"<string>\",\n  \"locality\": \"<string>\",\n  \"organization\": \"<string>\",\n  \"signature_hash_algorithm\": \"<string>\",\n  \"state\": \"<string>\",\n  \"subject_alternative_name\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"unit\": \"<string>\",\n  \"with_config\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"command\": \"\",\n    \"config\": \"\",\n    \"config_path\": \"\",\n    \"csr\": \"-----BEGIN CERTIFICATE REQUEST-----\\nMIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER\\nMA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp\\ndDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4\\nYW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH\\nRldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK\\nh5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5\\nyaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos\\nqBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww\\nacElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo\\nJOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S\\nZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi\\ncq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6\\nwCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk\\n99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq\\n1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma\\nySUlLeY=\\n-----END CERTIFICATE REQUEST-----\",\n    \"key\": \"\",\n    \"key_path\": \"\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1520bc6-cae9-4d23-81c5-a548025fb5c1",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "ssl",
+                    "csr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bits\": \"<integer>\",\n  \"common_name\": \"<string>\",\n  \"country\": \"<string>\",\n  \"email\": \"<string>\",\n  \"locality\": \"<string>\",\n  \"organization\": \"<string>\",\n  \"signature_hash_algorithm\": \"<string>\",\n  \"state\": \"<string>\",\n  \"subject_alternative_name\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"unit\": \"<string>\",\n  \"with_config\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab74091a-d0b9-4aff-9b65-8a41da58e88d",
+          "name": "Decode csr",
+          "request": {
+            "name": "Decode csr",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "ssl",
+                "csr",
+                "decode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"csr\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0c1c373-3b13-4acb-9964-ec19378fb095",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "ssl",
+                    "csr",
+                    "decode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"csr\": \"-----BEGIN CERTIFICATE REQUEST-----\\nMIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER\\nMA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp\\ndDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4\\nYW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH\\nRldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK\\nh5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5\\nyaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos\\nqBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww\\nacElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo\\nJOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S\\nZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi\\ncq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6\\nwCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk\\n99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq\\n1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma\\nySUlLeY=\\n-----END CERTIFICATE REQUEST-----\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"domain_names_count\": 2,\n    \"public_key\": {\n      \"bits\": 2048,\n      \"key\": \"\"\n    },\n    \"signature_hash_algorithm\": \"sha2\",\n    \"subject\": {\n      \"common_name\": \"example.com\",\n      \"country\": \"NL\",\n      \"email\": \"admin@example.com\",\n      \"locality\": \"City\",\n      \"organization\": \"MyCompany B.V.\",\n      \"state\": \"Testprovince\",\n      \"unit\": \"Domain Control Validated\"\n    },\n    \"subject_alternative_name\": [\n      \"www.example.com\"\n    ]\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45444114-f9bc-4cae-a2cb-2a66cbff91dd",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "ssl",
+                    "csr",
+                    "decode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"csr\": \"-----BEGIN CERTIFICATE REQUEST-----\\nMIIC0TCCAbkCAQAwgYsxCzAJBgNVBAYTAkFVMREwDwYDVQQIDAhleGFtcGxlczER\\nMA8GA1UEBwwIZXhhbXBsZXMxETAPBgNVBAoMCGV4YW1wbGVzMQswCQYDVQQLDAJp\\ndDEUMBIGA1UEAwwLZXhhbXBsZS5jb20xIDAeBgkqhkiG9w0BCQEWEWFkbWluQGV4\\nYW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6XbdNhvH\\nRldtqE8iNm1Da0z+rkmAJlEtKUjqz5CDGcA9ByCLQ4qBIsSAkRgElBonMyR8lLDK\\nh5Ac9jrkg40zrrXCl8TQ4sW5GFavwBPKCTHQu0EhovGWdV490+oOTVBckBW6niI5\\nyaezhL4ZJzd4smrqoH3fPYPgLcb7+Lb4fsMfavRrallMrHP612bLm0mOpXKcwHos\\nqBdC3OW2v64MnBdla3ZcPKFG8ThcdJoD9sym1EtKsm3MbyT9d8r3D+L2+xqZOjww\\nacElCLmZ8Ep4aQVx0GRbJoDEA1Yy7A9YC4E+SObW7daquTX+zymeK0k1mACmOwvo\\nJOrjLIhUbjJDtQIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBANBGBu55iuzTYc4S\\nZW3F8flSd0cO8ubKII6WcwHJrk8NIlAgfduAuNRuG9CAba0e72Ea0xKIhXSzxbDi\\ncq9Yl0rkovY95ZyRayxl9AC4d7grJnncmKk2aUtarRq0pOaYfWuKwjaVPknGaGu6\\nwCnGI/7nMCZA77ZH2s+rberHO+/6GCt+9pqSqY4u+2r83WMWMrVT/4jNBxKVErAk\\n99iAC69+/N/afaryLoiAAtuaUPOAOD3fW4FXtjvvfht8xeU1AvYPOr0IfYdMH/Yq\\n1EzRUsoxnhNG3Lb6YaQ0K59iFoBESSN5JHmLSLFEPb1i36Gx4kQMGJH8FM5tlPma\\nySUlLeY=\\n-----END CERTIFICATE REQUEST-----\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "64c55a5a-16a2-426f-a71c-f7b72a29a1e5",
+    "name": "REST AdditionalData Csr API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

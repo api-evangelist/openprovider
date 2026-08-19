@@ -1,0 +1,983 @@
+{
+  "item": [
+    {
+      "id": "3cee3c09-987d-4dea-8ece-db0e3a8700c6",
+      "name": "NsGroupService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34f32fbf-518f-466f-ac5b-5a6219fce686",
+          "name": "List groups",
+          "request": {
+            "name": "List groups",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "nameservers",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Limits the number of objects in the output."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Used to retrieve all objects from a certain offset up to the limit. (default value: 0)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.ns_group",
+                  "value": "asc",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.domain_count",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.ns_count",
+                  "value": "<string>",
+                  "description": "Sorting type (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_domain_count",
+                  "value": "<boolean>",
+                  "description": "Indicates if number of domains associated with the NS group should be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_ns_count",
+                  "value": "<boolean>",
+                  "description": "Indicates if number of nameservers associated with the NS group should be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "ns_group_pattern",
+                  "value": "<string>",
+                  "description": "NS group name pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "ns_name_pattern",
+                  "value": "<string>",
+                  "description": "Nameserver name pattern. Wildcard (*) can be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "ns_ip_pattern",
+                  "value": "<string>",
+                  "description": "Nameserver IP address pattern. Wildcard (*) can be used."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e37d465-aec6-4ac8-9ba6-b33f319d7b20",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "nameservers",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by.ns_group",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order_by.domain_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.ns_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_domain_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_ns_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ns_group_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ns_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ns_ip_pattern",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"results\": [\n      {\n        \"domain_count\": 0,\n        \"id\": 0,\n        \"name_servers\": [\n          {\n            \"id\": 0,\n            \"ip\": \"127.0.0.1\",\n            \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n            \"name\": \"ns1.domain.com\",\n            \"seq_nr\": 0\n          }\n        ],\n        \"ns_count\": 0,\n        \"ns_group\": \"mygroup\"\n      }\n    ],\n    \"total\": 17\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8ed7708-945f-4764-a88e-033c58e0c578",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "nameservers",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by.ns_group",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order_by.domain_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.ns_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_domain_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_ns_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ns_group_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ns_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ns_ip_pattern",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cadfd22d-47b7-410b-9fbb-9beb60093efa",
+          "name": "Create group",
+          "request": {
+            "name": "Create group",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "nameservers",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name_servers\": [\n    {\n      \"id\": \"<integer>\",\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    }\n  ],\n  \"ns_group\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1d49fc41-5fed-4fc2-be28-3a16626b3727",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "nameservers",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name_servers\": [\n    {\n      \"id\": 0,\n      \"ip\": \"127.0.0.1\",\n      \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n      \"name\": \"ns1.domain.com\",\n      \"seq_nr\": 0\n    },\n    {\n      \"id\": 0,\n      \"ip\": \"127.0.0.1\",\n      \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n      \"name\": \"ns1.domain.com\",\n      \"seq_nr\": 0\n    }\n  ],\n  \"ns_group\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9b9e4e6-f413-45b7-bdfe-b0382210d90e",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "nameservers",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name_servers\": [\n    {\n      \"id\": 0,\n      \"ip\": \"127.0.0.1\",\n      \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n      \"name\": \"ns1.domain.com\",\n      \"seq_nr\": 0\n    },\n    {\n      \"id\": 0,\n      \"ip\": \"127.0.0.1\",\n      \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n      \"name\": \"ns1.domain.com\",\n      \"seq_nr\": 0\n    }\n  ],\n  \"ns_group\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e83a1f23-57ae-4362-bd5c-4bb9373ddb57",
+          "name": "Get group",
+          "request": {
+            "name": "Get group",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "nameservers",
+                "groups",
+                ":ns_group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "Nameserver group ID."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ns_group",
+                  "description": "(Required) Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a68f28ac-9133-4cc8-a00c-5b8236df63a9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "nameservers",
+                    "groups",
+                    ":ns_group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ns_group",
+                      "description": "(Required) Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 532,\n  \"data\": {\n    \"domain_count\": 6017,\n    \"id\": 3672,\n    \"name_servers\": [\n      {\n        \"id\": 0,\n        \"ip\": \"127.0.0.1\",\n        \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n        \"name\": \"ns1.domain.com\",\n        \"seq_nr\": 0\n      },\n      {\n        \"id\": 0,\n        \"ip\": \"127.0.0.1\",\n        \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n        \"name\": \"ns1.domain.com\",\n        \"seq_nr\": 0\n      }\n    ],\n    \"ns_count\": 4727,\n    \"ns_group\": \"string\"\n  },\n  \"desc\": \"string\",\n  \"maintenance\": true,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98023dbb-b25c-4026-b638-cacb9417b0ce",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "nameservers",
+                    "groups",
+                    ":ns_group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ns_group",
+                      "description": "(Required) Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32147338-457c-4a49-a346-7d79feca97d8",
+          "name": "Update group",
+          "request": {
+            "name": "Update group",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "nameservers",
+                "groups",
+                ":ns_group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ns_group",
+                  "description": "(Required) Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name_servers\": [\n    {\n      \"id\": \"<integer>\",\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    }\n  ],\n  \"ns_group\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0452a9f-b060-484b-bbf4-fb49e88779c6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "nameservers",
+                    "groups",
+                    ":ns_group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ns_group",
+                      "description": "(Required) Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name_servers\": [\n    {\n      \"id\": 0,\n      \"ip\": \"127.0.0.1\",\n      \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n      \"name\": \"ns1.domain.com\",\n      \"seq_nr\": 0\n    },\n    {\n      \"id\": 0,\n      \"ip\": \"127.0.0.1\",\n      \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n      \"name\": \"ns1.domain.com\",\n      \"seq_nr\": 0\n    }\n  ],\n  \"ns_group\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6397c9be-b8a7-475c-85cf-808da69e5048",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "nameservers",
+                    "groups",
+                    ":ns_group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ns_group",
+                      "description": "(Required) Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name_servers\": [\n    {\n      \"id\": 0,\n      \"ip\": \"127.0.0.1\",\n      \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n      \"name\": \"ns1.domain.com\",\n      \"seq_nr\": 0\n    },\n    {\n      \"id\": 0,\n      \"ip\": \"127.0.0.1\",\n      \"ip6\": \"0001:0001:0001:0001:0001:0001:0001:0001\",\n      \"name\": \"ns1.domain.com\",\n      \"seq_nr\": 0\n    }\n  ],\n  \"ns_group\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0512886-11d2-4bcc-8511-f22f18ab192b",
+          "name": "Delete group",
+          "request": {
+            "name": "Delete group",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "dns",
+                "nameservers",
+                "groups",
+                ":ns_group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ns_group",
+                  "description": "(Required) Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c264650-b32d-4926-b8f8-ef4e3fa1c169",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "nameservers",
+                    "groups",
+                    ":ns_group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ns_group",
+                      "description": "(Required) Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14815e67-c0c1-4695-84a7-93e3f6e723b5",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "dns",
+                    "nameservers",
+                    "groups",
+                    ":ns_group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ns_group",
+                      "description": "(Required) Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e52ea84e-32b2-4924-8fe6-c24463c07915",
+    "name": "REST AdditionalData NsGroupService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

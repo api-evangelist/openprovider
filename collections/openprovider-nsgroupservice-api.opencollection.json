@@ -1,0 +1,165 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData NsGroupService API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NsGroupService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/groups",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of objects in the output."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Used to retrieve all objects from a certain offset up to the limit. (default value: 0)."
+              },
+              {
+                "name": "order_by.ns_group",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.domain_count",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "order_by.ns_count",
+                "value": "",
+                "type": "query",
+                "description": "Sorting type (asc/desc)."
+              },
+              {
+                "name": "with_domain_count",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if number of domains associated with the NS group should be returned."
+              },
+              {
+                "name": "with_ns_count",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if number of nameservers associated with the NS group should be returned."
+              },
+              {
+                "name": "ns_group_pattern",
+                "value": "",
+                "type": "query",
+                "description": "NS group name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "ns_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "ns_ip_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver IP address pattern. Wildcard (*) can be used."
+              }
+            ]
+          },
+          "docs": "List groups"
+        },
+        {
+          "info": {
+            "name": "Create group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/groups"
+          },
+          "docs": "Create group"
+        },
+        {
+          "info": {
+            "name": "Get group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/groups/:ns_group",
+            "params": [
+              {
+                "name": "ns_group",
+                "value": "",
+                "type": "path",
+                "description": "Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Nameserver group ID."
+              }
+            ]
+          },
+          "docs": "Get group"
+        },
+        {
+          "info": {
+            "name": "Update group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/groups/:ns_group",
+            "params": [
+              {
+                "name": "ns_group",
+                "value": "",
+                "type": "path",
+                "description": "Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+              }
+            ]
+          },
+          "docs": "Update group"
+        },
+        {
+          "info": {
+            "name": "Delete group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1beta/dns/nameservers/groups/:ns_group",
+            "params": [
+              {
+                "name": "ns_group",
+                "value": "",
+                "type": "path",
+                "description": "Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains."
+              }
+            ]
+          },
+          "docs": "Delete group"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

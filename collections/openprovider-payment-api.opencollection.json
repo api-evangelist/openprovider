@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData Payment API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/payments",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "The order by."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status."
+              },
+              {
+                "name": "start_creation_date",
+                "value": "",
+                "type": "query",
+                "description": "The start creation date."
+              },
+              {
+                "name": "end_creation_date",
+                "value": "",
+                "type": "query",
+                "description": "The end creation date."
+              }
+            ]
+          },
+          "docs": "List payments"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

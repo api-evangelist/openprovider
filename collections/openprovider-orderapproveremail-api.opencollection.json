@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData OrderApproverEmail API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OrderApproverEmail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update approver email address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/approver-email",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Update approver email address"
+        },
+        {
+          "info": {
+            "name": "Resend approver email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/approver-email/resend",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Resend approver email"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

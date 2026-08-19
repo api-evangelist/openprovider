@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData Csr API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Csr",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create csr",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/csr"
+          },
+          "docs": "Create csr"
+        },
+        {
+          "info": {
+            "name": "Decode csr",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/csr/decode"
+          },
+          "docs": "Decode csr"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2981 @@
+{
+  "item": [
+    {
+      "id": "f43e6059-f9cd-4a6e-b4a5-5acbc8a5379e",
+      "name": "DomainService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8cfc7bfb-01fc-471d-aa3e-433bf4b9d1f5",
+          "name": "List domains",
+          "request": {
+            "name": "List domains",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "order_by.id",
+                  "value": "<string>",
+                  "description": "Domain id number."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.domain_name",
+                  "value": "<string>",
+                  "description": "The domain name."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.domain_extension",
+                  "value": "<string>",
+                  "description": "Domain extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.order_date",
+                  "value": "<string>",
+                  "description": "The order date."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.active_date",
+                  "value": "<string>",
+                  "description": "The active date."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.expiration_date",
+                  "value": "<string>",
+                  "description": "Domain expiration date."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.renewal_date",
+                  "value": "<string>",
+                  "description": "Date on which domain will be renewed."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.status",
+                  "value": "<string>",
+                  "description": "Domain status."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by.transfer_date",
+                  "value": "<string>",
+                  "description": "The transfer date."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "Domain id number."
+                },
+                {
+                  "disabled": false,
+                  "key": "extension",
+                  "value": "<string>",
+                  "description": "Domain extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "renewal_date",
+                  "value": "<string>",
+                  "description": "Date on which domain will be renewed."
+                },
+                {
+                  "disabled": false,
+                  "key": "full_name",
+                  "value": "<string>",
+                  "description": "Full name of the domain."
+                },
+                {
+                  "disabled": false,
+                  "key": "domain_name_pattern",
+                  "value": "<string>",
+                  "description": "The domain name pattern."
+                },
+                {
+                  "disabled": false,
+                  "key": "ns_group_pattern",
+                  "value": "<string>",
+                  "description": "Nameserver group name pattern."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Domain status."
+                },
+                {
+                  "disabled": false,
+                  "key": "status_not_equal",
+                  "value": "<string>",
+                  "description": "Array of domain statuses to exclude."
+                },
+                {
+                  "disabled": false,
+                  "key": "status_not_equal",
+                  "value": "<string>",
+                  "description": "Array of domain statuses to exclude."
+                },
+                {
+                  "disabled": false,
+                  "key": "queue_status",
+                  "value": "<string>",
+                  "description": "The queue status."
+                },
+                {
+                  "disabled": false,
+                  "key": "contact_handle",
+                  "value": "<string>",
+                  "description": "Handle to filter by."
+                },
+                {
+                  "disabled": false,
+                  "key": "comment_pattern",
+                  "value": "<string>",
+                  "description": "The comment pattern."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_history",
+                  "value": "<boolean>",
+                  "description": "With history."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_api_history",
+                  "value": "<boolean>",
+                  "description": "With api history."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_additional_data",
+                  "value": "<boolean>",
+                  "description": "With additional data."
+                },
+                {
+                  "disabled": false,
+                  "key": "application_mode",
+                  "value": "<string>",
+                  "description": "When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_verification_email",
+                  "value": "<boolean>",
+                  "description": "Returns information about domain owner email verification status."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_registry_statuses",
+                  "value": "<boolean>",
+                  "description": "Indicates, if registry EPP statuses should be retrieved."
+                },
+                {
+                  "disabled": false,
+                  "key": "response.type",
+                  "value": "<string>",
+                  "description": "The type."
+                },
+                {
+                  "disabled": false,
+                  "key": "response.to",
+                  "value": "<string>",
+                  "description": "The to."
+                },
+                {
+                  "disabled": false,
+                  "key": "is_deleted",
+                  "value": "<boolean>",
+                  "description": "Indicates whether object is deleted."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a797e18-61bb-4e73-a6dd-79690529b2e2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "order_by.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.domain_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.domain_extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.order_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.active_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.expiration_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.renewal_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.transfer_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "renewal_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "full_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ns_group_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_not_equal",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_not_equal",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "queue_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contact_handle",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "comment_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_history",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_api_history",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_verification_email",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_registry_statuses",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "response.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "response.to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"results\": [\n      {\n        \"abuse_details\": {\n          \"abuse_id\": 0,\n          \"is_domain_held\": false,\n          \"message\": \"\"\n        },\n        \"active_date\": \"2019-01-27 0:55:17\",\n        \"additional_data\": {\n          \"abogado_acceptance\": \"\",\n          \"admin_sing_pass_id\": \"\",\n          \"ae_acceptance\": \"1\",\n          \"allocation_token\": \"\",\n          \"auth_code\": \"\",\n          \"bank_acceptance\": \"\",\n          \"company_registration_number\": \"XX123456789X01\",\n          \"coop_acceptance\": \"1\",\n          \"customer_uin\": \"374892173498127349\",\n          \"customer_uin_doc_type\": {\n            \"description\": \"Singapore Personal Access ID\",\n            \"doc_type\": \"singpass\"\n          },\n          \"domain_name_variants\": [\n            \"xn--домен.cat\"\n          ],\n          \"eligibility_type\": \"\",\n          \"eligibility_type_relationship\": \"\",\n          \"es_annex_acceptance\": \"1\",\n          \"ftld_token\": \"\",\n          \"gay_donation_acceptance\": \"1\",\n          \"gay_rights_protection_acceptance\": \"1\",\n          \"id_number\": \"123456789X\",\n          \"id_type\": \"\",\n          \"idn_script\": \"SPA\",\n          \"insurance_acceptance\": \"\",\n          \"intended_use\": \"generic\",\n          \"law_acceptance\": \"\",\n          \"legal_type\": \"Individual\",\n          \"maintainer\": \"\",\n          \"membership_id\": \"A\",\n          \"mobile_phone_number_verification\": \"\",\n          \"ngo_ong_eligibility_acceptance\": \"\",\n          \"ngo_ong_policy_acceptance\": \"\",\n          \"passport_number\": \"X123456\",\n          \"rurf_blocked_domains\": \"\",\n          \"self_service\": \"1\",\n          \"trademark\": \"1\",\n          \"trademark_id\": \"\",\n          \"travel_acceptance\": \"1\",\n          \"vat\": \"11843009X\",\n          \"verification_code\": \"\",\n          \"vote_acceptance\": \"\",\n          \"voto_acceptance\": \"\"\n        },\n        \"admin_handle\": \"XX123456-XX\",\n        \"api_history\": [\n          {\n            \"cmd\": \"deleteDomainRequest\",\n            \"created_at\": \"2018-09-05 13:58:55\",\n            \"domain_id\": 12345678,\n            \"in\": \"\",\n            \"out\": \"\"\n          }\n        ],\n        \"application_id\": \"A743C511084404F31B15757DC979A1412-ABI\",\n        \"application_mode\": \"\",\n        \"application_mode_expiration_date\": \"\",\n        \"application_mode_title\": \"\",\n        \"application_notice_id\": \"983bdc1a0000100000188801724\",\n        \"application_smd\": \"\",\n        \"auth_code\": \"1a2b3c4d5e6f\",\n        \"autorenew\": \"default\",\n        \"billing_handle\": \"XX123456-XX\",\n        \"can_renew\": false,\n        \"comments\": \"\",\n        \"comments_last_changed_at\": \"2018-01-30 14:37:49\",\n        \"creation_date\": \"2013-07-04 17:14:44\",\n        \"delete_status\": \"quarantine\",\n        \"deleted_at\": \"0000-00-00 00:00:00\",\n        \"dnssec\": \"unsigned\",\n        \"dnssec_keys\": [\n          {\n            \"alg\": 8,\n            \"flags\": 257,\n            \"protocol\": 3,\n            \"pub_key\": \"WSgigdu8545g96\",\n            \"readonly\": 1\n          }\n        ],\n        \"domain\": {\n          \"extension\": \"london\",\n          \"name\": \"test4\"\n        },\n        \"expiration_date\": \"2014-07-04 17:14:44\",\n        \"hard_quarantine_expiry_date\": \"\",\n        \"has_active_sectigo_zone\": false,\n        \"has_history\": false,\n        \"history\": [\n          {\n            \"contents\": \"Domain: test-example.tldAction: registration succeededStatus: ACTOrder date: 2018-01-30Activation date: 2018-01-30Renewal date: 2019-01-27Expiration date: 2019-01-29Comments: registration of this domain has succeeded Nameserver addresses are automatically resolved by system; Nameserver IP addresses are only saved for glue records\",\n            \"domain\": \"example.com\",\n            \"ip\": \"12.123.3.12\",\n            \"subject\": \"Sent status e-mail to admin@someemail.nl\",\n            \"timestamp\": \"2018-01-30T14:38:45+01:00\",\n            \"type\": \"I\"\n          }\n        ],\n        \"id\": 123456789,\n        \"internal_auth_code\": \"1a2b3c4d5e6f\",\n        \"is_abusive\": false,\n        \"is_client_hold_enabled\": \"no\",\n        \"is_deleted\": false,\n        \"is_dnssec_enabled\": false,\n        \"is_hosted_whois\": false,\n        \"is_lockable\": false,\n        \"is_locked\": false,\n        \"is_parked\": false,\n        \"is_premium\": false,\n        \"is_private_whois_allowed\": false,\n        \"is_private_whois_enabled\": false,\n        \"is_sectigo_dns_enabled\": false,\n        \"is_spamexperts_enabled\": false,\n        \"last_changed\": \"2014-04-18 7:13:05\",\n        \"modify_owner_allowed\": false,\n        \"name_servers\": [\n          {\n            \"ip\": \"12.3.123.121\",\n            \"ip6\": \"1s23:123:123:f\",\n            \"name\": \"ns1.example.com\",\n            \"seq_nr\": 1\n          }\n        ],\n        \"ns_group\": \"dns-openprovider\",\n        \"ns_template_id\": 0,\n        \"ns_template_name\": \"\",\n        \"nsgroup_id\": 1,\n        \"order_date\": \"2013-07-04 17:14:44\",\n        \"owner\": {\n          \"company_name\": \"Example company\",\n          \"full_name\": \"Test Van Person\"\n        },\n        \"owner_company_name\": \"Company Name\",\n        \"owner_handle\": \"XX123456-XX\",\n        \"quarantine_expiration_date\": \"\",\n        \"registry_expiration_date\": \"2020-01-29 0:00:00\",\n        \"registry_statuses\": {\n          \"client_hold\": {\n            \"is_changeable\": false,\n            \"value\": 0\n          },\n          \"client_transfer_prohibited\": {\n            \"is_changeable\": false,\n            \"value\": 0\n          }\n        },\n        \"renew\": 2,\n        \"renewal_date\": \"2022-01-01 0:00:00\",\n        \"reseller_handle\": \"XX123456-XX\",\n        \"reseller_id\": 12345,\n        \"restorable_until\": \"\",\n        \"scheduled_at\": \"\",\n        \"scheduled_from\": \"\",\n        \"soft_quarantine_expiry_date\": \"\",\n        \"status\": \"PRE\",\n        \"tech_handle\": \"XX123456-XX\",\n        \"trade_allowed\": false,\n        \"trade_auth_code_required\": \"no\",\n        \"transfer_auth_code_required\": \"yes\",\n        \"transfer_cancel_supported\": false,\n        \"type\": \"NEW\",\n        \"unit\": \"y\",\n        \"use_domicile\": false,\n        \"verification_email_exp_date\": \"0000-00-00 00:00:00\",\n        \"verification_email_name\": \"test@example.com\",\n        \"verification_email_status\": \"not verified\",\n        \"verification_email_status_description\": \"-\",\n        \"whois_privacy_data\": {\n          \"expiration_date\": \"2020-04-29 17:15:19\"\n        }\n      }\n    ],\n    \"total\": 999\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4dc567b-fdf6-4882-8f33-209f149b9312",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "order_by.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.domain_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.domain_extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.order_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.active_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.expiration_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.renewal_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by.transfer_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "renewal_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "full_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ns_group_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_not_equal",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_not_equal",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "queue_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contact_handle",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "comment_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_history",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_api_history",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_verification_email",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_registry_statuses",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "response.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "response.to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec67ebaf-7e9d-47ac-b0c0-357d33cf9303",
+          "name": "Create domain",
+          "request": {
+            "name": "Create domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accept_eap_fee\": \"<double>\",\n  \"accept_premium_fee\": \"<double>\",\n  \"additional_data\": {\n    \"abogado_acceptance\": \"<string>\",\n    \"admin_sing_pass_id\": \"<string>\",\n    \"ae_acceptance\": \"<string>\",\n    \"allocation_token\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"bank_acceptance\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"coop_acceptance\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"<string>\",\n      \"doc_type\": \"<string>\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligibility_type\": \"<string>\",\n    \"eligibility_type_relationship\": \"<string>\",\n    \"es_annex_acceptance\": \"<string>\",\n    \"ftld_token\": \"<string>\",\n    \"gay_donation_acceptance\": \"<string>\",\n    \"gay_rights_protection_acceptance\": \"<string>\",\n    \"id_number\": \"<string>\",\n    \"id_type\": \"<string>\",\n    \"idn_script\": \"<string>\",\n    \"insurance_acceptance\": \"<string>\",\n    \"intended_use\": \"<string>\",\n    \"law_acceptance\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"ngo_ong_eligibility_acceptance\": \"<string>\",\n    \"ngo_ong_policy_acceptance\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"rurf_blocked_domains\": \"<string>\",\n    \"self_service\": \"<string>\",\n    \"trademark\": \"<string>\",\n    \"trademark_id\": \"<string>\",\n    \"travel_acceptance\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\",\n    \"vote_acceptance\": \"<string>\",\n    \"voto_acceptance\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"application_mode\": \"<string>\",\n  \"application_notice_id\": \"<string>\",\n  \"application_smd\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"<string>\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": \"<integer>\",\n      \"flags\": \"<integer>\",\n      \"protocol\": \"<integer>\",\n      \"pub_key\": \"<string>\",\n      \"readonly\": \"<integer>\"\n    },\n    {\n      \"alg\": \"<integer>\",\n      \"flags\": \"<integer>\",\n      \"protocol\": \"<integer>\",\n      \"pub_key\": \"<string>\",\n      \"readonly\": \"<integer>\"\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"is_dnssec_enabled\": \"<boolean>\",\n  \"is_easy_dmarc_enabled\": false,\n  \"is_private_whois_enabled\": \"<boolean>\",\n  \"is_sectigo_dns_enabled\": \"<boolean>\",\n  \"is_spamexperts_enabled\": \"<boolean>\",\n  \"name_servers\": [\n    {\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    },\n    {\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"period\": \"<integer>\",\n  \"promo_code\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"reseller_handle\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "049f73b5-121f-4438-9214-3b0c4fddccfa",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept_eap_fee\": \"<double>\",\n  \"accept_premium_fee\": \"<double>\",\n  \"additional_data\": {\n    \"abogado_acceptance\": \"<string>\",\n    \"admin_sing_pass_id\": \"<string>\",\n    \"ae_acceptance\": \"<string>\",\n    \"allocation_token\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"bank_acceptance\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"coop_acceptance\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"Singapore Personal Access ID\",\n      \"doc_type\": \"singpass\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligibility_type\": \"<string>\",\n    \"eligibility_type_relationship\": \"<string>\",\n    \"es_annex_acceptance\": \"<string>\",\n    \"ftld_token\": \"<string>\",\n    \"gay_donation_acceptance\": \"<string>\",\n    \"gay_rights_protection_acceptance\": \"<string>\",\n    \"id_number\": \"<string>\",\n    \"id_type\": \"<string>\",\n    \"idn_script\": \"<string>\",\n    \"insurance_acceptance\": \"<string>\",\n    \"intended_use\": \"<string>\",\n    \"law_acceptance\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"ngo_ong_eligibility_acceptance\": \"<string>\",\n    \"ngo_ong_policy_acceptance\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"rurf_blocked_domains\": \"<string>\",\n    \"self_service\": \"<string>\",\n    \"trademark\": \"<string>\",\n    \"trademark_id\": \"<string>\",\n    \"travel_acceptance\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\",\n    \"vote_acceptance\": \"<string>\",\n    \"voto_acceptance\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"application_mode\": \"<string>\",\n  \"application_notice_id\": \"<string>\",\n  \"application_smd\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"<string>\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    },\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"is_dnssec_enabled\": \"<boolean>\",\n  \"is_easy_dmarc_enabled\": false,\n  \"is_private_whois_enabled\": \"<boolean>\",\n  \"is_sectigo_dns_enabled\": \"<boolean>\",\n  \"is_spamexperts_enabled\": \"<boolean>\",\n  \"name_servers\": [\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    },\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"period\": \"<integer>\",\n  \"promo_code\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"reseller_handle\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4123,\n  \"data\": {\n    \"activation_date\": \"string\",\n    \"additional_data\": {\n      \"abogado_acceptance\": \"<string>\",\n      \"admin_sing_pass_id\": \"<string>\",\n      \"ae_acceptance\": \"<string>\",\n      \"allocation_token\": \"<string>\",\n      \"auth_code\": \"<string>\",\n      \"bank_acceptance\": \"<string>\",\n      \"company_registration_number\": \"<string>\",\n      \"coop_acceptance\": \"<string>\",\n      \"customer_uin\": \"<string>\",\n      \"customer_uin_doc_type\": {\n        \"description\": \"Singapore Personal Access ID\",\n        \"doc_type\": \"singpass\"\n      },\n      \"domain_name_variants\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"eligibility_type\": \"<string>\",\n      \"eligibility_type_relationship\": \"<string>\",\n      \"es_annex_acceptance\": \"<string>\",\n      \"ftld_token\": \"<string>\",\n      \"gay_donation_acceptance\": \"<string>\",\n      \"gay_rights_protection_acceptance\": \"<string>\",\n      \"id_number\": \"<string>\",\n      \"id_type\": \"<string>\",\n      \"idn_script\": \"<string>\",\n      \"insurance_acceptance\": \"<string>\",\n      \"intended_use\": \"<string>\",\n      \"law_acceptance\": \"<string>\",\n      \"legal_type\": \"<string>\",\n      \"maintainer\": \"<string>\",\n      \"membership_id\": \"<string>\",\n      \"mobile_phone_number_verification\": \"<string>\",\n      \"ngo_ong_eligibility_acceptance\": \"<string>\",\n      \"ngo_ong_policy_acceptance\": \"<string>\",\n      \"passport_number\": \"<string>\",\n      \"rurf_blocked_domains\": \"<string>\",\n      \"self_service\": \"<string>\",\n      \"trademark\": \"<string>\",\n      \"trademark_id\": \"<string>\",\n      \"travel_acceptance\": \"<string>\",\n      \"vat\": \"<string>\",\n      \"verification_code\": \"<string>\",\n      \"vote_acceptance\": \"<string>\",\n      \"voto_acceptance\": \"<string>\"\n    },\n    \"auth_code\": \"string\",\n    \"expiration_date\": \"string\",\n    \"id\": 5460,\n    \"renewal_date\": \"string\",\n    \"status\": \"string\"\n  },\n  \"desc\": \"string\",\n  \"maintenance\": false,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9568e95b-5712-463f-b436-f0a38603585a",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept_eap_fee\": \"<double>\",\n  \"accept_premium_fee\": \"<double>\",\n  \"additional_data\": {\n    \"abogado_acceptance\": \"<string>\",\n    \"admin_sing_pass_id\": \"<string>\",\n    \"ae_acceptance\": \"<string>\",\n    \"allocation_token\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"bank_acceptance\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"coop_acceptance\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"Singapore Personal Access ID\",\n      \"doc_type\": \"singpass\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligibility_type\": \"<string>\",\n    \"eligibility_type_relationship\": \"<string>\",\n    \"es_annex_acceptance\": \"<string>\",\n    \"ftld_token\": \"<string>\",\n    \"gay_donation_acceptance\": \"<string>\",\n    \"gay_rights_protection_acceptance\": \"<string>\",\n    \"id_number\": \"<string>\",\n    \"id_type\": \"<string>\",\n    \"idn_script\": \"<string>\",\n    \"insurance_acceptance\": \"<string>\",\n    \"intended_use\": \"<string>\",\n    \"law_acceptance\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"ngo_ong_eligibility_acceptance\": \"<string>\",\n    \"ngo_ong_policy_acceptance\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"rurf_blocked_domains\": \"<string>\",\n    \"self_service\": \"<string>\",\n    \"trademark\": \"<string>\",\n    \"trademark_id\": \"<string>\",\n    \"travel_acceptance\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\",\n    \"vote_acceptance\": \"<string>\",\n    \"voto_acceptance\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"application_mode\": \"<string>\",\n  \"application_notice_id\": \"<string>\",\n  \"application_smd\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"<string>\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    },\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"is_dnssec_enabled\": \"<boolean>\",\n  \"is_easy_dmarc_enabled\": false,\n  \"is_private_whois_enabled\": \"<boolean>\",\n  \"is_sectigo_dns_enabled\": \"<boolean>\",\n  \"is_spamexperts_enabled\": \"<boolean>\",\n  \"name_servers\": [\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    },\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"period\": \"<integer>\",\n  \"promo_code\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"reseller_handle\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2eedaa6f-d50a-4fa0-ac5f-cd6a2ef31135",
+          "name": "Check domain",
+          "request": {
+            "name": "Check domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                "check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"additional_data\": {\n    \"idn_script\": \"<string>\"\n  },\n  \"application_mode\": \"<string>\",\n  \"domains\": [\n    {\n      \"extension\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"extension\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"provider\": \"<string>\",\n  \"with_price\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "294488d8-6418-4666-a04d-62f2664fc8b7",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"idn_script\": \"cyrl\"\n  },\n  \"application_mode\": \"<string>\",\n  \"domains\": [\n    {\n      \"extension\": \"london\",\n      \"name\": \"test4\"\n    },\n    {\n      \"extension\": \"london\",\n      \"name\": \"test4\"\n    }\n  ],\n  \"provider\": \"<string>\",\n  \"with_price\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"results\": [\n      {\n        \"claim_key\": \"\",\n        \"domain\": \"example.com\",\n        \"is_premium\": false,\n        \"premium\": {\n          \"currency\": \"USD\",\n          \"price\": {\n            \"create\": 0\n          }\n        },\n        \"price\": {\n          \"product\": {\n            \"currency\": \"USD\",\n            \"price\": 8.06\n          },\n          \"reseller\": {\n            \"currency\": \"USD\",\n            \"price\": 8.06\n          }\n        },\n        \"reason\": \"Domain exists\",\n        \"status\": \"active\",\n        \"whois\": \"\"\n      }\n    ]\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e53c77b-1daf-4e19-b244-f0b0e60101a1",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"idn_script\": \"cyrl\"\n  },\n  \"application_mode\": \"<string>\",\n  \"domains\": [\n    {\n      \"extension\": \"london\",\n      \"name\": \"test4\"\n    },\n    {\n      \"extension\": \"london\",\n      \"name\": \"test4\"\n    }\n  ],\n  \"provider\": \"<string>\",\n  \"with_price\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6dd49cb-b01d-439d-b583-53ef90bc3a69",
+          "name": "Suggest name domain",
+          "request": {
+            "name": "Suggest name domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                "suggest-name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"language\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"sensitive\": \"<boolean>\",\n  \"tlds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "882638f3-cec8-40c3-8ccd-b5385b0418b7",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "suggest-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"language\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"sensitive\": \"<boolean>\",\n  \"tlds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"results\": [\n      {\n        \"domain\": \"yourexampledomain\",\n        \"name\": \"yourexampledomain.com\",\n        \"tld\": \"com\"\n      }\n    ]\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b97ecfea-172d-4d11-b540-b501c0c1c1ef",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "suggest-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"language\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"sensitive\": \"<boolean>\",\n  \"tlds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4aa831f-615d-40e4-b702-b5d53e766a4d",
+          "name": "Trade domain",
+          "request": {
+            "name": "Trade domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                "trade"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"additional_data\": {\n    \"abogado_acceptance\": \"<string>\",\n    \"admin_sing_pass_id\": \"<string>\",\n    \"ae_acceptance\": \"<string>\",\n    \"allocation_token\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"bank_acceptance\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"coop_acceptance\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"<string>\",\n      \"doc_type\": \"<string>\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligibility_type\": \"<string>\",\n    \"eligibility_type_relationship\": \"<string>\",\n    \"es_annex_acceptance\": \"<string>\",\n    \"ftld_token\": \"<string>\",\n    \"gay_donation_acceptance\": \"<string>\",\n    \"gay_rights_protection_acceptance\": \"<string>\",\n    \"id_number\": \"<string>\",\n    \"id_type\": \"<string>\",\n    \"idn_script\": \"<string>\",\n    \"insurance_acceptance\": \"<string>\",\n    \"intended_use\": \"<string>\",\n    \"law_acceptance\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"ngo_ong_eligibility_acceptance\": \"<string>\",\n    \"ngo_ong_policy_acceptance\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"rurf_blocked_domains\": \"<string>\",\n    \"self_service\": \"<string>\",\n    \"trademark\": \"<string>\",\n    \"trademark_id\": \"<string>\",\n    \"travel_acceptance\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\",\n    \"vote_acceptance\": \"<string>\",\n    \"voto_acceptance\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"<string>\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": \"<integer>\",\n      \"flags\": \"<integer>\",\n      \"protocol\": \"<integer>\",\n      \"pub_key\": \"<string>\",\n      \"readonly\": \"<integer>\"\n    },\n    {\n      \"alg\": \"<integer>\",\n      \"flags\": \"<integer>\",\n      \"protocol\": \"<integer>\",\n      \"pub_key\": \"<string>\",\n      \"readonly\": \"<integer>\"\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"name_servers\": [\n    {\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    },\n    {\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"period\": \"<integer>\",\n  \"promo_code\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80bd2773-4455-4be7-8898-ad13dc0538c3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "trade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"abogado_acceptance\": \"<string>\",\n    \"admin_sing_pass_id\": \"<string>\",\n    \"ae_acceptance\": \"<string>\",\n    \"allocation_token\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"bank_acceptance\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"coop_acceptance\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"Singapore Personal Access ID\",\n      \"doc_type\": \"singpass\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligibility_type\": \"<string>\",\n    \"eligibility_type_relationship\": \"<string>\",\n    \"es_annex_acceptance\": \"<string>\",\n    \"ftld_token\": \"<string>\",\n    \"gay_donation_acceptance\": \"<string>\",\n    \"gay_rights_protection_acceptance\": \"<string>\",\n    \"id_number\": \"<string>\",\n    \"id_type\": \"<string>\",\n    \"idn_script\": \"<string>\",\n    \"insurance_acceptance\": \"<string>\",\n    \"intended_use\": \"<string>\",\n    \"law_acceptance\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"ngo_ong_eligibility_acceptance\": \"<string>\",\n    \"ngo_ong_policy_acceptance\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"rurf_blocked_domains\": \"<string>\",\n    \"self_service\": \"<string>\",\n    \"trademark\": \"<string>\",\n    \"trademark_id\": \"<string>\",\n    \"travel_acceptance\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\",\n    \"vote_acceptance\": \"<string>\",\n    \"voto_acceptance\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"<string>\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    },\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"name_servers\": [\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    },\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"period\": \"<integer>\",\n  \"promo_code\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"creation_date\": \"2019-04-12 7:28:27\",\n    \"expiration_date\": \"2020-04-16 13:18:54\",\n    \"renewal_date\": \"2020-04-16 13:18:54\",\n    \"status\": \"ACT\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cda668eb-2007-4766-a49e-56553db08a40",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "trade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additional_data\": {\n    \"abogado_acceptance\": \"<string>\",\n    \"admin_sing_pass_id\": \"<string>\",\n    \"ae_acceptance\": \"<string>\",\n    \"allocation_token\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"bank_acceptance\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"coop_acceptance\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"Singapore Personal Access ID\",\n      \"doc_type\": \"singpass\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligibility_type\": \"<string>\",\n    \"eligibility_type_relationship\": \"<string>\",\n    \"es_annex_acceptance\": \"<string>\",\n    \"ftld_token\": \"<string>\",\n    \"gay_donation_acceptance\": \"<string>\",\n    \"gay_rights_protection_acceptance\": \"<string>\",\n    \"id_number\": \"<string>\",\n    \"id_type\": \"<string>\",\n    \"idn_script\": \"<string>\",\n    \"insurance_acceptance\": \"<string>\",\n    \"intended_use\": \"<string>\",\n    \"law_acceptance\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"ngo_ong_eligibility_acceptance\": \"<string>\",\n    \"ngo_ong_policy_acceptance\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"rurf_blocked_domains\": \"<string>\",\n    \"self_service\": \"<string>\",\n    \"trademark\": \"<string>\",\n    \"trademark_id\": \"<string>\",\n    \"travel_acceptance\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\",\n    \"vote_acceptance\": \"<string>\",\n    \"voto_acceptance\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"<string>\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    },\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"name_servers\": [\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    },\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"period\": \"<integer>\",\n  \"promo_code\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af57a04a-f9f5-4e83-a1f5-4f2ed8cb8649",
+          "name": "Transfer domain",
+          "request": {
+            "name": "Transfer domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                "transfer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accept_premium_fee\": \"<double>\",\n  \"additional_data\": {\n    \"admin_sing_pass_id\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"<string>\",\n      \"doc_type\": \"<string>\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ftld_token\": \"<string>\",\n    \"gay_donation_acceptance\": \"<string>\",\n    \"gay_rights_protection_acceptance\": \"<string>\",\n    \"idn_script\": \"<string>\",\n    \"intended_use\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"self_service\": \"<string>\",\n    \"trademark\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"at\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"default\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": \"<integer>\",\n      \"flags\": \"<integer>\",\n      \"protocol\": \"<integer>\",\n      \"pub_key\": \"<string>\",\n      \"readonly\": \"<integer>\"\n    },\n    {\n      \"alg\": \"<integer>\",\n      \"flags\": \"<integer>\",\n      \"protocol\": \"<integer>\",\n      \"pub_key\": \"<string>\",\n      \"readonly\": \"<integer>\"\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"import_contacts_from_registry\": \"<boolean>\",\n  \"import_nameservers_from_registry\": \"<boolean>\",\n  \"is_dnssec_enabled\": \"<boolean>\",\n  \"is_private_whois_enabled\": \"<boolean>\",\n  \"name_servers\": [\n    {\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    },\n    {\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"promo_code\": \"<string>\",\n  \"reseller_handle\": \"<string>\",\n  \"roid\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41d53e52-b78a-41e1-aed1-73bb377789fe",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept_premium_fee\": \"<double>\",\n  \"additional_data\": {\n    \"admin_sing_pass_id\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"Singapore Personal Access ID\",\n      \"doc_type\": \"singpass\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ftld_token\": \"<string>\",\n    \"gay_donation_acceptance\": \"<string>\",\n    \"gay_rights_protection_acceptance\": \"<string>\",\n    \"idn_script\": \"<string>\",\n    \"intended_use\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"self_service\": \"<string>\",\n    \"trademark\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"at\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"default\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    },\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"import_contacts_from_registry\": \"<boolean>\",\n  \"import_nameservers_from_registry\": \"<boolean>\",\n  \"is_dnssec_enabled\": \"<boolean>\",\n  \"is_private_whois_enabled\": \"<boolean>\",\n  \"name_servers\": [\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    },\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"promo_code\": \"<string>\",\n  \"reseller_handle\": \"<string>\",\n  \"roid\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"auth_code\": \"12345678\",\n    \"description\": \"intendedUse value must contain information on how the domain name will be used\",\n    \"error\": \"Nameserver 1: IPv4 is not specified\",\n    \"expiration_date\": \"2020-03-31 23:59:59\",\n    \"id\": 123456789,\n    \"name\": \"intendedUse\",\n    \"renewal_date\": \"2020-03-29 23:59:59\",\n    \"required\": false,\n    \"status\": \"ACT\",\n    \"type\": \"text\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efafacda-9977-4db2-a3fa-457f2e07f36e",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept_premium_fee\": \"<double>\",\n  \"additional_data\": {\n    \"admin_sing_pass_id\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"Singapore Personal Access ID\",\n      \"doc_type\": \"singpass\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ftld_token\": \"<string>\",\n    \"gay_donation_acceptance\": \"<string>\",\n    \"gay_rights_protection_acceptance\": \"<string>\",\n    \"idn_script\": \"<string>\",\n    \"intended_use\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"self_service\": \"<string>\",\n    \"trademark\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"at\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"default\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    },\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"import_contacts_from_registry\": \"<boolean>\",\n  \"import_nameservers_from_registry\": \"<boolean>\",\n  \"is_dnssec_enabled\": \"<boolean>\",\n  \"is_private_whois_enabled\": \"<boolean>\",\n  \"name_servers\": [\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    },\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"promo_code\": \"<string>\",\n  \"reseller_handle\": \"<string>\",\n  \"roid\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9111a04d-721f-4fac-b107-d6d43289040f",
+          "name": "Get domain",
+          "request": {
+            "name": "Get domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domain.name",
+                  "value": "<string>",
+                  "description": "Domain name without extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "domain.extension",
+                  "value": "<string>",
+                  "description": "Domain extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_history",
+                  "value": "<boolean>",
+                  "description": "Returns domain mutations history."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_api_history",
+                  "value": "<boolean>",
+                  "description": "Returns domain API calls history."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_additional_data",
+                  "value": "<boolean>",
+                  "description": "Returns domain additional data."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_verification_email",
+                  "value": "<boolean>",
+                  "description": "Returns information about domain owner email verification status."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_abuse_details",
+                  "value": "<boolean>",
+                  "description": "Returns domain abuse details."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_whois_privacy_data",
+                  "value": "<boolean>",
+                  "description": "Returns WPP data."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_registry_statuses",
+                  "value": "<boolean>",
+                  "description": "Indicates, if registry EPP statuses should be retrieved."
+                },
+                {
+                  "disabled": false,
+                  "key": "is_deleted",
+                  "value": "<boolean>",
+                  "description": "Indicates whether object is deleted."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Domain id number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e5468e1-088e-4b8f-b54c-a7f6b5fb12cb",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_history",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_api_history",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_verification_email",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_abuse_details",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_whois_privacy_data",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_registry_statuses",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5046,\n  \"data\": {\n    \"abuse_details\": {\n      \"abuse_id\": 0,\n      \"is_domain_held\": false,\n      \"message\": \"\"\n    },\n    \"active_date\": \"string\",\n    \"additional_data\": {\n      \"abogado_acceptance\": \"<string>\",\n      \"admin_sing_pass_id\": \"<string>\",\n      \"ae_acceptance\": \"<string>\",\n      \"allocation_token\": \"<string>\",\n      \"auth_code\": \"<string>\",\n      \"bank_acceptance\": \"<string>\",\n      \"company_registration_number\": \"<string>\",\n      \"coop_acceptance\": \"<string>\",\n      \"customer_uin\": \"<string>\",\n      \"customer_uin_doc_type\": {\n        \"description\": \"Singapore Personal Access ID\",\n        \"doc_type\": \"singpass\"\n      },\n      \"domain_name_variants\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"eligibility_type\": \"<string>\",\n      \"eligibility_type_relationship\": \"<string>\",\n      \"es_annex_acceptance\": \"<string>\",\n      \"ftld_token\": \"<string>\",\n      \"gay_donation_acceptance\": \"<string>\",\n      \"gay_rights_protection_acceptance\": \"<string>\",\n      \"id_number\": \"<string>\",\n      \"id_type\": \"<string>\",\n      \"idn_script\": \"<string>\",\n      \"insurance_acceptance\": \"<string>\",\n      \"intended_use\": \"<string>\",\n      \"law_acceptance\": \"<string>\",\n      \"legal_type\": \"<string>\",\n      \"maintainer\": \"<string>\",\n      \"membership_id\": \"<string>\",\n      \"mobile_phone_number_verification\": \"<string>\",\n      \"ngo_ong_eligibility_acceptance\": \"<string>\",\n      \"ngo_ong_policy_acceptance\": \"<string>\",\n      \"passport_number\": \"<string>\",\n      \"rurf_blocked_domains\": \"<string>\",\n      \"self_service\": \"<string>\",\n      \"trademark\": \"<string>\",\n      \"trademark_id\": \"<string>\",\n      \"travel_acceptance\": \"<string>\",\n      \"vat\": \"<string>\",\n      \"verification_code\": \"<string>\",\n      \"vote_acceptance\": \"<string>\",\n      \"voto_acceptance\": \"<string>\"\n    },\n    \"admin_handle\": \"string\",\n    \"api_history\": [\n      {\n        \"cmd\": \"deleteDomainRequest\",\n        \"created_at\": \"2018-09-05 13:58:55\",\n        \"domain_id\": 12345678,\n        \"in\": \"\",\n        \"out\": \"\"\n      },\n      {\n        \"cmd\": \"deleteDomainRequest\",\n        \"created_at\": \"2018-09-05 13:58:55\",\n        \"domain_id\": 12345678,\n        \"in\": \"\",\n        \"out\": \"\"\n      }\n    ],\n    \"application_id\": \"string\",\n    \"application_mode\": \"string\",\n    \"application_mode_expiration_date\": \"string\",\n    \"application_mode_title\": \"string\",\n    \"application_notice_id\": \"string\",\n    \"application_smd\": \"string\",\n    \"auth_code\": \"string\",\n    \"autorenew\": \"string\",\n    \"billing_handle\": \"string\",\n    \"can_renew\": true,\n    \"comments\": \"string\",\n    \"comments_last_changed_at\": \"string\",\n    \"creation_date\": \"string\",\n    \"delete_status\": \"string\",\n    \"deleted_at\": \"string\",\n    \"dnssec\": \"string\",\n    \"dnssec_keys\": [\n      {\n        \"alg\": 8,\n        \"flags\": 257,\n        \"protocol\": 3,\n        \"pub_key\": \"WSgigdu8545g96\",\n        \"readonly\": 1\n      },\n      {\n        \"alg\": 8,\n        \"flags\": 257,\n        \"protocol\": 3,\n        \"pub_key\": \"WSgigdu8545g96\",\n        \"readonly\": 1\n      }\n    ],\n    \"domain\": {\n      \"extension\": \"london\",\n      \"name\": \"test4\"\n    },\n    \"expiration_date\": \"string\",\n    \"hard_quarantine_expiry_date\": \"string\",\n    \"has_active_sectigo_zone\": true,\n    \"has_history\": true,\n    \"history\": [\n      {\n        \"contents\": \"Domain: test-example.tldAction: registration succeededStatus: ACTOrder date: 2018-01-30Activation date: 2018-01-30Renewal date: 2019-01-27Expiration date: 2019-01-29Comments: registration of this domain has succeeded Nameserver addresses are automatically resolved by system; Nameserver IP addresses are only saved for glue records\",\n        \"domain\": \"example.com\",\n        \"ip\": \"12.123.3.12\",\n        \"subject\": \"Sent status e-mail to admin@someemail.nl\",\n        \"timestamp\": \"2018-01-30T14:38:45+01:00\",\n        \"type\": \"I\"\n      },\n      {\n        \"contents\": \"Domain: test-example.tldAction: registration succeededStatus: ACTOrder date: 2018-01-30Activation date: 2018-01-30Renewal date: 2019-01-27Expiration date: 2019-01-29Comments: registration of this domain has succeeded Nameserver addresses are automatically resolved by system; Nameserver IP addresses are only saved for glue records\",\n        \"domain\": \"example.com\",\n        \"ip\": \"12.123.3.12\",\n        \"subject\": \"Sent status e-mail to admin@someemail.nl\",\n        \"timestamp\": \"2018-01-30T14:38:45+01:00\",\n        \"type\": \"I\"\n      }\n    ],\n    \"id\": 5562,\n    \"internal_auth_code\": \"string\",\n    \"is_abusive\": true,\n    \"is_client_hold_enabled\": \"string\",\n    \"is_deleted\": true,\n    \"is_dnssec_enabled\": false,\n    \"is_hosted_whois\": false,\n    \"is_lockable\": true,\n    \"is_locked\": false,\n    \"is_parked\": false,\n    \"is_premium\": false,\n    \"is_private_whois_allowed\": false,\n    \"is_private_whois_enabled\": false,\n    \"is_sectigo_dns_enabled\": true,\n    \"is_spamexperts_enabled\": true,\n    \"last_changed\": \"string\",\n    \"modify_owner_allowed\": true,\n    \"name_servers\": [\n      {\n        \"ip\": \"12.3.123.121\",\n        \"ip6\": \"1s23:123:123:f\",\n        \"name\": \"ns1.example.com\",\n        \"seq_nr\": 1\n      },\n      {\n        \"ip\": \"12.3.123.121\",\n        \"ip6\": \"1s23:123:123:f\",\n        \"name\": \"ns1.example.com\",\n        \"seq_nr\": 1\n      }\n    ],\n    \"ns_group\": \"string\",\n    \"ns_template_id\": 2305,\n    \"ns_template_name\": \"string\",\n    \"nsgroup_id\": 3501,\n    \"order_date\": \"string\",\n    \"owner\": {\n      \"company_name\": \"Example company\",\n      \"full_name\": \"Test Van Person\"\n    },\n    \"owner_company_name\": \"string\",\n    \"owner_handle\": \"string\",\n    \"quarantine_expiration_date\": \"string\",\n    \"registry_expiration_date\": \"string\",\n    \"registry_statuses\": {\n      \"client_hold\": {\n        \"is_changeable\": false,\n        \"value\": 0\n      },\n      \"client_transfer_prohibited\": {\n        \"is_changeable\": false,\n        \"value\": 0\n      }\n    },\n    \"renew\": 4045,\n    \"renewal_date\": \"string\",\n    \"reseller_handle\": \"string\",\n    \"reseller_id\": 2692,\n    \"restorable_until\": \"string\",\n    \"scheduled_at\": \"string\",\n    \"scheduled_from\": \"string\",\n    \"soft_quarantine_expiry_date\": \"string\",\n    \"status\": \"string\",\n    \"tech_handle\": \"string\",\n    \"trade_allowed\": true,\n    \"trade_auth_code_required\": \"string\",\n    \"transfer_auth_code_required\": \"string\",\n    \"transfer_cancel_supported\": false,\n    \"type\": \"string\",\n    \"unit\": \"string\",\n    \"use_domicile\": false,\n    \"verification_email_exp_date\": \"string\",\n    \"verification_email_name\": \"string\",\n    \"verification_email_status\": \"string\",\n    \"verification_email_status_description\": \"string\",\n    \"whois_privacy_data\": {\n      \"expiration_date\": \"2020-04-29 17:15:19\"\n    }\n  },\n  \"desc\": \"string\",\n  \"maintenance\": false,\n  \"warnings\": [\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    },\n    {\n      \"code\": 0,\n      \"data\": \"\",\n      \"desc\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d83c865-ab0b-4634-91a5-d3da99982a8b",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_history",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_api_history",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_additional_data",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_verification_email",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_abuse_details",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_whois_privacy_data",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "with_registry_statuses",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "is_deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dec72c5e-64e0-4b36-bca4-ec704467899f",
+          "name": "Update domain",
+          "request": {
+            "name": "Update domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Domain id number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accept_update_fee\": \"<double>\",\n  \"additional_data\": {\n    \"abogado_acceptance\": \"<string>\",\n    \"admin_sing_pass_id\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"<string>\",\n      \"doc_type\": \"<string>\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"intended_use\": \"<string>\",\n    \"law_acceptance\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"ngo_ong_eligibility_acceptance\": \"<string>\",\n    \"ngo_ong_policy_acceptance\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"<string>\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": \"<integer>\",\n      \"flags\": \"<integer>\",\n      \"protocol\": \"<integer>\",\n      \"pub_key\": \"<string>\",\n      \"readonly\": \"<integer>\"\n    },\n    {\n      \"alg\": \"<integer>\",\n      \"flags\": \"<integer>\",\n      \"protocol\": \"<integer>\",\n      \"pub_key\": \"<string>\",\n      \"readonly\": \"<integer>\"\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"force_registry_update\": \"<boolean>\",\n  \"id\": \"<integer>\",\n  \"is_dnssec_enabled\": \"<boolean>\",\n  \"is_locked\": \"<boolean>\",\n  \"is_private_whois_enabled\": \"<boolean>\",\n  \"is_sectigo_dns_enabled\": \"<boolean>\",\n  \"is_spamexperts_enabled\": \"<boolean>\",\n  \"name_servers\": [\n    {\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    },\n    {\n      \"ip\": \"<string>\",\n      \"ip6\": \"<string>\",\n      \"name\": \"<string>\",\n      \"seq_nr\": \"<integer>\"\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"remove_nses\": \"<boolean>\",\n  \"reseller_handle\": \"<string>\",\n  \"reset_auth_code\": \"<boolean>\",\n  \"scheduled_at\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cdfb4b33-30cc-4f29-a0a4-9cd2982fc391",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept_update_fee\": \"<double>\",\n  \"additional_data\": {\n    \"abogado_acceptance\": \"<string>\",\n    \"admin_sing_pass_id\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"Singapore Personal Access ID\",\n      \"doc_type\": \"singpass\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"intended_use\": \"<string>\",\n    \"law_acceptance\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"ngo_ong_eligibility_acceptance\": \"<string>\",\n    \"ngo_ong_policy_acceptance\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"<string>\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    },\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"force_registry_update\": \"<boolean>\",\n  \"id\": \"<integer>\",\n  \"is_dnssec_enabled\": \"<boolean>\",\n  \"is_locked\": \"<boolean>\",\n  \"is_private_whois_enabled\": \"<boolean>\",\n  \"is_sectigo_dns_enabled\": \"<boolean>\",\n  \"is_spamexperts_enabled\": \"<boolean>\",\n  \"name_servers\": [\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    },\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"remove_nses\": \"<boolean>\",\n  \"reseller_handle\": \"<string>\",\n  \"reset_auth_code\": \"<boolean>\",\n  \"scheduled_at\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"id\": 123456789,\n    \"status\": \"ACT\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53cbeca6-b232-4fd5-b228-3ae481981a35",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept_update_fee\": \"<double>\",\n  \"additional_data\": {\n    \"abogado_acceptance\": \"<string>\",\n    \"admin_sing_pass_id\": \"<string>\",\n    \"auth_code\": \"<string>\",\n    \"company_registration_number\": \"<string>\",\n    \"customer_uin\": \"<string>\",\n    \"customer_uin_doc_type\": {\n      \"description\": \"Singapore Personal Access ID\",\n      \"doc_type\": \"singpass\"\n    },\n    \"domain_name_variants\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"intended_use\": \"<string>\",\n    \"law_acceptance\": \"<string>\",\n    \"legal_type\": \"<string>\",\n    \"maintainer\": \"<string>\",\n    \"membership_id\": \"<string>\",\n    \"mobile_phone_number_verification\": \"<string>\",\n    \"ngo_ong_eligibility_acceptance\": \"<string>\",\n    \"ngo_ong_policy_acceptance\": \"<string>\",\n    \"passport_number\": \"<string>\",\n    \"vat\": \"<string>\",\n    \"verification_code\": \"<string>\"\n  },\n  \"admin_handle\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"autorenew\": \"<string>\",\n  \"billing_handle\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"dnssec_keys\": [\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    },\n    {\n      \"alg\": 8,\n      \"flags\": 257,\n      \"protocol\": 3,\n      \"pub_key\": \"WSgigdu8545g96\",\n      \"readonly\": 1\n    }\n  ],\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"force_registry_update\": \"<boolean>\",\n  \"id\": \"<integer>\",\n  \"is_dnssec_enabled\": \"<boolean>\",\n  \"is_locked\": \"<boolean>\",\n  \"is_private_whois_enabled\": \"<boolean>\",\n  \"is_sectigo_dns_enabled\": \"<boolean>\",\n  \"is_spamexperts_enabled\": \"<boolean>\",\n  \"name_servers\": [\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    },\n    {\n      \"ip\": \"12.3.123.121\",\n      \"ip6\": \"1s23:123:123:f\",\n      \"name\": \"ns1.example.com\",\n      \"seq_nr\": 1\n    }\n  ],\n  \"ns_group\": \"<string>\",\n  \"ns_template_id\": \"<integer>\",\n  \"ns_template_name\": \"<string>\",\n  \"owner_handle\": \"<string>\",\n  \"remove_nses\": \"<boolean>\",\n  \"reseller_handle\": \"<string>\",\n  \"reset_auth_code\": \"<boolean>\",\n  \"scheduled_at\": \"<string>\",\n  \"tech_handle\": \"<string>\",\n  \"use_domicile\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2178d1ea-5291-42da-912d-6549ffe89654",
+          "name": "Delete domain",
+          "request": {
+            "name": "Delete domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domain.name",
+                  "value": "<string>",
+                  "description": "Domain name without extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "domain.extension",
+                  "value": "<string>",
+                  "description": "Domain extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Type of deletion request."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip_soft_quarantine",
+                  "value": "<boolean>",
+                  "description": "Deletes domain, skipping the soft quarantine."
+                },
+                {
+                  "disabled": false,
+                  "key": "force_delete",
+                  "value": "<boolean>",
+                  "description": "Force delete domain even if it has glue records."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Domain id number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2904a231-2cc3-4ccf-8167-f2a4d73fc4ea",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip_soft_quarantine",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "force_delete",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"status\": \"ACT\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0f5730f-54a2-48a0-9a87-9cf830a33f25",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domain.extension",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip_soft_quarantine",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "force_delete",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23b8d0a1-0c3d-4890-a126-c67300e716f2",
+          "name": "Try again last operation",
+          "request": {
+            "name": "Try again last operation",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                ":id",
+                "last-operation",
+                "restart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Domain id number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"auth_code\": \"<string>\",\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0fbd1845-5531-4875-b138-46a0fa045dd0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "last-operation",
+                    "restart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"auth_code\": \"1a2b3c4d5e6f\",\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f62eaed7-b380-43ba-bd51-ba99580b4051",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "last-operation",
+                    "restart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"auth_code\": \"1a2b3c4d5e6f\",\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e6a2e04-98c3-48ab-9614-14182638db2a",
+          "name": "Renew domain",
+          "request": {
+            "name": "Renew domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                ":id",
+                "renew"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Domain id number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"period\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "60de4ee0-d64f-4b93-a6f1-16ac5fda1621",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "renew"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0,\n  \"period\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"status\": \"ACT\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "824b8238-1740-4f52-8e00-46b36bc6abf0",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "renew"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0,\n  \"period\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b05ee6d-0d06-4c34-ae9d-c961d56322c2",
+          "name": "Restore domain",
+          "request": {
+            "name": "Restore domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                ":id",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Domain id number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17fb4296-8452-404e-82b9-d9787c8b838b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"status\": \"ACT\"\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb274c9a-9d6d-4379-b32a-883bf2a7931e",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7d943e1-1fbc-4d29-856c-cfdfc5eff7c3",
+          "name": "Approve transfer",
+          "request": {
+            "name": "Approve transfer",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                ":id",
+                "transfer",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Domain id number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"approve\": \"<integer>\",\n  \"auth_code\": \"<string>\",\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"registrar_tag\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "837baccc-c2a8-4638-ace9-be7f13ee6825",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "transfer",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"approve\": 1,\n  \"auth_code\": \"\",\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0,\n  \"registrar_tag\": \"REGISTRAR-TAG\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c51ae96b-fff3-404c-bf30-ce80569fe9ed",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "transfer",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"approve\": 1,\n  \"auth_code\": \"\",\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0,\n  \"registrar_tag\": \"REGISTRAR-TAG\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9c26f9a-74ff-4acf-b60f-ec69409ebc64",
+          "name": "Send foa1",
+          "request": {
+            "name": "Send foa1",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "domains",
+                ":id",
+                "transfer",
+                "send-foa1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Domain id number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": {\n    \"extension\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0f4a62a-c3af-4ba5-afe5-0f332b0c3210",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "transfer",
+                    "send-foa1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": {\n    \"success\": false\n  },\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b010bd00-1c16-447c-bcba-a8c361ab3891",
+              "name": "(empty)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "domains",
+                    ":id",
+                    "transfer",
+                    "send-foa1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Domain id number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": {\n    \"extension\": \"london\",\n    \"name\": \"test4\"\n  },\n  \"id\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"data\": \"\",\n  \"desc\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openprovider.eu",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "67344259-3005-4620-b111-fc6d0942d576",
+    "name": "REST AdditionalData DomainService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

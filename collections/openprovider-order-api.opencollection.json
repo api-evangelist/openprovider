@@ -1,0 +1,209 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST AdditionalData Order API",
+    "version": "1.0.0-beta"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Order",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/ssl/orders",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Search query limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Search query offset."
+              },
+              {
+                "name": "order_by.common_name",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "order_by.order_date",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "order_by.active_date",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "order_by.expiration_date",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "order_by.status",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "order_by.product_name",
+                "value": "",
+                "type": "query",
+                "description": "desc/asc."
+              },
+              {
+                "name": "common_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Certificate common name pattern. Wildcard (*) can be used."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Array of order statuses."
+              },
+              {
+                "name": "contact_handle",
+                "value": "",
+                "type": "query",
+                "description": "Contact handle."
+              },
+              {
+                "name": "show_expiring",
+                "value": "",
+                "type": "query",
+                "description": "Indicates, whether to return only certificates that are expiring within 30 days."
+              }
+            ]
+          },
+          "docs": "List orders"
+        },
+        {
+          "info": {
+            "name": "Create order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders"
+          },
+          "docs": "Create order"
+        },
+        {
+          "info": {
+            "name": "Get order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Get order"
+        },
+        {
+          "info": {
+            "name": "Update order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Update order"
+        },
+        {
+          "info": {
+            "name": "Cancel order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/cancel",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Cancel order"
+        },
+        {
+          "info": {
+            "name": "Reissue order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/reissue",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Reissue order"
+        },
+        {
+          "info": {
+            "name": "Renew order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1beta/ssl/orders/:id/renew",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object id"
+              }
+            ]
+          },
+          "docs": "Renew order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
