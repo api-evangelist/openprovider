@@ -60,6 +60,8 @@ apis:
   humanURL: https://docs.openprovider.com/doc/all
   baseURL: https://api.openprovider.eu/v1beta
   tags:
+  - Additional Data
+  tags_raw:
   - AdditionalData
   properties:
   - type: OpenAPI
@@ -80,6 +82,8 @@ apis:
   humanURL: https://docs.openprovider.com/doc/all
   baseURL: https://api.openprovider.eu/v1beta
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -110,6 +114,8 @@ apis:
   humanURL: https://docs.openprovider.com/doc/all
   baseURL: https://api.openprovider.eu/v1beta
   tags:
+  - CSR
+  tags_raw:
   - Csr
   properties:
   - type: OpenAPI
@@ -120,6 +126,8 @@ apis:
   humanURL: https://docs.openprovider.com/doc/all
   baseURL: https://api.openprovider.eu/v1beta
   tags:
+  - Customers
+  tags_raw:
   - Customer
   properties:
   - type: OpenAPI
@@ -191,6 +199,8 @@ apis:
   humanURL: https://docs.openprovider.com/doc/all
   baseURL: https://api.openprovider.eu/v1beta
   tags:
+  - Email Verification
+  tags_raw:
   - EmailVerification
   properties:
   - type: OpenAPI
