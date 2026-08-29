@@ -6,6 +6,18 @@ description: >-
   domains, new gTLDs, SSL certificates, licenses for Plesk and Virtuozzo, spam
   filters, and more.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -406,6 +418,9 @@ apis:
   - type: OpenAPI
     url: openapi/openprovider-zoneservice-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/openprovider-capability-edges.yml
+    name: Openprovider Business Capability Map
   - type: AgenticAccess
     url: agentic-access/openprovider-agentic-access.yml
   - type: VulnerabilityDisclosure
