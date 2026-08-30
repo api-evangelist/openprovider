@@ -72,7 +72,7 @@ apis:
   humanURL: https://docs.openprovider.com/doc/all
   baseURL: https://api.openprovider.eu/v1beta
   tags:
-  - Additional Data
+  - AdditionalData
   tags_raw:
   - AdditionalData
   properties:
@@ -126,7 +126,7 @@ apis:
   humanURL: https://docs.openprovider.com/doc/all
   baseURL: https://api.openprovider.eu/v1beta
   tags:
-  - CSR
+  - Csr
   tags_raw:
   - Csr
   properties:
