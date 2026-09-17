@@ -67,18 +67,6 @@ apis:
   - Domains
   - DNS
   - SSL Certificates
-- aid: openprovider:openprovider-additionaldata-api
-  name: Openprovider AdditionalData API
-  description: The AdditionalData API from Openprovider — 1 operation(s) for additionaldata.
-  humanURL: https://docs.openprovider.com/doc/all
-  baseURL: https://api.openprovider.eu/v1beta
-  tags:
-  - Additional Data
-  tags_raw:
-  - AdditionalData
-  properties:
-  - type: OpenAPI
-    url: openapi/openprovider-additionaldata-api-openapi.yml
 - aid: openprovider:openprovider-approveremail-api
   name: Openprovider ApproverEmail API
   description: The ApproverEmail API from Openprovider — 1 operation(s) for approveremail.
@@ -206,18 +194,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/openprovider-email-api-openapi.yml
-- aid: openprovider:openprovider-emailverification-api
-  name: Openprovider EmailVerification API
-  description: The EmailVerification API from Openprovider — 3 operation(s) for emailverification.
-  humanURL: https://docs.openprovider.com/doc/all
-  baseURL: https://api.openprovider.eu/v1beta
-  tags:
-  - Email Verification
-  tags_raw:
-  - EmailVerification
-  properties:
-  - type: OpenAPI
-    url: openapi/openprovider-emailverification-api-openapi.yml
 - aid: openprovider:openprovider-invoiceservice-api
   name: Openprovider InvoiceService API
   description: The InvoiceService API from Openprovider — 1 operation(s) for invoiceservice.
@@ -418,6 +394,26 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/openprovider-zoneservice-api-openapi.yml
+- aid: openprovider:openprovider-additional-data-api
+  name: Openprovider Additional Data API
+  description: The Additional Data API from Openprovider — 1 operation(s) for additional data.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Additional Data
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-additional-data-api-openapi.yml
+- aid: openprovider:openprovider-email-verification-api
+  name: Openprovider Email Verification API
+  description: The Email Verification API from Openprovider — 3 operation(s) for email verification.
+  humanURL: https://docs.openprovider.com/doc/all
+  baseURL: https://api.openprovider.eu/v1beta
+  tags:
+  - Email Verification
+  properties:
+  - type: OpenAPI
+    url: openapi/openprovider-email-verification-api-openapi.yml
 common:
   - type: CapabilityMap
     url: capabilities/openprovider-capability-edges.yml
