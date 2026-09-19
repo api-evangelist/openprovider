@@ -270,6 +270,8 @@ apis:
   humanURL: https://docs.openprovider.com/doc/all
   baseURL: https://api.openprovider.eu/v1beta
   tags:
+  - Payments
+  tags_raw:
   - Payment
   properties:
   - type: OpenAPI
