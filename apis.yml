@@ -417,6 +417,10 @@ apis:
   - type: OpenAPI
     url: openapi/openprovider-email-verification-api-openapi.yml
 common:
+  - type: Pricing
+    url: https://www.openprovider.com/membership-plans
+  - type: Plans
+    url: plans/openprovider-plans-pricing.yml
   - type: CapabilityMap
     url: capabilities/openprovider-capability-edges.yml
     name: Openprovider Business Capability Map
