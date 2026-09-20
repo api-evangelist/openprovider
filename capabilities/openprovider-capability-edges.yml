@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 1
+edge_count: 4
 edges:
 - tag: Customer
   spec_file: openprovider-customer-api-openapi.yml
@@ -23,3 +23,35 @@ edges:
     GetCustomer
   reason: Full lifecycle CRUD of customer records keyed by handle, with address/name/phone and extension
     data, is customer master data management.
+- tag: ZoneService
+  spec_file: openprovider-zoneservice-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: POST /v1beta/dns/zones  CreateZone / PUT /v1beta/dns/zones/{name}  UpdateZone; schemas zoneZone,
+    zonePremiumDnsData
+  reason: Full lifecycle CRUD over DNS zones and their records, i.e. provisioning and stewardship of network/DNS
+    infrastructure. Best fits IT Infrastructure Management rather than any domain-registration commercial
+    capability.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: NameserverService
+  spec_file: openprovider-nameserverservice-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.72
+  evidence: GET /v1beta/dns/nameservers  ListNameservers; POST /v1beta/dns/nameservers  CreateNameserver
+  reason: CRUD over DNS nameserver records is management of network/DNS infrastructure, which sits under
+    IT Infrastructure Management. No business-domain reading of 'nameserver' applies.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: ZoneRecordService
+  spec_file: openprovider-zonerecordservice-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: GET /v1beta/dns/zones/{name}/records  ListZoneRecords  List zone records; schema recordRecordInfo
+  reason: Reads DNS resource records within a zone — operation of name-service infrastructure, which sits
+    under IT Infrastructure Management.
+  recovered_from: sweep-20260829T005356Z-edges.json
