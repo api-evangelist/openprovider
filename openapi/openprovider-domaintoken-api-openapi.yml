@@ -1,14 +1,9 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: REST AdditionalData DomainToken API
+  title: REST Domain Token API
   version: 1.0.0-beta
-host: api.openprovider.eu
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://api.openprovider.eu
 security:
 - Bearer: []
 tags:
@@ -20,119 +15,124 @@ paths:
       - DomainToken
       summary: Create token
       operationId: CreateToken
-      parameters:
-      - name: body
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/domain_tokenCreateTokenRequest'
       responses:
         '200':
           description: A successful response.
-          schema:
-            $ref: '#/definitions/domain_tokenCreateTokenResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/domain_tokenCreateTokenResponse'
         default:
           description: (empty)
-          schema:
-            $ref: '#/definitions/errorError'
-definitions:
-  domain_tokenCreateTokenResponse:
-    type: object
-    title: CreateTokenResponse
-    properties:
-      code:
-        type: integer
-        format: int32
-        title: Response code
-      data:
-        title: The data
-        $ref: '#/definitions/domain_tokenCreateTokenResponseData'
-      desc:
-        type: string
-        title: Response description
-      maintenance:
-        type: boolean
-        format: boolean
-        title: Indicates if Openprovider API is on maintenance
-      warnings:
-        type: array
-        title: The warnings
-        items:
-          $ref: '#/definitions/errorWarning'
-    example:
-      code: 0
-      data:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/domain_tokenCreateTokenRequest'
+        required: true
+components:
+  schemas:
+    domain_tokenCreateTokenResponse:
+      type: object
+      title: CreateTokenResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: The data
+          $ref: '#/components/schemas/domain_tokenCreateTokenResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: The warnings
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          token: eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg
+          url: https://single-domain.example.com?token=eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg&lang=ru_ru
+        desc: ''
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    domain_tokenCreateTokenResponseData:
+      type: object
+      title: CreateTokenResponseData
+      properties:
+        token:
+          type: string
+          title: The token
+        url:
+          type: string
+          title: The url
+      example:
         token: eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg
         url: https://single-domain.example.com?token=eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg&lang=ru_ru
-      desc: ''
-  domain_tokenCreateTokenRequest:
-    type: object
-    title: CreateTokenRequest
-    properties:
-      domain:
-        type: string
-        title: Domain name
-      zone_provider:
-        type: string
-        title: Name of the DNS provider
-    example:
-      domain: example.com
-      zone_provider: sectigo
-  errorError:
-    type: object
-    title: Error
-    properties:
-      code:
-        type: integer
-        format: int32
-        title: Error code
-      data:
-        type: string
-        title: Additional error description
-      desc:
-        type: string
-        title: Error description
-    example:
-      code: 0
-      data: ''
-      desc: ''
-  errorWarning:
-    type: object
-    title: Warning
-    properties:
-      code:
-        type: integer
-        format: int32
-        title: Warning code
-      data:
-        type: string
-        title: Additional warning description
-      desc:
-        type: string
-        title: Warning description
-    example:
-      code: 0
-      data: ''
-      desc: ''
-  domain_tokenCreateTokenResponseData:
-    type: object
-    title: CreateTokenResponseData
-    properties:
-      token:
-        type: string
-        title: The token
-      url:
-        type: string
-        title: The url
-    example:
-      token: eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg
-      url: https://single-domain.example.com?token=eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg&lang=ru_ru
-securityDefinitions:
-  Bearer:
-    type: apiKey
-    name: Authorization
-    in: header
-    x-linkTo: tag/descAuthentication
+    domain_tokenCreateTokenRequest:
+      type: object
+      title: CreateTokenRequest
+      properties:
+        domain:
+          type: string
+          title: Domain name
+        zone_provider:
+          type: string
+          title: Name of the DNS provider
+      example:
+        domain: example.com
+        zone_provider: sectigo
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header
+      x-linkTo: tag/descAuthentication
 x-tagGroups:
 - name: Introduction
   tags:

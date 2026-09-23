@@ -1,29 +1,33 @@
 openapi: 3.2.0
 info:
-  title: REST Approver Email API
+  title: REST Additional Data API
   version: 1.0.0-beta
 servers:
 - url: https://api.openprovider.eu
 security:
 - Bearer: []
 tags:
-- name: ApproverEmail
+- name: Additional Data
 paths:
-  /v1beta/ssl/approver-emails:
+  /v1beta/domains/additional-data:
     get:
       tags:
-      - ApproverEmail
-      summary: List approver emails
-      operationId: ListApproverEmails
+      - Additional Data
+      summary: Get additional data
+      operationId: GetAdditionalData
       parameters:
-      - description: ID of product order will be created for.
-        name: product_id
+      - description: Domain name without extension.
+        name: domain.name
         in: query
         schema:
-          type: integer
-          format: int32
-      - description: Domain name.
-        name: domain
+          type: string
+      - description: Domain extension.
+        name: domain.extension
+        in: query
+        schema:
+          type: string
+      - description: The operation.
+        name: operation
         in: query
         schema:
           type: string
@@ -33,7 +37,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/approveremailListApproverEmailsResponse'
+                $ref: '#/components/schemas/additional_dataGetAdditionalDataResponse'
         default:
           description: (empty)
           content:
@@ -42,65 +46,42 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    errorError:
+    additional_dataGetAdditionalDataResponse:
       type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    approveremailListApproverEmailsResponse:
-      type: object
-      title: ListApproverEmailsResponse
+      title: GetAdditionalDataResponse
       properties:
         code:
           type: integer
           format: int32
           title: Response code
         data:
+          type: array
           title: Response data
-          $ref: '#/components/schemas/approveremailListApproverEmailsResponseData'
+          items:
+            $ref: '#/components/schemas/additional_dataSpecification'
         desc:
           type: string
           title: Response description
         maintenance:
           type: boolean
           format: boolean
-          title: Indicates if Openprovider API is on maintenance
+          title: Indicates if the Openprovider API is on maintenance
         warnings:
           type: array
-          title: Array of warning messages
+          title: Contains warning responses if any
           items:
             $ref: '#/components/schemas/errorWarning'
       example:
         code: 0
         data:
-          results:
-          - admin@example.com
+        - description: IDN script states what language or character set the domain name is in
+          name: idnScript
+          options:
+          - description: Norwegian
+            value: 'no'
+          required: false
+          type: select
         desc: ''
-    approveremailListApproverEmailsResponseData:
-      type: object
-      title: ListApproverEmailsResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            type: string
-      example:
-        results:
-        - admin@example.com
     errorWarning:
       type: object
       title: Warning
@@ -119,6 +100,67 @@ components:
         code: 0
         data: ''
         desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    additional_dataSpecification:
+      type: object
+      title: Specification
+      properties:
+        description:
+          type: string
+          title: Parameter description
+        name:
+          type: string
+          title: Parameter name
+        options:
+          type: array
+          title: Array of options
+          items:
+            $ref: '#/components/schemas/additional_dataSelectOption'
+        required:
+          type: boolean
+          format: boolean
+          title: Indicates, if specified additional data parameter is mandatory
+        type:
+          type: string
+          title: Specification type
+      example:
+        description: IDN script states what language or character set the domain name is in
+        name: idnScript
+        options:
+        - description: Norwegian
+          value: 'no'
+        required: false
+        type: select
+    additional_dataSelectOption:
+      type: object
+      title: SelectOption
+      properties:
+        description:
+          type: string
+          title: Parameter description
+        value:
+          type: string
+          title: Option value
+      example:
+        description: Norwegian
+        value: 'no'
   securitySchemes:
     Bearer:
       type: apiKey
