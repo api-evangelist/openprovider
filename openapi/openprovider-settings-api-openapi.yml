@@ -48,46 +48,136 @@ components:
         code: 0
         data: ''
         desc: ''
-    settingsTacContract:
+    settingsPaymentMethodSettings:
       type: object
-      title: TacContract
+      title: PaymentMethodSettings
       properties:
-        is_signed:
-          type: boolean
-          format: boolean
-          title: Indicates if contract is signed
-        name:
-          type: string
-          title: The name
-        signed_at:
-          type: string
-          title: Contract signing date
-        type:
-          type: string
-          title: The type
+        limit:
+          title: Payment limits
+          $ref: '#/components/schemas/settingsPaymentMethodLimits'
+        transaction_fee:
+          type: number
+          format: double
+          title: Additional percentage fee per payment
+        transaction_fee_absolute:
+          type: number
+          format: double
+          title: Additional absolute fee per payment
       example:
-        is_signed: false
-        name: opensign_terms_and_conditions
-        signed_at: '2014-07-16 15:22:48'
-        type: opensign
-    errorError:
+        limit:
+          maximum:
+            aud: 0
+            bgn: 0
+            brl: 0
+            cad: 0
+            chf: 0
+            cny: 0
+            czk: 0
+            dkk: 0
+            eek: 0
+            eur: 0
+            gbp: 0
+            ghs: 0
+            hkd: 0
+            hrk: 0
+            huf: 0
+            idr: 0
+            ils: 0
+            inr: 0
+            jpy: 0
+            krw: 0
+            lkr: 0
+            ltl: 0
+            lvl: 0
+            mxn: 0
+            myr: 0
+            nok: 0
+            nzd: 0
+            php: 0
+            pln: 0
+            ron: 0
+            rub: 0
+            sek: 0
+            sgd: 0
+            thb: 0
+            try: 0
+            usd: 0
+            zar: 0
+          minimum:
+            aud: 0
+            bgn: 0
+            brl: 0
+            cad: 0
+            chf: 0
+            cny: 0
+            czk: 0
+            dkk: 0
+            eek: 0
+            eur: 0
+            gbp: 0
+            ghs: 0
+            hkd: 0
+            hrk: 0
+            huf: 0
+            idr: 0
+            ils: 0
+            inr: 0
+            jpy: 0
+            krw: 0
+            lkr: 0
+            ltl: 0
+            lvl: 0
+            mxn: 0
+            myr: 0
+            nok: 0
+            nzd: 0
+            php: 0
+            pln: 0
+            ron: 0
+            rub: 0
+            sek: 0
+            sgd: 0
+            thb: 0
+            try: 0
+            usd: 0
+            zar: 0
+        transaction_fee: 0
+        transaction_fee_absolute: 0
+    settingsTransactionFee:
       type: object
-      title: Error
+      title: TransactionFee
       properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
+        bank:
+          type: number
+          format: double
+          title: Payment method
+        credit_card:
+          type: number
+          format: double
+          title: Payment method
+        ideal:
+          type: number
+          format: double
+          title: Payment method
+        paypal:
+          type: number
+          format: double
+          title: Payment method
+        western_union:
+          type: number
+          format: double
+          title: Payment method
+        yandex:
+          type: number
+          format: double
+          title: Payment method
       example:
-        code: 0
-        data: ''
-        desc: ''
+        bank: 0
+        credit_card: 3
+        ideal: 0
+        paypal: 5
+        western_union: 0
+        yandex: 5
     settingsGetSettingsResponseData:
       type: object
       title: GetSettingsResponseData
@@ -462,41 +552,6 @@ components:
           western_union: 0
           yandex: 5
         type: normal
-    settingsTransactionFee:
-      type: object
-      title: TransactionFee
-      properties:
-        bank:
-          type: number
-          format: double
-          title: Payment method
-        credit_card:
-          type: number
-          format: double
-          title: Payment method
-        ideal:
-          type: number
-          format: double
-          title: Payment method
-        paypal:
-          type: number
-          format: double
-          title: Payment method
-        western_union:
-          type: number
-          format: double
-          title: Payment method
-        yandex:
-          type: number
-          format: double
-          title: Payment method
-      example:
-        bank: 0
-        credit_card: 3
-        ideal: 0
-        paypal: 5
-        western_union: 0
-        yandex: 5
     settingsPaymentMethodLimits:
       type: object
       title: PaymentMethodLimits
@@ -584,141 +639,46 @@ components:
           try: 0
           usd: 0
           zar: 0
-    settingsSignedContracts:
+    settingsTacContract:
       type: object
-      title: SignedContracts
+      title: TacContract
       properties:
-        contents:
-          type: string
-          title: Contract contents
-        id:
-          type: integer
-          format: int32
-          title: Object ID
         is_signed:
           type: boolean
           format: boolean
           title: Indicates if contract is signed
-        modification_date:
+        name:
           type: string
-          title: The modification date
-        sign_on_date:
+          title: The name
+        signed_at:
           type: string
           title: Contract signing date
-        title:
-          type: string
-          title: The title
         type:
           type: string
           title: The type
-        version_id:
+      example:
+        is_signed: false
+        name: opensign_terms_and_conditions
+        signed_at: '2014-07-16 15:22:48'
+        type: opensign
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
           type: integer
           format: int32
-          title: Contract version ID
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
       example:
-        contents: content for ac
-        id: 1
-        is_signed: false
-        modification_date: '2009-02-19 10:59:32'
-        sign_on_date: '2009-02-19 10:59:32'
-        title: .ac
-        type: ac
-        version_id: 1
-    settingsPaymentMethodSettings:
-      type: object
-      title: PaymentMethodSettings
-      properties:
-        limit:
-          title: Payment limits
-          $ref: '#/components/schemas/settingsPaymentMethodLimits'
-        transaction_fee:
-          type: number
-          format: double
-          title: Additional percentage fee per payment
-        transaction_fee_absolute:
-          type: number
-          format: double
-          title: Additional absolute fee per payment
-      example:
-        limit:
-          maximum:
-            aud: 0
-            bgn: 0
-            brl: 0
-            cad: 0
-            chf: 0
-            cny: 0
-            czk: 0
-            dkk: 0
-            eek: 0
-            eur: 0
-            gbp: 0
-            ghs: 0
-            hkd: 0
-            hrk: 0
-            huf: 0
-            idr: 0
-            ils: 0
-            inr: 0
-            jpy: 0
-            krw: 0
-            lkr: 0
-            ltl: 0
-            lvl: 0
-            mxn: 0
-            myr: 0
-            nok: 0
-            nzd: 0
-            php: 0
-            pln: 0
-            ron: 0
-            rub: 0
-            sek: 0
-            sgd: 0
-            thb: 0
-            try: 0
-            usd: 0
-            zar: 0
-          minimum:
-            aud: 0
-            bgn: 0
-            brl: 0
-            cad: 0
-            chf: 0
-            cny: 0
-            czk: 0
-            dkk: 0
-            eek: 0
-            eur: 0
-            gbp: 0
-            ghs: 0
-            hkd: 0
-            hrk: 0
-            huf: 0
-            idr: 0
-            ils: 0
-            inr: 0
-            jpy: 0
-            krw: 0
-            lkr: 0
-            ltl: 0
-            lvl: 0
-            mxn: 0
-            myr: 0
-            nok: 0
-            nzd: 0
-            php: 0
-            pln: 0
-            ron: 0
-            rub: 0
-            sek: 0
-            sgd: 0
-            thb: 0
-            try: 0
-            usd: 0
-            zar: 0
-        transaction_fee: 0
-        transaction_fee_absolute: 0
+        code: 0
+        data: ''
+        desc: ''
     settingsPaymentMethodLimit:
       type: object
       title: PaymentMethodLimit
@@ -909,6 +869,138 @@ components:
         try: 0
         usd: 0
         zar: 0
+    settingsPaymentMethods:
+      type: object
+      title: PaymentMethods
+      properties:
+        name:
+          type: string
+          title: Payment method name
+        settings:
+          title: Payment method settings
+          $ref: '#/components/schemas/settingsPaymentMethodSettings'
+      example:
+        name: ideal
+        settings:
+          limit:
+            maximum:
+              aud: 0
+              bgn: 0
+              brl: 0
+              cad: 0
+              chf: 0
+              cny: 0
+              czk: 0
+              dkk: 0
+              eek: 0
+              eur: 0
+              gbp: 0
+              ghs: 0
+              hkd: 0
+              hrk: 0
+              huf: 0
+              idr: 0
+              ils: 0
+              inr: 0
+              jpy: 0
+              krw: 0
+              lkr: 0
+              ltl: 0
+              lvl: 0
+              mxn: 0
+              myr: 0
+              nok: 0
+              nzd: 0
+              php: 0
+              pln: 0
+              ron: 0
+              rub: 0
+              sek: 0
+              sgd: 0
+              thb: 0
+              try: 0
+              usd: 0
+              zar: 0
+            minimum:
+              aud: 0
+              bgn: 0
+              brl: 0
+              cad: 0
+              chf: 0
+              cny: 0
+              czk: 0
+              dkk: 0
+              eek: 0
+              eur: 0
+              gbp: 0
+              ghs: 0
+              hkd: 0
+              hrk: 0
+              huf: 0
+              idr: 0
+              ils: 0
+              inr: 0
+              jpy: 0
+              krw: 0
+              lkr: 0
+              ltl: 0
+              lvl: 0
+              mxn: 0
+              myr: 0
+              nok: 0
+              nzd: 0
+              php: 0
+              pln: 0
+              ron: 0
+              rub: 0
+              sek: 0
+              sgd: 0
+              thb: 0
+              try: 0
+              usd: 0
+              zar: 0
+          transaction_fee: 0
+          transaction_fee_absolute: 0
+    settingsSignedContracts:
+      type: object
+      title: SignedContracts
+      properties:
+        contents:
+          type: string
+          title: Contract contents
+        id:
+          type: integer
+          format: int32
+          title: Object ID
+        is_signed:
+          type: boolean
+          format: boolean
+          title: Indicates if contract is signed
+        modification_date:
+          type: string
+          title: The modification date
+        sign_on_date:
+          type: string
+          title: Contract signing date
+        title:
+          type: string
+          title: The title
+        type:
+          type: string
+          title: The type
+        version_id:
+          type: integer
+          format: int32
+          title: Contract version ID
+      example:
+        contents: content for ac
+        id: 1
+        is_signed: false
+        modification_date: '2009-02-19 10:59:32'
+        sign_on_date: '2009-02-19 10:59:32'
+        title: .ac
+        type: ac
+        version_id: 1
     settingsGetSettingsResponse:
       type: object
       title: GetSettingsResponse
@@ -1160,98 +1252,6 @@ components:
             yandex: 5
           type: normal
         desc: ''
-    settingsPaymentMethods:
-      type: object
-      title: PaymentMethods
-      properties:
-        name:
-          type: string
-          title: Payment method name
-        settings:
-          title: Payment method settings
-          $ref: '#/components/schemas/settingsPaymentMethodSettings'
-      example:
-        name: ideal
-        settings:
-          limit:
-            maximum:
-              aud: 0
-              bgn: 0
-              brl: 0
-              cad: 0
-              chf: 0
-              cny: 0
-              czk: 0
-              dkk: 0
-              eek: 0
-              eur: 0
-              gbp: 0
-              ghs: 0
-              hkd: 0
-              hrk: 0
-              huf: 0
-              idr: 0
-              ils: 0
-              inr: 0
-              jpy: 0
-              krw: 0
-              lkr: 0
-              ltl: 0
-              lvl: 0
-              mxn: 0
-              myr: 0
-              nok: 0
-              nzd: 0
-              php: 0
-              pln: 0
-              ron: 0
-              rub: 0
-              sek: 0
-              sgd: 0
-              thb: 0
-              try: 0
-              usd: 0
-              zar: 0
-            minimum:
-              aud: 0
-              bgn: 0
-              brl: 0
-              cad: 0
-              chf: 0
-              cny: 0
-              czk: 0
-              dkk: 0
-              eek: 0
-              eur: 0
-              gbp: 0
-              ghs: 0
-              hkd: 0
-              hrk: 0
-              huf: 0
-              idr: 0
-              ils: 0
-              inr: 0
-              jpy: 0
-              krw: 0
-              lkr: 0
-              ltl: 0
-              lvl: 0
-              mxn: 0
-              myr: 0
-              nok: 0
-              nzd: 0
-              php: 0
-              pln: 0
-              ron: 0
-              rub: 0
-              sek: 0
-              sgd: 0
-              thb: 0
-              try: 0
-              usd: 0
-              zar: 0
-          transaction_fee: 0
-          transaction_fee_absolute: 0
   securitySchemes:
     Bearer:
       type: apiKey

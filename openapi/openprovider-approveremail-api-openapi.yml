@@ -42,6 +42,24 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
     errorError:
       type: object
       title: Error
@@ -60,6 +78,18 @@ components:
         code: 0
         data: ''
         desc: ''
+    approveremailListApproverEmailsResponseData:
+      type: object
+      title: ListApproverEmailsResponseData
+      properties:
+        results:
+          type: array
+          title: Array of results
+          items:
+            type: string
+      example:
+        results:
+        - admin@example.com
     approveremailListApproverEmailsResponse:
       type: object
       title: ListApproverEmailsResponse
@@ -88,36 +118,6 @@ components:
         data:
           results:
           - admin@example.com
-        desc: ''
-    approveremailListApproverEmailsResponseData:
-      type: object
-      title: ListApproverEmailsResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            type: string
-      example:
-        results:
-        - admin@example.com
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
         desc: ''
   securitySchemes:
     Bearer:

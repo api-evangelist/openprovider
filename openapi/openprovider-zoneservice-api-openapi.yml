@@ -266,6 +266,283 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
+    zonePremiumDnsData:
+      type: object
+      title: PremiumDnsData
+      properties:
+        sectigo:
+          title: Additional data related to premium DNS zone managed by Sectigo
+          $ref: '#/components/schemas/zoneSectigoData'
+      example:
+        sectigo:
+          autorenew: false
+          order_date: '2021-08-05 7:37:28'
+          renewal_date: '2022-11-28 6:57:05'
+          secured: false
+          website_id: 123456
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    zoneUpdateZoneRequest:
+      type: object
+      title: UpdateZoneRequest
+      properties:
+        domain:
+          title: Name of the domain to which DNS zone corresponds. Represented by array of domain name and extension
+          $ref: '#/components/schemas/zoneDomain'
+        id:
+          type: integer
+          format: int32
+          title: DNS zone ID
+        is_spamexperts_enabled:
+          type: boolean
+          format: boolean
+          title: Used to enable spam filtering for this DNS zone
+        master_ip:
+          type: string
+          title: IP of the master nameserver for this DNS zone. Required if DNS zone type = slave
+        name:
+          type: string
+          title: Name of the domain to which DNS zone corresponds
+        premium_dns:
+          title: Additional data related to premium DNS zone
+          $ref: '#/components/schemas/zonePremiumDnsData'
+        provider:
+          type: string
+          title: Name of the DNS provider. Set provider=sectigo in case of sectigo premium DNS zone should be updated
+        records:
+          title: DNS zone records grouped by action
+          $ref: '#/components/schemas/zoneRecordUpdates'
+        type:
+          type: string
+          title: Type of DNS zone (master or slave)
+      example:
+        domain:
+          extension: com
+          name: domain
+        id: 1234567
+        is_spamexperts_enabled: true
+        master_ip: 127.0.0.1
+        name: domain.com
+        premium_dns:
+          sectigo:
+            autorenew: false
+            order_date: '2021-08-05 7:37:28'
+            renewal_date: '2022-11-28 6:57:05'
+            secured: false
+            website_id: 123456
+        provider: sectigo
+        records:
+          add:
+          - name: domain.com
+            prio: 1
+            ttl: 900
+            type: CNAME
+            value: abcd.domain.com
+          remove:
+          - name: domain.com
+            prio: 1
+            ttl: 900
+            type: CNAME
+            value: abcd.domain.com
+          replace:
+          - name: domain.com
+            prio: 1
+            ttl: 900
+            type: CNAME
+            value: abcd.domain.com
+          update:
+          - original_record:
+              name: domain.com
+              prio: 1
+              ttl: 900
+              type: CNAME
+              value: abcd.domain.com
+            record:
+              name: domain.com
+              prio: 1
+              ttl: 900
+              type: CNAME
+              value: abcd.domain.com
+        type: slave
+    zoneRecordWithOriginal:
+      type: object
+      title: RecordWithOriginal
+      properties:
+        original_record:
+          title: Array of DNS records to update
+          $ref: '#/components/schemas/zoneRecord'
+        record:
+          title: Array of DNS records to update
+          $ref: '#/components/schemas/zoneRecord'
+      example:
+        original_record:
+          name: domain.com
+          prio: 1
+          ttl: 900
+          type: CNAME
+          value: abcd.domain.com
+        record:
+          name: domain.com
+          prio: 1
+          ttl: 900
+          type: CNAME
+          value: abcd.domain.com
+    zoneRecordUpdates:
+      type: object
+      title: RecordUpdates
+      properties:
+        add:
+          type: array
+          title: Array of DNS records to add
+          items:
+            $ref: '#/components/schemas/zoneRecord'
+        remove:
+          type: array
+          title: Array of DNS records to remove
+          items:
+            $ref: '#/components/schemas/zoneRecord'
+        replace:
+          type: array
+          title: Array of DNS records to replace
+          items:
+            $ref: '#/components/schemas/zoneRecord'
+        update:
+          type: array
+          title: Array of DNS records to update
+          items:
+            $ref: '#/components/schemas/zoneRecordWithOriginal'
+      example:
+        add:
+        - name: domain.com
+          prio: 1
+          ttl: 900
+          type: CNAME
+          value: abcd.domain.com
+        remove:
+        - name: domain.com
+          prio: 1
+          ttl: 900
+          type: CNAME
+          value: abcd.domain.com
+        replace:
+        - name: domain.com
+          prio: 1
+          ttl: 900
+          type: CNAME
+          value: abcd.domain.com
+        update:
+        - original_record:
+            name: domain.com
+            prio: 1
+            ttl: 900
+            type: CNAME
+            value: abcd.domain.com
+          record:
+            name: domain.com
+            prio: 1
+            ttl: 900
+            type: CNAME
+            value: abcd.domain.com
+    zoneListZonesResponse:
+      type: object
+      title: ListZonesResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/zoneListZonesResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          results:
+          - active: true
+            creation_date: '2012-02-05 7:37:28'
+            dnskey: ''
+            history:
+            - date: '2019-06-19 17:40:09'
+              is: true
+              source: ''
+              was: ''
+            id: 12345
+            ip: 127.0.0.1
+            is_deleted: false
+            is_shadow: false
+            is_spamexperts_enabled: false
+            modification_date: '2018-11-28 6:57:05'
+            name: domain.com
+            premium_dns:
+              sectigo:
+                autorenew: false
+                order_date: '2021-08-05 7:37:28'
+                renewal_date: '2022-11-28 6:57:05'
+                secured: false
+                website_id: 123456
+            provider: sectigo
+            records:
+            - creation_date: ''
+              ip: 127.0.0.1
+              modification_date: ''
+              name: domain.com
+              prio: 1
+              ttl: 900
+              type: CNAME
+              value: abcd.domain.com
+            reseller_id: 123456
+            type: master
+          total: 1888
+        desc: ''
+    historyZoneHistory:
+      type: object
+      title: ZoneHistory
+      properties:
+        date:
+          type: string
+          title: Date of operation
+        is:
+          type: string
+          title: New value
+        source:
+          type: string
+          title: The source
+        was:
+          type: string
+          title: Old value
+      example:
+        date: '2019-06-19 17:40:09'
+        is: + A |  | 8.8.8.8
+        source: ''
+        was: ''
     zoneSectigoData:
       type: object
       title: SectigoData
@@ -294,19 +571,166 @@ components:
         renewal_date: '2022-11-28 6:57:05'
         secured: false
         website_id: 123456
-    recordRecordInfo:
+    zoneListZonesResponseData:
       type: object
-      title: RecordInfo
+      title: ListZonesResponseData
       properties:
-        creation_date:
+        results:
+          type: array
+          title: Array of search results
+          items:
+            $ref: '#/components/schemas/zoneZone'
+        total:
+          type: integer
+          format: int32
+          title: Number of search results
+      example:
+        results:
+        - active: true
+          creation_date: '2012-02-05 7:37:28'
+          dnskey: ''
+          history:
+          - date: '2019-06-19 17:40:09'
+            is: true
+            source: ''
+            was: ''
+          id: 12345
+          ip: 127.0.0.1
+          is_deleted: false
+          is_shadow: false
+          is_spamexperts_enabled: false
+          modification_date: '2018-11-28 6:57:05'
+          name: domain.com
+          premium_dns:
+            sectigo:
+              autorenew: false
+              order_date: '2021-08-05 7:37:28'
+              renewal_date: '2022-11-28 6:57:05'
+              secured: false
+              website_id: 123456
+          provider: sectigo
+          records:
+          - creation_date: ''
+            ip: 127.0.0.1
+            modification_date: ''
+            name: domain.com
+            prio: 1
+            ttl: 900
+            type: CNAME
+            value: abcd.domain.com
+          reseller_id: 123456
+          type: master
+        total: 1888
+    zoneDomain:
+      type: object
+      title: Domain
+      properties:
+        extension:
           type: string
-          title: DNS record creation date
-        ip:
+          title: Domain extension
+        name:
           type: string
-          title: DNS record IP address
-        modification_date:
+          title: Domain name without extension
+      example:
+        extension: com
+        name: domain
+    zoneZoneBoolResponse:
+      type: object
+      title: ZoneBoolResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/zoneZoneBoolResponseData'
+        desc:
           type: string
-          title: DNS record last modification date
+          title: Response example
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          success: false
+        desc: ''
+    zoneCreateZoneRequest:
+      type: object
+      title: CreateZoneRequest
+      properties:
+        domain:
+          title: Name of the domain to which DNS zone corresponds. Represented by array of domain name and extension
+          $ref: '#/components/schemas/zoneDomain'
+        is_spamexperts_enabled:
+          type: string
+          title: Used to enable spam filtering for this DNS zone
+        master_ip:
+          type: string
+          title: IP of the master nameserver for this DNS zone. Required if DNS zone type = slave
+        provider:
+          type: string
+          title: Name of the DNS provider. Set provider=sectigo in case of sectigo premium DNS zone should be created
+        records:
+          type: array
+          title: Array of DNS records
+          items:
+            $ref: '#/components/schemas/zoneRecord'
+        secured:
+          type: boolean
+          format: boolean
+          title: Used to enable or disable DNSSEC for this DNS zone
+        template_name:
+          type: string
+          title: Name of the DNS template to use with this DNS zone
+        type:
+          type: string
+          title: DNS zone type (master or slave)
+      example:
+        domain:
+          extension: com
+          name: domain
+        is_spamexperts_enabled: 'on'
+        master_ip: 127.0.0.1
+        provider: sectigo
+        records:
+        - name: domain.com
+          prio: 1
+          ttl: 900
+          type: CNAME
+          value: abcd.domain.com
+        secured: false
+        template_name: default
+        type: master
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    zoneRecord:
+      type: object
+      title: Record
+      properties:
         name:
           type: string
           title: DNS record name
@@ -325,14 +749,21 @@ components:
           type: string
           title: DNS record value
       example:
-        creation_date: ''
-        ip: 127.0.0.1
-        modification_date: ''
         name: domain.com
         prio: 1
         ttl: 900
         type: CNAME
         value: abcd.domain.com
+    zoneZoneBoolResponseData:
+      type: object
+      title: ZoneBoolResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates if request was successful
+      example:
+        success: false
     zoneZone:
       type: object
       title: Zone
@@ -430,413 +861,6 @@ components:
           value: abcd.domain.com
         reseller_id: 123456
         type: master
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    zoneZoneBoolResponseData:
-      type: object
-      title: ZoneBoolResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates if request was successful
-      example:
-        success: false
-    zoneRecord:
-      type: object
-      title: Record
-      properties:
-        name:
-          type: string
-          title: DNS record name
-        prio:
-          type: integer
-          format: int32
-          title: DNS record priority
-        ttl:
-          type: integer
-          format: int32
-          title: DNS record priority
-        type:
-          type: string
-          title: DNS record type
-        value:
-          type: string
-          title: DNS record value
-      example:
-        name: domain.com
-        prio: 1
-        ttl: 900
-        type: CNAME
-        value: abcd.domain.com
-    zoneDomain:
-      type: object
-      title: Domain
-      properties:
-        extension:
-          type: string
-          title: Domain extension
-        name:
-          type: string
-          title: Domain name without extension
-      example:
-        extension: com
-        name: domain
-    zoneListZonesResponseData:
-      type: object
-      title: ListZonesResponseData
-      properties:
-        results:
-          type: array
-          title: Array of search results
-          items:
-            $ref: '#/components/schemas/zoneZone'
-        total:
-          type: integer
-          format: int32
-          title: Number of search results
-      example:
-        results:
-        - active: true
-          creation_date: '2012-02-05 7:37:28'
-          dnskey: ''
-          history:
-          - date: '2019-06-19 17:40:09'
-            is: true
-            source: ''
-            was: ''
-          id: 12345
-          ip: 127.0.0.1
-          is_deleted: false
-          is_shadow: false
-          is_spamexperts_enabled: false
-          modification_date: '2018-11-28 6:57:05'
-          name: domain.com
-          premium_dns:
-            sectigo:
-              autorenew: false
-              order_date: '2021-08-05 7:37:28'
-              renewal_date: '2022-11-28 6:57:05'
-              secured: false
-              website_id: 123456
-          provider: sectigo
-          records:
-          - creation_date: ''
-            ip: 127.0.0.1
-            modification_date: ''
-            name: domain.com
-            prio: 1
-            ttl: 900
-            type: CNAME
-            value: abcd.domain.com
-          reseller_id: 123456
-          type: master
-        total: 1888
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    zoneCreateZoneRequest:
-      type: object
-      title: CreateZoneRequest
-      properties:
-        domain:
-          title: Name of the domain to which DNS zone corresponds. Represented by array of domain name and extension
-          $ref: '#/components/schemas/zoneDomain'
-        is_spamexperts_enabled:
-          type: string
-          title: Used to enable spam filtering for this DNS zone
-        master_ip:
-          type: string
-          title: IP of the master nameserver for this DNS zone. Required if DNS zone type = slave
-        provider:
-          type: string
-          title: Name of the DNS provider. Set provider=sectigo in case of sectigo premium DNS zone should be created
-        records:
-          type: array
-          title: Array of DNS records
-          items:
-            $ref: '#/components/schemas/zoneRecord'
-        secured:
-          type: boolean
-          format: boolean
-          title: Used to enable or disable DNSSEC for this DNS zone
-        template_name:
-          type: string
-          title: Name of the DNS template to use with this DNS zone
-        type:
-          type: string
-          title: DNS zone type (master or slave)
-      example:
-        domain:
-          extension: com
-          name: domain
-        is_spamexperts_enabled: 'on'
-        master_ip: 127.0.0.1
-        provider: sectigo
-        records:
-        - name: domain.com
-          prio: 1
-          ttl: 900
-          type: CNAME
-          value: abcd.domain.com
-        secured: false
-        template_name: default
-        type: master
-    historyZoneHistory:
-      type: object
-      title: ZoneHistory
-      properties:
-        date:
-          type: string
-          title: Date of operation
-        is:
-          type: string
-          title: New value
-        source:
-          type: string
-          title: The source
-        was:
-          type: string
-          title: Old value
-      example:
-        date: '2019-06-19 17:40:09'
-        is: + A |  | 8.8.8.8
-        source: ''
-        was: ''
-    zoneRecordWithOriginal:
-      type: object
-      title: RecordWithOriginal
-      properties:
-        original_record:
-          title: Array of DNS records to update
-          $ref: '#/components/schemas/zoneRecord'
-        record:
-          title: Array of DNS records to update
-          $ref: '#/components/schemas/zoneRecord'
-      example:
-        original_record:
-          name: domain.com
-          prio: 1
-          ttl: 900
-          type: CNAME
-          value: abcd.domain.com
-        record:
-          name: domain.com
-          prio: 1
-          ttl: 900
-          type: CNAME
-          value: abcd.domain.com
-    zoneZoneBoolResponse:
-      type: object
-      title: ZoneBoolResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/zoneZoneBoolResponseData'
-        desc:
-          type: string
-          title: Response example
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          success: false
-        desc: ''
-    zonePremiumDnsData:
-      type: object
-      title: PremiumDnsData
-      properties:
-        sectigo:
-          title: Additional data related to premium DNS zone managed by Sectigo
-          $ref: '#/components/schemas/zoneSectigoData'
-      example:
-        sectigo:
-          autorenew: false
-          order_date: '2021-08-05 7:37:28'
-          renewal_date: '2022-11-28 6:57:05'
-          secured: false
-          website_id: 123456
-    zoneUpdateZoneRequest:
-      type: object
-      title: UpdateZoneRequest
-      properties:
-        domain:
-          title: Name of the domain to which DNS zone corresponds. Represented by array of domain name and extension
-          $ref: '#/components/schemas/zoneDomain'
-        id:
-          type: integer
-          format: int32
-          title: DNS zone ID
-        is_spamexperts_enabled:
-          type: boolean
-          format: boolean
-          title: Used to enable spam filtering for this DNS zone
-        master_ip:
-          type: string
-          title: IP of the master nameserver for this DNS zone. Required if DNS zone type = slave
-        name:
-          type: string
-          title: Name of the domain to which DNS zone corresponds
-        premium_dns:
-          title: Additional data related to premium DNS zone
-          $ref: '#/components/schemas/zonePremiumDnsData'
-        provider:
-          type: string
-          title: Name of the DNS provider. Set provider=sectigo in case of sectigo premium DNS zone should be updated
-        records:
-          title: DNS zone records grouped by action
-          $ref: '#/components/schemas/zoneRecordUpdates'
-        type:
-          type: string
-          title: Type of DNS zone (master or slave)
-      example:
-        domain:
-          extension: com
-          name: domain
-        id: 1234567
-        is_spamexperts_enabled: true
-        master_ip: 127.0.0.1
-        name: domain.com
-        premium_dns:
-          sectigo:
-            autorenew: false
-            order_date: '2021-08-05 7:37:28'
-            renewal_date: '2022-11-28 6:57:05'
-            secured: false
-            website_id: 123456
-        provider: sectigo
-        records:
-          add:
-          - name: domain.com
-            prio: 1
-            ttl: 900
-            type: CNAME
-            value: abcd.domain.com
-          remove:
-          - name: domain.com
-            prio: 1
-            ttl: 900
-            type: CNAME
-            value: abcd.domain.com
-          replace:
-          - name: domain.com
-            prio: 1
-            ttl: 900
-            type: CNAME
-            value: abcd.domain.com
-          update:
-          - original_record:
-              name: domain.com
-              prio: 1
-              ttl: 900
-              type: CNAME
-              value: abcd.domain.com
-            record:
-              name: domain.com
-              prio: 1
-              ttl: 900
-              type: CNAME
-              value: abcd.domain.com
-        type: slave
-    zoneRecordUpdates:
-      type: object
-      title: RecordUpdates
-      properties:
-        add:
-          type: array
-          title: Array of DNS records to add
-          items:
-            $ref: '#/components/schemas/zoneRecord'
-        remove:
-          type: array
-          title: Array of DNS records to remove
-          items:
-            $ref: '#/components/schemas/zoneRecord'
-        replace:
-          type: array
-          title: Array of DNS records to replace
-          items:
-            $ref: '#/components/schemas/zoneRecord'
-        update:
-          type: array
-          title: Array of DNS records to update
-          items:
-            $ref: '#/components/schemas/zoneRecordWithOriginal'
-      example:
-        add:
-        - name: domain.com
-          prio: 1
-          ttl: 900
-          type: CNAME
-          value: abcd.domain.com
-        remove:
-        - name: domain.com
-          prio: 1
-          ttl: 900
-          type: CNAME
-          value: abcd.domain.com
-        replace:
-        - name: domain.com
-          prio: 1
-          ttl: 900
-          type: CNAME
-          value: abcd.domain.com
-        update:
-        - original_record:
-            name: domain.com
-            prio: 1
-            ttl: 900
-            type: CNAME
-            value: abcd.domain.com
-          record:
-            name: domain.com
-            prio: 1
-            ttl: 900
-            type: CNAME
-            value: abcd.domain.com
     zoneGetZoneResponse:
       type: object
       title: GetZoneResponse
@@ -898,69 +922,45 @@ components:
           reseller_id: 123456
           type: master
         desc: ''
-    zoneListZonesResponse:
+    recordRecordInfo:
       type: object
-      title: ListZonesResponse
+      title: RecordInfo
       properties:
-        code:
+        creation_date:
+          type: string
+          title: DNS record creation date
+        ip:
+          type: string
+          title: DNS record IP address
+        modification_date:
+          type: string
+          title: DNS record last modification date
+        name:
+          type: string
+          title: DNS record name
+        prio:
           type: integer
           format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/zoneListZonesResponseData'
-        desc:
+          title: DNS record priority
+        ttl:
+          type: integer
+          format: int32
+          title: DNS record priority
+        type:
           type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
+          title: DNS record type
+        value:
+          type: string
+          title: DNS record value
       example:
-        code: 0
-        data:
-          results:
-          - active: true
-            creation_date: '2012-02-05 7:37:28'
-            dnskey: ''
-            history:
-            - date: '2019-06-19 17:40:09'
-              is: true
-              source: ''
-              was: ''
-            id: 12345
-            ip: 127.0.0.1
-            is_deleted: false
-            is_shadow: false
-            is_spamexperts_enabled: false
-            modification_date: '2018-11-28 6:57:05'
-            name: domain.com
-            premium_dns:
-              sectigo:
-                autorenew: false
-                order_date: '2021-08-05 7:37:28'
-                renewal_date: '2022-11-28 6:57:05'
-                secured: false
-                website_id: 123456
-            provider: sectigo
-            records:
-            - creation_date: ''
-              ip: 127.0.0.1
-              modification_date: ''
-              name: domain.com
-              prio: 1
-              ttl: 900
-              type: CNAME
-              value: abcd.domain.com
-            reseller_id: 123456
-            type: master
-          total: 1888
-        desc: ''
+        creation_date: ''
+        ip: 127.0.0.1
+        modification_date: ''
+        name: domain.com
+        prio: 1
+        ttl: 900
+        type: CNAME
+        value: abcd.domain.com
   securitySchemes:
     Bearer:
       type: apiKey

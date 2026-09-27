@@ -63,20 +63,24 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    domainPrice:
+    errorWarning:
       type: object
-      title: Price
+      title: Warning
       properties:
-        currency:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
           type: string
-          title: Product or reseller currency
-        price:
-          type: number
-          format: double
-          title: Amount in product or reseller currency
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
       example:
-        currency: USD
-        price: 8.06
+        code: 0
+        data: ''
+        desc: ''
     priceGetPriceResponse:
       type: object
       title: GetPriceResponse
@@ -130,24 +134,19 @@ components:
               currency: USD
               price: 8.06
         desc: ''
-    errorWarning:
+    pricePromotionData:
       type: object
-      title: Warning
+      title: PromotionData
       properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
+        end_date:
           type: string
-          title: Additional warning description
-        desc:
+          title: Date when promotion is end
+        start_date:
           type: string
-          title: Warning description
+          title: Date when promotion is start
       example:
-        code: 0
-        data: ''
-        desc: ''
+        end_date: '1589932800'
+        start_date: '1582156800'
     errorError:
       type: object
       title: Error
@@ -217,19 +216,20 @@ components:
           reseller:
             currency: USD
             price: 8.06
-    pricePromotionData:
+    domainPrice:
       type: object
-      title: PromotionData
+      title: Price
       properties:
-        end_date:
+        currency:
           type: string
-          title: Date when promotion is end
-        start_date:
-          type: string
-          title: Date when promotion is start
+          title: Product or reseller currency
+        price:
+          type: number
+          format: double
+          title: Amount in product or reseller currency
       example:
-        end_date: '1589932800'
-        start_date: '1582156800'
+        currency: USD
+        price: 8.06
     domainPriceGroup:
       type: object
       title: PriceGroup

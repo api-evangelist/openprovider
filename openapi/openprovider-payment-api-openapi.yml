@@ -73,23 +73,6 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    paymentPrices:
-      type: object
-      title: Prices
-      properties:
-        product:
-          title: Price in product currency
-          $ref: '#/components/schemas/paymentPrice'
-        reseller:
-          title: Price in reseller currency
-          $ref: '#/components/schemas/paymentPrice'
-      example:
-        product:
-          currency: EUR
-          price: 0
-        reseller:
-          currency: EUR
-          price: 0
     errorWarning:
       type: object
       title: Warning
@@ -108,6 +91,86 @@ components:
         code: 0
         data: ''
         desc: ''
+    paymentListPaymentsResponseDataResults:
+      type: object
+      title: ListPaymentsResponseDataResults
+      properties:
+        amount:
+          title: The amount
+          $ref: '#/components/schemas/paymentPrices'
+        confirmation_date:
+          type: string
+          title: The confirmation date
+        creation_date:
+          type: string
+          title: The creation date
+        id:
+          type: integer
+          format: int32
+          title: The id
+        is_processed:
+          type: boolean
+          format: boolean
+          title: Is processed
+        method:
+          type: string
+          title: The method
+        payment_date:
+          type: string
+          title: The payment date
+        status:
+          type: string
+          title: The status
+        type:
+          type: string
+          title: The type
+      example:
+        amount:
+          product:
+            currency: EUR
+            price: 0
+          reseller:
+            currency: EUR
+            price: 0
+        confirmation_date: ''
+        creation_date: '2006-09-15 14:19:30'
+        id: 123
+        is_processed: false
+        method: ''
+        payment_date: '2006-09-15 14:25:30'
+        status: new
+        type: online
+    paymentListPaymentsResponseData:
+      type: object
+      title: ListPaymentsResponseData
+      properties:
+        results:
+          type: array
+          title: The results
+          items:
+            $ref: '#/components/schemas/paymentListPaymentsResponseDataResults'
+        total:
+          type: integer
+          format: int32
+          title: The total
+      example:
+        results:
+        - amount:
+            product:
+              currency: EUR
+              price: 0
+            reseller:
+              currency: EUR
+              price: 0
+          confirmation_date: ''
+          creation_date: '2006-09-15 14:19:30'
+          id: 123
+          is_processed: false
+          method: ''
+          payment_date: '2006-09-15 14:25:30'
+          status: new
+          type: online
+        total: 0
     paymentListPaymentsResponse:
       type: object
       title: ListPaymentsResponse
@@ -184,86 +247,23 @@ components:
       example:
         currency: EUR
         price: 0
-    paymentListPaymentsResponseData:
+    paymentPrices:
       type: object
-      title: ListPaymentsResponseData
+      title: Prices
       properties:
-        results:
-          type: array
-          title: The results
-          items:
-            $ref: '#/components/schemas/paymentListPaymentsResponseDataResults'
-        total:
-          type: integer
-          format: int32
-          title: The total
+        product:
+          title: Price in product currency
+          $ref: '#/components/schemas/paymentPrice'
+        reseller:
+          title: Price in reseller currency
+          $ref: '#/components/schemas/paymentPrice'
       example:
-        results:
-        - amount:
-            product:
-              currency: EUR
-              price: 0
-            reseller:
-              currency: EUR
-              price: 0
-          confirmation_date: ''
-          creation_date: '2006-09-15 14:19:30'
-          id: 123
-          is_processed: false
-          method: ''
-          payment_date: '2006-09-15 14:25:30'
-          status: new
-          type: online
-        total: 0
-    paymentListPaymentsResponseDataResults:
-      type: object
-      title: ListPaymentsResponseDataResults
-      properties:
-        amount:
-          title: The amount
-          $ref: '#/components/schemas/paymentPrices'
-        confirmation_date:
-          type: string
-          title: The confirmation date
-        creation_date:
-          type: string
-          title: The creation date
-        id:
-          type: integer
-          format: int32
-          title: The id
-        is_processed:
-          type: boolean
-          format: boolean
-          title: Is processed
-        method:
-          type: string
-          title: The method
-        payment_date:
-          type: string
-          title: The payment date
-        status:
-          type: string
-          title: The status
-        type:
-          type: string
-          title: The type
-      example:
-        amount:
-          product:
-            currency: EUR
-            price: 0
-          reseller:
-            currency: EUR
-            price: 0
-        confirmation_date: ''
-        creation_date: '2006-09-15 14:19:30'
-        id: 123
-        is_processed: false
-        method: ''
-        payment_date: '2006-09-15 14:25:30'
-        status: new
-        type: online
+        product:
+          currency: EUR
+          price: 0
+        reseller:
+          currency: EUR
+          price: 0
   securitySchemes:
     Bearer:
       type: apiKey

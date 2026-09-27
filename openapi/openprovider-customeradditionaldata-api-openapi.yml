@@ -59,24 +59,6 @@ components:
         code: 0
         data: ''
         desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     customerGetDataResponse:
       type: object
       title: GetDataResponse
@@ -113,6 +95,37 @@ components:
           required: false
           type: select
         desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    additional_dataSelectOption:
+      type: object
+      title: SelectOption
+      properties:
+        description:
+          type: string
+          title: Parameter description
+        value:
+          type: string
+          title: Option value
+      example:
+        description: Norwegian
+        value: 'no'
     additional_dataSpecification:
       type: object
       title: Specification
@@ -143,19 +156,6 @@ components:
           value: 'no'
         required: false
         type: select
-    additional_dataSelectOption:
-      type: object
-      title: SelectOption
-      properties:
-        description:
-          type: string
-          title: Parameter description
-        value:
-          type: string
-          title: Option value
-      example:
-        description: Norwegian
-        value: 'no'
   securitySchemes:
     Bearer:
       type: apiKey

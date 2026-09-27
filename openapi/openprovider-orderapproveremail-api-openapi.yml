@@ -77,44 +77,6 @@ paths:
         required: true
 components:
   schemas:
-    approveremailResendApproverEmailResponse:
-      type: object
-      title: ResendApproverEmailResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/approveremailResendApproverEmailResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          id: 1
-        desc: ''
-    approveremailResendApproverEmailRequest:
-      type: object
-      title: ResendApproverEmailRequest
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Object id
-      example:
-        id: 1
     errorWarning:
       type: object
       title: Warning
@@ -133,6 +95,30 @@ components:
         code: 0
         data: ''
         desc: ''
+    approveremailUpdateApproverEmailAddressRequest:
+      type: object
+      title: UpdateApproverEmailAddressRequest
+      properties:
+        approver_email:
+          description: Email for domain ownership verification. Should start with well-known generic name like admin@, hostmater@, administrator@, etc.
+          type: string
+        id:
+          type: integer
+          format: int32
+          title: Object id
+      example:
+        approver_email: admin@example.com
+        id: 1
+    approveremailResendApproverEmailRequest:
+      type: object
+      title: ResendApproverEmailRequest
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Object id
+      example:
+        id: 1
     approveremailResendApproverEmailResponseData:
       type: object
       title: ResendApproverEmailResponseData
@@ -161,30 +147,34 @@ components:
         code: 0
         data: ''
         desc: ''
-    approveremailUpdateApproverEmailAddressResponseData:
+    approveremailResendApproverEmailResponse:
       type: object
-      title: UpdateApproverEmailAddressResponseData
+      title: ResendApproverEmailResponse
       properties:
-        id:
+        code:
           type: integer
           format: int32
-          title: Object id
-      example:
-        id: 1
-    approveremailUpdateApproverEmailAddressRequest:
-      type: object
-      title: UpdateApproverEmailAddressRequest
-      properties:
-        approver_email:
-          description: Email for domain ownership verification. Should start with well-known generic name like admin@, hostmater@, administrator@, etc.
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/approveremailResendApproverEmailResponseData'
+        desc:
           type: string
-        id:
-          type: integer
-          format: int32
-          title: Object id
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
       example:
-        approver_email: admin@example.com
-        id: 1
+        code: 0
+        data:
+          id: 1
+        desc: ''
     approveremailUpdateApproverEmailAddressResponse:
       type: object
       title: UpdateApproverEmailAddressResponse
@@ -213,6 +203,16 @@ components:
         data:
           id: 1
         desc: ''
+    approveremailUpdateApproverEmailAddressResponseData:
+      type: object
+      title: UpdateApproverEmailAddressResponseData
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Object id
+      example:
+        id: 1
   securitySchemes:
     Bearer:
       type: apiKey

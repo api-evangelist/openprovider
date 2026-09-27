@@ -36,6 +36,24 @@ paths:
         required: true
 components:
   schemas:
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
     authLoginResponse:
       type: object
       title: LoginResponse
@@ -65,24 +83,20 @@ components:
           reseller_id: 123456
           token: 20d65561c9636d262e59aec8582c20c7
         desc: ''
-    errorWarning:
+    authLoginResponseData:
       type: object
-      title: Warning
+      title: LoginResponseData
       properties:
-        code:
+        reseller_id:
           type: integer
           format: int32
-          title: Warning code
-        data:
+          title: The reseller id
+        token:
           type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
+          title: The token
       example:
-        code: 0
-        data: ''
-        desc: ''
+        reseller_id: 123456
+        token: 20d65561c9636d262e59aec8582c20c7
     errorError:
       type: object
       title: Error
@@ -101,20 +115,6 @@ components:
         code: 0
         data: ''
         desc: ''
-    authLoginResponseData:
-      type: object
-      title: LoginResponseData
-      properties:
-        reseller_id:
-          type: integer
-          format: int32
-          title: The reseller id
-        token:
-          type: string
-          title: The token
-      example:
-        reseller_id: 123456
-        token: 20d65561c9636d262e59aec8582c20c7
     authLoginRequest:
       type: object
       title: LoginRequest

@@ -119,37 +119,6 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    productSslProductPrice:
-      type: object
-      title: SslProductPrice
-      properties:
-        currency:
-          type: string
-          title: Currency
-        price:
-          type: number
-          format: double
-          title: Product price
-      example:
-        currency: USD
-        price: 0
-    productSslProductPriceGroup:
-      type: object
-      title: SslProductPriceGroup
-      properties:
-        product:
-          title: Price in product currency
-          $ref: '#/components/schemas/productSslProductPrice'
-        reseller:
-          title: Price in reseller currency
-          $ref: '#/components/schemas/productSslProductReseller'
-      example:
-        product:
-          currency: USD
-          price: 0
-        reseller:
-          currency: EUR
-          price: 0
     errorWarning:
       type: object
       title: Warning
@@ -168,262 +137,23 @@ components:
         code: 0
         data: ''
         desc: ''
-    productGetProductResponse:
+    productSslProductPrice:
       type: object
-      title: GetProductResponse
+      title: SslProductPrice
       properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/productSslProduct'
-        desc:
+        currency:
           type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
+          title: Currency
+        price:
+          type: number
+          format: double
+          title: Product price
       example:
-        code: 0
-        data:
-          brand_name: Comodo
-          bypass_san: false
-          category: domain_validation
-          delivery_time: 10m
-          description: An EssentialSSL certificate from Comodo is an affordable solution for securing your lite website or intranet. No hassle with paperworks, as the issuance is based on realtime domain checks.
-          encryption: 40/256 bits
-          free_refund_period: 30d
-          free_reissue_period: lifetime
-          id: 123456789
-          included_domains_count: 1
-          is_extended_validation_supported: false
-          is_idn_supported: false
-          is_mobile_supported: false
-          is_sgc_supported: false
-          is_wildcard_multidomain_supported: false
-          is_wildcard_supported: false
-          level_prices:
-          - level: 1
-            name: EssentialSSL
-            prices:
-            - extra_domain_price:
-                product:
-                  currency: USD
-                  price: 0
-                reseller:
-                  currency: EUR
-                  price: 0
-              extra_wildcard_domain_price:
-                product:
-                  currency: USD
-                  price: 0
-                reseller:
-                  currency: EUR
-                  price: 0
-              period: 1
-              price:
-                product:
-                  currency: USD
-                  price: 0
-                reseller:
-                  currency: EUR
-                  price: 0
-          max_domains: 1
-          max_period: 2
-          name: EssentialSSL
-          number_of_domains: 1
-          order_module: comodo
-          prices:
-          - extra_domain_price:
-              product:
-                currency: USD
-                price: 0
-              reseller:
-                currency: EUR
-                price: 0
-            extra_wildcard_domain_price:
-              product:
-                currency: USD
-                price: 0
-              reseller:
-                currency: EUR
-                price: 0
-            period: 1
-            price:
-              product:
-                currency: USD
-                price: 0
-              reseller:
-                currency: EUR
-                price: 0
-          root: Chained root
-          sub_category: ''
-          supported_software:
-          - id: linux
-            title: Linux
-          validation_method: domain
-          warranty:
-            product:
-              currency: USD
-              price: 0
-            reseller:
-              currency: EUR
-              price: 0
-        desc: ''
-    errorError:
+        currency: USD
+        price: 0
+    productSslProductPriceGroup:
       type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    productSslProductSupportedSoftware:
-      type: object
-      title: SslProductSupportedSoftware
-      properties:
-        id:
-          type: string
-          title: Object id
-        title:
-          type: string
-          title: Platform title
-      example:
-        id: linux
-        title: Linux
-    productListProductsResponse:
-      type: object
-      title: ListProductsResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/productListProductsResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          results:
-          - brand_name: Comodo
-            bypass_san: false
-            category: domain_validation
-            delivery_time: 10m
-            description: An EssentialSSL certificate from Comodo is an affordable solution for securing your lite website or intranet. No hassle with paperworks, as the issuance is based on realtime domain checks.
-            encryption: 40/256 bits
-            free_refund_period: 30d
-            free_reissue_period: lifetime
-            id: 123456789
-            included_domains_count: 1
-            is_extended_validation_supported: false
-            is_idn_supported: false
-            is_mobile_supported: false
-            is_sgc_supported: false
-            is_wildcard_multidomain_supported: false
-            is_wildcard_supported: false
-            level_prices:
-            - level: 1
-              name: EssentialSSL
-              prices:
-              - extra_domain_price:
-                  product:
-                    currency: USD
-                    price: 0
-                  reseller:
-                    currency: EUR
-                    price: 0
-                extra_wildcard_domain_price:
-                  product:
-                    currency: USD
-                    price: 0
-                  reseller:
-                    currency: EUR
-                    price: 0
-                period: 1
-                price:
-                  product:
-                    currency: USD
-                    price: 0
-                  reseller:
-                    currency: EUR
-                    price: 0
-            max_domains: 1
-            max_period: 2
-            name: EssentialSSL
-            number_of_domains: 1
-            order_module: comodo
-            prices:
-            - extra_domain_price:
-                product:
-                  currency: USD
-                  price: 0
-                reseller:
-                  currency: EUR
-                  price: 0
-              extra_wildcard_domain_price:
-                product:
-                  currency: USD
-                  price: 0
-                reseller:
-                  currency: EUR
-                  price: 0
-              period: 1
-              price:
-                product:
-                  currency: USD
-                  price: 0
-                reseller:
-                  currency: EUR
-                  price: 0
-            root: Chained root
-            sub_category: ''
-            supported_software:
-            - id: linux
-              title: Linux
-            validation_method: domain
-            warranty:
-              product:
-                currency: USD
-                price: 0
-              reseller:
-                currency: EUR
-                price: 0
-          total: 999
-        desc: ''
-    productSslProductWarranty:
-      type: object
-      title: SslProductWarranty
+      title: SslProductPriceGroup
       properties:
         product:
           title: Price in product currency
@@ -480,20 +210,6 @@ components:
             reseller:
               currency: EUR
               price: 0
-    productSslProductReseller:
-      type: object
-      title: SslProductReseller
-      properties:
-        currency:
-          type: string
-          title: Currency
-        price:
-          type: number
-          format: double
-          title: Product price
-      example:
-        currency: EUR
-        price: 0
     productListProductsResponseData:
       type: object
       title: ListProductsResponseData
@@ -593,6 +309,20 @@ components:
               currency: EUR
               price: 0
         total: 999
+    productSslProductReseller:
+      type: object
+      title: SslProductReseller
+      properties:
+        currency:
+          type: string
+          title: Currency
+        price:
+          type: number
+          format: double
+          title: Product price
+      example:
+        currency: EUR
+        price: 0
     productSslProduct:
       type: object
       title: SslProduct
@@ -783,6 +513,134 @@ components:
           reseller:
             currency: EUR
             price: 0
+    productGetProductResponse:
+      type: object
+      title: GetProductResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/productSslProduct'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          brand_name: Comodo
+          bypass_san: false
+          category: domain_validation
+          delivery_time: 10m
+          description: An EssentialSSL certificate from Comodo is an affordable solution for securing your lite website or intranet. No hassle with paperworks, as the issuance is based on realtime domain checks.
+          encryption: 40/256 bits
+          free_refund_period: 30d
+          free_reissue_period: lifetime
+          id: 123456789
+          included_domains_count: 1
+          is_extended_validation_supported: false
+          is_idn_supported: false
+          is_mobile_supported: false
+          is_sgc_supported: false
+          is_wildcard_multidomain_supported: false
+          is_wildcard_supported: false
+          level_prices:
+          - level: 1
+            name: EssentialSSL
+            prices:
+            - extra_domain_price:
+                product:
+                  currency: USD
+                  price: 0
+                reseller:
+                  currency: EUR
+                  price: 0
+              extra_wildcard_domain_price:
+                product:
+                  currency: USD
+                  price: 0
+                reseller:
+                  currency: EUR
+                  price: 0
+              period: 1
+              price:
+                product:
+                  currency: USD
+                  price: 0
+                reseller:
+                  currency: EUR
+                  price: 0
+          max_domains: 1
+          max_period: 2
+          name: EssentialSSL
+          number_of_domains: 1
+          order_module: comodo
+          prices:
+          - extra_domain_price:
+              product:
+                currency: USD
+                price: 0
+              reseller:
+                currency: EUR
+                price: 0
+            extra_wildcard_domain_price:
+              product:
+                currency: USD
+                price: 0
+              reseller:
+                currency: EUR
+                price: 0
+            period: 1
+            price:
+              product:
+                currency: USD
+                price: 0
+              reseller:
+                currency: EUR
+                price: 0
+          root: Chained root
+          sub_category: ''
+          supported_software:
+          - id: linux
+            title: Linux
+          validation_method: domain
+          warranty:
+            product:
+              currency: USD
+              price: 0
+            reseller:
+              currency: EUR
+              price: 0
+        desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
     productSslProductPrices:
       type: object
       title: SslProductPrices
@@ -823,6 +681,148 @@ components:
           reseller:
             currency: EUR
             price: 0
+    productSslProductWarranty:
+      type: object
+      title: SslProductWarranty
+      properties:
+        product:
+          title: Price in product currency
+          $ref: '#/components/schemas/productSslProductPrice'
+        reseller:
+          title: Price in reseller currency
+          $ref: '#/components/schemas/productSslProductReseller'
+      example:
+        product:
+          currency: USD
+          price: 0
+        reseller:
+          currency: EUR
+          price: 0
+    productListProductsResponse:
+      type: object
+      title: ListProductsResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/productListProductsResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          results:
+          - brand_name: Comodo
+            bypass_san: false
+            category: domain_validation
+            delivery_time: 10m
+            description: An EssentialSSL certificate from Comodo is an affordable solution for securing your lite website or intranet. No hassle with paperworks, as the issuance is based on realtime domain checks.
+            encryption: 40/256 bits
+            free_refund_period: 30d
+            free_reissue_period: lifetime
+            id: 123456789
+            included_domains_count: 1
+            is_extended_validation_supported: false
+            is_idn_supported: false
+            is_mobile_supported: false
+            is_sgc_supported: false
+            is_wildcard_multidomain_supported: false
+            is_wildcard_supported: false
+            level_prices:
+            - level: 1
+              name: EssentialSSL
+              prices:
+              - extra_domain_price:
+                  product:
+                    currency: USD
+                    price: 0
+                  reseller:
+                    currency: EUR
+                    price: 0
+                extra_wildcard_domain_price:
+                  product:
+                    currency: USD
+                    price: 0
+                  reseller:
+                    currency: EUR
+                    price: 0
+                period: 1
+                price:
+                  product:
+                    currency: USD
+                    price: 0
+                  reseller:
+                    currency: EUR
+                    price: 0
+            max_domains: 1
+            max_period: 2
+            name: EssentialSSL
+            number_of_domains: 1
+            order_module: comodo
+            prices:
+            - extra_domain_price:
+                product:
+                  currency: USD
+                  price: 0
+                reseller:
+                  currency: EUR
+                  price: 0
+              extra_wildcard_domain_price:
+                product:
+                  currency: USD
+                  price: 0
+                reseller:
+                  currency: EUR
+                  price: 0
+              period: 1
+              price:
+                product:
+                  currency: USD
+                  price: 0
+                reseller:
+                  currency: EUR
+                  price: 0
+            root: Chained root
+            sub_category: ''
+            supported_software:
+            - id: linux
+              title: Linux
+            validation_method: domain
+            warranty:
+              product:
+                currency: USD
+                price: 0
+              reseller:
+                currency: EUR
+                price: 0
+          total: 999
+        desc: ''
+    productSslProductSupportedSoftware:
+      type: object
+      title: SslProductSupportedSoftware
+      properties:
+        id:
+          type: string
+          title: Object id
+        title:
+          type: string
+          title: Platform title
+      example:
+        id: linux
+        title: Linux
   securitySchemes:
     Bearer:
       type: apiKey

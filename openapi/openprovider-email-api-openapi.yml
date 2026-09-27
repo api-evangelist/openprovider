@@ -148,16 +148,6 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    emailCreateEmailResponseData:
-      type: object
-      title: CreateEmailResponseData
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Object ID
-      example:
-        id: 0
     emailUpdateEmailResponseData:
       type: object
       title: UpdateEmailResponseData
@@ -186,6 +176,47 @@ components:
         code: 0
         data: ''
         desc: ''
+    emailUpdateEmailResponse:
+      type: object
+      title: UpdateEmailResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/emailUpdateEmailResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates, if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          success: false
+        desc: ''
+    emailTags:
+      type: object
+      title: Tags
+      properties:
+        key:
+          type: string
+          title: 'The key of the tag. Allowed values: ''customer'''
+        value:
+          type: string
+          title: The value of the tag. I.e.:VIP customer
+      example:
+        key: customer
+        value: Reseller A
     emailDeleteEmailResponse:
       type: object
       title: DeleteEmailResponse
@@ -214,6 +245,34 @@ components:
         data:
           success: false
         desc: ''
+    emailCreateEmailResponse:
+      type: object
+      title: CreateEmailResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/emailCreateEmailResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates, if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          id: 0
+        desc: ''
     emailDeleteEmailResponseData:
       type: object
       title: DeleteEmailResponseData
@@ -224,6 +283,35 @@ components:
           title: Indicates, if operation was successfull
       example:
         success: false
+    emailListEmailsResponseData:
+      type: object
+      title: ListEmailsResponseData
+      properties:
+        results:
+          type: array
+          title: Array of results
+          items:
+            $ref: '#/components/schemas/emailListEmailsResponseDataResults'
+        total:
+          type: integer
+          format: int32
+          title: Results count
+      example:
+        results:
+        - fields:
+          - name: senderEmail
+            value: support@resellerA.com
+          group: ive
+          id: 0
+          is_active: false
+          is_default: false
+          locale:
+          - nl_NL
+          name: ''
+          tags:
+          - key: customer
+            value: Reseller A
+        total: 999
     errorError:
       type: object
       title: Error
@@ -242,9 +330,9 @@ components:
         code: 0
         data: ''
         desc: ''
-    emailListEmailsResponseDataResults:
+    emailCreateEmailRequest:
       type: object
-      title: ListEmailsResponseDataResults
+      title: CreateEmailRequest
       properties:
         fields:
           type: array
@@ -254,10 +342,6 @@ components:
         group:
           type: string
           title: 'Email template type. There are several types of ICANN emails that can be customized in Openprovider: -errp (Expired Registration Recovery policy emails) -foa (Form of Authorization emails for domain transfers approval \ rejection) -ive (Information verification emails, such emails used to verify email address of the customer) -tcn (Trademark Claims Notification emails) -wdrp (Whois Data Reminder Policy emails)'
-        id:
-          type: integer
-          format: int32
-          title: Object ID
         is_active:
           type: boolean
           format: boolean
@@ -283,8 +367,7 @@ components:
         fields:
         - name: senderEmail
           value: support@resellerA.com
-        group: ive
-        id: 0
+        group: wdrp
         is_active: false
         is_default: false
         locale:
@@ -344,163 +427,6 @@ components:
         tags:
         - key: customer
           value: Reseller A
-    emailListEmailsResponseData:
-      type: object
-      title: ListEmailsResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            $ref: '#/components/schemas/emailListEmailsResponseDataResults'
-        total:
-          type: integer
-          format: int32
-          title: Results count
-      example:
-        results:
-        - fields:
-          - name: senderEmail
-            value: support@resellerA.com
-          group: ive
-          id: 0
-          is_active: false
-          is_default: false
-          locale:
-          - nl_NL
-          name: ''
-          tags:
-          - key: customer
-            value: Reseller A
-        total: 999
-    emailCreateEmailRequest:
-      type: object
-      title: CreateEmailRequest
-      properties:
-        fields:
-          type: array
-          title: Array of template fields and values
-          items:
-            $ref: '#/components/schemas/emailFields'
-        group:
-          type: string
-          title: 'Email template type. There are several types of ICANN emails that can be customized in Openprovider: -errp (Expired Registration Recovery policy emails) -foa (Form of Authorization emails for domain transfers approval \ rejection) -ive (Information verification emails, such emails used to verify email address of the customer) -tcn (Trademark Claims Notification emails) -wdrp (Whois Data Reminder Policy emails)'
-        is_active:
-          type: boolean
-          format: boolean
-          title: Indicates, if template is active
-        is_default:
-          type: boolean
-          format: boolean
-          title: Indicates, if template is used by default
-        locale:
-          type: array
-          title: Template language. All supported codes http://demo.icu-project.org/icu-bin/locexp
-          items:
-            type: string
-        name:
-          type: string
-          title: Template name
-        tags:
-          type: array
-          title: This parameter is optional and allows you to specify a specific tags for object
-          items:
-            $ref: '#/components/schemas/emailTags'
-      example:
-        fields:
-        - name: senderEmail
-          value: support@resellerA.com
-        group: wdrp
-        is_active: false
-        is_default: false
-        locale:
-        - nl_NL
-        name: ''
-        tags:
-        - key: customer
-          value: Reseller A
-    emailTags:
-      type: object
-      title: Tags
-      properties:
-        key:
-          type: string
-          title: 'The key of the tag. Allowed values: ''customer'''
-        value:
-          type: string
-          title: The value of the tag. I.e.:VIP customer
-      example:
-        key: customer
-        value: Reseller A
-    emailUpdateEmailResponse:
-      type: object
-      title: UpdateEmailResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/emailUpdateEmailResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates, if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          success: false
-        desc: ''
-    emailCreateEmailResponse:
-      type: object
-      title: CreateEmailResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/emailCreateEmailResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates, if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          id: 0
-        desc: ''
-    emailFields:
-      type: object
-      title: Fields
-      properties:
-        name:
-          type: string
-          title: Template name
-        value:
-          type: string
-          title: The value of the tag. I.e.:VIP customer
-      example:
-        name: senderEmail
-        value: support@resellerA.com
     emailListEmailsResponse:
       type: object
       title: ListEmailsResponse
@@ -543,6 +469,80 @@ components:
               value: Reseller A
           total: 999
         desc: ''
+    emailListEmailsResponseDataResults:
+      type: object
+      title: ListEmailsResponseDataResults
+      properties:
+        fields:
+          type: array
+          title: Array of template fields and values
+          items:
+            $ref: '#/components/schemas/emailFields'
+        group:
+          type: string
+          title: 'Email template type. There are several types of ICANN emails that can be customized in Openprovider: -errp (Expired Registration Recovery policy emails) -foa (Form of Authorization emails for domain transfers approval \ rejection) -ive (Information verification emails, such emails used to verify email address of the customer) -tcn (Trademark Claims Notification emails) -wdrp (Whois Data Reminder Policy emails)'
+        id:
+          type: integer
+          format: int32
+          title: Object ID
+        is_active:
+          type: boolean
+          format: boolean
+          title: Indicates, if template is active
+        is_default:
+          type: boolean
+          format: boolean
+          title: Indicates, if template is used by default
+        locale:
+          type: array
+          title: Template language. All supported codes http://demo.icu-project.org/icu-bin/locexp
+          items:
+            type: string
+        name:
+          type: string
+          title: Template name
+        tags:
+          type: array
+          title: This parameter is optional and allows you to specify a specific tags for object
+          items:
+            $ref: '#/components/schemas/emailTags'
+      example:
+        fields:
+        - name: senderEmail
+          value: support@resellerA.com
+        group: ive
+        id: 0
+        is_active: false
+        is_default: false
+        locale:
+        - nl_NL
+        name: ''
+        tags:
+        - key: customer
+          value: Reseller A
+    emailCreateEmailResponseData:
+      type: object
+      title: CreateEmailResponseData
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Object ID
+      example:
+        id: 0
+    emailFields:
+      type: object
+      title: Fields
+      properties:
+        name:
+          type: string
+          title: Template name
+        value:
+          type: string
+          title: The value of the tag. I.e.:VIP customer
+      example:
+        name: senderEmail
+        value: support@resellerA.com
   securitySchemes:
     Bearer:
       type: apiKey

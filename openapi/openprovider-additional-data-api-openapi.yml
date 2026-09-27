@@ -46,42 +46,6 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    additional_dataGetAdditionalDataResponse:
-      type: object
-      title: GetAdditionalDataResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          type: array
-          title: Response data
-          items:
-            $ref: '#/components/schemas/additional_dataSpecification'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if the Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Contains warning responses if any
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-        - description: IDN script states what language or character set the domain name is in
-          name: idnScript
-          options:
-          - description: Norwegian
-            value: 'no'
-          required: false
-          type: select
-        desc: ''
     errorWarning:
       type: object
       title: Warning
@@ -118,6 +82,55 @@ components:
         code: 0
         data: ''
         desc: ''
+    additional_dataSelectOption:
+      type: object
+      title: SelectOption
+      properties:
+        description:
+          type: string
+          title: Parameter description
+        value:
+          type: string
+          title: Option value
+      example:
+        description: Norwegian
+        value: 'no'
+    additional_dataGetAdditionalDataResponse:
+      type: object
+      title: GetAdditionalDataResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          type: array
+          title: Response data
+          items:
+            $ref: '#/components/schemas/additional_dataSpecification'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if the Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Contains warning responses if any
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+        - description: IDN script states what language or character set the domain name is in
+          name: idnScript
+          options:
+          - description: Norwegian
+            value: 'no'
+          required: false
+          type: select
+        desc: ''
     additional_dataSpecification:
       type: object
       title: Specification
@@ -148,19 +161,6 @@ components:
           value: 'no'
         required: false
         type: select
-    additional_dataSelectOption:
-      type: object
-      title: SelectOption
-      properties:
-        description:
-          type: string
-          title: Parameter description
-        value:
-          type: string
-          title: Option value
-      example:
-        description: Norwegian
-        value: 'no'
   securitySchemes:
     Bearer:
       type: apiKey

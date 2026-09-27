@@ -200,561 +200,6 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    contactUpdateContactResponseData:
-      type: object
-      title: UpdateContactResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates if operation was successful
-      example:
-        success: false
-    contactAddress:
-      type: object
-      title: Address
-      properties:
-        city:
-          type: string
-          title: City
-        country:
-          type: string
-          title: Country code
-        number:
-          type: string
-          title: Street number
-        state:
-          type: string
-          title: State / province
-        street:
-          type: string
-          title: Street
-        suffix:
-          type: string
-          title: Address suffix
-        zipcode:
-          type: string
-          title: Postal code
-      example:
-        city: Test city
-        country: NL
-        number: '123'
-        state: Testprovince
-        street: Test street
-        suffix: A
-        zipcode: 1235 XX
-    contactGetContactResponse:
-      type: object
-      title: GetContactResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/personcontactContact'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          additional_data:
-            birth_city: Test city
-            birth_date: '1969-12-31'
-            social_security_number: 12326178T
-          address:
-            city: Test city
-            country: NL
-            number: '123'
-            state: Testprovince
-            street: Test street
-            suffix: A
-            zipcode: 1235 XX
-          api_access_enabled: true
-          api_client_ip_list:
-            allow:
-            - 127.0.0.1
-            deny:
-            - 127.0.0.1
-          auth_type: simple
-          comments: ''
-          company_name: Example company
-          email: test@mail.tld
-          hash_changed_at: '2019-03-25 10:17:02'
-          id: 123456789
-          is_active: false
-          last_api_call_at: '2019-03-25 10:17:01'
-          last_login_at: '2019-04-12 11:58:39'
-          locale: nl_NL
-          name:
-            first_name: Test
-            full_name: Test Person
-            initials: T P
-            last_name: Person
-            prefix: Mr
-          password_change_declined_at: '2019-03-23 12:32:15'
-          password_changed_at: '2019-03-25 10:17:00'
-          phone:
-            area_code: '111'
-            country_code: '+03'
-            subscriber_number: '123456'
-          rcp_client_ip_list:
-            allow:
-            - 127.0.0.1
-            deny:
-            - 127.0.0.1
-          reseller_id: 12345
-          role: admin
-          secret_key: SECRETKEYVALUE
-          username: user_name
-          vat: XX123456789X12
-        desc: ''
-    contactDeleteContactResponseData:
-      type: object
-      title: DeleteContactResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates if operation was successful
-      example:
-        success: false
-    contactClientIpList:
-      type: object
-      title: ClientIpList
-      properties:
-        allow:
-          type: array
-          title: IP whitelist
-          items:
-            type: string
-        deny:
-          type: array
-          title: Blacklisted IP addresses
-          items:
-            type: string
-      example:
-        allow:
-        - 127.0.0.1
-        deny:
-        - 127.0.0.1
-    contactUpdateContactRequest:
-      type: object
-      title: UpdateContactRequest
-      properties:
-        additional_data:
-          title: Collection of data fields that contain additional customer information
-          $ref: '#/components/schemas/contactAdditionalData'
-        address:
-          title: Address
-          $ref: '#/components/schemas/contactAddress'
-        api_access_enabled:
-          type: boolean
-          format: boolean
-          title: Indicates if API access is enabled for the contact
-        api_client_ip_list:
-          title: API access IP whitelist / blacklist
-          $ref: '#/components/schemas/contactClientIpList'
-        auth_type:
-          type: string
-          title: Autherntication type
-        comments:
-          type: string
-          title: Custom notes to the specified handle
-        company_name:
-          type: string
-          title: Company name
-        email:
-          type: string
-          title: Email address
-        id:
-          type: integer
-          format: int32
-          title: Object ID
-        inn:
-          type: string
-          title: Customer's individual tax number (for Russian customers only)
-        is_active:
-          type: boolean
-          format: boolean
-          title: Indicates if contact is active
-        kpp:
-          type: string
-          title: KPP number. For Russian customers only
-        locale:
-          type: string
-          title: Customer's language
-        name:
-          title: The name
-          $ref: '#/components/schemas/contactName'
-        password_change_declined_at:
-          type: string
-          title: Password change declined date
-        phone:
-          title: The phone
-          $ref: '#/components/schemas/contactPhone'
-        rcp_client_ip_list:
-          title: RCP access IP whitelist / blacklist
-          $ref: '#/components/schemas/contactClientIpList'
-        role:
-          type: string
-          title: Contact's role
-        type:
-          type: string
-          title: The type
-        vat:
-          type: string
-          title: VAT (value-added tax) number of the customer
-      example:
-        additional_data:
-          birth_city: Test city
-          birth_date: '1969-12-31'
-          social_security_number: 12326178T
-        address:
-          city: Test city
-          country: NL
-          number: '123'
-          state: Testprovince
-          street: Test street
-          suffix: A
-          zipcode: 1235 XX
-        api_access_enabled: false
-        api_client_ip_list:
-          allow:
-          - 127.0.0.1
-          deny:
-          - 127.0.0.1
-        auth_type: ''
-        comments: ''
-        company_name: ''
-        email: ''
-        id: 123456789
-        inn: ''
-        is_active: false
-        kpp: ''
-        locale: ''
-        name:
-          first_name: Test
-          full_name: Test Person
-          initials: T P
-          last_name: Person
-          prefix: Mr
-        password_change_declined_at: ''
-        phone:
-          area_code: '111'
-          country_code: '+03'
-          subscriber_number: '123456'
-        rcp_client_ip_list:
-          allow:
-          - 127.0.0.1
-          deny:
-          - 127.0.0.1
-        role: ''
-        type: ''
-        vat: ''
-    contactCreateContactResponseData:
-      type: object
-      title: CreateContactResponseData
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Object ID
-        token:
-          type: string
-          title: The token
-      example:
-        id: 1
-        token: b1fe1g5c8crd8c120426725t756054d9561hly4p
-    contactCreateContactRequest:
-      type: object
-      title: CreateContactRequest
-      properties:
-        additional_data:
-          title: Collection of data fields that contain additional customer information
-          $ref: '#/components/schemas/contactAdditionalData'
-        address:
-          title: Address
-          $ref: '#/components/schemas/contactAddress'
-        api_access_enabled:
-          type: boolean
-          format: boolean
-          title: Indicates if API access is enabled for the contact
-        comments:
-          type: string
-          title: Custom notes to the specified handle
-        company_name:
-          type: string
-          title: Company name
-        email:
-          type: string
-          title: Email address
-        inn:
-          type: string
-          title: Customer's individual tax number (for Russian customers only)
-        is_active:
-          type: boolean
-          format: boolean
-          title: Indicates if contact is active
-        kpp:
-          type: string
-          title: KPP code. For Russian customers only
-        locale:
-          type: string
-          title: Customer's language
-        name:
-          title: Full name
-          $ref: '#/components/schemas/contactName'
-        password:
-          type: string
-          title: The password
-        phone:
-          title: Phone number
-          $ref: '#/components/schemas/contactPhone'
-        role:
-          type: string
-          title: Contact's role
-        username:
-          type: string
-          title: Username
-        vat:
-          type: string
-          title: VAT (value-added tax) number of the customer
-      example:
-        additional_data:
-          birth_city: Test city
-          birth_date: '1969-12-31'
-          social_security_number: 12326178T
-        address:
-          city: Test city
-          country: NL
-          number: '123'
-          state: Testprovince
-          street: Test street
-          suffix: A
-          zipcode: 1235 XX
-        api_access_enabled: false
-        comments: ''
-        company_name: ''
-        email: ''
-        inn: ''
-        is_active: false
-        kpp: ''
-        locale: ''
-        name:
-          first_name: Test
-          full_name: Test Person
-          initials: T P
-          last_name: Person
-          prefix: Mr
-        password: ''
-        phone:
-          area_code: '111'
-          country_code: '+03'
-          subscriber_number: '123456'
-        role: tech
-        username: ''
-        vat: ''
-    contactAdditionalData:
-      type: object
-      title: AdditionalData
-      properties:
-        birth_city:
-          type: string
-          title: Birth city
-        birth_date:
-          type: string
-          title: Birth date
-        social_security_number:
-          type: string
-          title: Social security number
-      example:
-        birth_city: Test city
-        birth_date: '1969-12-31'
-        social_security_number: 12326178T
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    contactUpdateContactResponse:
-      type: object
-      title: UpdateContactResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/contactUpdateContactResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          success: false
-        desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    contactListContactsResponseData:
-      type: object
-      title: ListContactsResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            $ref: '#/components/schemas/personcontactContact'
-        total:
-          type: integer
-          format: int32
-          title: Total number of entities matching search criteria
-      example:
-        results:
-        - additional_data:
-            birth_city: Test city
-            birth_date: '1969-12-31'
-            social_security_number: 12326178T
-          address:
-            city: Test city
-            country: NL
-            number: '123'
-            state: Testprovince
-            street: Test street
-            suffix: A
-            zipcode: 1235 XX
-          api_access_enabled: true
-          api_client_ip_list:
-            allow:
-            - 127.0.0.1
-            deny:
-            - 127.0.0.1
-          auth_type: simple
-          comments: ''
-          company_name: Example company
-          email: test@mail.tld
-          hash_changed_at: '2019-03-25 10:17:02'
-          id: 123456789
-          is_active: false
-          last_api_call_at: '2019-03-25 10:17:01'
-          last_login_at: '2019-04-12 11:58:39'
-          locale: nl_NL
-          name:
-            first_name: Test
-            full_name: Test Person
-            initials: T P
-            last_name: Person
-            prefix: Mr
-          password_change_declined_at: '2019-03-23 12:32:15'
-          password_changed_at: '2019-03-25 10:17:00'
-          phone:
-            area_code: '111'
-            country_code: '+03'
-            subscriber_number: '123456'
-          rcp_client_ip_list:
-            allow:
-            - 127.0.0.1
-            deny:
-            - 127.0.0.1
-          reseller_id: 12345
-          role: admin
-          secret_key: SECRETKEYVALUE
-          username: user_name
-          vat: XX123456789X12
-        total: 999
-    contactPhone:
-      type: object
-      title: Phone
-      properties:
-        area_code:
-          type: string
-          title: Area code part of the phone number (excluding leading zero)
-        country_code:
-          type: string
-          title: Country code part of the phone number (including +)
-        subscriber_number:
-          type: string
-          title: Subscriber number part of the phone number
-      example:
-        area_code: '111'
-        country_code: '+03'
-        subscriber_number: '123456'
-    contactName:
-      type: object
-      title: Name
-      properties:
-        first_name:
-          type: string
-          title: First name
-        full_name:
-          type: string
-          title: Full name
-        initials:
-          type: string
-          title: Initials (first letters of first names, first letter of last name)
-        last_name:
-          type: string
-          title: Last name
-        prefix:
-          type: string
-          title: Prefix (often occuring in Dutch names; for example van de)
-      example:
-        first_name: Test
-        full_name: Test Person
-        initials: T P
-        last_name: Person
-        prefix: Mr
     contactDeleteContactResponse:
       type: object
       title: DeleteContactResponse
@@ -783,35 +228,20 @@ components:
         data:
           success: false
         desc: ''
-    contactCreateContactResponse:
+    contactCreateContactResponseData:
       type: object
-      title: CreateContactResponse
+      title: CreateContactResponseData
       properties:
-        code:
+        id:
           type: integer
           format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/contactCreateContactResponseData'
-        desc:
+          title: Object ID
+        token:
           type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
+          title: The token
       example:
-        code: 0
-        data:
-          id: 1
-          token: b1fe1g5c8crd8c120426725t756054d9561hly4p
-        desc: ''
+        id: 1
+        token: b1fe1g5c8crd8c120426725t756054d9561hly4p
     personcontactContact:
       type: object
       title: Contact
@@ -943,6 +373,175 @@ components:
         secret_key: SECRETKEYVALUE
         username: user_name
         vat: XX123456789X12
+    contactListContactsResponseData:
+      type: object
+      title: ListContactsResponseData
+      properties:
+        results:
+          type: array
+          title: Array of results
+          items:
+            $ref: '#/components/schemas/personcontactContact'
+        total:
+          type: integer
+          format: int32
+          title: Total number of entities matching search criteria
+      example:
+        results:
+        - additional_data:
+            birth_city: Test city
+            birth_date: '1969-12-31'
+            social_security_number: 12326178T
+          address:
+            city: Test city
+            country: NL
+            number: '123'
+            state: Testprovince
+            street: Test street
+            suffix: A
+            zipcode: 1235 XX
+          api_access_enabled: true
+          api_client_ip_list:
+            allow:
+            - 127.0.0.1
+            deny:
+            - 127.0.0.1
+          auth_type: simple
+          comments: ''
+          company_name: Example company
+          email: test@mail.tld
+          hash_changed_at: '2019-03-25 10:17:02'
+          id: 123456789
+          is_active: false
+          last_api_call_at: '2019-03-25 10:17:01'
+          last_login_at: '2019-04-12 11:58:39'
+          locale: nl_NL
+          name:
+            first_name: Test
+            full_name: Test Person
+            initials: T P
+            last_name: Person
+            prefix: Mr
+          password_change_declined_at: '2019-03-23 12:32:15'
+          password_changed_at: '2019-03-25 10:17:00'
+          phone:
+            area_code: '111'
+            country_code: '+03'
+            subscriber_number: '123456'
+          rcp_client_ip_list:
+            allow:
+            - 127.0.0.1
+            deny:
+            - 127.0.0.1
+          reseller_id: 12345
+          role: admin
+          secret_key: SECRETKEYVALUE
+          username: user_name
+          vat: XX123456789X12
+        total: 999
+    contactAdditionalData:
+      type: object
+      title: AdditionalData
+      properties:
+        birth_city:
+          type: string
+          title: Birth city
+        birth_date:
+          type: string
+          title: Birth date
+        social_security_number:
+          type: string
+          title: Social security number
+      example:
+        birth_city: Test city
+        birth_date: '1969-12-31'
+        social_security_number: 12326178T
+    contactAddress:
+      type: object
+      title: Address
+      properties:
+        city:
+          type: string
+          title: City
+        country:
+          type: string
+          title: Country code
+        number:
+          type: string
+          title: Street number
+        state:
+          type: string
+          title: State / province
+        street:
+          type: string
+          title: Street
+        suffix:
+          type: string
+          title: Address suffix
+        zipcode:
+          type: string
+          title: Postal code
+      example:
+        city: Test city
+        country: NL
+        number: '123'
+        state: Testprovince
+        street: Test street
+        suffix: A
+        zipcode: 1235 XX
+    contactName:
+      type: object
+      title: Name
+      properties:
+        first_name:
+          type: string
+          title: First name
+        full_name:
+          type: string
+          title: Full name
+        initials:
+          type: string
+          title: Initials (first letters of first names, first letter of last name)
+        last_name:
+          type: string
+          title: Last name
+        prefix:
+          type: string
+          title: Prefix (often occuring in Dutch names; for example van de)
+      example:
+        first_name: Test
+        full_name: Test Person
+        initials: T P
+        last_name: Person
+        prefix: Mr
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    contactUpdateContactResponseData:
+      type: object
+      title: UpdateContactResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates if operation was successful
+      example:
+        success: false
     contactListContactsResponse:
       type: object
       title: ListContactsResponse
@@ -1021,6 +620,407 @@ components:
             username: user_name
             vat: XX123456789X12
           total: 999
+        desc: ''
+    contactPhone:
+      type: object
+      title: Phone
+      properties:
+        area_code:
+          type: string
+          title: Area code part of the phone number (excluding leading zero)
+        country_code:
+          type: string
+          title: Country code part of the phone number (including +)
+        subscriber_number:
+          type: string
+          title: Subscriber number part of the phone number
+      example:
+        area_code: '111'
+        country_code: '+03'
+        subscriber_number: '123456'
+    contactCreateContactRequest:
+      type: object
+      title: CreateContactRequest
+      properties:
+        additional_data:
+          title: Collection of data fields that contain additional customer information
+          $ref: '#/components/schemas/contactAdditionalData'
+        address:
+          title: Address
+          $ref: '#/components/schemas/contactAddress'
+        api_access_enabled:
+          type: boolean
+          format: boolean
+          title: Indicates if API access is enabled for the contact
+        comments:
+          type: string
+          title: Custom notes to the specified handle
+        company_name:
+          type: string
+          title: Company name
+        email:
+          type: string
+          title: Email address
+        inn:
+          type: string
+          title: Customer's individual tax number (for Russian customers only)
+        is_active:
+          type: boolean
+          format: boolean
+          title: Indicates if contact is active
+        kpp:
+          type: string
+          title: KPP code. For Russian customers only
+        locale:
+          type: string
+          title: Customer's language
+        name:
+          title: Full name
+          $ref: '#/components/schemas/contactName'
+        password:
+          type: string
+          title: The password
+        phone:
+          title: Phone number
+          $ref: '#/components/schemas/contactPhone'
+        role:
+          type: string
+          title: Contact's role
+        username:
+          type: string
+          title: Username
+        vat:
+          type: string
+          title: VAT (value-added tax) number of the customer
+      example:
+        additional_data:
+          birth_city: Test city
+          birth_date: '1969-12-31'
+          social_security_number: 12326178T
+        address:
+          city: Test city
+          country: NL
+          number: '123'
+          state: Testprovince
+          street: Test street
+          suffix: A
+          zipcode: 1235 XX
+        api_access_enabled: false
+        comments: ''
+        company_name: ''
+        email: ''
+        inn: ''
+        is_active: false
+        kpp: ''
+        locale: ''
+        name:
+          first_name: Test
+          full_name: Test Person
+          initials: T P
+          last_name: Person
+          prefix: Mr
+        password: ''
+        phone:
+          area_code: '111'
+          country_code: '+03'
+          subscriber_number: '123456'
+        role: tech
+        username: ''
+        vat: ''
+    contactUpdateContactRequest:
+      type: object
+      title: UpdateContactRequest
+      properties:
+        additional_data:
+          title: Collection of data fields that contain additional customer information
+          $ref: '#/components/schemas/contactAdditionalData'
+        address:
+          title: Address
+          $ref: '#/components/schemas/contactAddress'
+        api_access_enabled:
+          type: boolean
+          format: boolean
+          title: Indicates if API access is enabled for the contact
+        api_client_ip_list:
+          title: API access IP whitelist / blacklist
+          $ref: '#/components/schemas/contactClientIpList'
+        auth_type:
+          type: string
+          title: Autherntication type
+        comments:
+          type: string
+          title: Custom notes to the specified handle
+        company_name:
+          type: string
+          title: Company name
+        email:
+          type: string
+          title: Email address
+        id:
+          type: integer
+          format: int32
+          title: Object ID
+        inn:
+          type: string
+          title: Customer's individual tax number (for Russian customers only)
+        is_active:
+          type: boolean
+          format: boolean
+          title: Indicates if contact is active
+        kpp:
+          type: string
+          title: KPP number. For Russian customers only
+        locale:
+          type: string
+          title: Customer's language
+        name:
+          title: The name
+          $ref: '#/components/schemas/contactName'
+        password_change_declined_at:
+          type: string
+          title: Password change declined date
+        phone:
+          title: The phone
+          $ref: '#/components/schemas/contactPhone'
+        rcp_client_ip_list:
+          title: RCP access IP whitelist / blacklist
+          $ref: '#/components/schemas/contactClientIpList'
+        role:
+          type: string
+          title: Contact's role
+        type:
+          type: string
+          title: The type
+        vat:
+          type: string
+          title: VAT (value-added tax) number of the customer
+      example:
+        additional_data:
+          birth_city: Test city
+          birth_date: '1969-12-31'
+          social_security_number: 12326178T
+        address:
+          city: Test city
+          country: NL
+          number: '123'
+          state: Testprovince
+          street: Test street
+          suffix: A
+          zipcode: 1235 XX
+        api_access_enabled: false
+        api_client_ip_list:
+          allow:
+          - 127.0.0.1
+          deny:
+          - 127.0.0.1
+        auth_type: ''
+        comments: ''
+        company_name: ''
+        email: ''
+        id: 123456789
+        inn: ''
+        is_active: false
+        kpp: ''
+        locale: ''
+        name:
+          first_name: Test
+          full_name: Test Person
+          initials: T P
+          last_name: Person
+          prefix: Mr
+        password_change_declined_at: ''
+        phone:
+          area_code: '111'
+          country_code: '+03'
+          subscriber_number: '123456'
+        rcp_client_ip_list:
+          allow:
+          - 127.0.0.1
+          deny:
+          - 127.0.0.1
+        role: ''
+        type: ''
+        vat: ''
+    contactClientIpList:
+      type: object
+      title: ClientIpList
+      properties:
+        allow:
+          type: array
+          title: IP whitelist
+          items:
+            type: string
+        deny:
+          type: array
+          title: Blacklisted IP addresses
+          items:
+            type: string
+      example:
+        allow:
+        - 127.0.0.1
+        deny:
+        - 127.0.0.1
+    contactCreateContactResponse:
+      type: object
+      title: CreateContactResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/contactCreateContactResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          id: 1
+          token: b1fe1g5c8crd8c120426725t756054d9561hly4p
+        desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    contactDeleteContactResponseData:
+      type: object
+      title: DeleteContactResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates if operation was successful
+      example:
+        success: false
+    contactGetContactResponse:
+      type: object
+      title: GetContactResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/personcontactContact'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          additional_data:
+            birth_city: Test city
+            birth_date: '1969-12-31'
+            social_security_number: 12326178T
+          address:
+            city: Test city
+            country: NL
+            number: '123'
+            state: Testprovince
+            street: Test street
+            suffix: A
+            zipcode: 1235 XX
+          api_access_enabled: true
+          api_client_ip_list:
+            allow:
+            - 127.0.0.1
+            deny:
+            - 127.0.0.1
+          auth_type: simple
+          comments: ''
+          company_name: Example company
+          email: test@mail.tld
+          hash_changed_at: '2019-03-25 10:17:02'
+          id: 123456789
+          is_active: false
+          last_api_call_at: '2019-03-25 10:17:01'
+          last_login_at: '2019-04-12 11:58:39'
+          locale: nl_NL
+          name:
+            first_name: Test
+            full_name: Test Person
+            initials: T P
+            last_name: Person
+            prefix: Mr
+          password_change_declined_at: '2019-03-23 12:32:15'
+          password_changed_at: '2019-03-25 10:17:00'
+          phone:
+            area_code: '111'
+            country_code: '+03'
+            subscriber_number: '123456'
+          rcp_client_ip_list:
+            allow:
+            - 127.0.0.1
+            deny:
+            - 127.0.0.1
+          reseller_id: 12345
+          role: admin
+          secret_key: SECRETKEYVALUE
+          username: user_name
+          vat: XX123456789X12
+        desc: ''
+    contactUpdateContactResponse:
+      type: object
+      title: UpdateContactResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/contactUpdateContactResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          success: false
         desc: ''
   securitySchemes:
     Bearer:

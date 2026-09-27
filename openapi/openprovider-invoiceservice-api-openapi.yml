@@ -82,37 +82,6 @@ components:
         code: 0
         data: ''
         desc: ''
-    invoicePrices:
-      type: object
-      title: Prices
-      properties:
-        product:
-          title: Price in product currency
-          $ref: '#/components/schemas/invoicePrice'
-        reseller:
-          title: Price in reseller currency
-          $ref: '#/components/schemas/invoicePrice'
-      example:
-        product:
-          currency: EUR
-          price: 0
-        reseller:
-          currency: EUR
-          price: 0
-    invoicePrice:
-      type: object
-      title: Price
-      properties:
-        currency:
-          type: string
-          title: The currency
-        price:
-          type: number
-          format: double
-          title: The price
-      example:
-        currency: EUR
-        price: 0
     invoiceListInvoicesResponse:
       type: object
       title: ListInvoicesResponse
@@ -154,24 +123,6 @@ components:
             invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
           total: 0
         desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     invoiceListInvoicesResponseData:
       type: object
       title: ListInvoicesResponseData
@@ -200,6 +151,20 @@ components:
           invoice_number: XX123456
           invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
         total: 0
+    invoicePrice:
+      type: object
+      title: Price
+      properties:
+        currency:
+          type: string
+          title: The currency
+        price:
+          type: number
+          format: double
+          title: The price
+      example:
+        currency: EUR
+        price: 0
     invoiceInvoice:
       type: object
       title: Invoice
@@ -236,6 +201,41 @@ components:
         id: 1
         invoice_number: XX123456
         invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    invoicePrices:
+      type: object
+      title: Prices
+      properties:
+        product:
+          title: Price in product currency
+          $ref: '#/components/schemas/invoicePrice'
+        reseller:
+          title: Price in reseller currency
+          $ref: '#/components/schemas/invoicePrice'
+      example:
+        product:
+          currency: EUR
+          price: 0
+        reseller:
+          currency: EUR
+          price: 0
   securitySchemes:
     Bearer:
       type: apiKey

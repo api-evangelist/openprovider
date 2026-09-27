@@ -137,6 +137,24 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
     se_domainGetDomainResponse:
       type: object
       title: GetDomainResponse
@@ -187,116 +205,6 @@ components:
           user_password: 123example567
           with_outgoing_filter: false
         desc: ''
-    se_domainCreateDomainRequest:
-      type: object
-      title: CreateDomainRequest
-      properties:
-        aliases:
-          type: array
-          title: Array of aliases
-          items:
-            type: string
-        bundle:
-          type: boolean
-          format: boolean
-          title: Indicates if old subscriptions backward compatibility is used
-        destinations:
-          type: array
-          title: Array of destinations
-          items:
-            $ref: '#/components/schemas/se_domainDestination'
-        domain_name:
-          type: string
-          title: Domain full name
-        products:
-          title: Indicates which products are enabled
-          $ref: '#/components/schemas/se_domainProducts'
-      example:
-        aliases:
-        - alias.example.com
-        bundle: false
-        destinations:
-        - hostname: dest.example.com
-          port: 25
-        domain_name: example.com
-        products:
-          archiving: false
-          incoming: false
-          outgoing: false
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    responseBoolResponse:
-      type: object
-      title: BoolResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/responseBoolResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          success: false
-        desc: ''
-    responseBoolResponseData:
-      type: object
-      title: BoolResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates if operation was successful
-      example:
-        success: false
     se_domainDomain:
       type: object
       title: Domain
@@ -370,6 +278,30 @@ components:
         user_email: admin@example-filter.nl
         user_password: 123example567
         with_outgoing_filter: false
+    se_domainDestination:
+      type: object
+      title: Destination
+      properties:
+        hostname:
+          type: string
+          title: Destination host name
+        port:
+          type: integer
+          format: int32
+          title: Destination port
+      example:
+        hostname: dest.example.com
+        port: 25
+    responseBoolResponseData:
+      type: object
+      title: BoolResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates if operation was successful
+      example:
+        success: false
     se_domainUpdateDomainRequest:
       type: object
       title: UpdateDomainRequest
@@ -407,6 +339,25 @@ components:
           archiving: false
           incoming: false
           outgoing: false
+    se_domainAliasUpdates:
+      type: object
+      title: AliasUpdates
+      properties:
+        add:
+          type: array
+          title: Array of aliases to add
+          items:
+            type: string
+        remove:
+          type: array
+          title: Array of aliases to remove
+          items:
+            type: string
+      example:
+        add:
+        - alias-to-add-example.com
+        remove:
+        - alias-to-remove-example.com
     se_domainRecords:
       type: object
       title: Records
@@ -434,6 +385,88 @@ components:
           port: 25
         outgoing_user_ips:
         - 123.123.123.123
+    se_domainCreateDomainRequest:
+      type: object
+      title: CreateDomainRequest
+      properties:
+        aliases:
+          type: array
+          title: Array of aliases
+          items:
+            type: string
+        bundle:
+          type: boolean
+          format: boolean
+          title: Indicates if old subscriptions backward compatibility is used
+        destinations:
+          type: array
+          title: Array of destinations
+          items:
+            $ref: '#/components/schemas/se_domainDestination'
+        domain_name:
+          type: string
+          title: Domain full name
+        products:
+          title: Indicates which products are enabled
+          $ref: '#/components/schemas/se_domainProducts'
+      example:
+        aliases:
+        - alias.example.com
+        bundle: false
+        destinations:
+        - hostname: dest.example.com
+          port: 25
+        domain_name: example.com
+        products:
+          archiving: false
+          incoming: false
+          outgoing: false
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    responseBoolResponse:
+      type: object
+      title: BoolResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/responseBoolResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          success: false
+        desc: ''
     se_domainProducts:
       type: object
       title: Products
@@ -454,39 +487,6 @@ components:
         archiving: false
         incoming: false
         outgoing: false
-    se_domainDestination:
-      type: object
-      title: Destination
-      properties:
-        hostname:
-          type: string
-          title: Destination host name
-        port:
-          type: integer
-          format: int32
-          title: Destination port
-      example:
-        hostname: dest.example.com
-        port: 25
-    se_domainAliasUpdates:
-      type: object
-      title: AliasUpdates
-      properties:
-        add:
-          type: array
-          title: Array of aliases to add
-          items:
-            type: string
-        remove:
-          type: array
-          title: Array of aliases to remove
-          items:
-            type: string
-      example:
-        add:
-        - alias-to-add-example.com
-        remove:
-        - alias-to-remove-example.com
   securitySchemes:
     Bearer:
       type: apiKey
