@@ -91,6 +91,37 @@ components:
         code: 0
         data: ''
         desc: ''
+    paymentPrice:
+      type: object
+      title: Price
+      properties:
+        currency:
+          type: string
+          title: The currency
+        price:
+          type: number
+          format: double
+          title: The price
+      example:
+        currency: EUR
+        price: 0
+    paymentPrices:
+      type: object
+      title: Prices
+      properties:
+        product:
+          title: Price in product currency
+          $ref: '#/components/schemas/paymentPrice'
+        reseller:
+          title: Price in reseller currency
+          $ref: '#/components/schemas/paymentPrice'
+      example:
+        product:
+          currency: EUR
+          price: 0
+        reseller:
+          currency: EUR
+          price: 0
     paymentListPaymentsResponseDataResults:
       type: object
       title: ListPaymentsResponseDataResults
@@ -140,6 +171,24 @@ components:
         payment_date: '2006-09-15 14:25:30'
         status: new
         type: online
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
     paymentListPaymentsResponseData:
       type: object
       title: ListPaymentsResponseData
@@ -215,55 +264,6 @@ components:
             type: online
           total: 0
         desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    paymentPrice:
-      type: object
-      title: Price
-      properties:
-        currency:
-          type: string
-          title: The currency
-        price:
-          type: number
-          format: double
-          title: The price
-      example:
-        currency: EUR
-        price: 0
-    paymentPrices:
-      type: object
-      title: Prices
-      properties:
-        product:
-          title: Price in product currency
-          $ref: '#/components/schemas/paymentPrice'
-        reseller:
-          title: Price in reseller currency
-          $ref: '#/components/schemas/paymentPrice'
-      example:
-        product:
-          currency: EUR
-          price: 0
-        reseller:
-          currency: EUR
-          price: 0
   securitySchemes:
     Bearer:
       type: apiKey

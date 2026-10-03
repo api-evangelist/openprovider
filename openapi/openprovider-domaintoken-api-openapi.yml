@@ -54,19 +54,19 @@ components:
         code: 0
         data: ''
         desc: ''
-    domain_tokenCreateTokenResponseData:
+    domain_tokenCreateTokenRequest:
       type: object
-      title: CreateTokenResponseData
+      title: CreateTokenRequest
       properties:
-        token:
+        domain:
           type: string
-          title: The token
-        url:
+          title: Domain name
+        zone_provider:
           type: string
-          title: The url
+          title: Name of the DNS provider
       example:
-        token: eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg
-        url: https://single-domain.example.com?token=eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg&lang=ru_ru
+        domain: example.com
+        zone_provider: sectigo
     domain_tokenCreateTokenResponse:
       type: object
       title: CreateTokenResponse
@@ -96,19 +96,6 @@ components:
           token: eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg
           url: https://single-domain.example.com?token=eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg&lang=ru_ru
         desc: ''
-    domain_tokenCreateTokenRequest:
-      type: object
-      title: CreateTokenRequest
-      properties:
-        domain:
-          type: string
-          title: Domain name
-        zone_provider:
-          type: string
-          title: Name of the DNS provider
-      example:
-        domain: example.com
-        zone_provider: sectigo
     errorError:
       type: object
       title: Error
@@ -127,6 +114,19 @@ components:
         code: 0
         data: ''
         desc: ''
+    domain_tokenCreateTokenResponseData:
+      type: object
+      title: CreateTokenResponseData
+      properties:
+        token:
+          type: string
+          title: The token
+        url:
+          type: string
+          title: The url
+      example:
+        token: eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg
+        url: https://single-domain.example.com?token=eyJhbGciOiJIUzI1NiIsInA4cCI6IkpXVCJ9.eyJleHAiOjE1NjQ1NDkDNDAsImRvbWFpbiI6ImRvbWFpbml3YW5uYXJlZ2lzdGVyLm5sLiIsImRvbWFpbl96b25lX2lkIjo5MzA1Mjk0LCJyZXNlbGxlcl9jb250YWN0X2lkIjo0OTQ3OH0.HjL7eZV3p-CvQ6zsMUH0w3xBmUsphTqCBYkOVg3Vxkg&lang=ru_ru
   securitySchemes:
     Bearer:
       type: apiKey

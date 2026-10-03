@@ -85,6 +85,117 @@ components:
         code: 0
         data: ''
         desc: ''
+    csrCreateCsrRequest:
+      type: object
+      title: CreateCsrRequest
+      properties:
+        bits:
+          type: integer
+          format: int32
+          title: CSR key size. Values up to 4096 supported
+        common_name:
+          type: string
+          title: Domain name to protect
+        country:
+          type: string
+          title: Enrolling company's country code
+        email:
+          type: string
+          title: Requester email address
+        locality:
+          type: string
+          title: Enrolling company's location, i.e. street name and number
+        organization:
+          type: string
+          title: Enrolling company name
+        signature_hash_algorithm:
+          description: Redundant field, can be used as 'sha2'.
+          type: string
+        state:
+          type: string
+          title: Enrolling company's state / province
+        subject_alternative_name:
+          type: array
+          title: Additional domains in a case of Multi-domain certificate
+          items:
+            type: string
+        unit:
+          type: string
+          title: Enrolling company's organization unit. If empty can be left black or set to IT
+        with_config:
+          type: boolean
+          format: boolean
+          title: Config file for OpenSSL command dumped out when subjectAlternativeName domains are included
+          default: false
+      example:
+        bits: 2048
+        common_name: example.com
+        country: NL
+        email: admin@example.com
+        locality: City
+        organization: MyCompany B.V.
+        signature_hash_algorithm: sha2
+        state: Testprovince
+        subject_alternative_name:
+        - www.example.com
+        unit: Dev
+        with_config: true
+    csrDecodeCsrResponseData:
+      type: object
+      title: DecodeCsrResponseData
+      properties:
+        domain_names_count:
+          type: integer
+          format: int32
+          title: Count of additional domain names
+        public_key:
+          title: Public key of the CSR
+          $ref: '#/components/schemas/csrCsrPublicKey'
+        signature_hash_algorithm:
+          type: string
+          title: Signature algorithm
+        subject:
+          description: Information about organization, country, etc.
+          $ref: '#/components/schemas/csrCsrSubject'
+        subject_alternative_name:
+          type: array
+          title: Additional domain names
+          items:
+            type: string
+      example:
+        domain_names_count: 2
+        public_key:
+          bits: 2048
+          key: ''
+        signature_hash_algorithm: sha2
+        subject:
+          common_name: example.com
+          country: NL
+          email: admin@example.com
+          locality: City
+          organization: MyCompany B.V.
+          state: Testprovince
+          unit: Domain Control Validated
+        subject_alternative_name:
+        - www.example.com
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
     csrCsrPublicKey:
       type: object
       title: CsrPublicKey
@@ -99,6 +210,39 @@ components:
       example:
         bits: 2048
         key: ''
+    csrCsrSubject:
+      type: object
+      title: CsrSubject
+      properties:
+        common_name:
+          type: string
+          title: Common name used in CSR
+        country:
+          type: string
+          title: Country used in CSR
+        email:
+          type: string
+          title: Email used in CSR
+        locality:
+          type: string
+          title: Locality used in CSR
+        organization:
+          type: string
+          title: Company name used in CSR
+        state:
+          type: string
+          title: State / province used in CSR
+        unit:
+          type: string
+          title: Organization unit used in CSR
+      example:
+        common_name: example.com
+        country: NL
+        email: admin@example.com
+        locality: City
+        organization: MyCompany B.V.
+        state: Testprovince
+        unit: Domain Control Validated
     csrCreateCsrResponse:
       type: object
       title: CreateCsrResponse
@@ -229,117 +373,6 @@ components:
           -----END CERTIFICATE REQUEST-----'
         key: ''
         key_path: ''
-    csrDecodeCsrResponseData:
-      type: object
-      title: DecodeCsrResponseData
-      properties:
-        domain_names_count:
-          type: integer
-          format: int32
-          title: Count of additional domain names
-        public_key:
-          title: Public key of the CSR
-          $ref: '#/components/schemas/csrCsrPublicKey'
-        signature_hash_algorithm:
-          type: string
-          title: Signature algorithm
-        subject:
-          description: Information about organization, country, etc.
-          $ref: '#/components/schemas/csrCsrSubject'
-        subject_alternative_name:
-          type: array
-          title: Additional domain names
-          items:
-            type: string
-      example:
-        domain_names_count: 2
-        public_key:
-          bits: 2048
-          key: ''
-        signature_hash_algorithm: sha2
-        subject:
-          common_name: example.com
-          country: NL
-          email: admin@example.com
-          locality: City
-          organization: MyCompany B.V.
-          state: Testprovince
-          unit: Domain Control Validated
-        subject_alternative_name:
-        - www.example.com
-    csrCreateCsrRequest:
-      type: object
-      title: CreateCsrRequest
-      properties:
-        bits:
-          type: integer
-          format: int32
-          title: CSR key size. Values up to 4096 supported
-        common_name:
-          type: string
-          title: Domain name to protect
-        country:
-          type: string
-          title: Enrolling company's country code
-        email:
-          type: string
-          title: Requester email address
-        locality:
-          type: string
-          title: Enrolling company's location, i.e. street name and number
-        organization:
-          type: string
-          title: Enrolling company name
-        signature_hash_algorithm:
-          description: Redundant field, can be used as 'sha2'.
-          type: string
-        state:
-          type: string
-          title: Enrolling company's state / province
-        subject_alternative_name:
-          type: array
-          title: Additional domains in a case of Multi-domain certificate
-          items:
-            type: string
-        unit:
-          type: string
-          title: Enrolling company's organization unit. If empty can be left black or set to IT
-        with_config:
-          type: boolean
-          format: boolean
-          title: Config file for OpenSSL command dumped out when subjectAlternativeName domains are included
-          default: false
-      example:
-        bits: 2048
-        common_name: example.com
-        country: NL
-        email: admin@example.com
-        locality: City
-        organization: MyCompany B.V.
-        signature_hash_algorithm: sha2
-        state: Testprovince
-        subject_alternative_name:
-        - www.example.com
-        unit: Dev
-        with_config: true
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     csrDecodeCsrRequest:
       type: object
       title: DecodeCsrRequest
@@ -425,39 +458,6 @@ components:
           subject_alternative_name:
           - www.example.com
         desc: ''
-    csrCsrSubject:
-      type: object
-      title: CsrSubject
-      properties:
-        common_name:
-          type: string
-          title: Common name used in CSR
-        country:
-          type: string
-          title: Country used in CSR
-        email:
-          type: string
-          title: Email used in CSR
-        locality:
-          type: string
-          title: Locality used in CSR
-        organization:
-          type: string
-          title: Company name used in CSR
-        state:
-          type: string
-          title: State / province used in CSR
-        unit:
-          type: string
-          title: Organization unit used in CSR
-      example:
-        common_name: example.com
-        country: NL
-        email: admin@example.com
-        locality: City
-        organization: MyCompany B.V.
-        state: Testprovince
-        unit: Domain Control Validated
   securitySchemes:
     Bearer:
       type: apiKey

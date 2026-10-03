@@ -134,48 +134,6 @@ components:
         code: 0
         data: ''
         desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    recordListZoneRecordsResponseData:
-      type: object
-      title: ListZoneRecordsResponseData
-      properties:
-        results:
-          type: array
-          title: Array of search results
-          items:
-            $ref: '#/components/schemas/recordRecordInfo'
-        total:
-          type: integer
-          format: int32
-          title: Number of search results
-      example:
-        results:
-        - creation_date: ''
-          ip: 127.0.0.1
-          modification_date: ''
-          name: domain.com
-          prio: 1
-          ttl: 900
-          type: CNAME
-          value: abcd.domain.com
-        total: 6
     recordListZoneRecordsResponse:
       type: object
       title: ListZoneRecordsResponse
@@ -252,6 +210,48 @@ components:
         ttl: 900
         type: CNAME
         value: abcd.domain.com
+    recordListZoneRecordsResponseData:
+      type: object
+      title: ListZoneRecordsResponseData
+      properties:
+        results:
+          type: array
+          title: Array of search results
+          items:
+            $ref: '#/components/schemas/recordRecordInfo'
+        total:
+          type: integer
+          format: int32
+          title: Number of search results
+      example:
+        results:
+        - creation_date: ''
+          ip: 127.0.0.1
+          modification_date: ''
+          name: domain.com
+          prio: 1
+          ttl: 900
+          type: CNAME
+          value: abcd.domain.com
+        total: 6
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
   securitySchemes:
     Bearer:
       type: apiKey

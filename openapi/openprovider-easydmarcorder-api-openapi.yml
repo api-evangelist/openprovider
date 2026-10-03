@@ -233,6 +233,30 @@ components:
         code: 0
         data: ''
         desc: ''
+    orderGetEasyDmarcSsoResponseData:
+      type: object
+      title: GetEasyDmarcSsoResponseData
+      properties:
+        url:
+          type: string
+          title: Single sign on url along with one time passsword token as query params
+      example:
+        url: ''
+    orderCreateEasyDmarcRequest:
+      type: object
+      title: CreateEasyDmarcRequest
+      properties:
+        domain:
+          title: Domain name and extension
+          $ref: '#/components/schemas/orderDomain'
+        owner_handle:
+          type: string
+          title: Domain owner handle value
+      example:
+        domain:
+          extension: london
+          name: test4
+        owner_handle: XX123456-XX
     orderRecentEasyDmarcAction:
       type: object
       title: RecentEasyDmarcAction
@@ -246,6 +270,127 @@ components:
       example:
         message: ''
         recent_action: enabled
+    orderRetryEasyDmarcResponse:
+      type: object
+      title: RetryEasyDmarcResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/orderEasyDmarcOrder'
+        desc:
+          type: string
+          title: Response description
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          activated_at: '2019-01-01 0:00:01'
+          domain:
+            extension: london
+            name: test4
+          easydmarc_email_address: ''
+          expired_at: '2019-01-01 0:00:01'
+          id: 123456789
+          recent_easydmarc_action:
+            message: ''
+            recent_action: enabled
+          record_host: ''
+          record_type: ''
+          record_value: ''
+          renew_at: '2019-01-01 0:00:01'
+          status: ''
+        desc: ''
+    orderDeleteEasyDmarcResponse:
+      type: object
+      title: DeleteEasyDmarcResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/orderDeleteEasyDmarcResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+        warnings:
+          type: array
+          title: Contains warning responses if any
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          status: ACT
+        desc: ''
+    orderListEasyDmarcResponseData:
+      type: object
+      title: ListEasyDmarcResponseData
+      properties:
+        results:
+          type: array
+          title: Results list
+          items:
+            $ref: '#/components/schemas/orderListEasyDmarcOrder'
+        total:
+          type: integer
+          format: int32
+          title: Results count
+      example:
+        results:
+        - activated_at: '2019-01-01 0:00:01'
+          domain:
+            extension: london
+            name: test4
+          expired_at: '2019-01-01 0:00:01'
+          id: 123456789
+          record_host: ''
+          record_type: ''
+          record_value: ''
+          renew_at: '2019-01-01 0:00:01'
+          status: ''
+        total: 999
+    orderGetEasyDmarcSsoResponse:
+      type: object
+      title: GetEasyDmarcSsoResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/orderGetEasyDmarcSsoResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+        warnings:
+          type: array
+          title: Contains warning responses if any
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          url: ''
+        desc: ''
     orderDomain:
       type: object
       title: Domain
@@ -259,6 +404,58 @@ components:
       example:
         extension: london
         name: test4
+    orderRetryEasyDmarcRequest:
+      type: object
+      title: RetryEasyDmarcRequest
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Easydmarc id (order number)
+      example:
+        id: 123456789
+    orderGetEasyDmarcResponse:
+      type: object
+      title: GetEasyDmarcResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/orderEasyDmarcOrder'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+        warnings:
+          type: array
+          title: Contains warning responses if any
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          activated_at: '2019-01-01 0:00:01'
+          domain:
+            extension: london
+            name: test4
+          easydmarc_email_address: ''
+          expired_at: '2019-01-01 0:00:01'
+          id: 123456789
+          recent_easydmarc_action:
+            message: ''
+            recent_action: enabled
+          record_host: ''
+          record_type: ''
+          record_value: ''
+          renew_at: '2019-01-01 0:00:01'
+          status: ''
+        desc: ''
     orderListEasyDmarcOrder:
       type: object
       title: ListEasyDmarcOrder
@@ -303,123 +500,6 @@ components:
         record_value: ''
         renew_at: '2019-01-01 0:00:01'
         status: ''
-    orderDeleteEasyDmarcResponse:
-      type: object
-      title: DeleteEasyDmarcResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/orderDeleteEasyDmarcResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
-        warnings:
-          type: array
-          title: Contains warning responses if any
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          status: ACT
-        desc: ''
-    orderDeleteEasyDmarcResponseData:
-      type: object
-      title: DeleteEasyDmarcResponseData
-      properties:
-        status:
-          type: string
-          title: Easy Dmarc status
-      example:
-        status: ACT
-    orderRetryEasyDmarcResponse:
-      type: object
-      title: RetryEasyDmarcResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/orderEasyDmarcOrder'
-        desc:
-          type: string
-          title: Response description
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          activated_at: '2019-01-01 0:00:01'
-          domain:
-            extension: london
-            name: test4
-          easydmarc_email_address: ''
-          expired_at: '2019-01-01 0:00:01'
-          id: 123456789
-          recent_easydmarc_action:
-            message: ''
-            recent_action: enabled
-          record_host: ''
-          record_type: ''
-          record_value: ''
-          renew_at: '2019-01-01 0:00:01'
-          status: ''
-        desc: ''
-    orderGetEasyDmarcResponse:
-      type: object
-      title: GetEasyDmarcResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/orderEasyDmarcOrder'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
-        warnings:
-          type: array
-          title: Contains warning responses if any
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          activated_at: '2019-01-01 0:00:01'
-          domain:
-            extension: london
-            name: test4
-          easydmarc_email_address: ''
-          expired_at: '2019-01-01 0:00:01'
-          id: 123456789
-          recent_easydmarc_action:
-            message: ''
-            recent_action: enabled
-          record_host: ''
-          record_type: ''
-          record_value: ''
-          renew_at: '2019-01-01 0:00:01'
-          status: ''
-        desc: ''
     orderEasyDmarcOrder:
       type: object
       title: EasyDmarcOrder
@@ -474,34 +554,33 @@ components:
         record_value: ''
         renew_at: '2019-01-01 0:00:01'
         status: ''
-    orderGetEasyDmarcSsoResponse:
+    errorError:
       type: object
-      title: GetEasyDmarcSsoResponse
+      title: Error
       properties:
         code:
           type: integer
           format: int32
-          title: Response code
+          title: Error code
         data:
-          title: Response data
-          $ref: '#/components/schemas/orderGetEasyDmarcSsoResponseData'
+          type: string
+          title: Additional error description
         desc:
           type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
-        warnings:
-          type: array
-          title: Contains warning responses if any
-          items:
-            $ref: '#/components/schemas/errorWarning'
+          title: Error description
       example:
         code: 0
-        data:
-          url: ''
+        data: ''
         desc: ''
+    orderDeleteEasyDmarcResponseData:
+      type: object
+      title: DeleteEasyDmarcResponseData
+      properties:
+        status:
+          type: string
+          title: Easy Dmarc status
+      example:
+        status: ACT
     orderCreateEasyDmarcResponse:
       type: object
       title: CreateEasyDmarcResponse
@@ -540,49 +619,6 @@ components:
           renew_at: '2019-01-01 0:00:01'
           status: ''
         desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    orderRetryEasyDmarcRequest:
-      type: object
-      title: RetryEasyDmarcRequest
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Easydmarc id (order number)
-      example:
-        id: 123456789
-    orderCreateEasyDmarcRequest:
-      type: object
-      title: CreateEasyDmarcRequest
-      properties:
-        domain:
-          title: Domain name and extension
-          $ref: '#/components/schemas/orderDomain'
-        owner_handle:
-          type: string
-          title: Domain owner handle value
-      example:
-        domain:
-          extension: london
-          name: test4
-        owner_handle: XX123456-XX
     orderListEasyDmarcResponse:
       type: object
       title: ListEasyDmarcResponse
@@ -623,42 +659,6 @@ components:
             status: ''
           total: 999
         desc: ''
-    orderListEasyDmarcResponseData:
-      type: object
-      title: ListEasyDmarcResponseData
-      properties:
-        results:
-          type: array
-          title: Results list
-          items:
-            $ref: '#/components/schemas/orderListEasyDmarcOrder'
-        total:
-          type: integer
-          format: int32
-          title: Results count
-      example:
-        results:
-        - activated_at: '2019-01-01 0:00:01'
-          domain:
-            extension: london
-            name: test4
-          expired_at: '2019-01-01 0:00:01'
-          id: 123456789
-          record_host: ''
-          record_type: ''
-          record_value: ''
-          renew_at: '2019-01-01 0:00:01'
-          status: ''
-        total: 999
-    orderGetEasyDmarcSsoResponseData:
-      type: object
-      title: GetEasyDmarcSsoResponseData
-      properties:
-        url:
-          type: string
-          title: Single sign on url along with one time passsword token as query params
-      example:
-        url: ''
   securitySchemes:
     Bearer:
       type: apiKey

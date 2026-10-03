@@ -30,6 +30,288 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
+    settingsPaymentMethodLimit:
+      type: object
+      title: PaymentMethodLimit
+      properties:
+        AUD:
+          type: number
+          format: double
+          title: Currency
+        BGN:
+          type: number
+          format: double
+          title: Currency
+        BRL:
+          type: number
+          format: double
+          title: Currency
+        CAD:
+          type: number
+          format: double
+          title: Currency
+        CHF:
+          type: number
+          format: double
+          title: Currency
+        CNY:
+          type: number
+          format: double
+          title: Currency
+        CZK:
+          type: number
+          format: double
+          title: Currency
+        DKK:
+          type: number
+          format: double
+          title: Currency
+        EEK:
+          type: number
+          format: double
+          title: Currency
+        EUR:
+          type: number
+          format: double
+          title: Currency
+        GBP:
+          type: number
+          format: double
+          title: Currency
+        GHS:
+          type: number
+          format: double
+          title: Currency
+        HKD:
+          type: number
+          format: double
+          title: Currency
+        HRK:
+          type: number
+          format: double
+          title: Currency
+        HUF:
+          type: number
+          format: double
+          title: Currency
+        IDR:
+          type: number
+          format: double
+          title: Currency
+        ILS:
+          type: number
+          format: double
+          title: Currency
+        INR:
+          type: number
+          format: double
+          title: Currency
+        JPY:
+          type: number
+          format: double
+          title: Currency
+        KRW:
+          type: number
+          format: double
+          title: Currency
+        LKR:
+          type: number
+          format: double
+          title: Currency
+        LTL:
+          type: number
+          format: double
+          title: Currency
+        LVL:
+          type: number
+          format: double
+          title: Currency
+        MXN:
+          type: number
+          format: double
+          title: Currency
+        MYR:
+          type: number
+          format: double
+          title: Currency
+        NOK:
+          type: number
+          format: double
+          title: Currency
+        NZD:
+          type: number
+          format: double
+          title: Currency
+        PHP:
+          type: number
+          format: double
+          title: Currency
+        PLN:
+          type: number
+          format: double
+          title: Currency
+        RON:
+          type: number
+          format: double
+          title: Currency
+        RUB:
+          type: number
+          format: double
+          title: Currency
+        SEK:
+          type: number
+          format: double
+          title: Currency
+        SGD:
+          type: number
+          format: double
+          title: Currency
+        THB:
+          type: number
+          format: double
+          title: Currency
+        TRY:
+          type: number
+          format: double
+          title: Currency
+        USD:
+          type: number
+          format: double
+          title: Currency
+        ZAR:
+          type: number
+          format: double
+          title: Currency
+      example:
+        aud: 0
+        bgn: 0
+        brl: 0
+        cad: 0
+        chf: 0
+        cny: 0
+        czk: 0
+        dkk: 0
+        eek: 0
+        eur: 0
+        gbp: 0
+        ghs: 0
+        hkd: 0
+        hrk: 0
+        huf: 0
+        idr: 0
+        ils: 0
+        inr: 0
+        jpy: 0
+        krw: 0
+        lkr: 0
+        ltl: 0
+        lvl: 0
+        mxn: 0
+        myr: 0
+        nok: 0
+        nzd: 0
+        php: 0
+        pln: 0
+        ron: 0
+        rub: 0
+        sek: 0
+        sgd: 0
+        thb: 0
+        try: 0
+        usd: 0
+        zar: 0
+    settingsPaymentMethods:
+      type: object
+      title: PaymentMethods
+      properties:
+        name:
+          type: string
+          title: Payment method name
+        settings:
+          title: Payment method settings
+          $ref: '#/components/schemas/settingsPaymentMethodSettings'
+      example:
+        name: ideal
+        settings:
+          limit:
+            maximum:
+              aud: 0
+              bgn: 0
+              brl: 0
+              cad: 0
+              chf: 0
+              cny: 0
+              czk: 0
+              dkk: 0
+              eek: 0
+              eur: 0
+              gbp: 0
+              ghs: 0
+              hkd: 0
+              hrk: 0
+              huf: 0
+              idr: 0
+              ils: 0
+              inr: 0
+              jpy: 0
+              krw: 0
+              lkr: 0
+              ltl: 0
+              lvl: 0
+              mxn: 0
+              myr: 0
+              nok: 0
+              nzd: 0
+              php: 0
+              pln: 0
+              ron: 0
+              rub: 0
+              sek: 0
+              sgd: 0
+              thb: 0
+              try: 0
+              usd: 0
+              zar: 0
+            minimum:
+              aud: 0
+              bgn: 0
+              brl: 0
+              cad: 0
+              chf: 0
+              cny: 0
+              czk: 0
+              dkk: 0
+              eek: 0
+              eur: 0
+              gbp: 0
+              ghs: 0
+              hkd: 0
+              hrk: 0
+              huf: 0
+              idr: 0
+              ils: 0
+              inr: 0
+              jpy: 0
+              krw: 0
+              lkr: 0
+              ltl: 0
+              lvl: 0
+              mxn: 0
+              myr: 0
+              nok: 0
+              nzd: 0
+              php: 0
+              pln: 0
+              ron: 0
+              rub: 0
+              sek: 0
+              sgd: 0
+              thb: 0
+              try: 0
+              usd: 0
+              zar: 0
+          transaction_fee: 0
+          transaction_fee_absolute: 0
     errorWarning:
       type: object
       title: Warning
@@ -47,6 +329,257 @@ components:
       example:
         code: 0
         data: ''
+        desc: ''
+    settingsGetSettingsResponse:
+      type: object
+      title: GetSettingsResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/settingsGetSettingsResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          av_handle: XX123456-XX
+          claims_confirm_url: http://www.domain.tld/confirm-tm_claims.php?domainId=%%domainId%%&domain=%%domain%%&code=%%authCode%%
+          claims_email_subject: Hi there! You need to accept registration for %%domain%%!
+          claims_reseller_name: Jon Doe's Webhosting!!
+          claims_sender_email: test@mail.tld
+          currency: EUR
+          default_domain_billing_handle: XX123456-XX
+          default_domain_reseller_handle: XX123456-XX
+          foa_confirm_url: ''
+          foa_email_subject: ''
+          foa_reseller_name: ''
+          foa_sender_email: ''
+          foa_terms_conditions_url: ''
+          is_auto_renew_enabled: false
+          is_custom_nses_enabled: false
+          ive2_customized_body: ''
+          ive2_email_subject: '[URGENT REMINDER] Request for e-mail address verification'
+          ive_confirm_url: http://icann-verification.registrar.eu/?email=%%email%%&authCode=%%authCode%%
+          ive_customized_body: ''
+          ive_email_subject: Request for e-mail address verification
+          ive_reseller_name: sdasd
+          ive_sender_email: do-not-reply@registrar.eu
+          jurisdiction: EU
+          language: EN
+          maximum_credit: 20000
+          maximum_credit_card_payment: 15000
+          maximum_i_deal_payment: 1000000
+          maximum_western_union_payment: 1000
+          minimum_payment: 20
+          minimum_western_union_payment: 500
+          pay_methods:
+          - ideal
+          payment_methods:
+          - name: ideal
+            settings:
+              limit:
+                maximum:
+                  aud: 0
+                  bgn: 0
+                  brl: 0
+                  cad: 0
+                  chf: 0
+                  cny: 0
+                  czk: 0
+                  dkk: 0
+                  eek: 0
+                  eur: 0
+                  gbp: 0
+                  ghs: 0
+                  hkd: 0
+                  hrk: 0
+                  huf: 0
+                  idr: 0
+                  ils: 0
+                  inr: 0
+                  jpy: 0
+                  krw: 0
+                  lkr: 0
+                  ltl: 0
+                  lvl: 0
+                  mxn: 0
+                  myr: 0
+                  nok: 0
+                  nzd: 0
+                  php: 0
+                  pln: 0
+                  ron: 0
+                  rub: 0
+                  sek: 0
+                  sgd: 0
+                  thb: 0
+                  try: 0
+                  usd: 0
+                  zar: 0
+                minimum:
+                  aud: 0
+                  bgn: 0
+                  brl: 0
+                  cad: 0
+                  chf: 0
+                  cny: 0
+                  czk: 0
+                  dkk: 0
+                  eek: 0
+                  eur: 0
+                  gbp: 0
+                  ghs: 0
+                  hkd: 0
+                  hrk: 0
+                  huf: 0
+                  idr: 0
+                  ils: 0
+                  inr: 0
+                  jpy: 0
+                  krw: 0
+                  lkr: 0
+                  ltl: 0
+                  lvl: 0
+                  mxn: 0
+                  myr: 0
+                  nok: 0
+                  nzd: 0
+                  php: 0
+                  pln: 0
+                  ron: 0
+                  rub: 0
+                  sek: 0
+                  sgd: 0
+                  thb: 0
+                  try: 0
+                  usd: 0
+                  zar: 0
+              transaction_fee: 0
+              transaction_fee_absolute: 0
+          preregistered_domain_priorities: '[]'
+          recurring_payment_methods:
+          - name: ideal
+            settings:
+              limit:
+                maximum:
+                  aud: 0
+                  bgn: 0
+                  brl: 0
+                  cad: 0
+                  chf: 0
+                  cny: 0
+                  czk: 0
+                  dkk: 0
+                  eek: 0
+                  eur: 0
+                  gbp: 0
+                  ghs: 0
+                  hkd: 0
+                  hrk: 0
+                  huf: 0
+                  idr: 0
+                  ils: 0
+                  inr: 0
+                  jpy: 0
+                  krw: 0
+                  lkr: 0
+                  ltl: 0
+                  lvl: 0
+                  mxn: 0
+                  myr: 0
+                  nok: 0
+                  nzd: 0
+                  php: 0
+                  pln: 0
+                  ron: 0
+                  rub: 0
+                  sek: 0
+                  sgd: 0
+                  thb: 0
+                  try: 0
+                  usd: 0
+                  zar: 0
+                minimum:
+                  aud: 0
+                  bgn: 0
+                  brl: 0
+                  cad: 0
+                  chf: 0
+                  cny: 0
+                  czk: 0
+                  dkk: 0
+                  eek: 0
+                  eur: 0
+                  gbp: 0
+                  ghs: 0
+                  hkd: 0
+                  hrk: 0
+                  huf: 0
+                  idr: 0
+                  ils: 0
+                  inr: 0
+                  jpy: 0
+                  krw: 0
+                  lkr: 0
+                  ltl: 0
+                  lvl: 0
+                  mxn: 0
+                  myr: 0
+                  nok: 0
+                  nzd: 0
+                  php: 0
+                  pln: 0
+                  ron: 0
+                  rub: 0
+                  sek: 0
+                  sgd: 0
+                  thb: 0
+                  try: 0
+                  usd: 0
+                  zar: 0
+              transaction_fee: 0
+              transaction_fee_absolute: 0
+          renew_notification_days:
+          - 1
+          renew_notification_every_week: false
+          signed_contracts:
+          - contents: content for ac
+            id: 1
+            is_signed: false
+            modification_date: '2009-02-19 10:59:32'
+            sign_on_date: '2009-02-19 10:59:32'
+            title: .ac
+            type: ac
+            version_id: 1
+          tac_contract:
+            is_signed: false
+            name: opensign_terms_and_conditions
+            signed_at: '2014-07-16 15:22:48'
+            type: opensign
+          tags:
+          - VIPCUSTOMER
+          transaction_fee:
+            bank: 0
+            credit_card: 3
+            ideal: 0
+            paypal: 5
+            western_union: 0
+            yandex: 5
+          type: normal
         desc: ''
     settingsPaymentMethodSettings:
       type: object
@@ -143,6 +676,28 @@ components:
             zar: 0
         transaction_fee: 0
         transaction_fee_absolute: 0
+    settingsTacContract:
+      type: object
+      title: TacContract
+      properties:
+        is_signed:
+          type: boolean
+          format: boolean
+          title: Indicates if contract is signed
+        name:
+          type: string
+          title: The name
+        signed_at:
+          type: string
+          title: Contract signing date
+        type:
+          type: string
+          title: The type
+      example:
+        is_signed: false
+        name: opensign_terms_and_conditions
+        signed_at: '2014-07-16 15:22:48'
+        type: opensign
     settingsTransactionFee:
       type: object
       title: TransactionFee
@@ -639,28 +1194,6 @@ components:
           try: 0
           usd: 0
           zar: 0
-    settingsTacContract:
-      type: object
-      title: TacContract
-      properties:
-        is_signed:
-          type: boolean
-          format: boolean
-          title: Indicates if contract is signed
-        name:
-          type: string
-          title: The name
-        signed_at:
-          type: string
-          title: Contract signing date
-        type:
-          type: string
-          title: The type
-      example:
-        is_signed: false
-        name: opensign_terms_and_conditions
-        signed_at: '2014-07-16 15:22:48'
-        type: opensign
     errorError:
       type: object
       title: Error
@@ -679,288 +1212,6 @@ components:
         code: 0
         data: ''
         desc: ''
-    settingsPaymentMethodLimit:
-      type: object
-      title: PaymentMethodLimit
-      properties:
-        AUD:
-          type: number
-          format: double
-          title: Currency
-        BGN:
-          type: number
-          format: double
-          title: Currency
-        BRL:
-          type: number
-          format: double
-          title: Currency
-        CAD:
-          type: number
-          format: double
-          title: Currency
-        CHF:
-          type: number
-          format: double
-          title: Currency
-        CNY:
-          type: number
-          format: double
-          title: Currency
-        CZK:
-          type: number
-          format: double
-          title: Currency
-        DKK:
-          type: number
-          format: double
-          title: Currency
-        EEK:
-          type: number
-          format: double
-          title: Currency
-        EUR:
-          type: number
-          format: double
-          title: Currency
-        GBP:
-          type: number
-          format: double
-          title: Currency
-        GHS:
-          type: number
-          format: double
-          title: Currency
-        HKD:
-          type: number
-          format: double
-          title: Currency
-        HRK:
-          type: number
-          format: double
-          title: Currency
-        HUF:
-          type: number
-          format: double
-          title: Currency
-        IDR:
-          type: number
-          format: double
-          title: Currency
-        ILS:
-          type: number
-          format: double
-          title: Currency
-        INR:
-          type: number
-          format: double
-          title: Currency
-        JPY:
-          type: number
-          format: double
-          title: Currency
-        KRW:
-          type: number
-          format: double
-          title: Currency
-        LKR:
-          type: number
-          format: double
-          title: Currency
-        LTL:
-          type: number
-          format: double
-          title: Currency
-        LVL:
-          type: number
-          format: double
-          title: Currency
-        MXN:
-          type: number
-          format: double
-          title: Currency
-        MYR:
-          type: number
-          format: double
-          title: Currency
-        NOK:
-          type: number
-          format: double
-          title: Currency
-        NZD:
-          type: number
-          format: double
-          title: Currency
-        PHP:
-          type: number
-          format: double
-          title: Currency
-        PLN:
-          type: number
-          format: double
-          title: Currency
-        RON:
-          type: number
-          format: double
-          title: Currency
-        RUB:
-          type: number
-          format: double
-          title: Currency
-        SEK:
-          type: number
-          format: double
-          title: Currency
-        SGD:
-          type: number
-          format: double
-          title: Currency
-        THB:
-          type: number
-          format: double
-          title: Currency
-        TRY:
-          type: number
-          format: double
-          title: Currency
-        USD:
-          type: number
-          format: double
-          title: Currency
-        ZAR:
-          type: number
-          format: double
-          title: Currency
-      example:
-        aud: 0
-        bgn: 0
-        brl: 0
-        cad: 0
-        chf: 0
-        cny: 0
-        czk: 0
-        dkk: 0
-        eek: 0
-        eur: 0
-        gbp: 0
-        ghs: 0
-        hkd: 0
-        hrk: 0
-        huf: 0
-        idr: 0
-        ils: 0
-        inr: 0
-        jpy: 0
-        krw: 0
-        lkr: 0
-        ltl: 0
-        lvl: 0
-        mxn: 0
-        myr: 0
-        nok: 0
-        nzd: 0
-        php: 0
-        pln: 0
-        ron: 0
-        rub: 0
-        sek: 0
-        sgd: 0
-        thb: 0
-        try: 0
-        usd: 0
-        zar: 0
-    settingsPaymentMethods:
-      type: object
-      title: PaymentMethods
-      properties:
-        name:
-          type: string
-          title: Payment method name
-        settings:
-          title: Payment method settings
-          $ref: '#/components/schemas/settingsPaymentMethodSettings'
-      example:
-        name: ideal
-        settings:
-          limit:
-            maximum:
-              aud: 0
-              bgn: 0
-              brl: 0
-              cad: 0
-              chf: 0
-              cny: 0
-              czk: 0
-              dkk: 0
-              eek: 0
-              eur: 0
-              gbp: 0
-              ghs: 0
-              hkd: 0
-              hrk: 0
-              huf: 0
-              idr: 0
-              ils: 0
-              inr: 0
-              jpy: 0
-              krw: 0
-              lkr: 0
-              ltl: 0
-              lvl: 0
-              mxn: 0
-              myr: 0
-              nok: 0
-              nzd: 0
-              php: 0
-              pln: 0
-              ron: 0
-              rub: 0
-              sek: 0
-              sgd: 0
-              thb: 0
-              try: 0
-              usd: 0
-              zar: 0
-            minimum:
-              aud: 0
-              bgn: 0
-              brl: 0
-              cad: 0
-              chf: 0
-              cny: 0
-              czk: 0
-              dkk: 0
-              eek: 0
-              eur: 0
-              gbp: 0
-              ghs: 0
-              hkd: 0
-              hrk: 0
-              huf: 0
-              idr: 0
-              ils: 0
-              inr: 0
-              jpy: 0
-              krw: 0
-              lkr: 0
-              ltl: 0
-              lvl: 0
-              mxn: 0
-              myr: 0
-              nok: 0
-              nzd: 0
-              php: 0
-              pln: 0
-              ron: 0
-              rub: 0
-              sek: 0
-              sgd: 0
-              thb: 0
-              try: 0
-              usd: 0
-              zar: 0
-          transaction_fee: 0
-          transaction_fee_absolute: 0
     settingsSignedContracts:
       type: object
       title: SignedContracts
@@ -1001,257 +1252,6 @@ components:
         title: .ac
         type: ac
         version_id: 1
-    settingsGetSettingsResponse:
-      type: object
-      title: GetSettingsResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/settingsGetSettingsResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          av_handle: XX123456-XX
-          claims_confirm_url: http://www.domain.tld/confirm-tm_claims.php?domainId=%%domainId%%&domain=%%domain%%&code=%%authCode%%
-          claims_email_subject: Hi there! You need to accept registration for %%domain%%!
-          claims_reseller_name: Jon Doe's Webhosting!!
-          claims_sender_email: test@mail.tld
-          currency: EUR
-          default_domain_billing_handle: XX123456-XX
-          default_domain_reseller_handle: XX123456-XX
-          foa_confirm_url: ''
-          foa_email_subject: ''
-          foa_reseller_name: ''
-          foa_sender_email: ''
-          foa_terms_conditions_url: ''
-          is_auto_renew_enabled: false
-          is_custom_nses_enabled: false
-          ive2_customized_body: ''
-          ive2_email_subject: '[URGENT REMINDER] Request for e-mail address verification'
-          ive_confirm_url: http://icann-verification.registrar.eu/?email=%%email%%&authCode=%%authCode%%
-          ive_customized_body: ''
-          ive_email_subject: Request for e-mail address verification
-          ive_reseller_name: sdasd
-          ive_sender_email: do-not-reply@registrar.eu
-          jurisdiction: EU
-          language: EN
-          maximum_credit: 20000
-          maximum_credit_card_payment: 15000
-          maximum_i_deal_payment: 1000000
-          maximum_western_union_payment: 1000
-          minimum_payment: 20
-          minimum_western_union_payment: 500
-          pay_methods:
-          - ideal
-          payment_methods:
-          - name: ideal
-            settings:
-              limit:
-                maximum:
-                  aud: 0
-                  bgn: 0
-                  brl: 0
-                  cad: 0
-                  chf: 0
-                  cny: 0
-                  czk: 0
-                  dkk: 0
-                  eek: 0
-                  eur: 0
-                  gbp: 0
-                  ghs: 0
-                  hkd: 0
-                  hrk: 0
-                  huf: 0
-                  idr: 0
-                  ils: 0
-                  inr: 0
-                  jpy: 0
-                  krw: 0
-                  lkr: 0
-                  ltl: 0
-                  lvl: 0
-                  mxn: 0
-                  myr: 0
-                  nok: 0
-                  nzd: 0
-                  php: 0
-                  pln: 0
-                  ron: 0
-                  rub: 0
-                  sek: 0
-                  sgd: 0
-                  thb: 0
-                  try: 0
-                  usd: 0
-                  zar: 0
-                minimum:
-                  aud: 0
-                  bgn: 0
-                  brl: 0
-                  cad: 0
-                  chf: 0
-                  cny: 0
-                  czk: 0
-                  dkk: 0
-                  eek: 0
-                  eur: 0
-                  gbp: 0
-                  ghs: 0
-                  hkd: 0
-                  hrk: 0
-                  huf: 0
-                  idr: 0
-                  ils: 0
-                  inr: 0
-                  jpy: 0
-                  krw: 0
-                  lkr: 0
-                  ltl: 0
-                  lvl: 0
-                  mxn: 0
-                  myr: 0
-                  nok: 0
-                  nzd: 0
-                  php: 0
-                  pln: 0
-                  ron: 0
-                  rub: 0
-                  sek: 0
-                  sgd: 0
-                  thb: 0
-                  try: 0
-                  usd: 0
-                  zar: 0
-              transaction_fee: 0
-              transaction_fee_absolute: 0
-          preregistered_domain_priorities: '[]'
-          recurring_payment_methods:
-          - name: ideal
-            settings:
-              limit:
-                maximum:
-                  aud: 0
-                  bgn: 0
-                  brl: 0
-                  cad: 0
-                  chf: 0
-                  cny: 0
-                  czk: 0
-                  dkk: 0
-                  eek: 0
-                  eur: 0
-                  gbp: 0
-                  ghs: 0
-                  hkd: 0
-                  hrk: 0
-                  huf: 0
-                  idr: 0
-                  ils: 0
-                  inr: 0
-                  jpy: 0
-                  krw: 0
-                  lkr: 0
-                  ltl: 0
-                  lvl: 0
-                  mxn: 0
-                  myr: 0
-                  nok: 0
-                  nzd: 0
-                  php: 0
-                  pln: 0
-                  ron: 0
-                  rub: 0
-                  sek: 0
-                  sgd: 0
-                  thb: 0
-                  try: 0
-                  usd: 0
-                  zar: 0
-                minimum:
-                  aud: 0
-                  bgn: 0
-                  brl: 0
-                  cad: 0
-                  chf: 0
-                  cny: 0
-                  czk: 0
-                  dkk: 0
-                  eek: 0
-                  eur: 0
-                  gbp: 0
-                  ghs: 0
-                  hkd: 0
-                  hrk: 0
-                  huf: 0
-                  idr: 0
-                  ils: 0
-                  inr: 0
-                  jpy: 0
-                  krw: 0
-                  lkr: 0
-                  ltl: 0
-                  lvl: 0
-                  mxn: 0
-                  myr: 0
-                  nok: 0
-                  nzd: 0
-                  php: 0
-                  pln: 0
-                  ron: 0
-                  rub: 0
-                  sek: 0
-                  sgd: 0
-                  thb: 0
-                  try: 0
-                  usd: 0
-                  zar: 0
-              transaction_fee: 0
-              transaction_fee_absolute: 0
-          renew_notification_days:
-          - 1
-          renew_notification_every_week: false
-          signed_contracts:
-          - contents: content for ac
-            id: 1
-            is_signed: false
-            modification_date: '2009-02-19 10:59:32'
-            sign_on_date: '2009-02-19 10:59:32'
-            title: .ac
-            type: ac
-            version_id: 1
-          tac_contract:
-            is_signed: false
-            name: opensign_terms_and_conditions
-            signed_at: '2014-07-16 15:22:48'
-            type: opensign
-          tags:
-          - VIPCUSTOMER
-          transaction_fee:
-            bank: 0
-            credit_card: 3
-            ideal: 0
-            paypal: 5
-            western_union: 0
-            yandex: 5
-          type: normal
-        desc: ''
   securitySchemes:
     Bearer:
       type: apiKey

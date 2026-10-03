@@ -36,6 +36,23 @@ paths:
         required: true
 components:
   schemas:
+    authLoginRequest:
+      type: object
+      title: LoginRequest
+      properties:
+        ip:
+          type: string
+          title: The IP address (0.0.0.0 is any IP address)
+        password:
+          type: string
+          title: The user's password
+        username:
+          type: string
+          title: The user's name
+      example:
+        ip: 123.123.123.123
+        password: eivr4ReKoz
+        username: openprovider
     errorWarning:
       type: object
       title: Warning
@@ -83,20 +100,6 @@ components:
           reseller_id: 123456
           token: 20d65561c9636d262e59aec8582c20c7
         desc: ''
-    authLoginResponseData:
-      type: object
-      title: LoginResponseData
-      properties:
-        reseller_id:
-          type: integer
-          format: int32
-          title: The reseller id
-        token:
-          type: string
-          title: The token
-      example:
-        reseller_id: 123456
-        token: 20d65561c9636d262e59aec8582c20c7
     errorError:
       type: object
       title: Error
@@ -115,23 +118,20 @@ components:
         code: 0
         data: ''
         desc: ''
-    authLoginRequest:
+    authLoginResponseData:
       type: object
-      title: LoginRequest
+      title: LoginResponseData
       properties:
-        ip:
+        reseller_id:
+          type: integer
+          format: int32
+          title: The reseller id
+        token:
           type: string
-          title: The IP address (0.0.0.0 is any IP address)
-        password:
-          type: string
-          title: The user's password
-        username:
-          type: string
-          title: The user's name
+          title: The token
       example:
-        ip: 123.123.123.123
-        password: eivr4ReKoz
-        username: openprovider
+        reseller_id: 123456
+        token: 20d65561c9636d262e59aec8582c20c7
   securitySchemes:
     Bearer:
       type: apiKey

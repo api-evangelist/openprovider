@@ -241,9 +241,52 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    customerUpdateCustomerRequest:
+    errorWarning:
       type: object
-      title: UpdateCustomerRequest
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    contactName:
+      type: object
+      title: Name
+      properties:
+        first_name:
+          type: string
+          title: First name
+        full_name:
+          type: string
+          title: Full name
+        initials:
+          type: string
+          title: Initials (first letters of first names, first letter of last name)
+        last_name:
+          type: string
+          title: Last name
+        prefix:
+          type: string
+          title: Prefix (often occuring in Dutch names; for example van de)
+      example:
+        first_name: Test
+        full_name: Test Person
+        initials: T P
+        last_name: Person
+        prefix: Mr
+    customerCreateCustomerRequest:
+      type: object
+      title: CreateCustomerRequest
       properties:
         additional_data:
           title: Collection of data fields that contain additional customer information
@@ -254,6 +297,9 @@ components:
         comments:
           type: string
           title: Custom notes to the specified handle
+        company_name:
+          type: string
+          title: Company name
         email:
           type: string
           title: Customer's email
@@ -265,12 +311,12 @@ components:
         fax:
           title: Customer's fax
           $ref: '#/components/schemas/customerFax'
-        handle:
-          type: string
-          title: Customer unique identifier or handle, which can be created via CreateCustomer API method
         locale:
           type: string
           title: Customer's language
+        name:
+          title: Customer's full name
+          $ref: '#/components/schemas/contactName'
         phone:
           title: Customer's phone
           $ref: '#/components/schemas/contactPhone'
@@ -314,7 +360,8 @@ components:
           street: Test street
           suffix: A
           zipcode: 1235 XX
-        comments: Some comment here
+        comments: ''
+        company_name: Example company
         email: test@mail.tld
         extension_additional_data:
         - data:
@@ -360,8 +407,13 @@ components:
           area_code: ''
           country_code: ''
           subscriber_number: ''
-        handle: XX123456-XX
         locale: nl_NL
+        name:
+          first_name: Test
+          full_name: Test Person
+          initials: T P
+          last_name: Person
+          prefix: Mr
         phone:
           area_code: '111'
           country_code: '+03'
@@ -370,130 +422,15 @@ components:
         - key: customer
           value: VIP
         vat: NL123456789X11
-    customerListCustomersResponse:
+    customerCreateCustomerResponseData:
       type: object
-      title: ListCustomersResponse
+      title: CreateCustomerResponseData
       properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/customerListCustomersResponseData'
-        desc:
+        handle:
           type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
+          title: Customer unique identifier or handle, which can be created via CreateCustomer API method
       example:
-        code: 0
-        data:
-          results:
-          - additional_data:
-              attached_files:
-              - description: My passport scan
-                doc_type: passport
-                path: https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE
-              birth_address: test street 45
-              birth_city: Test city
-              birth_country: NL
-              birth_date: '1970-01-01'
-              birth_state: Testprovince
-              birth_zipcode: '123'
-              company_registration_city: Testcity
-              company_registration_number: XX123456789X04
-              company_registration_subscription_date: '2000-01-01'
-              company_url: https://openprovider.com
-              headquarters_address: Test street 5
-              headquarters_city: Testcity
-              headquarters_country: NL
-              headquarters_state: Testprovince
-              headquarters_zipcode: '123'
-              passport_number: '123456'
-              social_security_number: '6543210'
-              trading_name: Openprovider
-            address:
-              city: Test city
-              country: NL
-              number: '123'
-              state: Testprovince
-              street: Test street
-              suffix: A
-              zipcode: 1235 XX
-            comments: ''
-            comments_last_changed_at: ''
-            company_name: ''
-            deleted_at: '0000-00-00 00:00:00'
-            email: test@mail.tld
-            email_verification_status: FAI
-            extension_additional_data:
-            - data:
-                admin_type: '1'
-                applicant_purpose: P3
-                birth_date: '1970-01-01'
-                company_name_cyrillic: Example company
-                company_name_latin: Example company
-                company_registration_number: XX123456789X11
-                contact_title: CEO
-                country_of_citizenship: NL
-                customer_uin: ''
-                ens_auth_id: ''
-                ens_key: ''
-                first_name_cyrillic: Test
-                first_name_latin: Test
-                hr_member: ''
-                industry_class: '19'
-                is_private_enterpreneur: ''
-                last_name_cyrillic: Person
-                last_name_latin: Person
-                legal_address_cyrillic: 13245 Country, City, street, 2
-                legal_type: FCORP
-                middle_name_cyrillic: Nikolaevich
-                middle_name_latin: Nikolaevich
-                mobile_phone_number: +7 (123) 456-78-90
-                nexus_category: C31
-                org_type: '1'
-                passport_issue_date: '2009-01-11'
-                passport_issuer: Issuer name
-                passport_number: '12345678'
-                passport_series: '1234'
-                postal_address_cyrillic: 12345 Country, City, street, 1
-                social_security_number: X123455123X
-                tax_payer_number: '1345678'
-                uin: 12345-6
-                user_type: Individual
-                vat: XX123456789X12
-                website: http://example.com
-                whois_email: test@mail.tld
-              name: ru
-            handle: XX123456-XX
-            id: 123456789
-            is_deleted: false
-            locale: nl_NL
-            name:
-              first_name: Test
-              full_name: Test Person
-              initials: T P
-              last_name: Person
-              prefix: Mr
-            phone:
-              area_code: '111'
-              country_code: '+03'
-              subscriber_number: '123456'
-            reseller_id: 5349
-            tags:
-            - key: customer
-              value: VIP
-          total: 999
-        desc: ''
+        handle: XX123456-XX
     customerGetCustomerResponseData:
       type: object
       title: GetCustomerResponseData
@@ -667,34 +604,39 @@ components:
         - key: customer
           value: VIP
         vat: XX123456789X11
-    customerUpdateCustomerResponse:
+    contactAddress:
       type: object
-      title: UpdateCustomerResponse
+      title: Address
       properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/customerUpdateCustomerResponseData'
-        desc:
+        city:
           type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
+          title: City
+        country:
+          type: string
+          title: Country code
+        number:
+          type: string
+          title: Street number
+        state:
+          type: string
+          title: State / province
+        street:
+          type: string
+          title: Street
+        suffix:
+          type: string
+          title: Address suffix
+        zipcode:
+          type: string
+          title: Postal code
       example:
-        code: 0
-        data:
-          success: false
-        desc: ''
+        city: Test city
+        country: NL
+        number: '123'
+        state: Testprovince
+        street: Test street
+        suffix: A
+        zipcode: 1235 XX
     customerGetCustomerResponse:
       type: object
       title: GetCustomerResponse
@@ -823,18 +765,36 @@ components:
             value: VIP
           vat: XX123456789X11
         desc: ''
-    customerCreateCustomerResponseData:
+    contactPhone:
       type: object
-      title: CreateCustomerResponseData
+      title: Phone
       properties:
-        handle:
+        area_code:
           type: string
-          title: Customer unique identifier or handle, which can be created via CreateCustomer API method
+          title: Area code part of the phone number (excluding leading zero)
+        country_code:
+          type: string
+          title: Country code part of the phone number (including +)
+        subscriber_number:
+          type: string
+          title: Subscriber number part of the phone number
       example:
-        handle: XX123456-XX
-    customerCreateCustomerResponse:
+        area_code: '111'
+        country_code: '+03'
+        subscriber_number: '123456'
+    customerDeleteCustomerResponseData:
       type: object
-      title: CreateCustomerResponse
+      title: DeleteCustomerResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates if operation was successful
+      example:
+        success: false
+    customerListCustomersResponse:
+      type: object
+      title: ListCustomersResponse
       properties:
         code:
           type: integer
@@ -842,7 +802,7 @@ components:
           title: Response code
         data:
           title: Response data
-          $ref: '#/components/schemas/customerCreateCustomerResponseData'
+          $ref: '#/components/schemas/customerListCustomersResponseData'
         desc:
           type: string
           title: Response description
@@ -858,324 +818,181 @@ components:
       example:
         code: 0
         data:
-          handle: XX123456-XX
+          results:
+          - additional_data:
+              attached_files:
+              - description: My passport scan
+                doc_type: passport
+                path: https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE
+              birth_address: test street 45
+              birth_city: Test city
+              birth_country: NL
+              birth_date: '1970-01-01'
+              birth_state: Testprovince
+              birth_zipcode: '123'
+              company_registration_city: Testcity
+              company_registration_number: XX123456789X04
+              company_registration_subscription_date: '2000-01-01'
+              company_url: https://openprovider.com
+              headquarters_address: Test street 5
+              headquarters_city: Testcity
+              headquarters_country: NL
+              headquarters_state: Testprovince
+              headquarters_zipcode: '123'
+              passport_number: '123456'
+              social_security_number: '6543210'
+              trading_name: Openprovider
+            address:
+              city: Test city
+              country: NL
+              number: '123'
+              state: Testprovince
+              street: Test street
+              suffix: A
+              zipcode: 1235 XX
+            comments: ''
+            comments_last_changed_at: ''
+            company_name: ''
+            deleted_at: '0000-00-00 00:00:00'
+            email: test@mail.tld
+            email_verification_status: FAI
+            extension_additional_data:
+            - data:
+                admin_type: '1'
+                applicant_purpose: P3
+                birth_date: '1970-01-01'
+                company_name_cyrillic: Example company
+                company_name_latin: Example company
+                company_registration_number: XX123456789X11
+                contact_title: CEO
+                country_of_citizenship: NL
+                customer_uin: ''
+                ens_auth_id: ''
+                ens_key: ''
+                first_name_cyrillic: Test
+                first_name_latin: Test
+                hr_member: ''
+                industry_class: '19'
+                is_private_enterpreneur: ''
+                last_name_cyrillic: Person
+                last_name_latin: Person
+                legal_address_cyrillic: 13245 Country, City, street, 2
+                legal_type: FCORP
+                middle_name_cyrillic: Nikolaevich
+                middle_name_latin: Nikolaevich
+                mobile_phone_number: +7 (123) 456-78-90
+                nexus_category: C31
+                org_type: '1'
+                passport_issue_date: '2009-01-11'
+                passport_issuer: Issuer name
+                passport_number: '12345678'
+                passport_series: '1234'
+                postal_address_cyrillic: 12345 Country, City, street, 1
+                social_security_number: X123455123X
+                tax_payer_number: '1345678'
+                uin: 12345-6
+                user_type: Individual
+                vat: XX123456789X12
+                website: http://example.com
+                whois_email: test@mail.tld
+              name: ru
+            handle: XX123456-XX
+            id: 123456789
+            is_deleted: false
+            locale: nl_NL
+            name:
+              first_name: Test
+              full_name: Test Person
+              initials: T P
+              last_name: Person
+              prefix: Mr
+            phone:
+              area_code: '111'
+              country_code: '+03'
+              subscriber_number: '123456'
+            reseller_id: 5349
+            tags:
+            - key: customer
+              value: VIP
+          total: 999
         desc: ''
-    customerCreateCustomerRequest:
+    customerExtensionAdditionalData:
       type: object
-      title: CreateCustomerRequest
+      title: ExtensionAdditionalData
       properties:
-        additional_data:
-          title: Collection of data fields that contain additional customer information
-          $ref: '#/components/schemas/customerCustomerAdditionalData'
-        address:
-          title: Customer's address
-          $ref: '#/components/schemas/contactAddress'
-        comments:
-          type: string
-          title: Custom notes to the specified handle
-        company_name:
-          type: string
-          title: Company name
-        email:
-          type: string
-          title: Customer's email
-        extension_additional_data:
-          type: array
-          title: Collection of data fields that are required for certain TLDs
-          items:
-            $ref: '#/components/schemas/customerExtensionAdditionalData'
-        fax:
-          title: Customer's fax
-          $ref: '#/components/schemas/customerFax'
-        locale:
-          type: string
-          title: Customer's language
+        data:
+          title: Response data
+          $ref: '#/components/schemas/customerExtensionData'
         name:
-          title: Customer's full name
-          $ref: '#/components/schemas/contactName'
-        phone:
-          title: Customer's phone
-          $ref: '#/components/schemas/contactPhone'
-        tags:
-          type: array
-          title: Custom tags applied to entity
-          items:
-            $ref: '#/components/schemas/customerTags'
-        vat:
           type: string
-          title: VAT (value-added tax) number of the customer
+          title: Indicates for which extension additional data is listed
       example:
-        additional_data:
-          attached_files:
-          - description: My passport scan
-            doc_type: passport
-            path: https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE
-          birth_address: test street 45
-          birth_city: Test city
-          birth_country: NL
+        data:
+          admin_type: '1'
+          applicant_purpose: P3
           birth_date: '1970-01-01'
-          birth_state: Testprovince
-          birth_zipcode: '123'
-          company_registration_city: Testcity
-          company_registration_number: XX123456789X04
-          company_registration_subscription_date: '2000-01-01'
-          company_url: https://openprovider.com
-          headquarters_address: Test street 5
-          headquarters_city: Testcity
-          headquarters_country: NL
-          headquarters_state: Testprovince
-          headquarters_zipcode: '123'
-          passport_number: '123456'
-          social_security_number: '6543210'
-          trading_name: Openprovider
-        address:
-          city: Test city
-          country: NL
-          number: '123'
-          state: Testprovince
-          street: Test street
-          suffix: A
-          zipcode: 1235 XX
-        comments: ''
-        company_name: Example company
-        email: test@mail.tld
-        extension_additional_data:
-        - data:
-            admin_type: '1'
-            applicant_purpose: P3
-            birth_date: '1970-01-01'
-            company_name_cyrillic: Example company
-            company_name_latin: Example company
-            company_registration_number: XX123456789X11
-            contact_title: CEO
-            country_of_citizenship: NL
-            customer_uin: ''
-            ens_auth_id: ''
-            ens_key: ''
-            first_name_cyrillic: Test
-            first_name_latin: Test
-            hr_member: ''
-            industry_class: '19'
-            is_private_enterpreneur: ''
-            last_name_cyrillic: Person
-            last_name_latin: Person
-            legal_address_cyrillic: 13245 Country, City, street, 2
-            legal_type: FCORP
-            middle_name_cyrillic: Nikolaevich
-            middle_name_latin: Nikolaevich
-            mobile_phone_number: +7 (123) 456-78-90
-            nexus_category: C31
-            org_type: '1'
-            passport_issue_date: '2009-01-11'
-            passport_issuer: Issuer name
-            passport_number: '12345678'
-            passport_series: '1234'
-            postal_address_cyrillic: 12345 Country, City, street, 1
-            social_security_number: X123455123X
-            tax_payer_number: '1345678'
-            uin: 12345-6
-            user_type: Individual
-            vat: XX123456789X12
-            website: http://example.com
-            whois_email: test@mail.tld
-          name: ru
-        fax:
-          area_code: ''
-          country_code: ''
-          subscriber_number: ''
-        locale: nl_NL
-        name:
-          first_name: Test
-          full_name: Test Person
-          initials: T P
-          last_name: Person
-          prefix: Mr
-        phone:
-          area_code: '111'
-          country_code: '+03'
-          subscriber_number: '123456'
-        tags:
-        - key: customer
-          value: VIP
-        vat: NL123456789X11
-    customerCustomerAdditionalData:
+          company_name_cyrillic: Example company
+          company_name_latin: Example company
+          company_registration_number: XX123456789X11
+          contact_title: CEO
+          country_of_citizenship: NL
+          customer_uin: ''
+          ens_auth_id: ''
+          ens_key: ''
+          first_name_cyrillic: Test
+          first_name_latin: Test
+          hr_member: ''
+          industry_class: '19'
+          is_private_enterpreneur: ''
+          last_name_cyrillic: Person
+          last_name_latin: Person
+          legal_address_cyrillic: 13245 Country, City, street, 2
+          legal_type: FCORP
+          middle_name_cyrillic: Nikolaevich
+          middle_name_latin: Nikolaevich
+          mobile_phone_number: +7 (123) 456-78-90
+          nexus_category: C31
+          org_type: '1'
+          passport_issue_date: '2009-01-11'
+          passport_issuer: Issuer name
+          passport_number: '12345678'
+          passport_series: '1234'
+          postal_address_cyrillic: 12345 Country, City, street, 1
+          social_security_number: X123455123X
+          tax_payer_number: '1345678'
+          uin: 12345-6
+          user_type: Individual
+          vat: XX123456789X12
+          website: http://example.com
+          whois_email: test@mail.tld
+        name: ru
+    customerUpdateCustomerResponse:
       type: object
-      title: CustomerAdditionalData
-      properties:
-        attached_files:
-          type: array
-          title: File(s) attached to customer handle e.g. like the proof of the customer identity (passport scan or legal entity documents)
-          items:
-            $ref: '#/components/schemas/customerFile'
-        birth_address:
-          type: string
-          title: Birth address
-        birth_city:
-          type: string
-          title: Birth city
-        birth_country:
-          type: string
-          title: Birth country
-        birth_date:
-          type: string
-          title: Birth date
-        birth_state:
-          type: string
-          title: Birth state / province
-        birth_zipcode:
-          type: string
-          title: Birth address postal code
-        company_registration_city:
-          type: string
-          title: Customer company's registration city
-        company_registration_number:
-          type: string
-          title: Customer company's registration number
-        company_registration_subscription_date:
-          type: string
-          title: Customer company's registration date
-        company_url:
-          type: string
-          title: Company URL
-        headquarters_address:
-          type: string
-          title: Company's headquarters address
-        headquarters_city:
-          type: string
-          title: Company's headquarters city
-        headquarters_country:
-          type: string
-          title: Company's headquarters country
-        headquarters_state:
-          type: string
-          title: Company's headquarters state / province
-        headquarters_zipcode:
-          type: string
-          title: Company's headquarters zip/postal code
-        passport_number:
-          type: string
-          title: Customer's passport / id number
-        social_security_number:
-          type: string
-          title: Social security number
-        trading_name:
-          type: string
-          title: Trading name
-      example:
-        attached_files:
-        - description: My passport scan
-          doc_type: passport
-          path: https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE
-        birth_address: test street 45
-        birth_city: Test city
-        birth_country: NL
-        birth_date: '1970-01-01'
-        birth_state: Testprovince
-        birth_zipcode: '123'
-        company_registration_city: Testcity
-        company_registration_number: XX123456789X04
-        company_registration_subscription_date: '2000-01-01'
-        company_url: https://openprovider.com
-        headquarters_address: Test street 5
-        headquarters_city: Testcity
-        headquarters_country: NL
-        headquarters_state: Testprovince
-        headquarters_zipcode: '123'
-        passport_number: '123456'
-        social_security_number: '6543210'
-        trading_name: Openprovider
-    customerFile:
-      type: object
-      title: File
-      properties:
-        description:
-          type: string
-          title: Brief description of the file content
-        doc_type:
-          type: string
-          title: Type of the document, e.g. 'passport', 'id'
-        path:
-          type: string
-          title: Link to the external file storage
-      example:
-        description: My passport scan
-        doc_type: passport
-        path: https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE
-    contactAddress:
-      type: object
-      title: Address
-      properties:
-        city:
-          type: string
-          title: City
-        country:
-          type: string
-          title: Country code
-        number:
-          type: string
-          title: Street number
-        state:
-          type: string
-          title: State / province
-        street:
-          type: string
-          title: Street
-        suffix:
-          type: string
-          title: Address suffix
-        zipcode:
-          type: string
-          title: Postal code
-      example:
-        city: Test city
-        country: NL
-        number: '123'
-        state: Testprovince
-        street: Test street
-        suffix: A
-        zipcode: 1235 XX
-    contactName:
-      type: object
-      title: Name
-      properties:
-        first_name:
-          type: string
-          title: First name
-        full_name:
-          type: string
-          title: Full name
-        initials:
-          type: string
-          title: Initials (first letters of first names, first letter of last name)
-        last_name:
-          type: string
-          title: Last name
-        prefix:
-          type: string
-          title: Prefix (often occuring in Dutch names; for example van de)
-      example:
-        first_name: Test
-        full_name: Test Person
-        initials: T P
-        last_name: Person
-        prefix: Mr
-    errorWarning:
-      type: object
-      title: Warning
+      title: UpdateCustomerResponse
       properties:
         code:
           type: integer
           format: int32
-          title: Warning code
+          title: Response code
         data:
-          type: string
-          title: Additional warning description
+          title: Response data
+          $ref: '#/components/schemas/customerUpdateCustomerResponseData'
         desc:
           type: string
-          title: Warning description
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
       example:
         code: 0
-        data: ''
+        data:
+          success: false
         desc: ''
     customerListCustomersResponseDataResults:
       type: object
@@ -1349,235 +1166,6 @@ components:
         tags:
         - key: customer
           value: VIP
-    contactPhone:
-      type: object
-      title: Phone
-      properties:
-        area_code:
-          type: string
-          title: Area code part of the phone number (excluding leading zero)
-        country_code:
-          type: string
-          title: Country code part of the phone number (including +)
-        subscriber_number:
-          type: string
-          title: Subscriber number part of the phone number
-      example:
-        area_code: '111'
-        country_code: '+03'
-        subscriber_number: '123456'
-    customerDeleteCustomerResponseData:
-      type: object
-      title: DeleteCustomerResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates if operation was successful
-      example:
-        success: false
-    customerListCustomersResponseData:
-      type: object
-      title: ListCustomersResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            $ref: '#/components/schemas/customerListCustomersResponseDataResults'
-        total:
-          type: integer
-          format: int32
-          title: Total number of entities matching search criteria
-      example:
-        results:
-        - additional_data:
-            attached_files:
-            - description: My passport scan
-              doc_type: passport
-              path: https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE
-            birth_address: test street 45
-            birth_city: Test city
-            birth_country: NL
-            birth_date: '1970-01-01'
-            birth_state: Testprovince
-            birth_zipcode: '123'
-            company_registration_city: Testcity
-            company_registration_number: XX123456789X04
-            company_registration_subscription_date: '2000-01-01'
-            company_url: https://openprovider.com
-            headquarters_address: Test street 5
-            headquarters_city: Testcity
-            headquarters_country: NL
-            headquarters_state: Testprovince
-            headquarters_zipcode: '123'
-            passport_number: '123456'
-            social_security_number: '6543210'
-            trading_name: Openprovider
-          address:
-            city: Test city
-            country: NL
-            number: '123'
-            state: Testprovince
-            street: Test street
-            suffix: A
-            zipcode: 1235 XX
-          comments: ''
-          comments_last_changed_at: ''
-          company_name: ''
-          deleted_at: '0000-00-00 00:00:00'
-          email: test@mail.tld
-          email_verification_status: FAI
-          extension_additional_data:
-          - data:
-              admin_type: '1'
-              applicant_purpose: P3
-              birth_date: '1970-01-01'
-              company_name_cyrillic: Example company
-              company_name_latin: Example company
-              company_registration_number: XX123456789X11
-              contact_title: CEO
-              country_of_citizenship: NL
-              customer_uin: ''
-              ens_auth_id: ''
-              ens_key: ''
-              first_name_cyrillic: Test
-              first_name_latin: Test
-              hr_member: ''
-              industry_class: '19'
-              is_private_enterpreneur: ''
-              last_name_cyrillic: Person
-              last_name_latin: Person
-              legal_address_cyrillic: 13245 Country, City, street, 2
-              legal_type: FCORP
-              middle_name_cyrillic: Nikolaevich
-              middle_name_latin: Nikolaevich
-              mobile_phone_number: +7 (123) 456-78-90
-              nexus_category: C31
-              org_type: '1'
-              passport_issue_date: '2009-01-11'
-              passport_issuer: Issuer name
-              passport_number: '12345678'
-              passport_series: '1234'
-              postal_address_cyrillic: 12345 Country, City, street, 1
-              social_security_number: X123455123X
-              tax_payer_number: '1345678'
-              uin: 12345-6
-              user_type: Individual
-              vat: XX123456789X12
-              website: http://example.com
-              whois_email: test@mail.tld
-            name: ru
-          handle: XX123456-XX
-          id: 123456789
-          is_deleted: false
-          locale: nl_NL
-          name:
-            first_name: Test
-            full_name: Test Person
-            initials: T P
-            last_name: Person
-            prefix: Mr
-          phone:
-            area_code: '111'
-            country_code: '+03'
-            subscriber_number: '123456'
-          reseller_id: 5349
-          tags:
-          - key: customer
-            value: VIP
-        total: 999
-    customerDeleteCustomerResponse:
-      type: object
-      title: DeleteCustomerResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/customerDeleteCustomerResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          success: false
-        desc: ''
-    customerExtensionAdditionalData:
-      type: object
-      title: ExtensionAdditionalData
-      properties:
-        data:
-          title: Response data
-          $ref: '#/components/schemas/customerExtensionData'
-        name:
-          type: string
-          title: Indicates for which extension additional data is listed
-      example:
-        data:
-          admin_type: '1'
-          applicant_purpose: P3
-          birth_date: '1970-01-01'
-          company_name_cyrillic: Example company
-          company_name_latin: Example company
-          company_registration_number: XX123456789X11
-          contact_title: CEO
-          country_of_citizenship: NL
-          customer_uin: ''
-          ens_auth_id: ''
-          ens_key: ''
-          first_name_cyrillic: Test
-          first_name_latin: Test
-          hr_member: ''
-          industry_class: '19'
-          is_private_enterpreneur: ''
-          last_name_cyrillic: Person
-          last_name_latin: Person
-          legal_address_cyrillic: 13245 Country, City, street, 2
-          legal_type: FCORP
-          middle_name_cyrillic: Nikolaevich
-          middle_name_latin: Nikolaevich
-          mobile_phone_number: +7 (123) 456-78-90
-          nexus_category: C31
-          org_type: '1'
-          passport_issue_date: '2009-01-11'
-          passport_issuer: Issuer name
-          passport_number: '12345678'
-          passport_series: '1234'
-          postal_address_cyrillic: 12345 Country, City, street, 1
-          social_security_number: X123455123X
-          tax_payer_number: '1345678'
-          uin: 12345-6
-          user_type: Individual
-          vat: XX123456789X12
-          website: http://example.com
-          whois_email: test@mail.tld
-        name: ru
-    customerTags:
-      type: object
-      title: Tags
-      properties:
-        key:
-          type: string
-          title: 'The key of the tag. Allowed values: ''customer'''
-        value:
-          type: string
-          title: The value of the tag
-      example:
-        key: customer
-        value: VIP
     customerExtensionData:
       type: object
       title: ExtensionData
@@ -1805,6 +1393,62 @@ components:
         vat: XX123456789X12
         website: http://example.com
         whois_email: test@mail.tld
+    customerDeleteCustomerResponse:
+      type: object
+      title: DeleteCustomerResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/customerDeleteCustomerResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          success: false
+        desc: ''
+    customerCreateCustomerResponse:
+      type: object
+      title: CreateCustomerResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/customerCreateCustomerResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          handle: XX123456-XX
+        desc: ''
     errorError:
       type: object
       title: Error
@@ -1823,6 +1467,23 @@ components:
         code: 0
         data: ''
         desc: ''
+    customerFile:
+      type: object
+      title: File
+      properties:
+        description:
+          type: string
+          title: Brief description of the file content
+        doc_type:
+          type: string
+          title: Type of the document, e.g. 'passport', 'id'
+        path:
+          type: string
+          title: Link to the external file storage
+      example:
+        description: My passport scan
+        doc_type: passport
+        path: https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE
     customerUpdateCustomerResponseData:
       type: object
       title: UpdateCustomerResponseData
@@ -1833,6 +1494,234 @@ components:
           title: Indicates if operation was successful
       example:
         success: false
+    customerCustomerAdditionalData:
+      type: object
+      title: CustomerAdditionalData
+      properties:
+        attached_files:
+          type: array
+          title: File(s) attached to customer handle e.g. like the proof of the customer identity (passport scan or legal entity documents)
+          items:
+            $ref: '#/components/schemas/customerFile'
+        birth_address:
+          type: string
+          title: Birth address
+        birth_city:
+          type: string
+          title: Birth city
+        birth_country:
+          type: string
+          title: Birth country
+        birth_date:
+          type: string
+          title: Birth date
+        birth_state:
+          type: string
+          title: Birth state / province
+        birth_zipcode:
+          type: string
+          title: Birth address postal code
+        company_registration_city:
+          type: string
+          title: Customer company's registration city
+        company_registration_number:
+          type: string
+          title: Customer company's registration number
+        company_registration_subscription_date:
+          type: string
+          title: Customer company's registration date
+        company_url:
+          type: string
+          title: Company URL
+        headquarters_address:
+          type: string
+          title: Company's headquarters address
+        headquarters_city:
+          type: string
+          title: Company's headquarters city
+        headquarters_country:
+          type: string
+          title: Company's headquarters country
+        headquarters_state:
+          type: string
+          title: Company's headquarters state / province
+        headquarters_zipcode:
+          type: string
+          title: Company's headquarters zip/postal code
+        passport_number:
+          type: string
+          title: Customer's passport / id number
+        social_security_number:
+          type: string
+          title: Social security number
+        trading_name:
+          type: string
+          title: Trading name
+      example:
+        attached_files:
+        - description: My passport scan
+          doc_type: passport
+          path: https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE
+        birth_address: test street 45
+        birth_city: Test city
+        birth_country: NL
+        birth_date: '1970-01-01'
+        birth_state: Testprovince
+        birth_zipcode: '123'
+        company_registration_city: Testcity
+        company_registration_number: XX123456789X04
+        company_registration_subscription_date: '2000-01-01'
+        company_url: https://openprovider.com
+        headquarters_address: Test street 5
+        headquarters_city: Testcity
+        headquarters_country: NL
+        headquarters_state: Testprovince
+        headquarters_zipcode: '123'
+        passport_number: '123456'
+        social_security_number: '6543210'
+        trading_name: Openprovider
+    customerTags:
+      type: object
+      title: Tags
+      properties:
+        key:
+          type: string
+          title: 'The key of the tag. Allowed values: ''customer'''
+        value:
+          type: string
+          title: The value of the tag
+      example:
+        key: customer
+        value: VIP
+    customerUpdateCustomerRequest:
+      type: object
+      title: UpdateCustomerRequest
+      properties:
+        additional_data:
+          title: Collection of data fields that contain additional customer information
+          $ref: '#/components/schemas/customerCustomerAdditionalData'
+        address:
+          title: Customer's address
+          $ref: '#/components/schemas/contactAddress'
+        comments:
+          type: string
+          title: Custom notes to the specified handle
+        email:
+          type: string
+          title: Customer's email
+        extension_additional_data:
+          type: array
+          title: Collection of data fields that are required for certain TLDs
+          items:
+            $ref: '#/components/schemas/customerExtensionAdditionalData'
+        fax:
+          title: Customer's fax
+          $ref: '#/components/schemas/customerFax'
+        handle:
+          type: string
+          title: Customer unique identifier or handle, which can be created via CreateCustomer API method
+        locale:
+          type: string
+          title: Customer's language
+        phone:
+          title: Customer's phone
+          $ref: '#/components/schemas/contactPhone'
+        tags:
+          type: array
+          title: Custom tags applied to entity
+          items:
+            $ref: '#/components/schemas/customerTags'
+        vat:
+          type: string
+          title: VAT (value-added tax) number of the customer
+      example:
+        additional_data:
+          attached_files:
+          - description: My passport scan
+            doc_type: passport
+            path: https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE
+          birth_address: test street 45
+          birth_city: Test city
+          birth_country: NL
+          birth_date: '1970-01-01'
+          birth_state: Testprovince
+          birth_zipcode: '123'
+          company_registration_city: Testcity
+          company_registration_number: XX123456789X04
+          company_registration_subscription_date: '2000-01-01'
+          company_url: https://openprovider.com
+          headquarters_address: Test street 5
+          headquarters_city: Testcity
+          headquarters_country: NL
+          headquarters_state: Testprovince
+          headquarters_zipcode: '123'
+          passport_number: '123456'
+          social_security_number: '6543210'
+          trading_name: Openprovider
+        address:
+          city: Test city
+          country: NL
+          number: '123'
+          state: Testprovince
+          street: Test street
+          suffix: A
+          zipcode: 1235 XX
+        comments: Some comment here
+        email: test@mail.tld
+        extension_additional_data:
+        - data:
+            admin_type: '1'
+            applicant_purpose: P3
+            birth_date: '1970-01-01'
+            company_name_cyrillic: Example company
+            company_name_latin: Example company
+            company_registration_number: XX123456789X11
+            contact_title: CEO
+            country_of_citizenship: NL
+            customer_uin: ''
+            ens_auth_id: ''
+            ens_key: ''
+            first_name_cyrillic: Test
+            first_name_latin: Test
+            hr_member: ''
+            industry_class: '19'
+            is_private_enterpreneur: ''
+            last_name_cyrillic: Person
+            last_name_latin: Person
+            legal_address_cyrillic: 13245 Country, City, street, 2
+            legal_type: FCORP
+            middle_name_cyrillic: Nikolaevich
+            middle_name_latin: Nikolaevich
+            mobile_phone_number: +7 (123) 456-78-90
+            nexus_category: C31
+            org_type: '1'
+            passport_issue_date: '2009-01-11'
+            passport_issuer: Issuer name
+            passport_number: '12345678'
+            passport_series: '1234'
+            postal_address_cyrillic: 12345 Country, City, street, 1
+            social_security_number: X123455123X
+            tax_payer_number: '1345678'
+            uin: 12345-6
+            user_type: Individual
+            vat: XX123456789X12
+            website: http://example.com
+            whois_email: test@mail.tld
+          name: ru
+        fax:
+          area_code: ''
+          country_code: ''
+          subscriber_number: ''
+        handle: XX123456-XX
+        locale: nl_NL
+        phone:
+          area_code: '111'
+          country_code: '+03'
+          subscriber_number: '123456'
+        tags:
+        - key: customer
+          value: VIP
+        vat: NL123456789X11
     customerFax:
       type: object
       title: Fax
@@ -1850,6 +1739,117 @@ components:
         area_code: ''
         country_code: ''
         subscriber_number: ''
+    customerListCustomersResponseData:
+      type: object
+      title: ListCustomersResponseData
+      properties:
+        results:
+          type: array
+          title: Array of results
+          items:
+            $ref: '#/components/schemas/customerListCustomersResponseDataResults'
+        total:
+          type: integer
+          format: int32
+          title: Total number of entities matching search criteria
+      example:
+        results:
+        - additional_data:
+            attached_files:
+            - description: My passport scan
+              doc_type: passport
+              path: https://drive.google.com/open?id=1EclbGeo8Y3UWg3KSF7ebmwcK7ddLTtC7m3aHZ1qMnjE
+            birth_address: test street 45
+            birth_city: Test city
+            birth_country: NL
+            birth_date: '1970-01-01'
+            birth_state: Testprovince
+            birth_zipcode: '123'
+            company_registration_city: Testcity
+            company_registration_number: XX123456789X04
+            company_registration_subscription_date: '2000-01-01'
+            company_url: https://openprovider.com
+            headquarters_address: Test street 5
+            headquarters_city: Testcity
+            headquarters_country: NL
+            headquarters_state: Testprovince
+            headquarters_zipcode: '123'
+            passport_number: '123456'
+            social_security_number: '6543210'
+            trading_name: Openprovider
+          address:
+            city: Test city
+            country: NL
+            number: '123'
+            state: Testprovince
+            street: Test street
+            suffix: A
+            zipcode: 1235 XX
+          comments: ''
+          comments_last_changed_at: ''
+          company_name: ''
+          deleted_at: '0000-00-00 00:00:00'
+          email: test@mail.tld
+          email_verification_status: FAI
+          extension_additional_data:
+          - data:
+              admin_type: '1'
+              applicant_purpose: P3
+              birth_date: '1970-01-01'
+              company_name_cyrillic: Example company
+              company_name_latin: Example company
+              company_registration_number: XX123456789X11
+              contact_title: CEO
+              country_of_citizenship: NL
+              customer_uin: ''
+              ens_auth_id: ''
+              ens_key: ''
+              first_name_cyrillic: Test
+              first_name_latin: Test
+              hr_member: ''
+              industry_class: '19'
+              is_private_enterpreneur: ''
+              last_name_cyrillic: Person
+              last_name_latin: Person
+              legal_address_cyrillic: 13245 Country, City, street, 2
+              legal_type: FCORP
+              middle_name_cyrillic: Nikolaevich
+              middle_name_latin: Nikolaevich
+              mobile_phone_number: +7 (123) 456-78-90
+              nexus_category: C31
+              org_type: '1'
+              passport_issue_date: '2009-01-11'
+              passport_issuer: Issuer name
+              passport_number: '12345678'
+              passport_series: '1234'
+              postal_address_cyrillic: 12345 Country, City, street, 1
+              social_security_number: X123455123X
+              tax_payer_number: '1345678'
+              uin: 12345-6
+              user_type: Individual
+              vat: XX123456789X12
+              website: http://example.com
+              whois_email: test@mail.tld
+            name: ru
+          handle: XX123456-XX
+          id: 123456789
+          is_deleted: false
+          locale: nl_NL
+          name:
+            first_name: Test
+            full_name: Test Person
+            initials: T P
+            last_name: Person
+            prefix: Mr
+          phone:
+            area_code: '111'
+            country_code: '+03'
+            subscriber_number: '123456'
+          reseller_id: 5349
+          tags:
+          - key: customer
+            value: VIP
+        total: 999
   securitySchemes:
     Bearer:
       type: apiKey

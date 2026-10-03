@@ -113,131 +113,6 @@ components:
         code: 0
         data: ''
         desc: ''
-    tagCreateTagResponse:
-      type: object
-      title: CreateTagResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/tagCreateTagResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates, if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          success: false
-        desc: ''
-    tagDeleteTagResponse:
-      type: object
-      title: DeleteTagResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/tagDeleteTagResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates, if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          success: false
-        desc: ''
-    tagCreateTagResponseData:
-      type: object
-      title: CreateTagResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates, if operation is successful
-      example:
-        success: false
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    tagListTagsResponseData:
-      type: object
-      title: ListTagsResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            $ref: '#/components/schemas/helperstagTag'
-        total:
-          type: integer
-          format: int32
-          title: Results count
-      example:
-        results:
-        - key: customer
-          value: example
-        total: 999
-    tagDeleteTagResponseData:
-      type: object
-      title: DeleteTagResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates, if operation is successful
-      example:
-        success: false
-    helperstagTag:
-      type: object
-      title: Tag
-      properties:
-        key:
-          type: string
-          title: 'The key of the tag. Allowed values: ''customer'''
-        value:
-          type: string
-          title: 'The value of the tag. I.e.: VIP customer'
-      example:
-        key: customer
-        value: example
     tagListTagsResponse:
       type: object
       title: ListTagsResponse
@@ -269,6 +144,131 @@ components:
             value: example
           total: 999
         desc: ''
+    tagCreateTagResponseData:
+      type: object
+      title: CreateTagResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates, if operation is successful
+      example:
+        success: false
+    tagListTagsResponseData:
+      type: object
+      title: ListTagsResponseData
+      properties:
+        results:
+          type: array
+          title: Array of results
+          items:
+            $ref: '#/components/schemas/helperstagTag'
+        total:
+          type: integer
+          format: int32
+          title: Results count
+      example:
+        results:
+        - key: customer
+          value: example
+        total: 999
+    tagDeleteTagResponse:
+      type: object
+      title: DeleteTagResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/tagDeleteTagResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates, if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          success: false
+        desc: ''
+    tagCreateTagResponse:
+      type: object
+      title: CreateTagResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/tagCreateTagResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates, if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          success: false
+        desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    tagDeleteTagResponseData:
+      type: object
+      title: DeleteTagResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates, if operation is successful
+      example:
+        success: false
+    helperstagTag:
+      type: object
+      title: Tag
+      properties:
+        key:
+          type: string
+          title: 'The key of the tag. Allowed values: ''customer'''
+        value:
+          type: string
+          title: 'The value of the tag. I.e.: VIP customer'
+      example:
+        key: customer
+        value: example
   securitySchemes:
     Bearer:
       type: apiKey

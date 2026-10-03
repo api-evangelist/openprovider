@@ -195,184 +195,6 @@ components:
         ttl: 86400
         type: MX
         value: abc.example.com
-    templateCreateTemplateResponseData:
-      type: object
-      title: CreateTemplateResponseData
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Template ID
-      example:
-        id: 39238
-    templateCreateTemplateResponse:
-      type: object
-      title: CreateTemplateResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: The data
-          $ref: '#/components/schemas/templateCreateTemplateResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: The warnings
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          id: 39238
-        desc: ''
-    templateListTemplatesResponseData:
-      type: object
-      title: ListTemplatesResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            $ref: '#/components/schemas/templateTemplate'
-        total:
-          type: integer
-          format: int32
-          title: Results count
-      example:
-        results:
-        - id: 1
-          is_spamexperts_enabled: false
-          name: MyTemplate
-          records:
-          - id: 67377
-            name: ns1.domain.com
-            prio: 10
-            ttl: 86400
-            type: MX
-            value: abc.example.com
-        total: 20
-    templateTemplate:
-      type: object
-      title: Template
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Template ID
-        is_spamexperts_enabled:
-          type: boolean
-          format: boolean
-          title: Indicates if spam filtering is enabled for the DNS zone
-        name:
-          type: string
-          title: Template name
-        records:
-          type: array
-          title: Array of DNS zone records
-          items:
-            $ref: '#/components/schemas/templateRecord'
-      example:
-        id: 1
-        is_spamexperts_enabled: false
-        name: MyTemplate
-        records:
-        - id: 67377
-          name: ns1.domain.com
-          prio: 10
-          ttl: 86400
-          type: MX
-          value: abc.example.com
-    templateGetTemplateResponse:
-      type: object
-      title: GetTemplateResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: The data
-          $ref: '#/components/schemas/templateTemplate'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: The warnings
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          id: 1
-          is_spamexperts_enabled: false
-          name: MyTemplate
-          records:
-          - id: 67377
-            name: ns1.domain.com
-            prio: 10
-            ttl: 86400
-            type: MX
-            value: abc.example.com
-        desc: ''
-    templateTemplateBoolResponse:
-      type: object
-      title: TemplateBoolResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: The data
-          $ref: '#/components/schemas/templateTemplateBoolResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: The warnings
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          success: false
-        desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     templateCreateTemplateRequest:
       type: object
       title: CreateTemplateRequest
@@ -438,6 +260,93 @@ components:
               value: abc.example.com
           total: 20
         desc: ''
+    templateTemplate:
+      type: object
+      title: Template
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Template ID
+        is_spamexperts_enabled:
+          type: boolean
+          format: boolean
+          title: Indicates if spam filtering is enabled for the DNS zone
+        name:
+          type: string
+          title: Template name
+        records:
+          type: array
+          title: Array of DNS zone records
+          items:
+            $ref: '#/components/schemas/templateRecord'
+      example:
+        id: 1
+        is_spamexperts_enabled: false
+        name: MyTemplate
+        records:
+        - id: 67377
+          name: ns1.domain.com
+          prio: 10
+          ttl: 86400
+          type: MX
+          value: abc.example.com
+    templateCreateTemplateResponse:
+      type: object
+      title: CreateTemplateResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: The data
+          $ref: '#/components/schemas/templateCreateTemplateResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: The warnings
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          id: 39238
+        desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    templateCreateTemplateResponseData:
+      type: object
+      title: CreateTemplateResponseData
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Template ID
+      example:
+        id: 39238
     templateTemplateBoolResponseData:
       type: object
       title: TemplateBoolResponseData
@@ -448,6 +357,97 @@ components:
           title: Indicates if request was successful
       example:
         success: false
+    templateTemplateBoolResponse:
+      type: object
+      title: TemplateBoolResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: The data
+          $ref: '#/components/schemas/templateTemplateBoolResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: The warnings
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          success: false
+        desc: ''
+    templateListTemplatesResponseData:
+      type: object
+      title: ListTemplatesResponseData
+      properties:
+        results:
+          type: array
+          title: Array of results
+          items:
+            $ref: '#/components/schemas/templateTemplate'
+        total:
+          type: integer
+          format: int32
+          title: Results count
+      example:
+        results:
+        - id: 1
+          is_spamexperts_enabled: false
+          name: MyTemplate
+          records:
+          - id: 67377
+            name: ns1.domain.com
+            prio: 10
+            ttl: 86400
+            type: MX
+            value: abc.example.com
+        total: 20
+    templateGetTemplateResponse:
+      type: object
+      title: GetTemplateResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: The data
+          $ref: '#/components/schemas/templateTemplate'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: The warnings
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          id: 1
+          is_spamexperts_enabled: false
+          name: MyTemplate
+          records:
+          - id: 67377
+            name: ns1.domain.com
+            prio: 10
+            ttl: 86400
+            type: MX
+            value: abc.example.com
+        desc: ''
   securitySchemes:
     Bearer:
       type: apiKey

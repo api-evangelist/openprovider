@@ -95,24 +95,6 @@ components:
           required: false
           type: select
         desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     additional_dataSelectOption:
       type: object
       title: SelectOption
@@ -156,6 +138,24 @@ components:
           value: 'no'
         required: false
         type: select
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
   securitySchemes:
     Bearer:
       type: apiKey

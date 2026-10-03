@@ -77,76 +77,6 @@ paths:
         required: true
 components:
   schemas:
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    approveremailUpdateApproverEmailAddressRequest:
-      type: object
-      title: UpdateApproverEmailAddressRequest
-      properties:
-        approver_email:
-          description: Email for domain ownership verification. Should start with well-known generic name like admin@, hostmater@, administrator@, etc.
-          type: string
-        id:
-          type: integer
-          format: int32
-          title: Object id
-      example:
-        approver_email: admin@example.com
-        id: 1
-    approveremailResendApproverEmailRequest:
-      type: object
-      title: ResendApproverEmailRequest
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Object id
-      example:
-        id: 1
-    approveremailResendApproverEmailResponseData:
-      type: object
-      title: ResendApproverEmailResponseData
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Object id
-      example:
-        id: 1
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     approveremailResendApproverEmailResponse:
       type: object
       title: ResendApproverEmailResponse
@@ -175,6 +105,58 @@ components:
         data:
           id: 1
         desc: ''
+    approveremailUpdateApproverEmailAddressResponseData:
+      type: object
+      title: UpdateApproverEmailAddressResponseData
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Object id
+      example:
+        id: 1
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    approveremailResendApproverEmailResponseData:
+      type: object
+      title: ResendApproverEmailResponseData
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Object id
+      example:
+        id: 1
+    approveremailUpdateApproverEmailAddressRequest:
+      type: object
+      title: UpdateApproverEmailAddressRequest
+      properties:
+        approver_email:
+          description: Email for domain ownership verification. Should start with well-known generic name like admin@, hostmater@, administrator@, etc.
+          type: string
+        id:
+          type: integer
+          format: int32
+          title: Object id
+      example:
+        approver_email: admin@example.com
+        id: 1
     approveremailUpdateApproverEmailAddressResponse:
       type: object
       title: UpdateApproverEmailAddressResponse
@@ -203,9 +185,27 @@ components:
         data:
           id: 1
         desc: ''
-    approveremailUpdateApproverEmailAddressResponseData:
+    errorError:
       type: object
-      title: UpdateApproverEmailAddressResponseData
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    approveremailResendApproverEmailRequest:
+      type: object
+      title: ResendApproverEmailRequest
       properties:
         id:
           type: integer

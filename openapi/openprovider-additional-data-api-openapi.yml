@@ -64,6 +64,49 @@ components:
         code: 0
         data: ''
         desc: ''
+    additional_dataSelectOption:
+      type: object
+      title: SelectOption
+      properties:
+        description:
+          type: string
+          title: Parameter description
+        value:
+          type: string
+          title: Option value
+      example:
+        description: Norwegian
+        value: 'no'
+    additional_dataSpecification:
+      type: object
+      title: Specification
+      properties:
+        description:
+          type: string
+          title: Parameter description
+        name:
+          type: string
+          title: Parameter name
+        options:
+          type: array
+          title: Array of options
+          items:
+            $ref: '#/components/schemas/additional_dataSelectOption'
+        required:
+          type: boolean
+          format: boolean
+          title: Indicates, if specified additional data parameter is mandatory
+        type:
+          type: string
+          title: Specification type
+      example:
+        description: IDN script states what language or character set the domain name is in
+        name: idnScript
+        options:
+        - description: Norwegian
+          value: 'no'
+        required: false
+        type: select
     errorError:
       type: object
       title: Error
@@ -82,19 +125,6 @@ components:
         code: 0
         data: ''
         desc: ''
-    additional_dataSelectOption:
-      type: object
-      title: SelectOption
-      properties:
-        description:
-          type: string
-          title: Parameter description
-        value:
-          type: string
-          title: Option value
-      example:
-        description: Norwegian
-        value: 'no'
     additional_dataGetAdditionalDataResponse:
       type: object
       title: GetAdditionalDataResponse
@@ -131,36 +161,6 @@ components:
           required: false
           type: select
         desc: ''
-    additional_dataSpecification:
-      type: object
-      title: Specification
-      properties:
-        description:
-          type: string
-          title: Parameter description
-        name:
-          type: string
-          title: Parameter name
-        options:
-          type: array
-          title: Array of options
-          items:
-            $ref: '#/components/schemas/additional_dataSelectOption'
-        required:
-          type: boolean
-          format: boolean
-          title: Indicates, if specified additional data parameter is mandatory
-        type:
-          type: string
-          title: Specification type
-      example:
-        description: IDN script states what language or character set the domain name is in
-        name: idnScript
-        options:
-        - description: Norwegian
-          value: 'no'
-        required: false
-        type: select
   securitySchemes:
     Bearer:
       type: apiKey

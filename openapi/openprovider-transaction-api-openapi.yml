@@ -68,23 +68,6 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    transactionPrices:
-      type: object
-      title: Prices
-      properties:
-        product:
-          title: Price in product currency
-          $ref: '#/components/schemas/transactionPrice'
-        reseller:
-          title: Price in reseller currency
-          $ref: '#/components/schemas/transactionPrice'
-      example:
-        product:
-          currency: EUR
-          price: 0
-        reseller:
-          currency: EUR
-          price: 0
     errorWarning:
       type: object
       title: Warning
@@ -103,6 +86,23 @@ components:
         code: 0
         data: ''
         desc: ''
+    transactionPrices:
+      type: object
+      title: Prices
+      properties:
+        product:
+          title: Price in product currency
+          $ref: '#/components/schemas/transactionPrice'
+        reseller:
+          title: Price in reseller currency
+          $ref: '#/components/schemas/transactionPrice'
+      example:
+        product:
+          currency: EUR
+          price: 0
+        reseller:
+          currency: EUR
+          price: 0
     transactionPrice:
       type: object
       title: Price
