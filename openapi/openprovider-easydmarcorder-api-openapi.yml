@@ -215,24 +215,136 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    errorWarning:
+    orderEasyDmarcOrder:
       type: object
-      title: Warning
+      title: EasyDmarcOrder
       properties:
-        code:
+        activated_at:
+          type: string
+          title: date when we order has been activated last time
+        domain:
+          title: Domain name and extension
+          $ref: '#/components/schemas/orderDomain'
+        easydmarc_email_address:
+          type: string
+          title: Email address (fake) used in the easy dmarc account
+        expired_at:
+          type: string
+          title: date when order has been expired
+        id:
           type: integer
           format: int32
-          title: Warning code
-        data:
+          title: Easydmarc id (order number)
+        recent_easydmarc_action:
+          title: Recent client chronicle action and additional information
+          $ref: '#/components/schemas/orderRecentEasyDmarcAction'
+        record_host:
           type: string
-          title: Additional warning description
-        desc:
+          title: Easy Dmarc CNAME record host
+        record_type:
           type: string
-          title: Warning description
+          title: Easy Dmarc CNAME record type
+        record_value:
+          type: string
+          title: Easy Dmarc CNAME record value
+        renew_at:
+          type: string
+          title: date when we will request automatic renew
+        status:
+          type: string
+          title: Status of easy dmarc
       example:
-        code: 0
-        data: ''
-        desc: ''
+        activated_at: '2019-01-01 0:00:01'
+        domain:
+          extension: london
+          name: test4
+        easydmarc_email_address: ''
+        expired_at: '2019-01-01 0:00:01'
+        id: 123456789
+        recent_easydmarc_action:
+          message: ''
+          recent_action: enabled
+        record_host: ''
+        record_type: ''
+        record_value: ''
+        renew_at: '2019-01-01 0:00:01'
+        status: ''
+    orderListEasyDmarcOrder:
+      type: object
+      title: ListEasyDmarcOrder
+      properties:
+        activated_at:
+          type: string
+          title: date when we order has been activated last time
+        domain:
+          title: Domain name and extension
+          $ref: '#/components/schemas/orderDomain'
+        expired_at:
+          type: string
+          title: date when order has been expired
+        id:
+          type: integer
+          format: int32
+          title: Order id number
+        record_host:
+          type: string
+          title: Easy Dmarc CNAME record host
+        record_type:
+          type: string
+          title: Easy Dmarc CNAME record type
+        record_value:
+          type: string
+          title: Easy Dmarc CNAME record value
+        renew_at:
+          type: string
+          title: date when we will request automatic renew
+        status:
+          type: string
+          title: Status of order
+      example:
+        activated_at: '2019-01-01 0:00:01'
+        domain:
+          extension: london
+          name: test4
+        expired_at: '2019-01-01 0:00:01'
+        id: 123456789
+        record_host: ''
+        record_type: ''
+        record_value: ''
+        renew_at: '2019-01-01 0:00:01'
+        status: ''
+    orderRecentEasyDmarcAction:
+      type: object
+      title: RecentEasyDmarcAction
+      properties:
+        message:
+          type: string
+          title: Additional information of last action if failed
+        recent_action:
+          type: string
+          title: Recently triggered action on EasyDmarc API
+      example:
+        message: ''
+        recent_action: enabled
+    orderDeleteEasyDmarcResponseData:
+      type: object
+      title: DeleteEasyDmarcResponseData
+      properties:
+        status:
+          type: string
+          title: Easy Dmarc status
+      example:
+        status: ACT
+    orderRetryEasyDmarcRequest:
+      type: object
+      title: RetryEasyDmarcRequest
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Easydmarc id (order number)
+      example:
+        id: 123456789
     orderGetEasyDmarcSsoResponseData:
       type: object
       title: GetEasyDmarcSsoResponseData
@@ -257,22 +369,86 @@ components:
           extension: london
           name: test4
         owner_handle: XX123456-XX
-    orderRecentEasyDmarcAction:
+    errorError:
       type: object
-      title: RecentEasyDmarcAction
+      title: Error
       properties:
-        message:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
           type: string
-          title: Additional information of last action if failed
-        recent_action:
+          title: Additional error description
+        desc:
           type: string
-          title: Recently triggered action on EasyDmarc API
+          title: Error description
       example:
-        message: ''
-        recent_action: enabled
-    orderRetryEasyDmarcResponse:
+        code: 0
+        data: ''
+        desc: ''
+    errorWarning:
       type: object
-      title: RetryEasyDmarcResponse
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    orderGetEasyDmarcSsoResponse:
+      type: object
+      title: GetEasyDmarcSsoResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/orderGetEasyDmarcSsoResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+        warnings:
+          type: array
+          title: Contains warning responses if any
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          url: ''
+        desc: ''
+    orderDomain:
+      type: object
+      title: Domain
+      properties:
+        extension:
+          type: string
+          title: Domain extension
+        name:
+          type: string
+          title: Domain name without extension
+      example:
+        extension: london
+        name: test4
+    orderCreateEasyDmarcResponse:
+      type: object
+      title: CreateEasyDmarcResponse
       properties:
         code:
           type: integer
@@ -363,57 +539,6 @@ components:
           renew_at: '2019-01-01 0:00:01'
           status: ''
         total: 999
-    orderGetEasyDmarcSsoResponse:
-      type: object
-      title: GetEasyDmarcSsoResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/orderGetEasyDmarcSsoResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
-        warnings:
-          type: array
-          title: Contains warning responses if any
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          url: ''
-        desc: ''
-    orderDomain:
-      type: object
-      title: Domain
-      properties:
-        extension:
-          type: string
-          title: Domain extension
-        name:
-          type: string
-          title: Domain name without extension
-      example:
-        extension: london
-        name: test4
-    orderRetryEasyDmarcRequest:
-      type: object
-      title: RetryEasyDmarcRequest
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Easydmarc id (order number)
-      example:
-        id: 123456789
     orderGetEasyDmarcResponse:
       type: object
       title: GetEasyDmarcResponse
@@ -456,134 +581,9 @@ components:
           renew_at: '2019-01-01 0:00:01'
           status: ''
         desc: ''
-    orderListEasyDmarcOrder:
+    orderRetryEasyDmarcResponse:
       type: object
-      title: ListEasyDmarcOrder
-      properties:
-        activated_at:
-          type: string
-          title: date when we order has been activated last time
-        domain:
-          title: Domain name and extension
-          $ref: '#/components/schemas/orderDomain'
-        expired_at:
-          type: string
-          title: date when order has been expired
-        id:
-          type: integer
-          format: int32
-          title: Order id number
-        record_host:
-          type: string
-          title: Easy Dmarc CNAME record host
-        record_type:
-          type: string
-          title: Easy Dmarc CNAME record type
-        record_value:
-          type: string
-          title: Easy Dmarc CNAME record value
-        renew_at:
-          type: string
-          title: date when we will request automatic renew
-        status:
-          type: string
-          title: Status of order
-      example:
-        activated_at: '2019-01-01 0:00:01'
-        domain:
-          extension: london
-          name: test4
-        expired_at: '2019-01-01 0:00:01'
-        id: 123456789
-        record_host: ''
-        record_type: ''
-        record_value: ''
-        renew_at: '2019-01-01 0:00:01'
-        status: ''
-    orderEasyDmarcOrder:
-      type: object
-      title: EasyDmarcOrder
-      properties:
-        activated_at:
-          type: string
-          title: date when we order has been activated last time
-        domain:
-          title: Domain name and extension
-          $ref: '#/components/schemas/orderDomain'
-        easydmarc_email_address:
-          type: string
-          title: Email address (fake) used in the easy dmarc account
-        expired_at:
-          type: string
-          title: date when order has been expired
-        id:
-          type: integer
-          format: int32
-          title: Easydmarc id (order number)
-        recent_easydmarc_action:
-          title: Recent client chronicle action and additional information
-          $ref: '#/components/schemas/orderRecentEasyDmarcAction'
-        record_host:
-          type: string
-          title: Easy Dmarc CNAME record host
-        record_type:
-          type: string
-          title: Easy Dmarc CNAME record type
-        record_value:
-          type: string
-          title: Easy Dmarc CNAME record value
-        renew_at:
-          type: string
-          title: date when we will request automatic renew
-        status:
-          type: string
-          title: Status of easy dmarc
-      example:
-        activated_at: '2019-01-01 0:00:01'
-        domain:
-          extension: london
-          name: test4
-        easydmarc_email_address: ''
-        expired_at: '2019-01-01 0:00:01'
-        id: 123456789
-        recent_easydmarc_action:
-          message: ''
-          recent_action: enabled
-        record_host: ''
-        record_type: ''
-        record_value: ''
-        renew_at: '2019-01-01 0:00:01'
-        status: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    orderDeleteEasyDmarcResponseData:
-      type: object
-      title: DeleteEasyDmarcResponseData
-      properties:
-        status:
-          type: string
-          title: Easy Dmarc status
-      example:
-        status: ACT
-    orderCreateEasyDmarcResponse:
-      type: object
-      title: CreateEasyDmarcResponse
+      title: RetryEasyDmarcResponse
       properties:
         code:
           type: integer

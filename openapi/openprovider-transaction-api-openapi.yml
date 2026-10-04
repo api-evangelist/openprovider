@@ -68,24 +68,20 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    errorWarning:
+    transactionPrice:
       type: object
-      title: Warning
+      title: Price
       properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
+        currency:
           type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
+          title: The currency
+        price:
+          type: number
+          format: double
+          title: The price
       example:
-        code: 0
-        data: ''
-        desc: ''
+        currency: EUR
+        price: 0
     transactionPrices:
       type: object
       title: Prices
@@ -103,80 +99,6 @@ components:
         reseller:
           currency: EUR
           price: 0
-    transactionPrice:
-      type: object
-      title: Price
-      properties:
-        currency:
-          type: string
-          title: The currency
-        price:
-          type: number
-          format: double
-          title: The price
-      example:
-        currency: EUR
-        price: 0
-    transactionListTransactionsResponse:
-      type: object
-      title: ListTransactionsResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: The code
-        data:
-          title: The data
-          $ref: '#/components/schemas/transactionListTransactionsResponseData'
-        desc:
-          type: string
-          title: The desc
-        maintenance:
-          type: boolean
-          format: boolean
-          title: The maintenance
-        warnings:
-          type: array
-          title: The warnings
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          results:
-          - action: NEW
-            creation_date: '2006-09-13 16:19:05'
-            discount: 0
-            exchange_rate: 0
-            object_type: ''
-            price:
-              product:
-                currency: EUR
-                price: 0
-              reseller:
-                currency: EUR
-                price: 0
-            quantity: 1
-            reference_id: 1
-            setup:
-              product:
-                currency: EUR
-                price: 0
-              reseller:
-                currency: EUR
-                price: 0
-            subject: ''
-            total:
-              product:
-                currency: EUR
-                price: 0
-              reseller:
-                currency: EUR
-                price: 0
-            type: transaction
-            vat: 1
-          total: 5389
-        desc: ''
     errorError:
       type: object
       title: Error
@@ -195,53 +117,24 @@ components:
         code: 0
         data: ''
         desc: ''
-    transactionListTransactionsResponseData:
+    errorWarning:
       type: object
-      title: ListTransactionsResponseData
+      title: Warning
       properties:
-        results:
-          type: array
-          title: The results
-          items:
-            $ref: '#/components/schemas/transactionListTransactionsResponseDataResults'
-        total:
+        code:
           type: integer
           format: int32
-          title: The total
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
       example:
-        results:
-        - action: NEW
-          creation_date: '2006-09-13 16:19:05'
-          discount: 0
-          exchange_rate: 0
-          object_type: ''
-          price:
-            product:
-              currency: EUR
-              price: 0
-            reseller:
-              currency: EUR
-              price: 0
-          quantity: 1
-          reference_id: 1
-          setup:
-            product:
-              currency: EUR
-              price: 0
-            reseller:
-              currency: EUR
-              price: 0
-          subject: ''
-          total:
-            product:
-              currency: EUR
-              price: 0
-            reseller:
-              currency: EUR
-              price: 0
-          type: transaction
-          vat: 1
-        total: 5389
+        code: 0
+        data: ''
+        desc: ''
     transactionListTransactionsResponseDataResults:
       type: object
       title: ListTransactionsResponseDataResults
@@ -322,6 +215,113 @@ components:
             price: 0
         type: transaction
         vat: 1
+    transactionListTransactionsResponse:
+      type: object
+      title: ListTransactionsResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: The code
+        data:
+          title: The data
+          $ref: '#/components/schemas/transactionListTransactionsResponseData'
+        desc:
+          type: string
+          title: The desc
+        maintenance:
+          type: boolean
+          format: boolean
+          title: The maintenance
+        warnings:
+          type: array
+          title: The warnings
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          results:
+          - action: NEW
+            creation_date: '2006-09-13 16:19:05'
+            discount: 0
+            exchange_rate: 0
+            object_type: ''
+            price:
+              product:
+                currency: EUR
+                price: 0
+              reseller:
+                currency: EUR
+                price: 0
+            quantity: 1
+            reference_id: 1
+            setup:
+              product:
+                currency: EUR
+                price: 0
+              reseller:
+                currency: EUR
+                price: 0
+            subject: ''
+            total:
+              product:
+                currency: EUR
+                price: 0
+              reseller:
+                currency: EUR
+                price: 0
+            type: transaction
+            vat: 1
+          total: 5389
+        desc: ''
+    transactionListTransactionsResponseData:
+      type: object
+      title: ListTransactionsResponseData
+      properties:
+        results:
+          type: array
+          title: The results
+          items:
+            $ref: '#/components/schemas/transactionListTransactionsResponseDataResults'
+        total:
+          type: integer
+          format: int32
+          title: The total
+      example:
+        results:
+        - action: NEW
+          creation_date: '2006-09-13 16:19:05'
+          discount: 0
+          exchange_rate: 0
+          object_type: ''
+          price:
+            product:
+              currency: EUR
+              price: 0
+            reseller:
+              currency: EUR
+              price: 0
+          quantity: 1
+          reference_id: 1
+          setup:
+            product:
+              currency: EUR
+              price: 0
+            reseller:
+              currency: EUR
+              price: 0
+          subject: ''
+          total:
+            product:
+              currency: EUR
+              price: 0
+            reseller:
+              currency: EUR
+              price: 0
+          type: transaction
+          vat: 1
+        total: 5389
   securitySchemes:
     Bearer:
       type: apiKey

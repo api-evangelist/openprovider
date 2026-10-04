@@ -63,6 +63,37 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
+    pricePromotionData:
+      type: object
+      title: PromotionData
+      properties:
+        end_date:
+          type: string
+          title: Date when promotion is end
+        start_date:
+          type: string
+          title: Date when promotion is start
+      example:
+        end_date: '1589932800'
+        start_date: '1582156800'
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
     errorWarning:
       type: object
       title: Warning
@@ -81,6 +112,20 @@ components:
         code: 0
         data: ''
         desc: ''
+    domainPrice:
+      type: object
+      title: Price
+      properties:
+        currency:
+          type: string
+          title: Product or reseller currency
+        price:
+          type: number
+          format: double
+          title: Amount in product or reseller currency
+      example:
+        currency: USD
+        price: 8.06
     domainPriceGroup:
       type: object
       title: PriceGroup
@@ -149,37 +194,6 @@ components:
           reseller:
             currency: USD
             price: 8.06
-    pricePromotionData:
-      type: object
-      title: PromotionData
-      properties:
-        end_date:
-          type: string
-          title: Date when promotion is end
-        start_date:
-          type: string
-          title: Date when promotion is start
-      example:
-        end_date: '1589932800'
-        start_date: '1582156800'
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     priceGetPriceResponse:
       type: object
       title: GetPriceResponse
@@ -233,20 +247,6 @@ components:
               currency: USD
               price: 8.06
         desc: ''
-    domainPrice:
-      type: object
-      title: Price
-      properties:
-        currency:
-          type: string
-          title: Product or reseller currency
-        price:
-          type: number
-          format: double
-          title: Amount in product or reseller currency
-      example:
-        currency: USD
-        price: 8.06
   securitySchemes:
     Bearer:
       type: apiKey

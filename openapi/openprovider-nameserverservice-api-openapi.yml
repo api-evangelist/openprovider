@@ -182,69 +182,9 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    nameserverListNameserversResponse:
+    nameserverCreateNameserverResponse:
       type: object
-      title: ListNameserversResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: The data
-          $ref: '#/components/schemas/nameserverListNameserversResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: The warnings
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          results:
-          - ip: 127.0.0.1
-            ip6: 0001:0001:0001:0001:0001:0001:0001:0001
-            name: ns1.domain.com
-          total: 9
-        desc: ''
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    nameserverNameserverBoolResponseData:
-      type: object
-      title: NameserverBoolResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates if request was successful
-      example:
-        success: false
-    nameserverGetNameserverResponse:
-      type: object
-      title: GetNameserverResponse
+      title: CreateNameserverResponse
       properties:
         code:
           type: integer
@@ -291,53 +231,6 @@ components:
           ip6: 0001:0001:0001:0001:0001:0001:0001:0001
           name: ns1.domain.com
         total: 9
-    nameserverNameserver:
-      type: object
-      title: Nameserver
-      properties:
-        ip:
-          type: string
-          title: Nameserver IP
-        ip6:
-          type: string
-          title: Nameserver IPv6
-        name:
-          type: string
-          title: Nameserver name
-      example:
-        ip: 127.0.0.1
-        ip6: 0001:0001:0001:0001:0001:0001:0001:0001
-        name: ns1.domain.com
-    nameserverCreateNameserverResponse:
-      type: object
-      title: CreateNameserverResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: The data
-          $ref: '#/components/schemas/nameserverNameserver'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: The warnings
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          ip: 127.0.0.1
-          ip6: 0001:0001:0001:0001:0001:0001:0001:0001
-          name: ns1.domain.com
-        desc: ''
     errorError:
       type: object
       title: Error
@@ -384,6 +277,113 @@ components:
         data:
           success: false
         desc: ''
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    nameserverGetNameserverResponse:
+      type: object
+      title: GetNameserverResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: The data
+          $ref: '#/components/schemas/nameserverNameserver'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: The warnings
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          ip: 127.0.0.1
+          ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+          name: ns1.domain.com
+        desc: ''
+    nameserverListNameserversResponse:
+      type: object
+      title: ListNameserversResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: The data
+          $ref: '#/components/schemas/nameserverListNameserversResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: The warnings
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          results:
+          - ip: 127.0.0.1
+            ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+            name: ns1.domain.com
+          total: 9
+        desc: ''
+    nameserverNameserver:
+      type: object
+      title: Nameserver
+      properties:
+        ip:
+          type: string
+          title: Nameserver IP
+        ip6:
+          type: string
+          title: Nameserver IPv6
+        name:
+          type: string
+          title: Nameserver name
+      example:
+        ip: 127.0.0.1
+        ip6: 0001:0001:0001:0001:0001:0001:0001:0001
+        name: ns1.domain.com
+    nameserverNameserverBoolResponseData:
+      type: object
+      title: NameserverBoolResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates if request was successful
+      example:
+        success: false
   securitySchemes:
     Bearer:
       type: apiKey

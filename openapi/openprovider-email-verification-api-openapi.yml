@@ -140,9 +140,9 @@ paths:
         required: true
 components:
   schemas:
-    emailRestartEmailVerificationResponse:
+    emailStartEmailVerificationResponse:
       type: object
-      title: RestartEmailVerificationResponse
+      title: StartEmailVerificationResponse
       properties:
         code:
           type: integer
@@ -150,7 +150,7 @@ components:
           title: Response code
         data:
           title: Response data
-          $ref: '#/components/schemas/emailRestartEmailVerificationResponseData'
+          $ref: '#/components/schemas/emailStartEmailVerificationResponseData'
         desc:
           type: string
           title: Response description
@@ -164,9 +164,27 @@ components:
           items:
             $ref: '#/components/schemas/errorWarning'
       example:
-        code: 0
+        code: 20001
         data:
-          success: false
+          id: 123456789
+        desc: Verification email in progress
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
         desc: ''
     errorWarning:
       type: object
@@ -222,44 +240,46 @@ components:
             status: ''
           total: 0
         desc: ''
-    emailStartEmailVerificationResponse:
+    emailRestartEmailVerificationRequest:
       type: object
-      title: StartEmailVerificationResponse
+      title: RestartEmailVerificationRequest
       properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/emailStartEmailVerificationResponseData'
-        desc:
+        email:
           type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
+          title: Email address
+        language:
+          type: string
+          title: The language
+        tag:
+          type: string
+          title: The tag
       example:
-        code: 20001
-        data:
-          id: 123456789
-        desc: Verification email in progress
-    emailStartEmailVerificationResponseData:
+        email: test@mail.tld
+        language: ''
+        tag: ''
+    emailListDomainVerificationsResponseData:
       type: object
-      title: StartEmailVerificationResponseData
+      title: ListDomainVerificationsResponseData
       properties:
-        id:
+        results:
+          type: array
+          title: The results
+          items:
+            $ref: '#/components/schemas/emailDomainEmailVerification'
+        total:
           type: integer
           format: int32
-          title: Object ID
+          title: The total
       example:
-        id: 123456789
+        results:
+        - description: ''
+          domain: ''
+          email: ''
+          expiration_date: ''
+          handle: ''
+          is_suspended: false
+          status: ''
+        total: 0
     emailDomainEmailVerification:
       type: object
       title: DomainEmailVerification
@@ -315,29 +335,44 @@ components:
         handle: ''
         language: ''
         tag: ''
-    emailListDomainVerificationsResponseData:
+    emailStartEmailVerificationResponseData:
       type: object
-      title: ListDomainVerificationsResponseData
+      title: StartEmailVerificationResponseData
       properties:
-        results:
-          type: array
-          title: The results
-          items:
-            $ref: '#/components/schemas/emailDomainEmailVerification'
-        total:
+        id:
           type: integer
           format: int32
-          title: The total
+          title: Object ID
       example:
-        results:
-        - description: ''
-          domain: ''
-          email: ''
-          expiration_date: ''
-          handle: ''
-          is_suspended: false
-          status: ''
-        total: 0
+        id: 123456789
+    emailRestartEmailVerificationResponse:
+      type: object
+      title: RestartEmailVerificationResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/emailRestartEmailVerificationResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          success: false
+        desc: ''
     emailRestartEmailVerificationResponseData:
       type: object
       title: RestartEmailVerificationResponseData
@@ -348,41 +383,6 @@ components:
           title: Indicates if operation was successful
       example:
         success: false
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    emailRestartEmailVerificationRequest:
-      type: object
-      title: RestartEmailVerificationRequest
-      properties:
-        email:
-          type: string
-          title: Email address
-        language:
-          type: string
-          title: The language
-        tag:
-          type: string
-          title: The tag
-      example:
-        email: test@mail.tld
-        language: ''
-        tag: ''
   securitySchemes:
     Bearer:
       type: apiKey

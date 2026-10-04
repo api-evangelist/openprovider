@@ -30,9 +30,18 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    statisticsLicenseStatistics:
+    statisticsCurrencyStatistics:
       type: object
-      title: LicenseStatistics
+      title: CurrencyStatistics
+      properties:
+        modified:
+          type: string
+          title: The modified
+      example:
+        modified: '2010-08-01 9:30:54'
+    statisticsDnsStatistics:
+      type: object
+      title: DnsStatistics
       properties:
         total:
           type: integer
@@ -40,95 +49,6 @@ components:
           title: Total number of entities matching search criteria
       example:
         total: 999
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    statisticsDomainStatistics:
-      type: object
-      title: DomainStatistics
-      properties:
-        by_status:
-          title: Sort output by status
-          $ref: '#/components/schemas/statisticsDomainStatisticsByStatus'
-        total:
-          type: integer
-          format: int32
-          title: Total number of entities matching search criteria
-      example:
-        by_status:
-          act: 7
-          fai: 419
-          nsr: 0
-          pen: 0
-          rej: 5
-          req: 15
-        total: 999
-    statisticsSpamExpertsStatistics:
-      type: object
-      title: SpamExpertsStatistics
-      properties:
-        activated_at:
-          type: string
-          title: Spamexperts bundle activation date
-        created_at:
-          type: string
-          title: Date of Spamexperts bundle creation
-        exists:
-          type: boolean
-          format: boolean
-          title: Indicates if Spamexperts bundle exists
-        expired_at:
-          type: string
-          title: Date of Spamexperts bundle expiration
-        incoming_count:
-          type: integer
-          format: int32
-          title: Incoming filters count
-        incoming_limit:
-          type: integer
-          format: int32
-          title: Incoming filters limit
-        outgoing_count:
-          type: integer
-          format: int32
-          title: Outgoing filters count
-        outgoing_limit:
-          type: integer
-          format: int32
-          title: Outgoing filters limit
-        status:
-          type: string
-          title: The status
-        with_outgoing_filter:
-          type: boolean
-          format: boolean
-          title: Indicates if Spamexperts bundle supports outgoing filtering
-      example:
-        activated_at: '2012-10-29 10:48:30'
-        created_at: '2012-10-29 10:48:30'
-        exists: false
-        expired_at: '2016-04-05 8:50:34'
-        incoming_count: 0
-        incoming_limit: 10
-        outgoing_count: 0
-        outgoing_limit: 1
-        status: deleted
-        with_outgoing_filter: false
     statisticsSslStatisticsByStatus:
       type: object
       title: SslStatisticsByStatus
@@ -164,6 +84,24 @@ components:
         pen: 0
         rej: 5
         req: 15
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
     statisticsDomainStatisticsByStatus:
       type: object
       title: DomainStatisticsByStatus
@@ -199,48 +137,6 @@ components:
         pen: 0
         rej: 5
         req: 15
-    statisticsCustomerStatistics:
-      type: object
-      title: CustomerStatistics
-      properties:
-        modified:
-          type: string
-          title: The modified
-        total:
-          type: integer
-          format: int32
-          title: Total number of entities matching search criteria
-      example:
-        modified: '2019-05-03 13:23:01'
-        total: 999
-    statisticsDnsStatistics:
-      type: object
-      title: DnsStatistics
-      properties:
-        total:
-          type: integer
-          format: int32
-          title: Total number of entities matching search criteria
-      example:
-        total: 999
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     statisticsGetStatisticsResponse:
       type: object
       title: GetStatisticsResponse
@@ -326,15 +222,119 @@ components:
           rej: 5
           req: 15
         total: 999
-    statisticsCurrencyStatistics:
+    statisticsSpamExpertsStatistics:
       type: object
-      title: CurrencyStatistics
+      title: SpamExpertsStatistics
+      properties:
+        activated_at:
+          type: string
+          title: Spamexperts bundle activation date
+        created_at:
+          type: string
+          title: Date of Spamexperts bundle creation
+        exists:
+          type: boolean
+          format: boolean
+          title: Indicates if Spamexperts bundle exists
+        expired_at:
+          type: string
+          title: Date of Spamexperts bundle expiration
+        incoming_count:
+          type: integer
+          format: int32
+          title: Incoming filters count
+        incoming_limit:
+          type: integer
+          format: int32
+          title: Incoming filters limit
+        outgoing_count:
+          type: integer
+          format: int32
+          title: Outgoing filters count
+        outgoing_limit:
+          type: integer
+          format: int32
+          title: Outgoing filters limit
+        status:
+          type: string
+          title: The status
+        with_outgoing_filter:
+          type: boolean
+          format: boolean
+          title: Indicates if Spamexperts bundle supports outgoing filtering
+      example:
+        activated_at: '2012-10-29 10:48:30'
+        created_at: '2012-10-29 10:48:30'
+        exists: false
+        expired_at: '2016-04-05 8:50:34'
+        incoming_count: 0
+        incoming_limit: 10
+        outgoing_count: 0
+        outgoing_limit: 1
+        status: deleted
+        with_outgoing_filter: false
+    statisticsCustomerStatistics:
+      type: object
+      title: CustomerStatistics
       properties:
         modified:
           type: string
           title: The modified
+        total:
+          type: integer
+          format: int32
+          title: Total number of entities matching search criteria
       example:
-        modified: '2010-08-01 9:30:54'
+        modified: '2019-05-03 13:23:01'
+        total: 999
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    statisticsLicenseStatistics:
+      type: object
+      title: LicenseStatistics
+      properties:
+        total:
+          type: integer
+          format: int32
+          title: Total number of entities matching search criteria
+      example:
+        total: 999
+    statisticsDomainStatistics:
+      type: object
+      title: DomainStatistics
+      properties:
+        by_status:
+          title: Sort output by status
+          $ref: '#/components/schemas/statisticsDomainStatisticsByStatus'
+        total:
+          type: integer
+          format: int32
+          title: Total number of entities matching search criteria
+      example:
+        by_status:
+          act: 7
+          fai: 419
+          nsr: 0
+          pen: 0
+          rej: 5
+          req: 15
+        total: 999
     statisticsGetStatisticsResponseData:
       type: object
       title: GetStatisticsResponseData

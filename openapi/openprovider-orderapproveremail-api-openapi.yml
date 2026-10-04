@@ -77,34 +77,6 @@ paths:
         required: true
 components:
   schemas:
-    approveremailResendApproverEmailResponse:
-      type: object
-      title: ResendApproverEmailResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/approveremailResendApproverEmailResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          id: 1
-        desc: ''
     approveremailUpdateApproverEmailAddressResponseData:
       type: object
       title: UpdateApproverEmailAddressResponseData
@@ -115,6 +87,24 @@ components:
           title: Object id
       example:
         id: 1
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
     errorWarning:
       type: object
       title: Warning
@@ -143,6 +133,16 @@ components:
           title: Object id
       example:
         id: 1
+    approveremailResendApproverEmailRequest:
+      type: object
+      title: ResendApproverEmailRequest
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Object id
+      example:
+        id: 1
     approveremailUpdateApproverEmailAddressRequest:
       type: object
       title: UpdateApproverEmailAddressRequest
@@ -157,6 +157,34 @@ components:
       example:
         approver_email: admin@example.com
         id: 1
+    approveremailResendApproverEmailResponse:
+      type: object
+      title: ResendApproverEmailResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/approveremailResendApproverEmailResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          id: 1
+        desc: ''
     approveremailUpdateApproverEmailAddressResponse:
       type: object
       title: UpdateApproverEmailAddressResponse
@@ -185,34 +213,6 @@ components:
         data:
           id: 1
         desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    approveremailResendApproverEmailRequest:
-      type: object
-      title: ResendApproverEmailRequest
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Object id
-      example:
-        id: 1
   securitySchemes:
     Bearer:
       type: apiKey

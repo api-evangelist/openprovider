@@ -42,47 +42,6 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    approveremailListApproverEmailsResponseData:
-      type: object
-      title: ListApproverEmailsResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            type: string
-      example:
-        results:
-        - admin@example.com
-    approveremailListApproverEmailsResponse:
-      type: object
-      title: ListApproverEmailsResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/approveremailListApproverEmailsResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          results:
-          - admin@example.com
-        desc: ''
     errorWarning:
       type: object
       title: Warning
@@ -119,6 +78,47 @@ components:
         code: 0
         data: ''
         desc: ''
+    approveremailListApproverEmailsResponse:
+      type: object
+      title: ListApproverEmailsResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/approveremailListApproverEmailsResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          results:
+          - admin@example.com
+        desc: ''
+    approveremailListApproverEmailsResponseData:
+      type: object
+      title: ListApproverEmailsResponseData
+      properties:
+        results:
+          type: array
+          title: Array of results
+          items:
+            type: string
+      example:
+        results:
+        - admin@example.com
   securitySchemes:
     Bearer:
       type: apiKey

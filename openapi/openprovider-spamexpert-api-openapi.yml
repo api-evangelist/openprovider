@@ -36,24 +36,6 @@ paths:
         required: true
 components:
   schemas:
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     spam_expertGenerateLoginURLRequest:
       type: object
       title: GenerateLoginURLRequest
@@ -68,15 +50,6 @@ components:
       example:
         bundle: false
         domain_or_email: example.com
-    spam_expertGenerateLoginURLResponseData:
-      type: object
-      title: GenerateLoginURLResponseData
-      properties:
-        url:
-          type: string
-          title: An url that can be used for logging in to the SpamExperts control panel. If you want you can whitelabel the hostname by taking the auth at the end of the URL and replacing the part in front of it by your own URL, as long as it leads to our platform via DNS
-      example:
-        url: http://spamexperts.example.com//?authticket=fdsaffdkaj3432fjkfjdslkjflk345435433fdfe
     errorError:
       type: object
       title: Error
@@ -91,6 +64,24 @@ components:
         desc:
           type: string
           title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
       example:
         code: 0
         data: ''
@@ -123,6 +114,15 @@ components:
         data:
           url: http://spamexperts.example.com//?authticket=fdsaffdkaj3432fjkfjdslkjflk345435433fdfe
         desc: ''
+    spam_expertGenerateLoginURLResponseData:
+      type: object
+      title: GenerateLoginURLResponseData
+      properties:
+        url:
+          type: string
+          title: An url that can be used for logging in to the SpamExperts control panel. If you want you can whitelabel the hostname by taking the auth at the end of the URL and replacing the part in front of it by your own URL, as long as it leads to our platform via DNS
+      example:
+        url: http://spamexperts.example.com//?authticket=fdsaffdkaj3432fjkfjdslkjflk345435433fdfe
   securitySchemes:
     Bearer:
       type: apiKey

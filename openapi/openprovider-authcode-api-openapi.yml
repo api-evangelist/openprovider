@@ -109,24 +109,15 @@ components:
         auth_code: '12345678'
         success: false
         type: external
-    errorWarning:
+    authcodeAuthInfo:
       type: object
-      title: Warning
+      title: AuthInfo
       properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
+        pw:
           type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
+          title: The pw
       example:
-        code: 0
-        data: ''
-        desc: ''
+        pw: cyF2A7jPp+T#?5j*-G82
     authcodeRgpStatuses:
       type: object
       title: RgpStatuses
@@ -140,39 +131,6 @@ components:
       example:
         add_period: '2019-05-23 12:05:48'
         auto_renew_period: '2019-05-23 12:05:48'
-    authcodeResetAuthCodeRequest:
-      type: object
-      title: ResetAuthCodeRequest
-      properties:
-        auth_code_type:
-          type: string
-          title: Type of transfer authorization code. external (default) or internal (for internal transfers between reseller accounts in Openprovider only)
-        domain:
-          title: Domain name and extension
-          $ref: '#/components/schemas/domainDomain'
-        id:
-          type: integer
-          format: int32
-          title: Domain id number
-        sending_type:
-          type: string
-          title: 'Indicates how authcode should be provisioned to domain owner. For ru / xn--p1ai domains only. Possible values: sms, email letter'
-      example:
-        auth_code_type: internal
-        domain:
-          extension: london
-          name: test4
-        id: 0
-        sending_type: ''
-    authcodeAuthInfo:
-      type: object
-      title: AuthInfo
-      properties:
-        pw:
-          type: string
-          title: The pw
-      example:
-        pw: cyF2A7jPp+T#?5j*-G82
     authcodeGetAuthCodeResponse:
       type: object
       title: GetAuthCodeResponse
@@ -203,44 +161,6 @@ components:
           success: false
           type: external
         desc: ''
-    authcodeResetAuthCodeResponse:
-      type: object
-      title: ResetAuthCodeResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/authcodeResetAuthCodeResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
-        warnings:
-          type: array
-          title: Contains warning responses if any
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          auth_code: '12345678'
-          auth_info:
-            pw: cyF2A7jPp+T#?5j*-G82
-          domain_roid: ''
-          epp_statuses:
-          - ''
-          rgp_statuses:
-            add_period: '2019-05-23 12:05:48'
-            auto_renew_period: '2019-05-23 12:05:48'
-          success: false
-          type: internal
-        desc: ''
     errorError:
       type: object
       title: Error
@@ -255,6 +175,24 @@ components:
         desc:
           type: string
           title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
       example:
         code: 0
         data: ''
@@ -312,6 +250,68 @@ components:
       example:
         extension: london
         name: test4
+    authcodeResetAuthCodeRequest:
+      type: object
+      title: ResetAuthCodeRequest
+      properties:
+        auth_code_type:
+          type: string
+          title: Type of transfer authorization code. external (default) or internal (for internal transfers between reseller accounts in Openprovider only)
+        domain:
+          title: Domain name and extension
+          $ref: '#/components/schemas/domainDomain'
+        id:
+          type: integer
+          format: int32
+          title: Domain id number
+        sending_type:
+          type: string
+          title: 'Indicates how authcode should be provisioned to domain owner. For ru / xn--p1ai domains only. Possible values: sms, email letter'
+      example:
+        auth_code_type: internal
+        domain:
+          extension: london
+          name: test4
+        id: 0
+        sending_type: ''
+    authcodeResetAuthCodeResponse:
+      type: object
+      title: ResetAuthCodeResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/authcodeResetAuthCodeResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates that the Openprovider system is temporarily unavailable because of maintenance
+        warnings:
+          type: array
+          title: Contains warning responses if any
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          auth_code: '12345678'
+          auth_info:
+            pw: cyF2A7jPp+T#?5j*-G82
+          domain_roid: ''
+          epp_statuses:
+          - ''
+          rgp_statuses:
+            add_period: '2019-05-23 12:05:48'
+            auto_renew_period: '2019-05-23 12:05:48'
+          success: false
+          type: internal
+        desc: ''
   securitySchemes:
     Bearer:
       type: apiKey

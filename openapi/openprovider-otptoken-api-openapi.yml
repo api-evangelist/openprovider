@@ -44,23 +44,35 @@ paths:
         required: true
 components:
   schemas:
-    errorWarning:
+    otptokenCreateOtpTokenResponse:
       type: object
-      title: Warning
+      title: CreateOtpTokenResponse
       properties:
         code:
           type: integer
           format: int32
-          title: Warning code
+          title: Response code
         data:
-          type: string
-          title: Additional warning description
+          title: Response data
+          $ref: '#/components/schemas/otptokenCreateOtpTokenResponseData'
         desc:
           type: string
-          title: Warning description
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
       example:
         code: 0
-        data: ''
+        data:
+          expire_at: '2019-01-01 0:00:01'
+          token: token
+          uri: https://sslpanel.io/auth-order-otp-token
         desc: ''
     otptokenCreateOtpTokenResponseData:
       type: object
@@ -97,35 +109,23 @@ components:
         code: 0
         data: ''
         desc: ''
-    otptokenCreateOtpTokenResponse:
+    errorWarning:
       type: object
-      title: CreateOtpTokenResponse
+      title: Warning
       properties:
         code:
           type: integer
           format: int32
-          title: Response code
+          title: Warning code
         data:
-          title: Response data
-          $ref: '#/components/schemas/otptokenCreateOtpTokenResponseData'
+          type: string
+          title: Additional warning description
         desc:
           type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
+          title: Warning description
       example:
         code: 0
-        data:
-          expire_at: '2019-01-01 0:00:01'
-          token: token
-          uri: https://sslpanel.io/auth-order-otp-token
+        data: ''
         desc: ''
     otptokenCreateOtpTokenRequest:
       type: object
