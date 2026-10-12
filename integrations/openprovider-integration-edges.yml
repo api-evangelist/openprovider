@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/openprovider/integrations
+- https://n8n.io/integrations/openprovider/
+- https://composio.dev/toolkits/openprovider
+- https://monid.ai/tools/openprovider
+checked:
+- https://composio.dev/toolkits/openprovider
+- https://monid.ai/tools/openprovider
+- https://n8n.io/integrations/openprovider/
+- https://zapier.com/apps/openprovider/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
