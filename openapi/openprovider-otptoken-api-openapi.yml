@@ -44,6 +44,59 @@ paths:
         required: true
 components:
   schemas:
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    otptokenCreateOtpTokenResponseData:
+      type: object
+      title: CreateOtpTokenResponseData
+      properties:
+        expire_at:
+          type: string
+          title: Link expiration date
+        token:
+          type: string
+          title: Unique token
+        uri:
+          type: string
+          title: Unique link
+      example:
+        expire_at: '2019-01-01 0:00:01'
+        token: token
+        uri: https://sslpanel.io/auth-order-otp-token
     otptokenCreateOtpTokenResponse:
       type: object
       title: CreateOtpTokenResponse
@@ -73,59 +126,6 @@ components:
           expire_at: '2019-01-01 0:00:01'
           token: token
           uri: https://sslpanel.io/auth-order-otp-token
-        desc: ''
-    otptokenCreateOtpTokenResponseData:
-      type: object
-      title: CreateOtpTokenResponseData
-      properties:
-        expire_at:
-          type: string
-          title: Link expiration date
-        token:
-          type: string
-          title: Unique token
-        uri:
-          type: string
-          title: Unique link
-      example:
-        expire_at: '2019-01-01 0:00:01'
-        token: token
-        uri: https://sslpanel.io/auth-order-otp-token
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
         desc: ''
     otptokenCreateOtpTokenRequest:
       type: object

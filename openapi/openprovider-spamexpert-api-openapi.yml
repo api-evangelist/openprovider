@@ -36,56 +36,6 @@ paths:
         required: true
 components:
   schemas:
-    spam_expertGenerateLoginURLRequest:
-      type: object
-      title: GenerateLoginURLRequest
-      properties:
-        bundle:
-          description: If you use the new, individually purchased, filters then set this to false. If you use the old bundled variant, then set this to true.
-          type: boolean
-          format: boolean
-        domain_or_email:
-          type: string
-          title: Domain or email connected with the spam filter
-      example:
-        bundle: false
-        domain_or_email: example.com
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     spam_expertGenerateLoginURLResponse:
       type: object
       title: GenerateLoginURLResponse
@@ -123,6 +73,56 @@ components:
           title: An url that can be used for logging in to the SpamExperts control panel. If you want you can whitelabel the hostname by taking the auth at the end of the URL and replacing the part in front of it by your own URL, as long as it leads to our platform via DNS
       example:
         url: http://spamexperts.example.com//?authticket=fdsaffdkaj3432fjkfjdslkjflk345435433fdfe
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    spam_expertGenerateLoginURLRequest:
+      type: object
+      title: GenerateLoginURLRequest
+      properties:
+        bundle:
+          description: If you use the new, individually purchased, filters then set this to false. If you use the old bundled variant, then set this to true.
+          type: boolean
+          format: boolean
+        domain_or_email:
+          type: string
+          title: Domain or email connected with the spam filter
+      example:
+        bundle: false
+        domain_or_email: example.com
   securitySchemes:
     Bearer:
       type: apiKey

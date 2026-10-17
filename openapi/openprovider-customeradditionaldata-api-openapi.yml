@@ -41,85 +41,6 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    additional_dataSelectOption:
-      type: object
-      title: SelectOption
-      properties:
-        description:
-          type: string
-          title: Parameter description
-        value:
-          type: string
-          title: Option value
-      example:
-        description: Norwegian
-        value: 'no'
-    additional_dataSpecification:
-      type: object
-      title: Specification
-      properties:
-        description:
-          type: string
-          title: Parameter description
-        name:
-          type: string
-          title: Parameter name
-        options:
-          type: array
-          title: Array of options
-          items:
-            $ref: '#/components/schemas/additional_dataSelectOption'
-        required:
-          type: boolean
-          format: boolean
-          title: Indicates, if specified additional data parameter is mandatory
-        type:
-          type: string
-          title: Specification type
-      example:
-        description: IDN script states what language or character set the domain name is in
-        name: idnScript
-        options:
-        - description: Norwegian
-          value: 'no'
-        required: false
-        type: select
     customerGetDataResponse:
       type: object
       title: GetDataResponse
@@ -156,6 +77,85 @@ components:
           required: false
           type: select
         desc: ''
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    additional_dataSpecification:
+      type: object
+      title: Specification
+      properties:
+        description:
+          type: string
+          title: Parameter description
+        name:
+          type: string
+          title: Parameter name
+        options:
+          type: array
+          title: Array of options
+          items:
+            $ref: '#/components/schemas/additional_dataSelectOption'
+        required:
+          type: boolean
+          format: boolean
+          title: Indicates, if specified additional data parameter is mandatory
+        type:
+          type: string
+          title: Specification type
+      example:
+        description: IDN script states what language or character set the domain name is in
+        name: idnScript
+        options:
+        - description: Norwegian
+          value: 'no'
+        required: false
+        type: select
+    additional_dataSelectOption:
+      type: object
+      title: SelectOption
+      properties:
+        description:
+          type: string
+          title: Parameter description
+        value:
+          type: string
+          title: Option value
+      example:
+        description: Norwegian
+        value: 'no'
   securitySchemes:
     Bearer:
       type: apiKey

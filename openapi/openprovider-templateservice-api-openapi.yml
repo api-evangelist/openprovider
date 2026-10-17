@@ -145,37 +145,6 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    templateTemplate:
-      type: object
-      title: Template
-      properties:
-        id:
-          type: integer
-          format: int32
-          title: Template ID
-        is_spamexperts_enabled:
-          type: boolean
-          format: boolean
-          title: Indicates if spam filtering is enabled for the DNS zone
-        name:
-          type: string
-          title: Template name
-        records:
-          type: array
-          title: Array of DNS zone records
-          items:
-            $ref: '#/components/schemas/templateRecord'
-      example:
-        id: 1
-        is_spamexperts_enabled: false
-        name: MyTemplate
-        records:
-        - id: 67377
-          name: ns1.domain.com
-          prio: 10
-          ttl: 86400
-          type: MX
-          value: abc.example.com
     templateRecord:
       type: object
       title: Record
@@ -208,6 +177,34 @@ components:
         ttl: 86400
         type: MX
         value: abc.example.com
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    templateCreateTemplateResponseData:
+      type: object
+      title: CreateTemplateResponseData
+      properties:
+        id:
+          type: integer
+          format: int32
+          title: Template ID
+      example:
+        id: 39238
     templateCreateTemplateResponse:
       type: object
       title: CreateTemplateResponse
@@ -236,97 +233,6 @@ components:
         data:
           id: 39238
         desc: ''
-    templateTemplateBoolResponse:
-      type: object
-      title: TemplateBoolResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: The data
-          $ref: '#/components/schemas/templateTemplateBoolResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: The warnings
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          success: false
-        desc: ''
-    templateGetTemplateResponse:
-      type: object
-      title: GetTemplateResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: The data
-          $ref: '#/components/schemas/templateTemplate'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: The warnings
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          id: 1
-          is_spamexperts_enabled: false
-          name: MyTemplate
-          records:
-          - id: 67377
-            name: ns1.domain.com
-            prio: 10
-            ttl: 86400
-            type: MX
-            value: abc.example.com
-        desc: ''
-    templateListTemplatesResponseData:
-      type: object
-      title: ListTemplatesResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            $ref: '#/components/schemas/templateTemplate'
-        total:
-          type: integer
-          format: int32
-          title: Results count
-      example:
-        results:
-        - id: 1
-          is_spamexperts_enabled: false
-          name: MyTemplate
-          records:
-          - id: 67377
-            name: ns1.domain.com
-            prio: 10
-            ttl: 86400
-            type: MX
-            value: abc.example.com
-        total: 20
     errorError:
       type: object
       title: Error
@@ -345,24 +251,16 @@ components:
         code: 0
         data: ''
         desc: ''
-    errorWarning:
+    templateTemplateBoolResponseData:
       type: object
-      title: Warning
+      title: TemplateBoolResponseData
       properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates if request was successful
       example:
-        code: 0
-        data: ''
-        desc: ''
+        success: false
     templateListTemplatesResponse:
       type: object
       title: ListTemplatesResponse
@@ -402,6 +300,43 @@ components:
               value: abc.example.com
           total: 20
         desc: ''
+    templateGetTemplateResponse:
+      type: object
+      title: GetTemplateResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: The data
+          $ref: '#/components/schemas/templateTemplate'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: The warnings
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          id: 1
+          is_spamexperts_enabled: false
+          name: MyTemplate
+          records:
+          - id: 67377
+            name: ns1.domain.com
+            prio: 10
+            ttl: 86400
+            type: MX
+            value: abc.example.com
+        desc: ''
     templateCreateTemplateRequest:
       type: object
       title: CreateTemplateRequest
@@ -428,26 +363,91 @@ components:
           ttl: 86400
           type: MX
           value: abc.example.com
-    templateTemplateBoolResponseData:
+    templateListTemplatesResponseData:
       type: object
-      title: TemplateBoolResponseData
+      title: ListTemplatesResponseData
       properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates if request was successful
+        results:
+          type: array
+          title: Array of results
+          items:
+            $ref: '#/components/schemas/templateTemplate'
+        total:
+          type: integer
+          format: int32
+          title: Results count
       example:
-        success: false
-    templateCreateTemplateResponseData:
+        results:
+        - id: 1
+          is_spamexperts_enabled: false
+          name: MyTemplate
+          records:
+          - id: 67377
+            name: ns1.domain.com
+            prio: 10
+            ttl: 86400
+            type: MX
+            value: abc.example.com
+        total: 20
+    templateTemplate:
       type: object
-      title: CreateTemplateResponseData
+      title: Template
       properties:
         id:
           type: integer
           format: int32
           title: Template ID
+        is_spamexperts_enabled:
+          type: boolean
+          format: boolean
+          title: Indicates if spam filtering is enabled for the DNS zone
+        name:
+          type: string
+          title: Template name
+        records:
+          type: array
+          title: Array of DNS zone records
+          items:
+            $ref: '#/components/schemas/templateRecord'
       example:
-        id: 39238
+        id: 1
+        is_spamexperts_enabled: false
+        name: MyTemplate
+        records:
+        - id: 67377
+          name: ns1.domain.com
+          prio: 10
+          ttl: 86400
+          type: MX
+          value: abc.example.com
+    templateTemplateBoolResponse:
+      type: object
+      title: TemplateBoolResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: The data
+          $ref: '#/components/schemas/templateTemplateBoolResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: The warnings
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          success: false
+        desc: ''
   securitySchemes:
     Bearer:
       type: apiKey

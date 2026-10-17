@@ -108,24 +108,6 @@ components:
       example:
         key: customer
         value: example
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
     tagDeleteTagResponse:
       type: object
       title: DeleteTagResponse
@@ -172,6 +154,42 @@ components:
         code: 0
         data: ''
         desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    tagListTagsResponseData:
+      type: object
+      title: ListTagsResponseData
+      properties:
+        results:
+          type: array
+          title: Array of results
+          items:
+            $ref: '#/components/schemas/helperstagTag'
+        total:
+          type: integer
+          format: int32
+          title: Results count
+      example:
+        results:
+        - key: customer
+          value: example
+        total: 999
     tagListTagsResponse:
       type: object
       title: ListTagsResponse
@@ -203,16 +221,6 @@ components:
             value: example
           total: 999
         desc: ''
-    tagDeleteTagResponseData:
-      type: object
-      title: DeleteTagResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates, if operation is successful
-      example:
-        success: false
     tagCreateTagResponse:
       type: object
       title: CreateTagResponse
@@ -241,6 +249,16 @@ components:
         data:
           success: false
         desc: ''
+    tagDeleteTagResponseData:
+      type: object
+      title: DeleteTagResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates, if operation is successful
+      example:
+        success: false
     tagCreateTagResponseData:
       type: object
       title: CreateTagResponseData
@@ -251,24 +269,6 @@ components:
           title: Indicates, if operation is successful
       example:
         success: false
-    tagListTagsResponseData:
-      type: object
-      title: ListTagsResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            $ref: '#/components/schemas/helperstagTag'
-        total:
-          type: integer
-          format: int32
-          title: Results count
-      example:
-        results:
-        - key: customer
-          value: example
-        total: 999
   securitySchemes:
     Bearer:
       type: apiKey

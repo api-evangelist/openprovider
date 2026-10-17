@@ -30,60 +30,95 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    statisticsCurrencyStatistics:
+    errorWarning:
       type: object
-      title: CurrencyStatistics
+      title: Warning
       properties:
-        modified:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
           type: string
-          title: The modified
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
       example:
-        modified: '2010-08-01 9:30:54'
-    statisticsDnsStatistics:
+        code: 0
+        data: ''
+        desc: ''
+    statisticsDomainStatistics:
       type: object
-      title: DnsStatistics
+      title: DomainStatistics
       properties:
+        by_status:
+          title: Sort output by status
+          $ref: '#/components/schemas/statisticsDomainStatisticsByStatus'
         total:
           type: integer
           format: int32
           title: Total number of entities matching search criteria
       example:
+        by_status:
+          act: 7
+          fai: 419
+          nsr: 0
+          pen: 0
+          rej: 5
+          req: 15
         total: 999
-    statisticsSslStatisticsByStatus:
+    statisticsSpamExpertsStatistics:
       type: object
-      title: SslStatisticsByStatus
+      title: SpamExpertsStatistics
       properties:
-        ACT:
+        activated_at:
+          type: string
+          title: Spamexperts bundle activation date
+        created_at:
+          type: string
+          title: Date of Spamexperts bundle creation
+        exists:
+          type: boolean
+          format: boolean
+          title: Indicates if Spamexperts bundle exists
+        expired_at:
+          type: string
+          title: Date of Spamexperts bundle expiration
+        incoming_count:
           type: integer
           format: int32
-          title: Active SSL certificates count
-        FAI:
+          title: Incoming filters count
+        incoming_limit:
           type: integer
           format: int32
-          title: Fax number
-        NSR:
+          title: Incoming filters limit
+        outgoing_count:
           type: integer
           format: int32
-          title: The nsr
-        PEN:
+          title: Outgoing filters count
+        outgoing_limit:
           type: integer
           format: int32
-          title: Pending status
-        REJ:
-          type: integer
-          format: int32
-          title: Rejected status
-        REQ:
-          type: integer
-          format: int32
-          title: Requested status
+          title: Outgoing filters limit
+        status:
+          type: string
+          title: The status
+        with_outgoing_filter:
+          type: boolean
+          format: boolean
+          title: Indicates if Spamexperts bundle supports outgoing filtering
       example:
-        act: 7
-        fai: 419
-        nsr: 0
-        pen: 0
-        rej: 5
-        req: 15
+        activated_at: '2012-10-29 10:48:30'
+        created_at: '2012-10-29 10:48:30'
+        exists: false
+        expired_at: '2016-04-05 8:50:34'
+        incoming_count: 0
+        incoming_limit: 10
+        outgoing_count: 0
+        outgoing_limit: 1
+        status: deleted
+        with_outgoing_filter: false
     errorError:
       type: object
       title: Error
@@ -102,6 +137,103 @@ components:
         code: 0
         data: ''
         desc: ''
+    statisticsGetStatisticsResponseData:
+      type: object
+      title: GetStatisticsResponseData
+      properties:
+        currency:
+          title: The currency
+          $ref: '#/components/schemas/statisticsCurrencyStatistics'
+        customer:
+          title: The customer
+          $ref: '#/components/schemas/statisticsCustomerStatistics'
+        dns:
+          title: Total count of DNS zones
+          $ref: '#/components/schemas/statisticsDnsStatistics'
+        domain:
+          title: Total count of domains
+          $ref: '#/components/schemas/statisticsDomainStatistics'
+        license:
+          title: Statistics for Plesk / Virtuozzo licenses
+          $ref: '#/components/schemas/statisticsLicenseStatistics'
+        spam_experts:
+          title: Statistics for Spamexperts bundles
+          $ref: '#/components/schemas/statisticsSpamExpertsStatistics'
+        ssl:
+          title: Statistics for SSL
+          $ref: '#/components/schemas/statisticsSslStatistics'
+      example:
+        currency:
+          modified: '2010-08-01 9:30:54'
+        customer:
+          modified: '2019-05-03 13:23:01'
+          total: 999
+        dns:
+          total: 999
+        domain:
+          by_status:
+            act: 7
+            fai: 419
+            nsr: 0
+            pen: 0
+            rej: 5
+            req: 15
+          total: 999
+        license:
+          total: 999
+        spam_experts:
+          activated_at: '2012-10-29 10:48:30'
+          created_at: '2012-10-29 10:48:30'
+          exists: false
+          expired_at: '2016-04-05 8:50:34'
+          incoming_count: 0
+          incoming_limit: 10
+          outgoing_count: 0
+          outgoing_limit: 1
+          status: deleted
+          with_outgoing_filter: false
+        ssl:
+          by_status:
+            act: 7
+            fai: 419
+            nsr: 0
+            pen: 0
+            rej: 5
+            req: 15
+          total: 999
+    statisticsCustomerStatistics:
+      type: object
+      title: CustomerStatistics
+      properties:
+        modified:
+          type: string
+          title: The modified
+        total:
+          type: integer
+          format: int32
+          title: Total number of entities matching search criteria
+      example:
+        modified: '2019-05-03 13:23:01'
+        total: 999
+    statisticsLicenseStatistics:
+      type: object
+      title: LicenseStatistics
+      properties:
+        total:
+          type: integer
+          format: int32
+          title: Total number of entities matching search criteria
+      example:
+        total: 999
+    statisticsCurrencyStatistics:
+      type: object
+      title: CurrencyStatistics
+      properties:
+        modified:
+          type: string
+          title: The modified
+      example:
+        modified: '2010-08-01 9:30:54'
     statisticsDomainStatisticsByStatus:
       type: object
       title: DomainStatisticsByStatus
@@ -137,6 +269,26 @@ components:
         pen: 0
         rej: 5
         req: 15
+    statisticsSslStatistics:
+      type: object
+      title: SslStatistics
+      properties:
+        by_status:
+          title: Sort output by status
+          $ref: '#/components/schemas/statisticsSslStatisticsByStatus'
+        total:
+          type: integer
+          format: int32
+          title: Total number of entities matching search criteria
+      example:
+        by_status:
+          act: 7
+          fai: 419
+          nsr: 0
+          pen: 0
+          rej: 5
+          req: 15
+        total: 999
     statisticsGetStatisticsResponse:
       type: object
       title: GetStatisticsResponse
@@ -202,112 +354,9 @@ components:
               req: 15
             total: 999
         desc: ''
-    statisticsSslStatistics:
+    statisticsDnsStatistics:
       type: object
-      title: SslStatistics
-      properties:
-        by_status:
-          title: Sort output by status
-          $ref: '#/components/schemas/statisticsSslStatisticsByStatus'
-        total:
-          type: integer
-          format: int32
-          title: Total number of entities matching search criteria
-      example:
-        by_status:
-          act: 7
-          fai: 419
-          nsr: 0
-          pen: 0
-          rej: 5
-          req: 15
-        total: 999
-    statisticsSpamExpertsStatistics:
-      type: object
-      title: SpamExpertsStatistics
-      properties:
-        activated_at:
-          type: string
-          title: Spamexperts bundle activation date
-        created_at:
-          type: string
-          title: Date of Spamexperts bundle creation
-        exists:
-          type: boolean
-          format: boolean
-          title: Indicates if Spamexperts bundle exists
-        expired_at:
-          type: string
-          title: Date of Spamexperts bundle expiration
-        incoming_count:
-          type: integer
-          format: int32
-          title: Incoming filters count
-        incoming_limit:
-          type: integer
-          format: int32
-          title: Incoming filters limit
-        outgoing_count:
-          type: integer
-          format: int32
-          title: Outgoing filters count
-        outgoing_limit:
-          type: integer
-          format: int32
-          title: Outgoing filters limit
-        status:
-          type: string
-          title: The status
-        with_outgoing_filter:
-          type: boolean
-          format: boolean
-          title: Indicates if Spamexperts bundle supports outgoing filtering
-      example:
-        activated_at: '2012-10-29 10:48:30'
-        created_at: '2012-10-29 10:48:30'
-        exists: false
-        expired_at: '2016-04-05 8:50:34'
-        incoming_count: 0
-        incoming_limit: 10
-        outgoing_count: 0
-        outgoing_limit: 1
-        status: deleted
-        with_outgoing_filter: false
-    statisticsCustomerStatistics:
-      type: object
-      title: CustomerStatistics
-      properties:
-        modified:
-          type: string
-          title: The modified
-        total:
-          type: integer
-          format: int32
-          title: Total number of entities matching search criteria
-      example:
-        modified: '2019-05-03 13:23:01'
-        total: 999
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    statisticsLicenseStatistics:
-      type: object
-      title: LicenseStatistics
+      title: DnsStatistics
       properties:
         total:
           type: integer
@@ -315,90 +364,41 @@ components:
           title: Total number of entities matching search criteria
       example:
         total: 999
-    statisticsDomainStatistics:
+    statisticsSslStatisticsByStatus:
       type: object
-      title: DomainStatistics
+      title: SslStatisticsByStatus
       properties:
-        by_status:
-          title: Sort output by status
-          $ref: '#/components/schemas/statisticsDomainStatisticsByStatus'
-        total:
+        ACT:
           type: integer
           format: int32
-          title: Total number of entities matching search criteria
+          title: Active SSL certificates count
+        FAI:
+          type: integer
+          format: int32
+          title: Fax number
+        NSR:
+          type: integer
+          format: int32
+          title: The nsr
+        PEN:
+          type: integer
+          format: int32
+          title: Pending status
+        REJ:
+          type: integer
+          format: int32
+          title: Rejected status
+        REQ:
+          type: integer
+          format: int32
+          title: Requested status
       example:
-        by_status:
-          act: 7
-          fai: 419
-          nsr: 0
-          pen: 0
-          rej: 5
-          req: 15
-        total: 999
-    statisticsGetStatisticsResponseData:
-      type: object
-      title: GetStatisticsResponseData
-      properties:
-        currency:
-          title: The currency
-          $ref: '#/components/schemas/statisticsCurrencyStatistics'
-        customer:
-          title: The customer
-          $ref: '#/components/schemas/statisticsCustomerStatistics'
-        dns:
-          title: Total count of DNS zones
-          $ref: '#/components/schemas/statisticsDnsStatistics'
-        domain:
-          title: Total count of domains
-          $ref: '#/components/schemas/statisticsDomainStatistics'
-        license:
-          title: Statistics for Plesk / Virtuozzo licenses
-          $ref: '#/components/schemas/statisticsLicenseStatistics'
-        spam_experts:
-          title: Statistics for Spamexperts bundles
-          $ref: '#/components/schemas/statisticsSpamExpertsStatistics'
-        ssl:
-          title: Statistics for SSL
-          $ref: '#/components/schemas/statisticsSslStatistics'
-      example:
-        currency:
-          modified: '2010-08-01 9:30:54'
-        customer:
-          modified: '2019-05-03 13:23:01'
-          total: 999
-        dns:
-          total: 999
-        domain:
-          by_status:
-            act: 7
-            fai: 419
-            nsr: 0
-            pen: 0
-            rej: 5
-            req: 15
-          total: 999
-        license:
-          total: 999
-        spam_experts:
-          activated_at: '2012-10-29 10:48:30'
-          created_at: '2012-10-29 10:48:30'
-          exists: false
-          expired_at: '2016-04-05 8:50:34'
-          incoming_count: 0
-          incoming_limit: 10
-          outgoing_count: 0
-          outgoing_limit: 1
-          status: deleted
-          with_outgoing_filter: false
-        ssl:
-          by_status:
-            act: 7
-            fai: 419
-            nsr: 0
-            pen: 0
-            rej: 5
-            req: 15
-          total: 999
+        act: 7
+        fai: 419
+        nsr: 0
+        pen: 0
+        rej: 5
+        req: 15
   securitySchemes:
     Bearer:
       type: apiKey

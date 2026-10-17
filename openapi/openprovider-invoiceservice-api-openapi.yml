@@ -64,6 +64,42 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
+    invoiceInvoice:
+      type: object
+      title: Invoice
+      properties:
+        amount:
+          title: The amount
+          $ref: '#/components/schemas/invoicePrices'
+        attachment_url:
+          type: string
+          title: The attachment url
+        creation_date:
+          type: string
+          title: The creation date
+        id:
+          type: integer
+          format: int32
+          title: The id
+        invoice_number:
+          type: string
+          title: The invoice number
+        invoice_url:
+          type: string
+          title: The invoice url
+      example:
+        amount:
+          product:
+            currency: EUR
+            price: 0
+          reseller:
+            currency: EUR
+            price: 0
+        attachment_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
+        creation_date: '2006-09-29 0:00:00'
+        id: 1
+        invoice_number: XX123456
+        invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
     invoicePrice:
       type: object
       title: Price
@@ -78,6 +114,69 @@ components:
       example:
         currency: EUR
         price: 0
+    invoicePrices:
+      type: object
+      title: Prices
+      properties:
+        product:
+          title: Price in product currency
+          $ref: '#/components/schemas/invoicePrice'
+        reseller:
+          title: Price in reseller currency
+          $ref: '#/components/schemas/invoicePrice'
+      example:
+        product:
+          currency: EUR
+          price: 0
+        reseller:
+          currency: EUR
+          price: 0
+    invoiceListInvoicesResponseData:
+      type: object
+      title: ListInvoicesResponseData
+      properties:
+        results:
+          type: array
+          title: The results
+          items:
+            $ref: '#/components/schemas/invoiceInvoice'
+        total:
+          type: integer
+          format: int32
+          title: The total
+      example:
+        results:
+        - amount:
+            product:
+              currency: EUR
+              price: 0
+            reseller:
+              currency: EUR
+              price: 0
+          attachment_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
+          creation_date: '2006-09-29 0:00:00'
+          id: 1
+          invoice_number: XX123456
+          invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
+        total: 0
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
     errorError:
       type: object
       title: Error
@@ -137,105 +236,6 @@ components:
             invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
           total: 0
         desc: ''
-    invoicePrices:
-      type: object
-      title: Prices
-      properties:
-        product:
-          title: Price in product currency
-          $ref: '#/components/schemas/invoicePrice'
-        reseller:
-          title: Price in reseller currency
-          $ref: '#/components/schemas/invoicePrice'
-      example:
-        product:
-          currency: EUR
-          price: 0
-        reseller:
-          currency: EUR
-          price: 0
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    invoiceListInvoicesResponseData:
-      type: object
-      title: ListInvoicesResponseData
-      properties:
-        results:
-          type: array
-          title: The results
-          items:
-            $ref: '#/components/schemas/invoiceInvoice'
-        total:
-          type: integer
-          format: int32
-          title: The total
-      example:
-        results:
-        - amount:
-            product:
-              currency: EUR
-              price: 0
-            reseller:
-              currency: EUR
-              price: 0
-          attachment_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
-          creation_date: '2006-09-29 0:00:00'
-          id: 1
-          invoice_number: XX123456
-          invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
-        total: 0
-    invoiceInvoice:
-      type: object
-      title: Invoice
-      properties:
-        amount:
-          title: The amount
-          $ref: '#/components/schemas/invoicePrices'
-        attachment_url:
-          type: string
-          title: The attachment url
-        creation_date:
-          type: string
-          title: The creation date
-        id:
-          type: integer
-          format: int32
-          title: The id
-        invoice_number:
-          type: string
-          title: The invoice number
-        invoice_url:
-          type: string
-          title: The invoice url
-      example:
-        amount:
-          product:
-            currency: EUR
-            price: 0
-          reseller:
-            currency: EUR
-            price: 0
-        attachment_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
-        creation_date: '2006-09-29 0:00:00'
-        id: 1
-        invoice_number: XX123456
-        invoice_url: https://rest.openprovider.eu/invoice/XX123456?token=&type=invoice
   securitySchemes:
     Bearer:
       type: apiKey

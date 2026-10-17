@@ -617,213 +617,6 @@ paths:
                 $ref: '#/components/schemas/errorError'
 components:
   schemas:
-    licenseCreateLicenseResponseData:
-      type: object
-      title: CreateLicenseResponseData
-      properties:
-        attached_keys:
-          type: array
-          title: Third-party extension keys
-          items:
-            type: integer
-            format: int32
-        key_id:
-          type: integer
-          format: int32
-          title: License key ID
-      example:
-        attached_keys:
-        - 123456
-        key_id: 123456
-    licenseListItemsResponse:
-      type: object
-      title: ListItemsResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/licenseListItemsResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates, if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          results:
-          - item: FT-PLESK-VPS-WPB-100-SITES-1M
-            product: plesk
-            sku_values: null
-            title: DNSSEC for Plesk (Bundled)
-          total: 999
-        desc: ''
-    errorWarning:
-      type: object
-      title: Warning
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Warning code
-        data:
-          type: string
-          title: Additional warning description
-        desc:
-          type: string
-          title: Warning description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    licenseCreatePleskLicenseResponse:
-      type: object
-      title: CreatePleskLicenseResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/licenseCreateLicenseResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates, if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          attached_keys:
-          - 123456
-          key_id: 123456
-        desc: ''
-    licenseUpdatePleskLicenseRequest:
-      type: object
-      title: UpdatePleskLicenseRequest
-      properties:
-        attached_keys:
-          type: array
-          title: Third-party extension keys
-          items:
-            type: string
-        comment:
-          type: string
-          title: Custom notes
-        ip_address_binding:
-          type: string
-          title: IP addess to bind license to
-        items:
-          type: array
-          title: List of license items
-          items:
-            type: string
-        key_id:
-          type: integer
-          format: int32
-          title: License key ID
-        parent_key_id:
-          type: integer
-          format: int32
-          title: Key ID of the partent license
-        period:
-          type: integer
-          format: int32
-          title: Period for which license is active
-        restrict_ip_binding:
-          type: boolean
-          format: boolean
-          title: Indicates, if license is bound to an IP
-        suspended:
-          type: boolean
-          format: boolean
-          title: Indicates, if license is suspended
-        title:
-          type: string
-          title: Custom license title
-    licenseResetHwidResponseData:
-      type: object
-      title: ResetHwidResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates, if operation was succesful
-      example:
-        success: false
-    licenseListItemsResponseData:
-      type: object
-      title: ListItemsResponseData
-      properties:
-        results:
-          type: array
-          title: Array of results
-          items:
-            $ref: '#/components/schemas/licenseLicenseItem'
-        total:
-          type: integer
-          format: int32
-          title: Results count
-      example:
-        results:
-        - item: FT-PLESK-VPS-WPB-100-SITES-1M
-          product: plesk
-          sku_values: null
-          title: DNSSEC for Plesk (Bundled)
-        total: 999
-    licenseCreatePleskLicenseRequest:
-      type: object
-      title: CreatePleskLicenseRequest
-      properties:
-        attached_keys:
-          type: array
-          title: Third-party extension keys
-          items:
-            type: string
-        comment:
-          type: string
-          title: Custom notes
-        ip_address_binding:
-          type: string
-          title: IP addess to bind license to
-        items:
-          type: array
-          title: List of license items
-          items:
-            type: string
-        parent_key_id:
-          type: integer
-          format: int32
-          title: Key ID of the partent license
-        period:
-          type: integer
-          format: int32
-          title: Period for which license is active
-        restrict_ip_binding:
-          type: boolean
-          format: boolean
-          title: Indicates, if license is bound to an IP
-        title:
-          type: string
-          title: Custom license title
     licenseDeleteLicenseResponse:
       type: object
       title: DeleteLicenseResponse
@@ -852,138 +645,26 @@ components:
         data:
           success: false
         desc: ''
-    licenseListLicensesResponse:
+    licenseListItemsResponseData:
       type: object
-      title: ListLicensesResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/licenseListLicensesResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates, if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-    licenseListLicensesWithPriceVersionResponse:
-      type: object
-      title: ListLicensesWithPriceVersionResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/licenseListLicensesWithPriceVersionResponseData'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates, if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-    licenseKey:
-      type: object
-      title: Key
-      properties:
-        item:
-          type: string
-          title: License item
-        product:
-          type: string
-          title: Product type (only Plesk is available)
-        sku_values:
-          type: object
-          title: List of license SKU values
-          additionalProperties:
-            type: boolean
-            format: boolean
-        title:
-          type: string
-          title: Custom license title
-      example:
-        item: PLESK-12-VPS-WEB-HOST-1M
-        product: plesk
-        sku_values: null
-        title: Plesk for VPS Web Host Edition
-    licenseUpdateLicenseResponseData:
-      type: object
-      title: UpdateLicenseResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates, if operation was succesful
-      example:
-        success: false
-    licenseListLicensesWithPriceVersionResponseData:
-      type: object
-      title: ListLicensesWithPriceVersionResponseData
+      title: ListItemsResponseData
       properties:
         results:
           type: array
           title: Array of results
           items:
-            $ref: '#/components/schemas/licenseLicenseWithPriceVersion'
+            $ref: '#/components/schemas/licenseLicenseItem'
         total:
           type: integer
           format: int32
           title: Results count
-    licenseCreateVirtuozzoLicenseRequest:
-      type: object
-      title: CreateVirtuozzoLicenseRequest
-      properties:
-        attached_keys:
-          type: array
-          title: Third-party extension keys
-          items:
-            type: string
-        comment:
-          type: string
-          title: Custom notes
-        ip_address_binding:
-          type: string
-          title: IP addess to bind license to
-        items:
-          type: array
-          title: List of license items
-          items:
-            type: string
-        parent_key_id:
-          type: integer
-          format: int32
-          title: Key ID of the partent license
-        pcs_capacity:
-          type: integer
-          format: int32
-          title: Virtuozzzo storage capacity in 100 Gb blocks
-        period:
-          type: integer
-          format: int32
-          title: Period for which license is active
-        restrict_ip_binding:
-          type: boolean
-          format: boolean
-          title: Indicates, if license is bound to an IP
-        title:
-          type: string
-          title: Custom license title
+      example:
+        results:
+        - item: FT-PLESK-VPS-WPB-100-SITES-1M
+          product: plesk
+          sku_values: null
+          title: DNSSEC for Plesk (Bundled)
+        total: 999
     licenseUpdateVirtuozzoLicenseRequest:
       type: object
       title: UpdateVirtuozzoLicenseRequest
@@ -1031,19 +712,9 @@ components:
         title:
           type: string
           title: Custom license title
-    licenseDeleteLicenseResponseData:
+    licenseResetHwidResponse:
       type: object
-      title: DeleteLicenseResponseData
-      properties:
-        success:
-          type: boolean
-          format: boolean
-          title: Indicates, if operation was succesful
-      example:
-        success: false
-    licenseGetLicenseKeyResponse:
-      type: object
-      title: GetLicenseKeyResponse
+      title: ResetHwidResponse
       properties:
         code:
           type: integer
@@ -1051,53 +722,7 @@ components:
           title: Response code
         data:
           title: Response data
-          $ref: '#/components/schemas/licenseLicenseKey'
-        desc:
-          type: string
-          title: Response description
-        maintenance:
-          type: boolean
-          format: boolean
-          title: Indicates, if Openprovider API is on maintenance
-        warnings:
-          type: array
-          title: Array of warning messages
-          items:
-            $ref: '#/components/schemas/errorWarning'
-      example:
-        code: 0
-        data:
-          key: ''
-        desc: ''
-    errorError:
-      type: object
-      title: Error
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Error code
-        data:
-          type: string
-          title: Additional error description
-        desc:
-          type: string
-          title: Error description
-      example:
-        code: 0
-        data: ''
-        desc: ''
-    licenseUpdateLicenseResponse:
-      type: object
-      title: UpdateLicenseResponse
-      properties:
-        code:
-          type: integer
-          format: int32
-          title: Response code
-        data:
-          title: Response data
-          $ref: '#/components/schemas/licenseUpdateLicenseResponseData'
+          $ref: '#/components/schemas/licenseResetHwidResponseData'
         desc:
           type: string
           title: Response description
@@ -1115,6 +740,25 @@ components:
         data:
           success: false
         desc: ''
+    licenseResetHwidResponseData:
+      type: object
+      title: ResetHwidResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates, if operation was succesful
+      example:
+        success: false
+    licenseLicenseKey:
+      type: object
+      title: LicenseKey
+      properties:
+        key:
+          type: string
+          title: License key
+      example:
+        key: ''
     licenseListLicensesResponseData:
       type: object
       title: ListLicensesResponseData
@@ -1128,6 +772,120 @@ components:
           type: integer
           format: int32
           title: Results count
+    licenseLicenseWithPriceVersion:
+      type: object
+      title: LicenseWithPriceVersion
+      properties:
+        activation_code:
+          type: string
+          title: License activation code
+        billing_type:
+          type: string
+          title: License billing type
+        comment:
+          type: string
+          title: Custom notes
+        contract:
+          type: string
+          title: Openprovider contract version
+        expiration_date:
+          type: string
+          title: License expiration date
+        items:
+          type: array
+          title: List of license items
+          items:
+            type: string
+        key_id:
+          type: integer
+          format: int32
+          title: License key ID
+        key_number:
+          type: string
+          title: License key number
+        order_date:
+          type: string
+          title: License order date
+        parent_key_id:
+          type: integer
+          format: int32
+          title: Key ID of the partent license
+        period:
+          type: integer
+          format: int32
+          title: Period for which license is active
+        product:
+          type: string
+          title: Product type (only Plesk is available)
+        sku_values:
+          type: object
+          title: List of license SKU values
+          additionalProperties:
+            type: boolean
+            format: boolean
+        status:
+          type: string
+          title: License status
+        title:
+          type: string
+          title: Custom license title
+    licenseCreatePleskLicenseResponse:
+      type: object
+      title: CreatePleskLicenseResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/licenseCreateLicenseResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates, if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          attached_keys:
+          - 123456
+          key_id: 123456
+        desc: ''
+    licenseListLicensesWithPriceVersionResponseData:
+      type: object
+      title: ListLicensesWithPriceVersionResponseData
+      properties:
+        results:
+          type: array
+          title: Array of results
+          items:
+            $ref: '#/components/schemas/licenseLicenseWithPriceVersion'
+        total:
+          type: integer
+          format: int32
+          title: Results count
+    licenseResetHwidRequest:
+      type: object
+      title: ResetHwidRequest
+      properties:
+        key_id:
+          type: integer
+          format: int32
+          title: License key ID
+        product:
+          type: string
+          title: Product type (only Plesk is available)
+      example:
+        key_id: 12345
+        product: plesk
     licenselicenseLicense:
       type: object
       title: License
@@ -1188,9 +946,9 @@ components:
         title:
           type: string
           title: Custom license title
-    licenseCreateVirtuozzoLicenseResponse:
+    licenseListLicensesWithPriceVersionResponse:
       type: object
-      title: CreateVirtuozzoLicenseResponse
+      title: ListLicensesWithPriceVersionResponse
       properties:
         code:
           type: integer
@@ -1198,7 +956,30 @@ components:
           title: Response code
         data:
           title: Response data
-          $ref: '#/components/schemas/licenseCreateLicenseResponseData'
+          $ref: '#/components/schemas/licenseListLicensesWithPriceVersionResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates, if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+    licenseGetLicenseKeyResponse:
+      type: object
+      title: GetLicenseKeyResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/licenseLicenseKey'
         desc:
           type: string
           title: Response description
@@ -1214,13 +995,11 @@ components:
       example:
         code: 0
         data:
-          attached_keys:
-          - 123456
-          key_id: 123456
+          key: ''
         desc: ''
-    licenseGetLicenseResponse:
+    licenseUpdateLicenseResponse:
       type: object
-      title: GetLicenseResponse
+      title: UpdateLicenseResponse
       properties:
         code:
           type: integer
@@ -1228,7 +1007,7 @@ components:
           title: Response code
         data:
           title: Response data
-          $ref: '#/components/schemas/licenseExtendedLicense'
+          $ref: '#/components/schemas/licenseUpdateLicenseResponseData'
         desc:
           type: string
           title: Response description
@@ -1241,64 +1020,31 @@ components:
           title: Array of warning messages
           items:
             $ref: '#/components/schemas/errorWarning'
-    licenseLicenseItem:
-      type: object
-      title: LicenseItem
-      properties:
-        item:
-          type: string
-          title: License item
-        product:
-          type: string
-          title: Product type (only Plesk is available)
-        sku_values:
-          type: object
-          title: List of license SKU values
-          additionalProperties:
-            type: boolean
-            format: boolean
-        title:
-          type: string
-          title: Custom license title
       example:
-        item: FT-PLESK-VPS-WPB-100-SITES-1M
-        product: plesk
-        sku_values: null
-        title: DNSSEC for Plesk (Bundled)
-    licenseLicenseWithPriceVersion:
+        code: 0
+        data:
+          success: false
+        desc: ''
+    licenseCreatePleskLicenseRequest:
       type: object
-      title: LicenseWithPriceVersion
+      title: CreatePleskLicenseRequest
       properties:
-        activation_code:
-          type: string
-          title: License activation code
-        billing_type:
-          type: string
-          title: License billing type
+        attached_keys:
+          type: array
+          title: Third-party extension keys
+          items:
+            type: string
         comment:
           type: string
           title: Custom notes
-        contract:
+        ip_address_binding:
           type: string
-          title: Openprovider contract version
-        expiration_date:
-          type: string
-          title: License expiration date
+          title: IP addess to bind license to
         items:
           type: array
           title: List of license items
           items:
             type: string
-        key_id:
-          type: integer
-          format: int32
-          title: License key ID
-        key_number:
-          type: string
-          title: License key number
-        order_date:
-          type: string
-          title: License order date
         parent_key_id:
           type: integer
           format: int32
@@ -1307,30 +1053,52 @@ components:
           type: integer
           format: int32
           title: Period for which license is active
-        product:
-          type: string
-          title: Product type (only Plesk is available)
-        sku_values:
-          type: object
-          title: List of license SKU values
-          additionalProperties:
-            type: boolean
-            format: boolean
-        status:
-          type: string
-          title: License status
+        restrict_ip_binding:
+          type: boolean
+          format: boolean
+          title: Indicates, if license is bound to an IP
         title:
           type: string
           title: Custom license title
-    licenseLicenseKey:
+    licenseCreateVirtuozzoLicenseRequest:
       type: object
-      title: LicenseKey
+      title: CreateVirtuozzoLicenseRequest
       properties:
-        key:
+        attached_keys:
+          type: array
+          title: Third-party extension keys
+          items:
+            type: string
+        comment:
           type: string
-          title: License key
-      example:
-        key: ''
+          title: Custom notes
+        ip_address_binding:
+          type: string
+          title: IP addess to bind license to
+        items:
+          type: array
+          title: List of license items
+          items:
+            type: string
+        parent_key_id:
+          type: integer
+          format: int32
+          title: Key ID of the partent license
+        pcs_capacity:
+          type: integer
+          format: int32
+          title: Virtuozzzo storage capacity in 100 Gb blocks
+        period:
+          type: integer
+          format: int32
+          title: Period for which license is active
+        restrict_ip_binding:
+          type: boolean
+          format: boolean
+          title: Indicates, if license is bound to an IP
+        title:
+          type: string
+          title: Custom license title
     licenseExtendedLicense:
       type: object
       title: ExtendedLicense
@@ -1404,23 +1172,9 @@ components:
         title:
           type: string
           title: Custom license title
-    licenseResetHwidRequest:
+    licenseListLicensesResponse:
       type: object
-      title: ResetHwidRequest
-      properties:
-        key_id:
-          type: integer
-          format: int32
-          title: License key ID
-        product:
-          type: string
-          title: Product type (only Plesk is available)
-      example:
-        key_id: 12345
-        product: plesk
-    licenseResetHwidResponse:
-      type: object
-      title: ResetHwidResponse
+      title: ListLicensesResponse
       properties:
         code:
           type: integer
@@ -1428,7 +1182,30 @@ components:
           title: Response code
         data:
           title: Response data
-          $ref: '#/components/schemas/licenseResetHwidResponseData'
+          $ref: '#/components/schemas/licenseListLicensesResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates, if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+    licenseCreateVirtuozzoLicenseResponse:
+      type: object
+      title: CreateVirtuozzoLicenseResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/licenseCreateLicenseResponseData'
         desc:
           type: string
           title: Response description
@@ -1444,7 +1221,230 @@ components:
       example:
         code: 0
         data:
-          success: false
+          attached_keys:
+          - 123456
+          key_id: 123456
+        desc: ''
+    errorWarning:
+      type: object
+      title: Warning
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Warning code
+        data:
+          type: string
+          title: Additional warning description
+        desc:
+          type: string
+          title: Warning description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    errorError:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Error code
+        data:
+          type: string
+          title: Additional error description
+        desc:
+          type: string
+          title: Error description
+      example:
+        code: 0
+        data: ''
+        desc: ''
+    licenseCreateLicenseResponseData:
+      type: object
+      title: CreateLicenseResponseData
+      properties:
+        attached_keys:
+          type: array
+          title: Third-party extension keys
+          items:
+            type: integer
+            format: int32
+        key_id:
+          type: integer
+          format: int32
+          title: License key ID
+      example:
+        attached_keys:
+        - 123456
+        key_id: 123456
+    licenseUpdatePleskLicenseRequest:
+      type: object
+      title: UpdatePleskLicenseRequest
+      properties:
+        attached_keys:
+          type: array
+          title: Third-party extension keys
+          items:
+            type: string
+        comment:
+          type: string
+          title: Custom notes
+        ip_address_binding:
+          type: string
+          title: IP addess to bind license to
+        items:
+          type: array
+          title: List of license items
+          items:
+            type: string
+        key_id:
+          type: integer
+          format: int32
+          title: License key ID
+        parent_key_id:
+          type: integer
+          format: int32
+          title: Key ID of the partent license
+        period:
+          type: integer
+          format: int32
+          title: Period for which license is active
+        restrict_ip_binding:
+          type: boolean
+          format: boolean
+          title: Indicates, if license is bound to an IP
+        suspended:
+          type: boolean
+          format: boolean
+          title: Indicates, if license is suspended
+        title:
+          type: string
+          title: Custom license title
+    licenseLicenseItem:
+      type: object
+      title: LicenseItem
+      properties:
+        item:
+          type: string
+          title: License item
+        product:
+          type: string
+          title: Product type (only Plesk is available)
+        sku_values:
+          type: object
+          title: List of license SKU values
+          additionalProperties:
+            type: boolean
+            format: boolean
+        title:
+          type: string
+          title: Custom license title
+      example:
+        item: FT-PLESK-VPS-WPB-100-SITES-1M
+        product: plesk
+        sku_values: null
+        title: DNSSEC for Plesk (Bundled)
+    licenseDeleteLicenseResponseData:
+      type: object
+      title: DeleteLicenseResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates, if operation was succesful
+      example:
+        success: false
+    licenseKey:
+      type: object
+      title: Key
+      properties:
+        item:
+          type: string
+          title: License item
+        product:
+          type: string
+          title: Product type (only Plesk is available)
+        sku_values:
+          type: object
+          title: List of license SKU values
+          additionalProperties:
+            type: boolean
+            format: boolean
+        title:
+          type: string
+          title: Custom license title
+      example:
+        item: PLESK-12-VPS-WEB-HOST-1M
+        product: plesk
+        sku_values: null
+        title: Plesk for VPS Web Host Edition
+    licenseGetLicenseResponse:
+      type: object
+      title: GetLicenseResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/licenseExtendedLicense'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates, if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+    licenseUpdateLicenseResponseData:
+      type: object
+      title: UpdateLicenseResponseData
+      properties:
+        success:
+          type: boolean
+          format: boolean
+          title: Indicates, if operation was succesful
+      example:
+        success: false
+    licenseListItemsResponse:
+      type: object
+      title: ListItemsResponse
+      properties:
+        code:
+          type: integer
+          format: int32
+          title: Response code
+        data:
+          title: Response data
+          $ref: '#/components/schemas/licenseListItemsResponseData'
+        desc:
+          type: string
+          title: Response description
+        maintenance:
+          type: boolean
+          format: boolean
+          title: Indicates, if Openprovider API is on maintenance
+        warnings:
+          type: array
+          title: Array of warning messages
+          items:
+            $ref: '#/components/schemas/errorWarning'
+      example:
+        code: 0
+        data:
+          results:
+          - item: FT-PLESK-VPS-WPB-100-SITES-1M
+            product: plesk
+            sku_values: null
+            title: DNSSEC for Plesk (Bundled)
+          total: 999
         desc: ''
   securitySchemes:
     Bearer:
