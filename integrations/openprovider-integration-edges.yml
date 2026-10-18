@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/openprovider/integrations
 - https://n8n.io/integrations/openprovider/
@@ -7,10 +7,43 @@ source:
 - https://monid.ai/tools/openprovider
 checked:
 - https://composio.dev/toolkits/openprovider
+- https://data.iana.org/rdap/dns.json
 - https://monid.ai/tools/openprovider
 - https://n8n.io/integrations/openprovider/
+- https://www.iana.org/assignments/registrar-ids/registrar-ids.xml
+- https://www.icann.org/en/contracted-parties/accredited-registrars/list-of-accredited-registrars
+- https://www.icann.org/resources/registries/gtlds/v2/gtlds.json
 - https://zapier.com/apps/openprovider/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: ICANN (accredited registrar)
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.icann.org/en/contracted-parties/accredited-registrars/list-of-accredited-registrars
+  category: ICANN-accredited domain registrar
+  contract_reference:
+    register: ICANN Accredited Registrars (icann.org list-of-accredited-registrars)
+    standard: ICANN Registrar Accreditation Agreement
+    spec_file: null
+    role: icann-accredited-registrar
+    registered_name: Hosting Concepts B.V. d/b/a Registrar.eu
+    register_id: IANA 1647
+    matched_domain: openprovider.com
+    matched_by: domain+verified
+    domain_source: url
+    country: Netherlands
+    accreditations_in_family: 1
+    other_iana_ids: []
+    signal_note: 'participation only: an ICANN accreditation is a licence to sell names, not a conformance result
+      (no certified_products); the number of accreditations a family holds (drop-catch shells) is breadth, context
+      only, never counted'
+    detected_by: sweep-domains-dns.py
+    detected: '2026-10-18'
+  detected_by: sweep-domains-dns.py
+  first_seen: '2026-10-18'
 templates: []
